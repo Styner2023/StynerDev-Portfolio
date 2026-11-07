@@ -1,0 +1,1117 @@
+// Benefits-Safe Grant Disbursement Platform
+// Database Schema — PostgreSQL + Prisma
+
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ============================================
+// CORE MODELS
+// ============================================
+
+model Organization {
+  id                          String    @id @default(cuid())
+  name                        String
+  ein                         String? // Tax ID
+  orgCode                     String?   @unique // e.g., "ORG-00001"
+  // True only for the BenefitsSafe platform org. Schema-enforced invariant
+  // that internal staff (platform_admin, compliance_officer, support_agent,
+  // billing_admin) belong to this org and not a tenant nonprofit. Set via
+  // raw SQL on the live DB; never flip via app code.
+  isPlatformOrg               Boolean   @default(false) @map("is_platform_org")
+  einVerified                 Boolean   @default(false) // Whether EIN was verified via IRS/ProPublica lookup
+  address                     String?
+  phone                       String?
+  website                     String?
+  stripeAccountId             String? // Stripe Connect account
+  stripeFinancialAccountId    String? // Stripe Treasury Financial Account
+  stripeOriginPaymentMethodId String? // Connected-account PaymentMethod used as ACH origin for Treasury inbound transfers
+  bankConnectedAt             DateTime? // When Stripe Connect onboarding was completed
+  plaidItemId                 String? // Plaid connection
+  logoUrl                     String? // Organization logo image URL
+
+  // Stripe Connect `account.updated` event-ordering guard. Stripe retries
+  // account webhooks at-least-once and does not guarantee order: a late
+  // retry of a pre-onboarding `account.updated` can arrive AFTER a newer
+  // post-onboarding event, silently re-stamping bankConnectedAt with
+  // now() or overwriting flags with stale values. Every handler writes
+  // `event.created` (Stripe's own clock, not our server's) into this
+  // column and guards its UPDATE with
+  // `WHERE lastStripeAccountEventAt IS NULL OR lastStripeAccountEventAt < :eventAt`
+  // so a stale retry becomes a logged no-op. Mirrors
+  // BillingSubscription.lastBillingEventAt and
+  // Transaction.lastDisputeEventAt. DDIA Ch9 Consistency & Consensus.
+  lastStripeAccountEventAt DateTime?
+
+  // Trial & Subscription
+  trialStartDate     DateTime?
+  trialEndDate       DateTime?
+  subscriptionStatus String    @default("trial") // trial, active, expired, suspended
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  users                   User[]
+  grants                  Grant[]
+  vendors                 Vendor[]
+  cards                   VirtualCard[]
+  policies                DisbursementPolicy[]
+  promoRedemptions        PromoRedemption[]
+  cardholderEligibilities CardholderEligibility[]
+  calendarEvents          CalendarEvent[]
+  memberships             OrganizationMembership[]
+  integrations            Integration[]
+  workflowTriggers        WorkflowTrigger[]
+  workflowLogs            WorkflowLog[]
+  billingSubscription     BillingSubscription?
+  usageCounters           UsageCounter[]
+  budgetCategories        BudgetCategory[]
+  subscriptions           Subscription[]
+  approvals               Approval[]
+  fundTransfers           FundTransfer[]
+}
+
+model User {
+  id             String       @id @default(cuid())
+  email          String       @unique
+  firstName      String
+  lastName       String
+  phone          String?
+  passwordHash   String? // For credentials auth
+  avatarUrl      String? // Profile image URL
+  role           UserRole
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id])
+  isActive       Boolean      @default(true)
+
+  // Email verification
+  emailVerified     Boolean   @default(false)
+  emailVerifyToken  String?   @unique
+  emailVerifyExpiry DateTime?
+
+  // Terms of Service and Privacy Policy acceptance
+  // Stamped at signup submission; nullable for users created before 2026-04-21
+  // or via server-side mechanisms that predate the checkbox (OAuth, invite).
+  termsAcceptedAt   DateTime?
+  termsVersion      String?
+  privacyAcceptedAt DateTime?
+  privacyVersion    String?
+
+  // MFA / Two-Factor Authentication (TOTP)
+  mfaEnabled     Boolean  @default(false)
+  mfaSecret      String? // Encrypted TOTP secret
+  mfaBackupCodes String[] // Recovery codes (hashed)
+
+  // Session security
+  lastLoginIp        String?
+  lastLoginUserAgent String?
+  lastLoginAt        DateTime?
+  trustedDevices     Json? // Array of { ip, userAgent, firstSeen, lastSeen }
+
+  // Per-channel notification preferences. Shape is intentionally flexible
+  // so the /alert-preferences UI can evolve without another migration.
+  // Current shape: { mail:{enabled,message}, sms:{...}, push:{...} }
+  alertPreferences Json? @map("alert_preferences")
+
+  // Beneficiary ID — human-readable, collision-safe across orgs (e.g., BS-0001-00042)
+  beneficiaryCode String? @unique
+
+  // Beneficiary profile fields
+  dateOfBirth           DateTime?
+  addressStreet         String?
+  addressCity           String?
+  addressState          String?
+  addressZip            String?
+  ssnLast4              String? // Encrypted at app level, NEVER in API list responses
+  benefitPrograms       Json? // { ssi: true, ssdi: false, mediCal: true, ... }
+  emergencyContactName  String?
+  emergencyContactPhone String?
+  notes                 String?
+
+  // Role-aware profile fields (used by different roles; all optional)
+  title            String? // Generic job title for internal staff
+  companyName      String? // Vendor: their company/business name
+  businessAddress  String? // Vendor: business street address
+  firmName         String? // CPA/attorney: firm name
+  licenseNumber    String? // CPA: professional license number
+  barNumber        String? // Attorney: bar admission number
+  organizationName String? // Grant officer: funding org/foundation name (free-text, distinct from Organization relation)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  expenseRequests       ExpenseRequest[]
+  approvals             Approval[]
+  grants                Grant[]                  @relation("GrantBeneficiary")
+  vendors               Vendor[]
+  inviteTokens          InviteToken[]
+  cardholderEligibility CardholderEligibility?
+  memberships           OrganizationMembership[]
+  virtualCards          VirtualCard[]            @relation("CardBeneficiary")
+  fundTransfers         FundTransfer[]
+
+  @@index([organizationId])
+  @@index([email])
+}
+
+model InviteToken {
+  id        String    @id @default(cuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id])
+  token     String    @unique @default(uuid())
+  sentTo    String? // Email address the invite was sent to
+  method    String? // "email" or "link"
+  sentById  String? // Admin who sent the invite
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  @@index([userId])
+}
+
+enum UserRole {
+  nonprofit_admin
+  nonprofit_staff
+  beneficiary
+  vendor
+  cpa
+  auditor
+  attorney
+  grant_officer
+  platform_admin
+  support_agent
+  compliance_officer
+  billing_admin
+}
+
+model Grant {
+  id             String       @id @default(cuid())
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id])
+
+  // Three-party model
+  grantIssuerName    String
+  grantIssuerContact String?
+  beneficiaryId      String?
+  beneficiary        User?   @relation("GrantBeneficiary", fields: [beneficiaryId], references: [id])
+
+  name                 String
+  description          String?
+  totalAmount          Decimal     @db.Decimal(12, 2)
+  spentAmount          Decimal     @default(0) @db.Decimal(12, 2)
+  remainingAmount      Decimal     @db.Decimal(12, 2)
+  allowNegativeBalance Boolean     @default(false) // DDIA Ch7 P4: escape hatch for intentional overspend on Stripe settlement (see app/api/webhooks/stripe/route.ts handleTransactionCreated)
+  status               GrantStatus @default(ACTIVE)
+  startDate            DateTime
+  endDate              DateTime?
+  restrictions         String? // Grant restrictions text
+
+  // Benefit flags for the beneficiary
+  benefitFlags Json? // { ssi: true, ssdi: false, mediCal: true, medicaid: false, able: false }
+
+  // Grant document (optional — for AI compliance assistant context)
+  grantDocumentText String? // Extracted text from uploaded PDF or pasted content
+  grantDocumentName String? // Original filename of uploaded document
+
+  // MCC-level spending controls
+  purpose              String? // What the grant funds are for
+  funderRequirements   Json? // Legal/compliance rules from the funder
+  approvedMCCs         Json? // JSON array of allowed MCC codes for this grant
+  blockedMCCs          Json? // JSON array of blocked MCC codes for this grant
+  whitelistedVendorIds Json? // JSON array of vendor IDs allowed for this grant
+
+  archivedAt DateTime? // Soft delete
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  categories   BudgetCategory[]
+  expenses     ExpenseRequest[]
+  virtualCards VirtualCard[]
+
+  @@index([beneficiaryId])
+  @@index([organizationId, status]) // Grant listing filtered by org and status
+  @@index([organizationId, createdAt]) // Paginated org list sorted by recency
+}
+
+enum GrantStatus {
+  DRAFT
+  ACTIVE
+  PAUSED
+  COMPLETED
+  ARCHIVED
+}
+
+model BudgetCategory {
+  id              String       @id @default(cuid())
+  organizationId  String
+  organization    Organization @relation(fields: [organizationId], references: [id])
+  grantId         String
+  grant           Grant        @relation(fields: [grantId], references: [id])
+  name            String // e.g., "Editing", "Subscriptions", "Travel"
+  allocatedAmount Decimal      @db.Decimal(12, 2)
+  spentAmount     Decimal      @default(0) @db.Decimal(12, 2)
+  cardMode        CardMode     @default(SINGLE_CARD)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  expenses ExpenseRequest[]
+  cards    VirtualCard[]
+
+  @@index([grantId])
+  @@index([organizationId])
+}
+
+enum CardMode {
+  SINGLE_CARD
+  PER_VENDOR
+}
+
+model ExpenseRequest {
+  id             String         @id @default(cuid())
+  organizationId String // Denormalized from Grant for partition-aware queries
+  grantId        String
+  grant          Grant          @relation(fields: [grantId], references: [id])
+  categoryId     String
+  category       BudgetCategory @relation(fields: [categoryId], references: [id])
+  requestedById  String
+  requestedBy    User           @relation(fields: [requestedById], references: [id])
+  vendorId       String?
+  vendor         Vendor?        @relation(fields: [vendorId], references: [id])
+
+  // DDIA Ch12 — end-to-end request ID for idempotent expense creation.
+  // A client (beneficiary UI, automation, retried POST on network timeout)
+  // supplies a UUID v4; the @@unique below + a partial unique index
+  // (via scripts/add-expense-request-id.ts, scoped WHERE requestId IS NOT
+  // NULL) enforces durable dedup. Nullable for backward compatibility —
+  // older clients that don't send a requestId still work as before.
+  // Mirrors FundTransfer.requestId.
+  requestId String?
+
+  description String
+  amount      Decimal          @db.Decimal(12, 2)
+  frequency   ExpenseFrequency @default(ONE_TIME)
+  expenseType String // e.g., "subscription", "invoice", "equipment"
+
+  // Vendor info from beneficiary (before admin links to Vendor record)
+  vendorName    String?
+  vendorEmail   String?
+  vendorPhone   String?
+  vendorWebsite String?
+
+  // Compliance
+  riskClassification RiskLevel @default(PENDING)
+  riskNotes          String?
+  policyViolations   Json? // Array of policy violations if any
+
+  // Status
+  status         ExpenseStatus @default(PENDING)
+  approvedById   String?
+  approvedAt     DateTime?
+  rejectedReason String?
+
+  // Suggested category (when beneficiary selects "Other / Suggest New")
+  suggestedCategory String?
+
+  // Documents
+  receiptUrl String?
+  invoiceUrl String?
+
+  archivedAt DateTime? // Soft delete
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  approvals     Approval[]
+  ledgerEntries LedgerEntry[]
+  virtualCards  VirtualCard[]
+
+  // Hot-path covering indexes only — shorter composites that are subsumed
+  // by leftmost-prefix of these longer ones were dropped in the DDIA Ch3
+  // index audit (see references/engineering/designing-data-intensive-applications/AUDIT-TRACKER.md).
+  @@unique([organizationId, requestId]) // DDIA Ch12 — end-to-end idempotency. DB-level enforcement is a partial unique index (WHERE requestId IS NOT NULL); see scripts/add-expense-request-id.ts.
+  @@index([organizationId, status, createdAt]) // List queries: where org+status order by createdAt
+  @@index([organizationId, riskClassification]) // Compliance page count-per-risk-tier
+  @@index([grantId]) // Join back from Grant.expenses
+  @@index([requestedById, status]) // Beneficiary's own expenses filtered by status
+  @@index([grantId, status, createdAt]) // Per-grant expense list with date range
+}
+
+enum ExpenseFrequency {
+  ONE_TIME
+  MONTHLY
+  QUARTERLY
+  ANNUAL
+}
+
+enum RiskLevel {
+  PENDING
+  LIKELY_SAFE
+  NEEDS_REVIEW
+  LIKELY_RISKY
+  BLOCKED
+}
+
+enum ExpenseStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  PAID
+  CANCELLED
+}
+
+model Vendor {
+  id             String       @id @default(cuid())
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id])
+  userId         String? // If vendor has a user account
+  user           User?        @relation(fields: [userId], references: [id])
+
+  name       String
+  vendorCode String?    @unique // e.g., "VN-0001-00001" (orgSeq-vendorSeq)
+  type       VendorType
+  email      String?
+  phone      String?
+  website    String?
+  address    String?
+
+  // Payment info (stored securely, not raw bank details)
+  paymentMethod         String? // "ach", "card", "check"
+  stripePaymentMethodId String? // Stripe-managed payment method
+
+  // Status
+  status     VendorStatus @default(PENDING)
+  approvedAt DateTime?
+
+  // Tax
+  taxIdCollected   Boolean @default(false)
+  form1099Required Boolean @default(false)
+
+  archivedAt DateTime? // Soft delete
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  expenses      ExpenseRequest[]
+  subscriptions Subscription[]
+  virtualCards  VirtualCard[]
+
+  @@index([organizationId, status]) // Vendor approval workflow queries
+  @@index([organizationId, createdAt]) // Paginated vendor list sorted by recency
+}
+
+enum VendorType {
+  SAAS_SUBSCRIPTION
+  SERVICE_PROVIDER
+  ONE_TIME_VENDOR
+}
+
+enum VendorStatus {
+  DRAFT
+  PENDING
+  APPROVED
+  AWAITING_PAYMENT_SETUP
+  ACTIVE
+  BLOCKED
+  ARCHIVED
+}
+
+model Subscription {
+  id             String       @id @default(cuid())
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id])
+  vendorId       String
+  vendor         Vendor       @relation(fields: [vendorId], references: [id])
+  grantId        String
+  categoryId     String
+
+  serviceName  String // e.g., "Adobe Creative Cloud"
+  loginEmail   String // Email used for the subscription account
+  monthlyCost  Decimal   @db.Decimal(10, 2)
+  billingCycle String // "monthly", "annual"
+  renewalDate  DateTime?
+
+  // Card assignment
+  cardId String?
+  card   VirtualCard? @relation(fields: [cardId], references: [id])
+
+  // Billing update tracking
+  billingUpdateStatus BillingUpdateStatus @default(PENDING)
+  billingUpdatedAt    DateTime?
+
+  status    SubscriptionStatus @default(ACTIVE)
+  createdAt DateTime           @default(now())
+  updatedAt DateTime           @updatedAt
+
+  @@index([organizationId]) // Org-scoped list (kept; no composite subsumes)
+  @@index([grantId, status]) // Subscription queries by grant and status
+  @@index([vendorId, status]) // Subscription queries by vendor and status
+}
+
+enum BillingUpdateStatus {
+  PENDING
+  CARD_ISSUED
+  CARD_SHARED
+  UPDATED
+  VERIFIED
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  PAUSED
+  CANCELLED
+  EXPIRED
+}
+
+model VirtualCard {
+  id             String          @id @default(cuid())
+  organizationId String
+  organization   Organization    @relation(fields: [organizationId], references: [id])
+  categoryId     String?
+  category       BudgetCategory? @relation(fields: [categoryId], references: [id])
+  grantId        String? // Grant this card was issued from (direct or via expense)
+  grant          Grant?          @relation(fields: [grantId], references: [id])
+  expenseId      String? // Expense this card was issued for
+  expense        ExpenseRequest? @relation(fields: [expenseId], references: [id])
+  vendorId       String? // Vendor this card is locked to
+  vendor         Vendor?         @relation(fields: [vendorId], references: [id])
+  beneficiaryId  String? // Beneficiary who uses this card
+  beneficiary    User?           @relation("CardBeneficiary", fields: [beneficiaryId], references: [id])
+
+  stripeCardId    String   @unique // Stripe Issuing card ID
+  // Which Stripe account this card lives on:
+  // - "platform"  => issued on acct_1THZmv1lmD1ohIWk (shared Issuing pool)
+  // - "connected" => issued on the nonprofit's own Custom account
+  // Decided at creation time by getIssuingAccount() in lib/stripe-helpers.ts
+  // based on the connected account's live card_issuing capability. Never
+  // changes after issuance — card lifecycle operations must honor the
+  // original account.
+  issuingMode     String   @default("platform") @map("issuing_mode")
+  last4           String
+  expirationMonth Int
+  expirationYear  Int
+  spendingCap     Decimal? @db.Decimal(10, 2)
+  merchantLock    String? // Locked to specific merchant if applicable
+  cardType        String   @default("one_time") // one_time, monthly, custom
+  cardLabel       String? // "Writing Supplies Card", "Medical Copay Card"
+
+  status    CardStatus @default(ACTIVE)
+  expiresAt DateTime? // Custom expiration
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  subscriptions Subscription[]
+  transactions  Transaction[]
+
+  // One virtual card per ExpenseRequest. expenseId is nullable for
+  // direct-grant cards (see /api/grants/[id]/issue-card); Postgres
+  // treats multiple NULLs as distinct so nullable uniqueness is exactly
+  // the semantics we want — at most one card per expense, unlimited
+  // cards per grant-direct path. The grant-direct uniqueness is enforced
+  // by a partial unique index applied via scripts/add-virtual-card-unique-constraints.ts
+  // because Prisma's schema language cannot express partial unique indexes.
+  // (DDIA Ch7 Transaction Safety audit — prevents double card issuance.)
+  @@unique([expenseId])
+  @@index([grantId]) // Grant → cards join
+  @@index([vendorId]) // Vendor → cards join
+  @@index([beneficiaryId]) // Beneficiary's own cards
+  @@index([organizationId, status]) // Card listing filtered by org and status
+  @@index([organizationId, createdAt]) // Paginated card list sorted by recency
+}
+
+enum CardStatus {
+  ACTIVE
+  FROZEN
+  CANCELLED
+  EXPIRED
+}
+
+enum EligibilityStatus {
+  ELIGIBLE
+  RESTRICTED_CALFRESH_ONLY
+  INELIGIBLE_WARRANT
+  INELIGIBLE_INCARCERATED
+  PENDING_VERIFICATION
+}
+
+model CardholderEligibility {
+  id             String       @id @default(cuid())
+  beneficiaryId  String       @unique
+  beneficiary    User         @relation(fields: [beneficiaryId], references: [id])
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id])
+
+  hasActiveWarrant             Boolean @default(false)
+  isCurrentlyIncarcerated      Boolean @default(false)
+  hasDrugTraffickingConviction Boolean @default(false)
+  probationParoleRestrictions  String?
+
+  eligibilityStatus EligibilityStatus @default(PENDING_VERIFICATION)
+
+  // OFAC sanctions screening
+  ofacScreened   Boolean   @default(false)
+  ofacMatchFound Boolean   @default(false)
+  ofacScreenedAt DateTime?
+  ofacMatches    Json? // Array of match results
+
+  verifiedBy String?
+  verifiedAt DateTime?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  @@index([organizationId])
+}
+
+model Transaction {
+  id                  String      @id @default(cuid())
+  organizationId      String
+  cardId              String
+  card                VirtualCard @relation(fields: [cardId], references: [id])
+  stripeTransactionId String      @unique
+
+  amount           Decimal @db.Decimal(10, 2)
+  merchantName     String
+  merchantCategory String?
+  status           String // "pending", "completed", "declined", "disputed", "dispute_won", "dispute_lost"
+  declinedReason   String?
+  grantId          String? // For ledger tracking
+  expenseId        String? // For expense tracking
+
+  // Stripe dispute-event ordering guard. Stripe delivers issuing_dispute.*
+  // webhooks at-least-once and does not guarantee order across retries: a
+  // late `warning_needs_response` retry can arrive AFTER `warning_closed`,
+  // or a stale `needs_response` after `won`/`lost`, and without an ordering
+  // check the older handler would overwrite the newer state. Every dispute
+  // handler writes `event.created` (Stripe's own clock, not our server's)
+  // into this column and guards its UPDATE with
+  // `WHERE lastDisputeEventAt IS NULL OR lastDisputeEventAt < :eventAt` so a
+  // stale retry becomes a logged no-op. Mirrors
+  // BillingSubscription.lastBillingEventAt. DDIA Ch9 Consistency & Consensus.
+  lastDisputeEventAt DateTime?
+  disputeStatus      String? // needs_response, under_review, won, lost, warning_needs_response, warning_under_review, warning_closed
+
+  createdAt DateTime @default(now())
+
+  @@index([cardId, createdAt]) // Transaction history by card
+  @@index([organizationId, createdAt]) // Transaction history time-series queries
+}
+
+// ============================================
+// IMMUTABLE RECORDS — NEVER UPDATE OR DELETE
+// ============================================
+
+model LedgerEntry {
+  id             String          @id @default(cuid())
+  organizationId String // Denormalized from Grant for partition-aware queries
+  grantId        String
+  categoryId     String?
+  expenseId      String?
+  expense        ExpenseRequest? @relation(fields: [expenseId], references: [id])
+
+  type         LedgerType
+  amount       Decimal    @db.Decimal(12, 2)
+  balanceAfter Decimal    @db.Decimal(12, 2)
+  description  String
+  reference    String? // Transaction ID, invoice number, etc.
+
+  // DB-generated monotonic sequence. `createdAt` has millisecond precision,
+  // which is not fine-grained enough when two expense-approval
+  // `$transaction`s commit in the same tick: concurrent inserts can produce
+  // identical `createdAt` values, making ORDER BY createdAt non-deterministic
+  // for same-ms entries. `seq` is a Postgres BIGSERIAL — strictly monotonic,
+  // gap-free, immune to clock drift and concurrency. Use `seq` for ordering;
+  // keep `createdAt` for human-readable display. DDIA Ch9 P2.
+  seq BigInt @default(autoincrement())
+
+  createdAt DateTime @default(now())
+  // IMMUTABLE — no updatedAt. Ledger entries are NEVER modified.
+
+  @@index([organizationId, createdAt]) // Ledger time-series queries per org
+  @@index([organizationId, seq]) // Deterministic per-org ordered scans (audit, reconciliation)
+  @@index([expenseId]) // Join back from ExpenseRequest.ledgerEntries
+  @@index([grantId, createdAt]) // Monthly reconciliation queries at scale
+}
+
+enum LedgerType {
+  CREDIT
+  DEBIT
+}
+
+model Approval {
+  id             String         @id @default(cuid())
+  organizationId String
+  organization   Organization   @relation(fields: [organizationId], references: [id])
+  expenseId      String
+  expense        ExpenseRequest @relation(fields: [expenseId], references: [id])
+  approverId     String
+  approver       User           @relation(fields: [approverId], references: [id])
+  action         ApprovalAction
+  notes          String?
+  createdAt      DateTime       @default(now())
+
+  @@index([expenseId])
+  @@index([organizationId])
+}
+
+enum ApprovalAction {
+  APPROVED
+  REJECTED
+  REQUESTED_INFO
+}
+
+model AuditLog {
+  id             String   @id @default(cuid())
+  userId         String
+  organizationId String
+  action         String // "create", "update", "delete", "approve", "reject"
+  entityType     String // "grant", "expense", "vendor", "card", etc.
+  entityId       String
+  oldValue       Json?
+  newValue       Json?
+  ipAddress      String?
+  userAgent      String?
+  createdAt      DateTime @default(now())
+  // IMMUTABLE — no updatedAt. Audit logs are NEVER modified or deleted.
+
+  @@index([entityType, entityId])
+  @@index([userId, organizationId]) // Audit queries by user within an org
+  @@index([organizationId, createdAt]) // Audit trail time-series queries
+}
+
+// ============================================
+// MESSAGING
+// ============================================
+
+model Conversation {
+  id             String   @id @default(cuid())
+  organizationId String
+  subject        String?
+  type           String   @default("direct") // direct, department, support
+  department     String? // "grants", "compliance", "support", etc.
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  participants ConversationParticipant[]
+  messages     Message[]
+
+  @@index([organizationId])
+}
+
+model ConversationParticipant {
+  id             String       @id @default(cuid())
+  conversationId String
+  conversation   Conversation @relation(fields: [conversationId], references: [id])
+  userId         String
+  role           String       @default("member") // member, admin
+  lastReadAt     DateTime     @default(now())
+  createdAt      DateTime     @default(now())
+
+  @@unique([conversationId, userId])
+  @@index([userId])
+}
+
+model Message {
+  id             String       @id @default(cuid())
+  conversationId String
+  conversation   Conversation @relation(fields: [conversationId], references: [id])
+  senderId       String
+  content        String
+  attachmentUrl  String?
+  attachmentName String?
+  createdAt      DateTime     @default(now())
+
+  @@index([conversationId, createdAt])
+  @@index([senderId])
+}
+
+model Notification {
+  id             String   @id @default(cuid())
+  userId         String // Who receives this notification
+  organizationId String
+  type           String // expense_submitted, expense_approved, expense_rejected, vendor_profile_complete, invite_accepted, card_issued
+  title          String
+  message        String
+  entityType     String? // grant, expense, vendor, user
+  entityId       String?
+  href           String? // Link to navigate to
+  read           Boolean  @default(false)
+  createdAt      DateTime @default(now())
+
+  @@index([userId, read]) // Unread-count badge
+  @@index([organizationId, createdAt]) // Org-level notification feeds
+  @@index([userId, organizationId, createdAt]) // Per-user dashboard list (hot path)
+}
+
+// ============================================
+// SUPPORTING MODELS
+// ============================================
+
+model Document {
+  id             String   @id @default(cuid())
+  organizationId String
+  entityType     String // "expense", "vendor", "grant"
+  entityId       String
+  fileName       String
+  fileUrl        String // S3 URL
+  fileType       String // "receipt", "invoice", "contract", "grant_letter"
+  uploadedById   String
+  createdAt      DateTime @default(now())
+
+  // Soft-delete marker. Used by the admin CCPA data-deletion route
+  // (/api/admin/data-deletion) to retire documents uploaded by a
+  // user whose PII has been scrubbed — we keep the row for audit
+  // continuity but hide it from active queries. Nullable; live
+  // documents have archivedAt = NULL.
+  archivedAt DateTime?
+
+  @@index([organizationId])
+  @@index([entityType, entityId])
+}
+
+model DisbursementPolicy {
+  id             String       @id @default(cuid())
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id])
+  grantId        String? // If null, applies to all grants for this org
+
+  cashToRecipient          PolicySetting @default(DISALLOWED)
+  reimbursementToRecipient PolicySetting @default(DISALLOWED)
+  rentUtilityPayments      PolicySetting @default(REQUIRES_REVIEW)
+  recurringSubscriptions   PolicySetting @default(ALLOWED)
+  maxSingleTransaction     Decimal?      @db.Decimal(10, 2)
+
+  // Auto-approval settings for card charges
+  autoApproveEnabled    Boolean  @default(false)
+  autoApproveMaxAmount  Decimal? @db.Decimal(12, 2)
+  autoApproveCategories Json? // Array of category IDs eligible for auto-approval
+  autoApproveRiskLevels Json? // e.g. ["LIKELY_SAFE"] — default checked in code
+  requireReviewAbove    Decimal? @db.Decimal(12, 2)
+
+  allowedCategories Json? // Array of allowed expense category names
+  blockedCategories Json? // Array of blocked expense category names
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([organizationId])
+}
+
+enum PolicySetting {
+  ALLOWED
+  DISALLOWED
+  REQUIRES_REVIEW
+}
+
+// ============================================
+// PROMO CODES & FREE TRIALS
+// ============================================
+
+model PromoCode {
+  id          String    @id @default(cuid())
+  code        String    @unique
+  description String?
+  trialDays   Int // How many days of free access this code gives
+  maxUses     Int       @default(50) // Max number of times this code can be used
+  currentUses Int       @default(0)
+  isActive    Boolean   @default(true)
+  expiresAt   DateTime? // When the code itself expires
+  createdById String // platform_admin who created it
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  redemptions PromoRedemption[]
+
+  @@index([isActive])
+}
+
+model PromoRedemption {
+  id             String       @id @default(cuid())
+  promoCodeId    String
+  promoCode      PromoCode    @relation(fields: [promoCodeId], references: [id])
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id])
+  redeemedById   String // User who redeemed it
+  redeemedAt     DateTime     @default(now())
+
+  @@unique([promoCodeId, organizationId]) // One code per org
+  @@index([organizationId])
+}
+
+// ============================================
+// CALENDAR EVENTS
+// ============================================
+
+model CalendarEvent {
+  id             String       @id @default(cuid())
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id])
+  title          String
+  description    String?
+  startDate      DateTime
+  endDate        DateTime?
+  category       String       @default("general") // grants, payments, compliance, subscriptions, general
+  color          String? // hex color for calendar display
+  createdById    String
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  @@index([organizationId]) // Kept for org-scoped lookups without date filter
+  @@index([startDate]) // Cross-org admin/jobs view
+  @@index([organizationId, startDate]) // Calendar page query: where org, range over startDate
+}
+
+// ============================================
+// MULTI-TENANT MEMBERSHIPS
+// ============================================
+
+model OrganizationMembership {
+  id               String    @id @default(cuid())
+  userId           String
+  organizationId   String
+  role             String    @default("member") // matches UserRole values: nonprofit_admin, beneficiary, vendor, cpa, auditor, attorney, platform_admin, member, etc.
+  memberCode       String?   @unique // e.g., "TM-0001-00001" (orgSeq-memberSeq)
+  status           String    @default("active") // active, suspended, pending, revoked
+  invitedBy        String?
+  joinedAt         DateTime  @default(now())
+  isDefaultOrg     Boolean   @default(false)
+  lastAccessedAt   DateTime?
+  orgSpecificTitle String?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  // BSRS Ch 5 P3 — time-boxed role grants. NULL expiresAt means the
+  // membership is permanent (every row prior to this column's migration
+  // is NULL, i.e. permanent, so the backfill is a no-op). When non-null,
+  // the auth.ts JWT callback treats the grant as active only when
+  // expiresAt > now() AND revokedAt IS NULL; otherwise effective role
+  // falls through to User.role. See docs/design-notes/bsrs-ch05-…-applied.md §P3.
+  expiresAt   DateTime?
+  grantedBy   String? // userId of platform_admin who granted the expiring role
+  grantReason String? // compliance justification (≥10 chars, ≤500 chars, enforced at zod)
+  revokedAt   DateTime?
+  revokedBy   String? // userId of the revoker. NULL = auto-revoked by the hourly cron.
+
+  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  // Per-org private notes about this member. Lets nonprofit A keep a
+  // case file on Maria without leaking those notes to nonprofit B that
+  // also has Maria as a beneficiary. The legacy User.notes field is
+  // retained for backward compat but new writes go here.
+  notes String?
+
+  @@unique([userId, organizationId])
+  @@index([userId, status])
+  // Hot path for multi-org list endpoints: filters by
+  // (organizationId, status) always, role only sometimes. Column order is
+  // (org, status, role) — not (org, role, status) — because the leftmost
+  // prefix must match the required columns so the query plan picks this
+  // index even when the caller omits role. Keeps the query an indexed
+  // range read at 900M+ rows. See DDIA Ch3 audit.
+  @@index([organizationId, status, role])
+  // BSRS Ch 5 P3 — hot path for the hourly revoke-expired-grants cron:
+  // WHERE expiresAt < now() AND revokedAt IS NULL AND status = 'active'.
+  // Partial index would be ideal but Prisma schema doesn't support them;
+  // the regular index still keeps the sweep an indexed range scan.
+  @@index([expiresAt, status])
+}
+
+model CronCheckpoint {
+  // Resumable cursor checkpoint for dispatcher crons. Each row is keyed
+  // by a stable cronName ("compliance-dispatcher", "sentinel-dispatcher",
+  // etc.) and stores the last-processed entity id so the next cron tick
+  // picks up where the previous one stopped, instead of re-scanning the
+  // table from the beginning.
+  id             String   @id @default(cuid())
+  cronName       String   @unique
+  lastCursor     String?
+  lastRunAt      DateTime @default(now())
+  processedCount Int      @default(0)
+  updatedAt      DateTime @updatedAt
+}
+
+// ── Composio Workflow Automation ────────────────────
+
+model Integration {
+  id                   String       @id @default(cuid())
+  organizationId       String
+  organization         Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  provider             String // "gmail", "slack", "google_calendar", "google_sheets", "asana", "trello"
+  composioConnectionId String? // Composio's connection ID for this org+provider
+  status               String       @default("disconnected") // "connected", "disconnected", "error"
+  connectedBy          String? // userId of who connected it
+  connectedAt          DateTime?
+  createdAt            DateTime     @default(now())
+  updatedAt            DateTime     @updatedAt
+
+  @@unique([organizationId, provider])
+}
+
+model WorkflowTrigger {
+  id             String       @id @default(cuid())
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  eventType      String // "expense_approved", "card_issued", "transaction_needs_review", "grant_low_balance", "beneficiary_onboarded"
+  provider       String // which integration this trigger uses
+  actionSlug     String // Composio tool slug, e.g. "GMAIL_SEND_EMAIL"
+  actionConfig   Json // template data: subject, body template, channel, etc.
+  enabled        Boolean      @default(true)
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  @@index([organizationId, eventType])
+  @@index([organizationId, enabled])
+}
+
+model WorkflowLog {
+  id              String       @id @default(cuid())
+  organizationId  String
+  organization    Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  triggerId       String
+  eventType       String
+  provider        String
+  actionSlug      String
+  status          String // "success", "failed", "skipped"
+  requestPayload  Json?
+  responsePayload Json?
+  errorMessage    String?
+  executionTimeMs Int?
+  createdAt       DateTime     @default(now())
+
+  @@index([organizationId, createdAt])
+  @@index([triggerId])
+}
+
+// ── Grant Reports (generated by SentinelLayer Reporter) ──────
+
+model GrantReport {
+  id             String   @id @default(cuid())
+  organizationId String
+  grantId        String
+  reportType     String   @default("weekly_disbursement")
+  reportData     Json
+  periodStart    DateTime
+  periodEnd      DateTime
+  generatedAt    DateTime @default(now())
+  generatedBy    String   @default("sentinellayer_reporter")
+  status         String   @default("draft") // draft, reviewed, final
+
+  @@index([organizationId, grantId])
+  @@index([organizationId, generatedAt])
+}
+
+// ============================================
+// BILLING & USAGE (BenefitsSafe platform billing)
+// Separate from `model Subscription` which tracks vendor SaaS
+// subscriptions paid on behalf of beneficiaries.
+// ============================================
+
+model BillingSubscription {
+  id             String       @id @default(cuid())
+  organizationId String       @unique
+  organization   Organization @relation(fields: [organizationId], references: [id])
+
+  tier                 String  @default("free") // free, starter, growth, professional, enterprise
+  stripeCustomerId     String?
+  stripeSubscriptionId String?
+  stripePriceId        String?
+
+  currentPeriodStart DateTime?
+  currentPeriodEnd   DateTime?
+  cancelAtPeriodEnd  Boolean   @default(false)
+
+  status String @default("trialing") // trialing, active, past_due, canceled, unpaid
+
+  // Stripe event-ordering guard. Stripe delivers webhooks at-least-once and
+  // does not guarantee order across retries: a late `invoice.payment_failed`
+  // retry can arrive AFTER `invoice.payment_succeeded`, and without an
+  // ordering check the failed handler would overwrite the newer paid state.
+  // Every invoice/subscription handler writes `event.created` (Stripe's own
+  // clock, not our server's) into this column and guards its UPDATE with
+  // `WHERE lastBillingEventAt IS NULL OR lastBillingEventAt < :eventAt` so a
+  // stale retry becomes a no-op. DDIA Ch9 Consistency & Consensus audit.
+  lastBillingEventAt DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([stripeCustomerId])
+  @@index([stripeSubscriptionId])
+}
+
+model UsageCounter {
+  id             String       @id @default(cuid())
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id])
+
+  period             String // "2026-04" (year-month)
+  beneficiariesAdded Int    @default(0)
+  grantsCreated      Int    @default(0)
+  expensesProcessed  Int    @default(0)
+  cardsIssued        Int    @default(0)
+  apiCalls           Int    @default(0)
+  storageMB          Float  @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([organizationId, period])
+}
+
+// Webhook idempotency ledger. Every inbound Stripe webhook (Issuing,
+// Charges, Billing) inserts its event.id here before processing. A
+// unique-constraint violation means the event was already processed
+// (by a prior delivery or a concurrent Lambda handling the same retry)
+// and the handler returns 200 immediately without re-running.
+model ProcessedWebhookEvent {
+  id          String   @id // Stripe event.id, e.g. "evt_1N..."
+  webhookType String // "stripe" | "stripe-charges" | "stripe-billing"
+  processedAt DateTime @default(now())
+
+  @@index([webhookType, processedAt])
+}
+
+model FundTransfer {
+  id                  String       @id @default(cuid())
+  organizationId      String
+  organization        Organization @relation(fields: [organizationId], references: [id])
+  requestId           String // Client-supplied UUID — the idempotency key
+  amountCents         Int // Integer cents to avoid float issues
+  currency            String       @default("usd")
+  bankPaymentMethodId String // Stripe payment method id (token, not PII)
+  stripeTransferId    String? // null until Stripe call succeeds
+  stripeAccountId     String // Connect account the transfer is against
+  financialAccountId  String // Treasury financial account
+  status              String // "PENDING" | "SUCCEEDED" | "FAILED"
+  failureReason       String?
+  initiatedByUserId   String
+  initiatedBy         User         @relation(fields: [initiatedByUserId], references: [id])
+  createdAt           DateTime     @default(now())
+  updatedAt           DateTime     @updatedAt
+
+  @@unique([organizationId, requestId])
+  @@index([organizationId, createdAt])
+  @@index([status])
+}
+
+// ============================================
+// INFRASTRUCTURE — schema version tracking
+// Nygard Ch 18 p.319 — fail-fast on schema/app drift.
+// Single-row table (@id @default(1) enforces it). Every migration
+// script bumps both the row and EXPECTED_SCHEMA_VERSION in
+// lib/schema-version.ts so app startup can detect drift.
+// ============================================
+
+model SchemaVersion {
+  id        Int      @id @default(1)
+  version   Int
+  appliedAt DateTime @default(now())
+
+  @@map("_schema_version")
+}

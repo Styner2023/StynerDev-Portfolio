@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 100 100" role="img" aria-label="Illustrated portrait">
+  <defs><clipPath id="c0"><circle cx="50" cy="50" r="50"/></clipPath></defs>
+  <g clip-path="url(#c0)">
+    <rect width="100" height="100" fill="#2F4A47"/>
+    
+    <ellipse cx="50" cy="104" rx="35" ry="27" fill="#D9CFC2"/>
+    <path d="M42 60h16v12H42z" fill="#583720"/>
+    <ellipse cx="50" cy="45" rx="19" ry="22" fill="#6E4529"/>
+    <circle cx="30.5" cy="47" r="3.4" fill="#583720"/>
+    <circle cx="69.5" cy="47" r="3.4" fill="#583720"/>
+    <path d="M30.5 45c0-13.5 8.5-21 19.5-21s19.5 7.5 19.5 21c0-7.5-7-11.5-19.5-11.5S30.5 37.5 30.5 45z" fill="#1B1310"/>
+  </g>
+</svg>

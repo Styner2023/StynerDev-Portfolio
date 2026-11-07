@@ -1,0 +1,16 @@
+# Vercel does not read .gitignore — keep the deploy to just the site.
+assets/images/img/Stock-images/
+assets/images/img/Artists_We_Develop/
+assets/video/
+assets/sass/
+assets/css/main.css.map
+
+.refact/
+.DS_Store
+node_modules/
+
+_shot.html
+_fp.html
+_diag*.html
+_av.html
+_lock.html

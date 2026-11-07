@@ -1,0 +1,22 @@
+# Source material — originals live on the machine, not in the repo.
+# The site ships the cropped, web-sized versions in assets/images/new-img/.
+assets/images/img/Stock-images/
+assets/images/img/Artists_We_Develop/
+
+# Raw video (the site embeds YouTube, so these are not served)
+assets/video/
+
+# Tooling / OS
+.refact/
+.DS_Store
+Thumbs.db
+node_modules/
+.vercel/
+
+# Local scratch
+_shot.html
+_fp.html
+_diag*.html
+_av.html
+_lock.html
+.vercel
