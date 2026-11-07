@@ -1,0 +1,12 @@
+{
+    "name": "earthlyorganics",
+    "version": "1.0.0",
+    "description": "Earthly Organics Website",
+    "scripts": {
+        "dev": "live-server ./public --port=3000 --host=localhost",
+        "docs": "live-server ./documentation --port=3001 --host=localhost"
+    },
+    "devDependencies": {
+        "live-server": "^1.2.2"
+    }
+}

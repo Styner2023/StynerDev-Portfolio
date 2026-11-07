@@ -1,0 +1,400 @@
+/** ============== Accordion One */
+.accordion-style-one {
+    border: 2px solid #000;
+    border-radius: 30px;
+    background: #fff;
+    overflow: hidden;
+    padding: 0 35px;
+
+    .accordion-item {
+        border: none;
+        border-bottom: 1px solid #000;
+        border-radius: 0;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-button {
+            font-family: $font-Sentient;
+            font-weight: 500;
+            font-size: 32px;
+            line-height: 1.55em;
+            color: #000;
+            padding: 34px 0;
+            background: transparent;
+            border-radius: 0;
+            box-shadow: none;
+
+            &:not(.collapsed) {
+                padding-bottom: 13px;
+            }
+
+        }
+
+        .accordion-body {
+            padding: 0 20px 15px 0;
+
+            p {
+                color: rgba($color: #000, $alpha: 0.7);
+            }
+        }
+
+
+    }
+}
+
+/** ============== Accordion Two */
+.accordion-style-two {
+    background: transparent;
+    border: none;
+
+    .accordion-item {
+        border: none;
+        border-radius: 30px;
+        background: #fff;
+        margin-bottom: 20px;
+        .accordion-button {
+            font-family: $font-Obviously-Narrow;
+            font-weight: 700;
+            font-size: 150px;
+            text-transform: uppercase;
+            line-height: 1em;
+            letter-spacing: -4px;
+            color: #000;
+            padding: 95px 73px 57px;
+            background: transparent;
+            border-radius: 0;
+            box-shadow: none;
+
+            &:not(.collapsed) {
+                padding-bottom: 25px;
+                &::before {
+                    opacity: 0;
+                    transform: rotate(90deg);
+                }
+            }
+            &:after {
+                content: '';
+                width: 80px;
+                height: 3px;
+                background: #000;
+                position: absolute;
+                right: 60px;
+                top:50%;
+                @include transition(0.3s);
+            }
+            &:before {
+                content: '';
+                width: 3px;
+                height: 80px;
+                background: #000;
+                position: absolute;
+                right: 97px;
+                top:calc(50% - 40px);
+                @include transition(0.3s);
+            }
+        }
+
+        .accordion-body {
+            padding: 0 20px 70px 73px;
+
+            p {
+                font-size: 48px;
+                line-height: 1.208em;
+            }
+        }
+
+
+    }
+}
+/** ============== Accordion Three */
+.accordion-style-three {
+    background: transparent;
+    border: none;
+    
+    .accordion-item {
+        border: none;
+        border-top: 2px solid #000;
+        border-radius: 0;
+        background: transparent;
+        &:last-child {
+            border-bottom: 2px solid #000;
+        }
+        .accordion-button {
+            font-family: $font-Obviously-Narrow;
+            font-weight: 600;
+            font-size: 36px;
+            text-transform: uppercase;
+            line-height: 1.1em;
+            color: #000;
+            padding: 60px 35px 50px 0;
+            background: transparent;
+            border-radius: 0;
+            box-shadow: none;
+
+            &:not(.collapsed) {
+                padding-bottom: 15px;
+                &::before {
+                    opacity: 0;
+                    transform: rotate(90deg);
+                }
+            }
+            &:after {
+                content: '';
+                width: 28px;
+                height: 2px;
+                background: #000;
+                position: absolute;
+                right: 0;
+                top:50%;
+                @include transition(0.3s);
+            }
+            &:before {
+                content: '';
+                width: 2px;
+                height: 28px;
+                background: #000;
+                position: absolute;
+                right: 13px;
+                top:calc(50% - 13px);
+                @include transition(0.3s);
+            }
+        }
+
+        .accordion-body {
+            padding: 0 20px 40px 0;
+
+            p {
+                font-size: 24px;
+                line-height: 1.583em;
+            }
+        }
+
+
+    }
+}
+
+/** ============== Accordion Four */
+.accordion-style-four {
+    background: #fff;
+    overflow: hidden;
+    .accordion-item {
+        border: 2px solid #000;
+        border-radius: 300px;
+        margin-bottom: 20px;
+        @include transition(0.3s);
+        .accordion-button {
+            font-weight: 500;
+            font-size: 52px;
+            line-height: 1.55em;
+            letter-spacing: -1px;
+            color: #000;
+            padding: 50px 70px;
+            background: transparent;
+            border-radius: 0;
+            box-shadow: none;
+            .icon {
+                width: 55px;
+            }
+            .shape {
+                width: 115px;
+                @include transition(0.3s);
+            }
+            span {
+                width: calc(100% - 160px);
+                padding: 0 15px 0 35px;
+            }
+            &:after {
+                display: none;
+            }
+
+            &:not(.collapsed) {
+                padding-bottom: 13px;
+                .shape {
+                    opacity: 0;
+                }
+            }
+
+        }
+
+        .accordion-body {
+            padding: 45px 70px 40px 160px;
+            h6 {
+                font-size: 16px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.96px;
+                margin-bottom: 30px;
+            }
+            p {
+                font-size: 36px;
+                line-height: 1.4444em;
+                color: #000;
+                margin: 0;
+            }
+            .img-wrapper {
+                margin-top: -140px;
+                .play-btn {
+                    width: 90px;
+                    height: 90px;
+                    background: #fff;
+                    border: 2px solid #000;
+                    padding: 15px;
+                    position: absolute;
+                    left: 50%;
+                    top:50%;
+                    transform: translate(-50% , -50%);
+                    z-index: 1;
+                    &:hover {
+                        background: $color-three;
+                    }
+                }
+            }
+        }
+    }
+    .accordion-item:has(.show) {
+        background: $color-three;
+        border-radius: 70px;
+    }
+}
+
+/** ============== Accordion Five */
+.accordion-style-five { 
+    .accordion-item {
+        border: 1px solid #D9D9D9;
+        border-radius: 30px;
+        margin-bottom: 4px;
+        background: #fff;
+        @include transition(0.3s);
+        .accordion-button {
+            font-weight: 500;
+            font-size: 150px;
+            letter-spacing: -4.5px;
+            color: #000;
+            padding: 50px 55px;
+            background: transparent;
+            border-radius: 0;
+            box-shadow: none;
+            position: relative;
+            &:not(.collapsed) {
+                &::before {
+                    transform: rotate(45deg);
+                }
+            }
+            &:after {
+                display: none;
+            }
+            &:before {
+                content: '';
+                width: 150px;
+                height: 113px;
+                background: url(../images/icon/icon_119.svg) no-repeat right center;
+                background-size: cover;
+                position: absolute;
+                right: 55px;
+                top:calc(50% - 55px);
+                @include transition(0.3s);
+            }
+
+        }
+
+        .accordion-body {
+            padding: 0 55px 60px;
+            p {
+                font-size: 32px;
+                line-height: 1.5625em;
+                color: #000;
+                margin: 0;
+            }
+        }
+    }
+}
+/** ============== Social Icon */
+.social-icon-one {
+    margin: 0 -5px;
+    li {
+        padding: 0 5px;
+        a {
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            background: #fff;
+            border-radius: 50%;
+            font-size: 28px;
+            @include transition(0.3s);
+            &:hover {
+                background: #000;
+                color: #fff;
+            }
+        }
+    }
+}
+.social-icon-two {
+    margin: 0 -5px;
+    li {
+        padding: 0 5px;
+        a {
+            width: 55px;
+            height: 55px;
+            line-height: 53px;
+            border: 1px solid rgba($color: #000, $alpha: 0.3);
+            border-radius: 50%;
+            text-align: center;
+            border-radius: 50%;
+            @include transition(0.3s);
+            &:hover {
+                background: #000;
+                color: #fff;
+            }
+        }
+    }
+}
+/** ============== Counter Box */
+.counter-box-one {
+    .main-count {
+        font-family: $font-Obviously;
+        font-size: 140px;
+        font-weight: 500;
+        text-align: center;
+        margin-bottom: -35px;
+    }
+    .rating {
+        li {
+            font-size: 30px;
+            color: #000;
+            margin: 0 0 0 7px;
+        }
+    }
+}
+
+.counter-box-two {
+    .main-count {
+        font-size: 60px;
+        font-weight: 500;
+        margin-bottom: 0;
+        margin-bottom: -9px;
+    }
+    p {
+        color: rgba($color: #000, $alpha: 0.6);
+        margin: 0;
+    }
+}
+
+/** ============== Pagination */
+.pagination-one {
+    margin: 0 -10px;
+    li {
+        margin: 0 10px;
+        font-size: 20px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        .line {
+            width: 85px;
+            height: 1px;
+            background: #000;
+        }
+    }
+}

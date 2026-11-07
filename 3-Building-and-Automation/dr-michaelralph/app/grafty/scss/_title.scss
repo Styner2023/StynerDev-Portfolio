@@ -1,0 +1,250 @@
+/* ===================== Title Css ====================== */
+.title-one {
+    .upper-title {
+        margin: 10px 0 60px;
+        text-transform: uppercase;
+        .numb {
+            font-family: $font-CD;
+            font-weight: 500;
+            width: 25px;
+        }
+        .line {
+            width: 85px;
+            height: 1px;
+            background: #000;
+            margin: 0 28px 0 16px;
+        }
+        .sec-title {
+            letter-spacing: 2px;
+        }
+    }
+    h2 {
+        font-family: $font-CD;
+        font-size: 72px;
+        line-height: 1.1111em;
+        text-transform: uppercase;
+        margin: 0;
+        span {
+            color: rgba($color: #000000, $alpha: 0.35);
+        }
+    }
+}
+.title-two {
+    h2 {
+        font-family: $font-Sentient;
+        font-size: 82px;
+        line-height: 1.073em;
+        letter-spacing: -1.64px;
+        display: inline-block;
+        margin: 0;
+        span.sticker {
+            font-family: $font-Switzer;
+            font-size: 30px;
+            padding: 12px 38px;
+            line-height: initial;
+            display: inline-block;
+            font-weight: normal;
+            border-radius: 50px;
+            letter-spacing: 0;
+            transform: rotate(13deg);
+        }
+    }
+    &.xl {
+        h2 {
+            font-size: 180px;
+            line-height: 0.833em;
+            letter-spacing: -3.6px;
+        }
+    }
+    p {
+        font-size: 24px;
+        color: rgba($color: #000000, $alpha: 0.4);
+    }
+}
+.title-three {
+    h2 {
+        font-family: $font-Obviously-Narrow;
+        font-weight: 700;
+        font-size: 290px;
+        line-height: 1em;
+        letter-spacing: -1px;
+        text-transform: uppercase;
+        margin: 0;
+        &.sm {
+            font-size: 242px;
+        }
+        span {
+            display: inline-block;
+            vertical-align: middle;
+            background: linear-gradient(0.53deg, #C4CCD5 25%, #FFFFFF 113.21%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+    }
+    .sec-title {
+        font-family: $font-Obviously-Narrow;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 1em;
+        text-transform: uppercase;
+        .line {
+            width: 7px;
+            height: 30px;
+            background: $bg-two;
+            margin-top: 1px;
+        }
+    }
+}
+.title-four {
+    .upper-title {
+        display: inline-block;
+        font-size: 18px;
+        font-weight: 500;
+        text-transform: uppercase;
+        background: #fff;
+        padding: 11px 25px;
+        border-radius: 50px;
+        margin-bottom: 40px;
+    }
+    h2 {
+        font-family: $font-Obviously-Narrow;
+        font-weight: 700;
+        font-size: 90px;
+        line-height: 1.11111em;
+        text-transform: uppercase;
+        margin: 0;
+    }
+}
+.title-five {
+    .upper-title {
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        margin-bottom: 15px;
+    }
+    h2 {
+        font-family: $font-CD;
+        font-size: 86px;
+        line-height: 1em;
+        color: #fff;
+        margin: 0;
+        span {
+            color: rgba($color: #fff, $alpha: 0.3);
+        }
+    }
+    h3 {
+        font-family: $font-CD;
+        font-size: 78px;
+        line-height: 1.0512em;
+        color: #fff;
+        margin: 0;
+        span {
+            color: rgba($color: #fff, $alpha: 0.3);
+        }
+    }
+    h4 {
+        font-family: $font-CD;
+        font-size: 72px;
+        line-height: 0.958em;
+        color: #fff;
+        margin: 0;
+        span {
+            color: rgba($color: #fff, $alpha: 0.3);
+        }
+    }
+}
+.title-six {
+    .upper-title {
+        font-family: $font-Obviously-Narrow;
+        font-weight: 600;
+        display: inline-block;
+        background: #F2F2F2;
+        border-radius: 50px;
+        padding: 9px 23px 4px;
+        text-transform: uppercase;
+        margin-bottom: 40px;
+        &.white-version {
+            background: rgba($color: #000000, $alpha: 0.2);
+            color: #fff;
+        }
+    }
+    h2 {
+        font-family: $font-Obviously-Narrow;
+        font-weight: 700;
+        font-size: 90px;
+        line-height: 1em;
+        text-transform: uppercase;
+        margin: 0;
+        &.xl {
+            font-size: 170px;
+        }
+    }
+    &.text-white {
+        .upper-title {
+            background: rgba($color: #000000, $alpha: 0.2);
+        }
+    }
+}
+.title-seven {
+    .upper-title {
+        font-size: 18px;
+        text-transform: uppercase;
+        color: rgba($color: #000000, $alpha: 0.4);
+        letter-spacing: 2px;
+        margin-bottom: 15px;
+    }
+    .upper-title-two {
+        display: inline-block;
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #000;
+        border-bottom: 2px solid #000;
+        letter-spacing: 3px;
+        padding-bottom: 3px;
+        margin-bottom: 28px;
+    }
+    h2 {
+        font-family: $font-Sentient;
+        font-size: 78px;
+        line-height: 1.0512em;
+        letter-spacing: -2px;
+    }
+}
+.title-eight {
+    .upper-title {
+        font-size: 18px;
+        text-transform: uppercase;
+        font-weight: 500;
+        color: rgba($color: #000000, $alpha: 0.4);
+        letter-spacing: 2px;
+        margin-bottom: 12px;
+    }
+
+    h2 {
+        font-size: 72px;
+        line-height: 1.1388em;
+        font-weight: 600;
+    }
+    h3 {
+        font-size: 64px;
+        line-height: 1.1875em;
+        font-weight: 600;
+    }
+}
+.title-nine {
+    .upper-title {
+        font-size: 36px;
+        font-weight: 500;
+        span {
+            display: inline-block;
+            padding-right: 18px;
+        }
+    }
+    h2 {
+        font-size: 90px;
+        line-height: 1em;
+    }
+}

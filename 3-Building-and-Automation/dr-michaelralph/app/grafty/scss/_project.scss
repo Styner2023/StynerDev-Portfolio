@@ -1,0 +1,625 @@
+/* ===================== Project Css ====================== */
+.grid-1column {
+    margin: 0 -25px;
+
+    .grid-sizer,
+    .isotop-item {
+        width: 100%;
+        padding: 0 25px;
+    }
+}
+
+.grid-2column {
+    margin: 0 -25px;
+
+    .grid-sizer,
+    .isotop-item {
+        width: 50%;
+        padding: 0 25px;
+    }
+
+    &.xl {
+        margin: 0 -50px;
+
+        .grid-sizer,
+        .isotop-item {
+            padding: 0 50px;
+        }
+    }
+}
+
+.grid-3column {
+    margin: 0 -15px;
+
+    .grid-sizer,
+    .isotop-item {
+        width: 33.3333%;
+        padding: 0 15px;
+    }
+
+    &.xl {
+        margin: 0 -25px;
+
+        .grid-sizer,
+        .isotop-item {
+            padding: 0 25px;
+        }
+    }
+}
+
+.grid-4column {
+    margin: 0 -10px;
+
+    .grid-sizer,
+    .isotop-item {
+        width: 25%;
+        padding: 0 10px;
+    }
+}
+
+.filter-nav-one {
+    .isotop-menu-wrapper {
+        margin: 0 -5px;
+
+        li {
+            margin: 0 5px 10px;
+            font-family: $font-CD;
+            font-size: 17px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            line-height: 38px;
+            border-radius: 50px;
+            padding: 0 20px;
+            font-weight: 500;
+            @include transition(0.3s);
+
+            &.is-checked {
+                background: #000;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.filter-nav-two {
+    .isotop-menu-wrapper {
+        margin: 0 -5px;
+        li {
+            margin: 0 5px 0;
+            font-size: 43px;
+            cursor: pointer;
+            text-transform: capitalize;
+            line-height: 70px;
+            color: rgba($color: #000000, $alpha: 0.2);
+            @include transition(0.3s);
+
+            &.is-checked {
+                color: #000;
+            }
+        }
+    }
+}
+/** ============== Project Section One */
+.project-section-one {
+    .bg-wrapper {
+        background: #F0F0F0;
+    }
+
+    .carousel-indicators {
+        position: static;
+        margin: 120px 0 0;
+        display: block;
+
+        button {
+            text-indent: initial;
+            width: auto;
+            height: auto;
+            padding: 0;
+            margin: 0 0 12px;
+            opacity: 1;
+            border: none;
+            background: transparent;
+            font-size: 36px;
+            color: rgba($color: #000000, $alpha: 0.2);
+
+            &.active {
+                color: #000;
+            }
+        }
+    }
+
+    .arrow-btns {
+        position: absolute;
+        width: 222px;
+        left: 0;
+        bottom: 35px;
+
+        &:before {
+            content: '';
+            position: absolute;
+            width: calc(100% - 140px);
+            height: 2px;
+            background: #000;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        button {
+            position: static;
+            opacity: 1;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #fff;
+            color: #000;
+            font-size: 24px;
+            @include transition(0.3s);
+
+            &:hover {
+                background: #000;
+                color: #fff;
+            }
+        }
+    }
+
+    .carousel-inner {
+        max-width: 942px;
+        margin-left: auto;
+
+        h4 {
+            font-size: 36px;
+            line-height: 1.2777em;
+            margin: 0;
+            width: calc(100% - 90px);
+            padding-right: 15px;
+            max-width: 590px;
+        }
+
+        .icon {
+            width: 80px;
+            height: 80px;
+            background: #fff;
+        }
+    }
+}
+
+/** ============== Project Section Two */
+.project-section-two {
+    .title-two h2 span.sticker {
+        transform: rotate(-12.78deg) translateY(-70px);
+    }
+
+    .slider-wrapper {
+        width: calc(100% + 30vw);
+
+        .slick-slider {
+            margin: 0 -25px;
+
+            .item {
+                margin: 0 25px;
+            }
+        }
+    }
+
+    .slider-arrows {
+        li {
+            width: 75px;
+            height: 75px;
+            cursor: pointer;
+            font-size: 25px;
+
+            &:hover {
+                background: #000;
+                color: #fff;
+            }
+        }
+    }
+
+    .shape_01 {
+        top: 1%;
+        right: 21%;
+        max-width: 9%;
+        animation: jumpThree 5s infinite linear;
+    }
+}
+
+/** ============== Project Section Three */
+.project-section-three {
+    .title-three {
+        margin-bottom: -60px;
+    }
+}
+
+/** ============== Project Section Four */
+.project-section-four {
+    .grid-sizer {
+        width: 45%;
+    }
+
+    .isotop-item.lg {
+        width: 55%;
+    }
+
+    .isotop-item.md {
+        width: 45%;
+    }
+
+    .project-block-one {
+        .project-tag {
+            color: rgba($color: #fff, $alpha: 0.4);
+        }
+    }
+}
+
+/** ============== Project Section Five */
+.project-section-five {
+    background: #101010;
+
+    .round-shape {
+        width: 550px;
+        height: 550px;
+        background: $color-one;
+        border-radius: 50%;
+        position: absolute;
+        left: -6%;
+        top: 90px;
+        z-index: -1;
+        animation: plasma 5s infinite linear;
+    }
+
+    .location {
+        color: rgba($color: #fff, $alpha: 0.5);
+    }
+
+    .project-title {
+        font-size: 36px;
+        line-height: 1.388em;
+        color: #fff;
+        margin: 14px 0 0;
+    }
+
+    .slider-wrapper {
+        width: calc(100% + 38vw);
+    }
+
+    .slider-arrows {
+        position: absolute;
+        left: -5px;
+        bottom: -155px;
+        width: calc(100% + 38vw);
+
+        &:before {
+            content: '';
+            position: absolute;
+            width: calc(100% - 175px);
+            height: 1px;
+            background: rgba($color: #fff, $alpha: 0.3);
+            top: 50%;
+            right: 0;
+        }
+
+        li {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 1px solid rgba($color: #fff, $alpha: 0.3);
+            margin: 0 5px;
+            position: relative;
+            z-index: 1;
+            padding: 15px;
+            cursor: pointer;
+            @include transition(0.3s);
+
+            .icon {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 1;
+                @include transition(0.3s);
+            }
+
+            .icon-dark {
+                opacity: 0;
+            }
+
+            &:hover {
+                .icon-white {
+                    opacity: 0;
+                }
+
+                .icon-dark {
+                    opacity: 1;
+                }
+
+                background: #fff;
+            }
+        }
+    }
+}
+
+/** ============== Project Section Six */
+.project-section-six {
+    background: #0B0B0B;
+    color: #fff;
+
+    .project-block-one {
+        .project-tag {
+            color: rgba($color: #fff, $alpha: 0.4);
+        }
+    }
+
+    .more-cta-btn {
+        width: 320px;
+        height: 320px;
+        padding: 30px;
+        margin: 0 auto;
+        background: rgba($color: #fff, $alpha: 0.05);
+
+        &:hover {
+            background: $color-three;
+        }
+    }
+}
+
+/** ============== Project Section Seven */
+.project-section-seven {
+    .border-top {
+        border-top: 1px solid rgba($color: #000000, $alpha: 0.1);
+    }
+}
+
+/** ============== Project Block One */
+.project-block-one {
+    .project-title {
+        font-size: 32px;
+        margin: 40px 0 10px;
+    }
+
+    .project-tag {
+        font-size: 16px;
+        color: rgba($color: #000000, $alpha: 0.3);
+    }
+}
+
+/** ============== Project Block Two */
+.project-block-two {
+    .info {
+        position: absolute;
+        left: 45px;
+        bottom: 40px;
+
+        li:first-child {
+            font-family: $font-Obviously-Narrow;
+            font-size: 32px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            background: #fff;
+            border-radius: 50px;
+            padding: 17px 39px 10px;
+            margin-right: 15px;
+            @include transition(0.3s);
+        }
+
+        li a {
+            width: 75px;
+            height: 75px;
+            font-size: 35px;
+            background: #fff;
+
+            &:hover {
+                background: $bg-two;
+                color: #fff;
+            }
+        }
+    }
+
+    &:hover {
+        .main-img {
+            transform: scale(1.1) rotate(3deg);
+        }
+
+        .info {
+            li:first-child {
+                background: $bg-two;
+                color: #fff;
+            }
+        }
+    }
+}
+
+/** ============== Project Block Three */
+.project-block-three {
+    .img-holder {
+        position: relative;
+        overflow: hidden;
+        border-radius: 30px;
+        background: #000;
+    }
+
+    .icon {
+        width: 160px;
+        height: 160px;
+        background: #fff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        @include transition(0.3s);
+
+        &:hover {
+            background: $color-one;
+        }
+    }
+
+    &:hover {
+        .img-holder .project-img {
+            opacity: 0.45;
+        }
+
+        .icon {
+            opacity: 1;
+        }
+    }
+}
+/** ============== Project Block Four */
+.project-block-four {
+    position: relative;
+    .tags {
+        position: absolute;
+        right: 40px;
+        top: 40px;
+        z-index: 1;
+        li {
+            font-size: 17px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: #fff;
+            text-transform: uppercase;
+            border: 1px solid #fff;
+            background: rgba($color: #fff, $alpha: 0.3);
+            line-height: 48px;
+            padding: 0 30px;
+            border-radius: 50px;
+        }
+    }
+}
+/** ============== Project Details One */
+.project-details-one {
+    .project-tag {
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.65px;
+        border: 1px solid #000;
+        line-height: 23px;
+        text-transform: uppercase;
+        padding: 0 13px;
+        border-radius: 30px;
+        margin-bottom: 25px;
+    }
+
+    .social-icon {
+        margin: 0 -5px;
+
+        li {
+            padding: 0 5px;
+            font-size: 18px;
+            font-weight: 500;
+            color: #000;
+
+            a {
+                width: 50px;
+                height: 50px;
+                border: 1px solid #D1D1D1;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #000;
+                font-size: 22px;
+                @include transition(0.3s);
+
+                &:hover {
+                    background: #000;
+                    border-color: #000;
+                    color: #fff;
+                }
+            }
+            &:first-child {
+                margin-right: 45px;
+                i {
+                    font-size: 24px;
+                    vertical-align: middle;
+                    margin-right: 14px;
+                }
+            }
+        }
+    }
+
+    .title-one {
+        h2 {
+            text-transform: initial;
+        }
+    }
+
+    .project-info {
+        padding: 35px 45px 60px;
+        border-radius: 20px;
+        background: #F2F2F2;
+        ul {
+            margin: 0 -15px;
+            li {
+                padding: 0 15px;
+                margin-top: 30px;
+                
+                position: relative;
+                .icon {
+                    max-width: 40px;
+                }
+                .text {
+                    width: calc(100% - 40px);
+                    padding-left: 25px;
+                    h6 {
+                        font-family: $font-Switzer;
+                        font-size: 16px;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                        margin-bottom: -2px;
+                    }
+                    span {
+                        font-size: 18px;
+                        color: rgba($color: #000000, $alpha: 0.5);
+                    }
+                }
+                &:before {
+                    content: '';
+                    position: absolute;
+                    width: 2px;
+                    height: 90px;
+                    background: #000;
+                    top:-21px;
+                    left: -70px;
+                    transform: rotate(18deg);
+                }
+                &:first-child:before {
+                    display: none;
+                }
+            }
+        }
+    }
+    .project-pagination {
+        border-top: 1px solid #CBCBCB;
+        margin-top: 60px;
+        padding-top: 60px;
+        .pr-img {
+            width: 80px;
+            border-radius: 10px;
+        }
+        span {
+            font-size: 14px;
+            color: rgba($color: #000000, $alpha: 0.4);
+            text-transform: uppercase;
+        }
+        strong {
+            font-size: 24px;
+            font-weight: 500;
+            color: #000;
+            display: block;
+            margin-top: 5px;
+        }
+        .arrow-icon {
+            width: 60px;
+            height: 60px;
+            background: #000;
+            @include transition (0.3s);
+            &:hover {
+                background: $color-one;
+            }
+        }
+    }
+}

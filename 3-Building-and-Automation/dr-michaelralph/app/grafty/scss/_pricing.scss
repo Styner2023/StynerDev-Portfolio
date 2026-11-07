@@ -1,0 +1,111 @@
+/* ===================== Pricing Css ====================== */
+// Pricing Nav 
+.pricing-nav-one {
+    .nav {
+        width: 80px;
+        border-radius: 50px;
+        border: 1px solid #D6D6D6;
+        background: #fff;
+        padding: 4px 5px;
+
+        .nav-link {
+            width: 30px;
+            height: 30px;
+            background: transparent;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            border-radius: 50%;
+            position: relative;
+            font-size: 18px;
+            color: rgba($color: #000000, $alpha: 0.3);
+
+            &.active {
+                background: $color-five;
+                color: #000;
+            }
+
+            &:nth-child(1):before {
+                content: 'Billed Monthly';
+                position: absolute;
+                left: -140px;
+                top: 1px;
+                cursor: pointer;
+            }
+
+            &:nth-child(2):before {
+                content: 'Billed Yearly';
+                position: absolute;
+                right: -120px;
+                top: 1px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+.pricing-section-one {
+    .tab-content {
+        background: #F7F7F7;
+        border: 2px solid #EEEEEE;
+        border-radius: 30px;
+        overflow: hidden;
+    }
+    .pr-column {
+        padding: 35px 55px 40px;
+        &.active {
+            background: #fff;
+            border-left: 1px solid #ECECEC;
+            border-right: 1px solid #ECECEC;
+        }
+        .pr-header {
+            border-bottom: 1px solid #ECECEC;
+            padding-bottom: 17px;
+            margin-bottom: 30px;
+            .plan-name {
+                font-size: 36px;
+                font-weight: 500;
+            }
+            .info {
+                line-height: 1.55em;
+                margin: 4px 0 22px;
+            }
+            .price {
+                font-size: 82px;
+                font-weight: 600;
+                letter-spacing: -3px;
+                sub {
+                    font-size: 20px;
+                    color: rgba($color: #000000, $alpha: 0.4);
+                    font-weight: normal;
+                    letter-spacing: initial;
+                    bottom: 6px;
+                    left: 9px;
+                }
+            }
+        }
+        .package-feature li {
+            font-size: 20px;
+            font-weight: 500;
+            color: #000;
+            position: relative;
+            padding-left: 30px;
+            margin-top: 18px;
+
+            &::before {
+                content: "\F272";
+                position: absolute;
+                font-family: $bootstrapFont;
+                color: $color-four;
+                left: 0;
+                top: 1px;
+                font-weight: 700;
+            }
+        }
+        .btn-ten {
+            &:hover {
+                background: $color-four;
+                color: #000;
+            }
+        }
+    }
+}

@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'Obviously';
+    src: url('Obviously-Medium.woff2') format('woff2'),
+        url('Obviously-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Obviously Cond';
+    src: url('ObviouslyCond-Bold.woff2') format('woff2'),
+        url('ObviouslyCond-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Obviously Narrow';
+    src: url('ObviouslyNarrow-Bold.woff2') format('woff2'),
+        url('ObviouslyNarrow-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Obviously Narrow';
+    src: url('ObviouslyNarrow-Medium.woff2') format('woff2'),
+        url('ObviouslyNarrow-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Obviously Narrow';
+    src: url('ObviouslyNarrow-SemiBold.woff2') format('woff2'),
+        url('ObviouslyNarrow-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+

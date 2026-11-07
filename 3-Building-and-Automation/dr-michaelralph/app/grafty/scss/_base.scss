@@ -1,0 +1,261 @@
+/* ===================== Base Css ====================== */
+// Font import
+@import url('https://api.fontshare.com/v2/css?f[]=switzer@1,2&f[]=clash-display@1&f[]=sentient@400,401,500&display=swap');
+@import url('../fonts/obviously/stylesheet.css');
+@import url('../fonts/autograf/stylesheet.css');
+@import url('../fonts/bootstrap-icons-1.11.1/font/bootstrap-icons.css');
+@import url('../fonts/font-awesome-6.4.2/css/all.css');
+
+// Global Style
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000;
+  border-radius: 0;
+}
+
+.main-page-wrapper {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: $font-Switzer;
+  font-weight: normal;
+  font-size: 20px;
+  position: relative;
+  color: $text-color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+}
+.font-CD {
+  font-family: $font-CD;
+}
+.font-ON {
+  font-family: $font-Obviously-Narrow;
+}
+p {
+  line-height: 1.777em;
+}
+.fw-500 {
+  font-weight: 500;
+}
+.fw-600 {
+  font-weight: 600;
+}
+.fs-32 {
+  font-size: 32px;
+  line-height: 1.428em;
+}
+.fs-28 {
+  font-size: 28px;
+  line-height: 1.428em;
+}
+.fs-24 {
+  font-size: 24px;
+  line-height: 1.4583em;
+}
+.border-30 {
+  border-radius: 30px;
+}
+.p-lr-25 {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+.bg-one {
+  background: $bg-one;
+}
+.dark-bg-one {
+  background: #08090B;
+  color: #fff;
+}
+.bg-blur {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(75px);
+  /* Note: backdrop-filter has minimal browser support */
+}
+.bg-grey {background: #EFEFEF;}
+.box-layout {
+  border-left: 1px solid rgba($color: #000, $alpha: 0.1);
+  border-right: 1px solid rgba($color: #000, $alpha: 0.1);
+}
+
+.shapes {
+  position: absolute;
+  z-index: -1;
+}
+.line-bg {
+  display: inline;
+  background-image: linear-gradient(to right, #000 0%, #000 100%);
+  background-position: 0 calc(100% - 0em);
+  background-size: 0 2px;
+  transition: background-size 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  @include transition (0.3s);
+  &.inverse {
+    background-image: linear-gradient(to right, #fff 0%, #fff 100%);
+  }
+  &:hover {
+    background-size: 100% 2px;
+  }
+}
+//  Preloader
+.ctn-preloader {
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 999999;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .icon {
+    display: inline-block;
+    position: relative;
+
+    img {
+      width: 55px;
+    }
+  }
+
+  .txt-loading {
+    user-select: none;
+    margin-top: 45px;
+
+    .letters-loading {
+      font-weight: 700;
+      letter-spacing: 10px;
+      display: inline-block;
+      color: rgba($color: #000, $alpha: 0.08);
+      position: relative;
+      font-size: 65px;
+      line-height: 30px;
+
+      &::before {
+        animation: letters-loading 4s infinite;
+        color: #000;
+        content: attr(data-text-preloader);
+        left: 0;
+        opacity: 0;
+        top: 0;
+        line-height: 30px;
+        position: absolute;
+      }
+
+      &:nth-child(2):before {
+        animation-delay: 0.2s;
+      }
+
+      &:nth-child(3):before {
+        animation-delay: 0.4s;
+      }
+
+      &:nth-child(4):before {
+        animation-delay: 0.6s;
+      }
+
+      &:nth-child(5):before {
+        animation-delay: 0.8s;
+      }
+
+      &:nth-child(6):before {
+        animation-delay: 1s;
+      }
+
+      &:nth-child(7):before {
+        animation-delay: 1.2s;
+      }
+
+      &:nth-child(8):before {
+        animation-delay: 1.4s;
+      }
+    }
+  }
+}
+
+@keyframes spinner {
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes letters-loading {
+
+  0%,
+  75%,
+  100% {
+    opacity: 0;
+    transform: rotateY(-90deg);
+  }
+
+  25%,
+  50% {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
+}
+
+// Scroll Top
+.scroll-top {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  position: fixed;
+  bottom: 20px;
+  right: 5px;
+  z-index: 99;
+  text-align: center;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  border-radius: 50%;
+  background: $color-one;
+  transition: all 0.3s ease-in-out;
+
+  &:after {
+    position: absolute;
+    z-index: -1;
+    content: '';
+    top: 100%;
+    left: 5%;
+    height: 10px;
+    width: 90%;
+    opacity: 1;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 80%);
+  }
+}
+
+// Prefix Classes
+.tran3s {
+  transition: all 0.3s ease-in-out;
+}
+
+.tran4s {
+  transition: all 0.4s ease-in-out;
+}
+
+.tran5s {
+  transition: all 0.5s ease-in-out;
+}
+
+.tran6s {
+  transition: all 0.6s ease-in-out;
+}

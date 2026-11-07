@@ -1,0 +1,904 @@
+/* ===================== Basic Layout of complete template Css ====================== */
+/** ============== Feature Block One */
+.feature-block-one {
+    .sec-btn {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    h3 {
+        font-family: $font-CD;
+        font-size: 90px;
+        line-height: 1em;
+        margin: 60px 0 25px;
+        max-width: 880px;
+    }
+    .box-wrapper {
+        &::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            left: 0;
+            top: 50%;
+            background: rgba($color: #000000, $alpha: 0.2);
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 1px;
+            height: 100%;
+            left: 50%;
+            top: 0;
+            background: rgba($color: #000000, $alpha: 0.2);
+        }
+    }
+}
+
+/** ============== Feature Block Two */
+.feature-block-two {
+    .title-two h2 span.sticker {
+        position: absolute;
+        right: -185px;
+        top: 17px;
+    }
+
+    .shape_01 {
+        left: 3%;
+        top: 2%;
+        max-width: 8%;
+        animation: rotated 70s infinite linear;
+    }
+
+    .card-wrapper {
+        .card-block {
+            width: 50%;
+            border-radius: 40px;
+            padding: 35px 45px 55px;
+            border-bottom: 6px solid #000;
+
+            &:nth-child(even) {
+                border-top: 6px solid #000;
+                border-bottom: none;
+            }
+
+            .icon {
+                height: 138px;
+                margin-bottom: 88px;
+
+                img {
+                    max-height: 100%;
+                }
+            }
+
+            h3 {
+                font-family: $font-Sentient;
+                font-size: 36px;
+                line-height: 1.111em;
+                letter-spacing: -0.72px;
+                margin-bottom: 50px;
+            }
+
+            &:nth-child(1) {
+                transform: rotate(4.59deg);
+            }
+
+            &:nth-child(2) {
+                transform: rotate(-2.75deg);
+                margin: -32px 0 0 -37px;
+            }
+
+            &:nth-child(3) {
+                transform: rotate(3.97deg);
+                margin: 9px 0 0 -48px;
+            }
+
+            &:nth-child(4) {
+                margin: -70px 0 0 -36px;
+            }
+        }
+
+        &.style-two {
+            .card-block {
+                width: 100%;
+                transform: none !important;
+            }
+        }
+
+    }
+}
+
+/** ============== Feature Block Three */
+.feature-block-three {
+    .title-two h2 span.sticker {
+        transform: rotate(-11.28deg) translateY(-20px);
+    }
+
+    .layer-one {
+        padding-right: 25px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: calc(100% - 40px);
+            height: 100%;
+            background: #fff;
+            border: 2px solid #000;
+            border-radius: 30px;
+            bottom: 0;
+            left: 40px;
+            z-index: -2;
+            transform: rotate(7.87deg);
+            transform-origin: 0%;
+        }
+    }
+
+    .layer-two {
+        padding-right: 25px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: calc(100% - 40px);
+            height: 100%;
+            background: #fff;
+            border: 2px solid #000;
+            border-radius: 30px;
+            bottom: 0;
+            left: 40px;
+            z-index: -1;
+            transform: rotate(3.91deg);
+            transform-origin: 0%;
+        }
+    }
+
+    .shape_01 {
+        right: 33%;
+        bottom: 0;
+        max-width: 4%;
+        animation: jumpThree 5s infinite linear;
+    }
+
+    .shape_02 {
+        left: 30%;
+        bottom: 28%;
+        max-width: 7%;
+        animation: rotated 100s infinite linear;
+    }
+
+    .shape_03 {
+        left: 0;
+        bottom: 0;
+        bottom: 6%;
+        animation: jumpTwo 10s infinite linear;
+    }
+}
+
+/** ============== Feature Block Four */
+.feature-block-four {
+    .title-two h2 span.sticker {
+        position: absolute;
+        right: -167px;
+        top: 21px;
+    }
+
+    .block-wrapper {
+        border: 2px solid #000;
+        border-radius: 50px;
+        padding: 50px;
+        position: relative;
+        z-index: 1;
+        background: #fff;
+
+        .line-wrapper {
+            width: 260px;
+
+            .skill-count {
+                height: 460px;
+
+                div {
+                    width: 100%;
+                    border-radius: 40px;
+                    border-top: 4px solid #000;
+                    text-align: center;
+                    font-family: $font-Sentient;
+                    font-size: 36px;
+                    padding-top: 30px;
+                }
+            }
+
+            h6 {
+                font-family: $font-Sentient;
+                font-size: 28px;
+                margin: 25px 0 0;
+            }
+        }
+
+        h3 {
+            font-family: $font-Sentient;
+            font-size: 42px;
+            line-height: 1.238em;
+            letter-spacing: -0.84px;
+            margin: 20px 0 100px;
+
+            span {
+                display: inline-block;
+                position: relative;
+                z-index: 1;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    width: 104%;
+                    height: 83%;
+                    left: -4px;
+                    top: 5px;
+                    z-index: -1;
+                    border-radius: 13px;
+                    background: #C0F68E;
+                    transform: rotate(2.41deg);
+                }
+            }
+        }
+
+        .count-wrapper {
+            .main-count {
+                font-family: $font-Sentient;
+                font-size: 80px;
+                line-height: 1em;
+            }
+
+            p {
+                font-size: 22px;
+                margin: 0;
+                color: rgba($color: #000000, $alpha: 0.6);
+            }
+        }
+
+        .ils_01 {
+            right: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            max-width: 37%;
+        }
+
+        .avatar {
+            li {
+                margin-left: -15px;
+
+                &:first-child {
+                    margin: 0;
+                }
+            }
+
+            img {
+                width: 75px;
+                outline: 5px solid #fff;
+            }
+        }
+
+        h4 {
+            font-family: $font-Sentient;
+            font-size: 36px;
+            line-height: 1.2222em;
+            letter-spacing: -0.72px;
+        }
+    }
+}
+/** ============== Feature Block Five */
+.about-me-section {
+    .line-shape {
+        &:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            left: 0;
+            top: calc(50% - 2px);
+            background: #000;
+            z-index: -1;
+        }
+    }
+    .cv-btn {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translate(-50% , 47%);
+        font-weight: 600;
+        line-height: 27px;
+        text-align: center;
+        .text {
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50% , -50%);
+        }
+        .main-img {
+            animation: rotated 100s infinite linear;
+        }
+        &:hover {
+            .main-img {
+                animation: none;
+            }
+        }
+    }
+}
+/** ============== Feature Block Six */
+.feature-block-six { 
+    .bg-wrapper {
+        padding: 120px 60px 120px;
+    }
+    .avatar {
+        li {
+            margin-left: -10px;
+            &:first-child {
+                margin: 0;
+            }
+            img {
+                width: 75px;
+                height: 75px;
+                outline: 5px solid #0F1012;
+            }
+        }
+    }
+    .card-wrapper {
+        .card-block {
+            width: 455px;
+            height: 455px;
+            background: rgba($color: #fff, $alpha: 0.04);
+            margin: 0 -20px;
+            .main-count {
+                font-family: $font-CD;
+                font-size: 110px;
+                line-height: 1em;
+            }
+            p {
+                font-size: 38px;
+                margin: 15px 0 0;
+            }
+        }
+    }
+    .shape_01 {
+        right: 0;
+        top:20%;
+        max-width: 29%;
+    }
+}
+/** ============== Feature Block Seven */
+.feature-block-seven { 
+    .award-wrapper {
+        border-bottom: 1px solid rgba($color: #fff, $alpha: 0.15);
+        padding: 106px 0 22px;
+        .year {
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            width: 19%;
+        }
+        h5 {
+            font-family: $font-CD;
+            font-size: 32px;
+            line-height: 1.111em;
+            margin: 0;
+            width: 40%;
+        }
+        p {
+            color: rgba($color: #fff, $alpha: 0.5);
+            margin: 0 0 0 auto;
+        }
+    }
+}
+/** ============== Feature Block Eight */
+.feature-block-eight {
+    .slick-slider {
+        margin: 0 auto;
+        .slick-track {
+            display: flex;
+            justify-content: space-between;
+        }
+        .slick-slide {
+          transition: transform 0.3s ease;
+          transform: scale(0.85);
+          margin: 0;
+          float: none;
+          &.slick-center {
+            transform: scale(1);
+            z-index: 3;
+          }
+        }
+    }
+    .round-shape {
+        width: 250px;
+        height: 250px;
+        background: $color-one;
+        border-radius: 50%;
+        position: absolute;
+        left: -96px;
+        bottom: -100px;
+        z-index: -1;
+        animation: plasma 5s infinite linear;
+    }
+}
+/** ============== Feature Block Nine */
+.feature-block-nine {
+    .round-shape {
+        width: 325px;
+        height: 325px;
+        background: $color-one;
+        border-radius: 50%;
+        position: absolute;
+        right: -40px;
+        top: -91px;
+        z-index: -1;
+        animation: plasma 5s infinite linear;
+    }
+    .list-wrapper {
+        border-top: 1px solid rgba($color: #000, $alpha: 0.2);
+        .list-item {
+            border-bottom: 1px solid rgba($color: #000, $alpha: 0.2);
+            padding: 60px 0;
+            .num {
+                font-family: $font-Obviously-Narrow;
+                font-size: 24px;
+                font-weight: 600;
+                width: 17%;
+                padding-left: 20px;
+            }
+            .title {
+                width: 64%;
+                h5 {
+                    font-family: $font-Obviously-Narrow;
+                    font-size: 64px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    margin-bottom: 8px;
+                }
+                p {
+                    font-size: 22px;
+                    color: rgba($color: #000000, $alpha: 0.6);
+                    margin: 0;
+                }
+            }
+            .icon {
+                font-size: 35px;
+                width: 95px;
+                height: 95px;
+                border: 2px solid #000;
+                margin: 0 25px 0 auto;
+                &:hover {
+                    background: #000;
+                    color: #fff;
+                }
+            }
+        }
+    }
+    
+}
+/** ============== Feature Block Eleven */
+.feature-block-eleven {
+    .wrapper {
+        border-top: 1px solid #E2E2E2;
+    }
+    .img-wrapper {
+        margin-top: -17px;
+        .shape_01 {
+            right: -16%;
+            bottom: -36%;
+            z-index: 1;
+        }
+    }
+    .avatar-group {
+        ul li {
+            margin-right: -10px;
+            img {
+                width: 72px;
+                height: 72px;
+                outline: 5px solid #fff;
+            }
+        }
+        p {
+            font-size: 28px;
+            line-height: 1.1428em;
+            font-weight: 500;
+            margin: 0;
+            padding-left: 35px;
+        }
+    }
+    .counter-wrapper {
+        border-left: 1px solid #E2E2E2;
+        .counter-block {
+            border-bottom: 1px solid #E2E2E2;
+            padding: 90px 0;
+            &:last-child {
+                border: none;
+            }
+            .main-count {
+                font-family: $font-Sentient;
+                font-size: 110px;
+                line-height: 1em;
+                letter-spacing: -4.4px;
+            }
+            p {
+                font-size: 34px;
+                margin: 10px 0 0;
+            }
+        }
+    }
+    .accordion-style-one .accordion-item .accordion-button {
+        font-size: 28px;
+    }
+}
+/** ============== Feature Block Thirteen */
+.feature-block-thirteen {
+    .bg-wrapper {
+        background: #F4F4F4;
+        overflow: hidden;
+    }
+    .nav-tab-wrapper {
+        border-right: 1px solid #E5E5E5;
+        max-width: 595px;
+        .nav-link {
+            background: transparent;
+            padding: 55px 40px 45px 45px;
+            border-left: 5px solid transparent;
+            color: #000;
+            border-radius: 0;
+            border-bottom: 1px solid #E5E5E5;
+            .icon {
+                width: 25px;
+            }
+            .text {
+                width: calc(100% - 60px);
+                padding: 0 10px 0 25px;
+                text-align: start;
+                strong {
+                    display: block;
+                    font-size: 28px;
+                    font-weight: 600;
+                    margin-bottom: 22px;
+                    line-height: 1em;
+                }
+            }
+            &.active {
+                border-left-color: #FFC936;
+                background: #fff;
+            }
+        }
+    }
+    .tab-content {
+        padding: 50px 25px;
+        .tab-pane {
+            height: 100%;
+        }
+    }
+}
+/** ============== Feature Block Fourteen */
+.feature-block-fourteen {
+    .img-wrapper {
+        background: #F4F4F4;
+        border-radius: 40px;
+        padding: 80px 30px;
+    }
+}
+/** ============== Feature Block Fifteen */
+.feature-block-fifteen {
+    .nav-tab-wrapper {
+        border-bottom: 2px solid rgba($color: #000, $alpha: 0.1);
+        .nav-link {
+            padding: 28px 80px;
+            font-size: 28px;
+            color: rgba($color: #000000, $alpha: 0.3);
+            position: relative;
+            @include transition(0.3s);
+            &:before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 4px;
+                left: 0;
+                bottom: -3px;
+                z-index: 1;
+                background: $color-four;
+                opacity: 0;
+                @include transition(0.3s);
+            }
+            &.active {
+                color: #000;
+                &:before {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    .tab-content {
+        .icon {
+            width: 90px;
+            height: 90px;
+            background: $color-five;
+        }
+    
+        h2 {
+            font-size: 62px;
+            font-weight: 600;
+            line-height: 1.0645em;
+            margin: 42px 0 45px;
+        }
+    }
+}
+/** ============== Feature Block Sixteen */
+.feature-block-sixteen {
+    .row-wrapper {
+        margin: 0 -20px;
+        .shape_01 {
+            left: 50%;
+            top:50%;
+            max-width: 12%;
+            transform: translate(-50% , -50%);
+        }
+        .column-wrapper {
+            width: 50%;
+            height: 800px;
+            border: 1px solid rgba($color: #000000, $alpha: 0.1);
+            margin: -20px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            &:last-child {
+                border-color: #fff;
+                z-index: 1;
+            }
+
+            blockquote {
+                font-size: 48px;
+                line-height: 1.0625em;
+                font-weight: 500;
+                margin-bottom: 50px;
+                padding: 0 15%;
+            }
+            .name {
+                font-size: 24px;
+                font-weight: 500;
+                span {
+                    font-weight: normal;
+                    color: rgba($color: #000, $alpha: 0.4);
+                }
+            }
+            .main-count {
+                font-size: 250px;
+                line-height: 1em;
+                margin-bottom: 25px;
+            }
+            .rating {
+                li {
+                    font-size: 26px;
+                    margin: 0 5px;
+                }
+            }
+            .cta-btn {
+                background: #fff;
+                padding: 18%;
+                &:hover {
+                    background: $color-two;
+                }
+            }
+            h3 {
+                font-size: 48px;
+                line-height: 1.208em;
+                margin-bottom: 40px;
+            }
+        }
+    }
+    .shape_01 {
+        right: 0;
+        top:7%;
+        max-width: 24%;
+    }
+}
+/** ============== Feature Block Seventeen */
+.feature-block-seventeen {
+    .shape_01 {
+        left: 0;
+        bottom: 0;
+        bottom: 6%;
+        animation: jumpTwo 10s infinite linear;
+    }
+    .title-two h2 span.sticker {
+        position: absolute;
+        right: -62px;
+        top: -32px;
+    }
+}
+/** ============== Feature Block Eighteen */
+.feature-block-eighteen {
+    .img-wrapper {
+        height: 100%;
+        margin-left: 80px;
+        max-width: 555px;
+        background: url(../images/media/img_140.jpg) no-repeat center center;
+        background-size: cover;
+        border-radius: 30px;
+        .screen_01 {
+            left: -80px;
+            bottom: -100px;
+            border-radius: 20px;
+            box-shadow: 0 35px 70px rgba($color: #000000, $alpha: 0.05);
+        }
+    }
+}
+/** ============== Feature Block Nineteen */
+.feature-block-nineteen {
+    .bg-wrapper {
+        overflow: hidden;
+        background: #F7F7F7;
+        padding: 85px 80px 0;
+    }
+    .list-style {
+        li {
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px 15px 30px 100px;
+            position: relative;
+            margin-top: 25px;
+            span {
+                display: block;
+                font-size: 24px;
+                font-weight: 600;
+                line-height: 36px;
+                max-width: 380px;
+            }
+            &:before {
+                content: url(../images/icon/icon_95.svg);
+                position: absolute;
+                left: 45px;
+                top:30px;
+            }
+        }
+    }
+}
+/** ============== Partner Section One */
+.partner-section-one {
+    .title-two h2 span.sticker {
+        transform: rotate(-14.83deg);
+        position: absolute;
+        left: -234px;
+        top: 26px;
+    }
+    .logo-wrapper {
+        width: 110vw;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+
+        &:before {
+            content: '';
+            position: absolute;
+            background: linear-gradient(89.69deg, #fff 13.29%, rgba(255, 255, 255, 0) 99.64%);
+            transform: rotate(-180deg);
+            right: 0;
+            height: 100%;
+            top: 0;
+            width: 20%;
+            z-index: 1;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            background: linear-gradient(89.69deg, #fff 13.29%, rgba(255, 255, 255, 0) 99.64%);
+            left: 0;
+            height: 100%;
+            top: 0;
+            width: 20%;
+            z-index: 1;
+        }
+
+        .logo-box {
+            width: 200px;
+            height: 200px;
+            border-radius: 30px;
+            margin: 0 auto;
+            background: #F2F2F2;
+
+            img {
+                margin: 0 auto;
+                max-width: 50%;
+            }
+        }
+    }
+}
+/** ============== Partner Section Two */
+.partner-section-two { 
+    h6 {
+        font-family: $font-Obviously-Narrow;
+        font-size: 24px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    .logo-box {
+        height: 328px;
+        border-radius: 20px;
+        background: #fff;
+    }
+    .slider-wrapper {
+        padding: 0 8px;
+        .slick-slider {
+            margin: 0 -8px;
+            .item {
+                margin: 0 8px;
+            }
+        }
+    }
+}
+/** ============== Partner Section Three */
+.partner-section-three { 
+    .logo-box {
+        height: 100px;
+    }
+}
+
+/** ============== Partner Section Four */
+.partner-section-four { 
+    .slider-wrapper {
+        width: 110vw;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .client-logos .logo {
+        margin: 0;
+    }
+}
+/** ============== Clients Logo */
+.client-logos {
+    .logo {
+        width: 335px;
+        height: 335px;
+        border: 1px solid rgba($color: #000000, $alpha: 0.1);
+        margin: 0 -15px;
+        padding: 20px;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            right: -1px;
+            bottom: -1px;
+            left: -1px;
+            border: 2px dashed rgba($color: #000000, $alpha: 0.08);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0;
+            animation: rotated 50s infinite linear;
+        }
+
+        &:hover {
+            border-color: transparent;
+
+            img {
+                transform: scale(1.2);
+            }
+
+            &::before {
+                opacity: 1;
+            }
+        }
+    }
+    &.white-version {
+        .logo {
+            border-color: rgba($color: #fff, $alpha: 0.15);
+        }
+    }
+}
+/** ============== Instagram Feed */
+.insta-feed {
+    .insta-text-slider {
+        font-family: $font-Obviously-Narrow;
+        font-size: 147px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    .border-style {
+        border-bottom: 3px solid #000;
+    }
+}

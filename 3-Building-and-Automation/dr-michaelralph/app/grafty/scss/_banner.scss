@@ -1,0 +1,1013 @@
+/* ===================== Banner Css ====================== */
+/** ============== Banner One */
+.hero-banner-one {
+    padding-top: 840px;
+    .hero-heading {
+        font-family: $font-Obviously-Narrow;
+        font-size: 130px;
+        font-weight: 700;
+        line-height: 0.923em;
+        text-transform: uppercase;
+    }
+    .slogan {
+        display: flex;
+        align-items: center;
+        font-size: 32px;
+        font-weight: 300;
+        letter-spacing: -0.32px;
+        margin-bottom: 25px;
+        img {
+            margin-left: 3px;
+        }
+        span {
+            padding-left: 5px;
+        }
+    }
+    .about-info {
+        background: #fff;
+        padding: 50px 50px 68px;
+        max-width: 600px;
+        margin-left: auto;
+        p {
+            font-size: 36px;
+            line-height: 1.4444em;
+            font-weight: 500;
+            margin-bottom: 50px;
+        }
+        .email {
+            font-size: 28px;
+            font-weight: 500;
+            font-style: italic;
+            border-bottom: 2px solid #000;
+            &:hover {
+                color: $bg-two;
+                border-color: $color-two;
+            }
+        }
+        .discuss-btn {
+            position: absolute;
+            right: 50px;
+            bottom: 30px;
+            font-weight: 600;
+            line-height: 27px;
+            color: #fff;
+            text-transform: uppercase;
+            text-align: center;
+            .text {
+                position: absolute;
+                top:50%;
+                left: 50%;
+                transform: translate(-50% , -50%) rotate(-17.67deg);
+            }
+            .main-img {
+                animation: rotated 100s infinite linear;
+            }
+            &:hover {
+                .main-img {
+                    animation: none;
+                }
+            }
+        }
+    }
+    .image-wrapper {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        &:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            left: 0;
+            bottom: 0;
+            z-index: 1;
+            height: 30%;
+            background: linear-gradient(180deg, rgba(196, 204, 213, 0.01) 0%, rgba(196, 204, 213, 0.85) 38.04%, #C4CCD5 89.46%);
+        }
+        .avatar-img {
+            border-radius: 500px 500px 0 0;
+        }
+        .profession {
+            font-family: $font-Obviously-Narrow;
+            font-size: 450px;
+            letter-spacing: -1px;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1em;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top:10%;
+            z-index: 0;
+            background: linear-gradient(0.53deg, #C4CCD5 25%, #FFFFFF 113.21%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        .tags {
+            li {
+                font-size: 32px;
+                color: #fff;
+                border-radius: 50px;
+                padding: 13px 40px;
+                background: #000;
+                transform: rotate(17deg);
+                position: absolute;
+                right: -75px;
+                top:11%;
+                &:nth-child(2) {
+                    top: 26%;
+                    right: auto;
+                    left: -125px;
+                    transform: rotate(-10.85deg);
+                }
+            }
+        }
+        .name {
+            font-family: $font-autograf;
+            font-size: 200px;
+            line-height: 1em;
+            color: #7308FF;
+            position: absolute;
+            width: 100%;
+            max-width: 1720px;
+            left: 50%;
+            top: 31%;
+            z-index: 1;
+            transform: translateX(-50%);
+        }
+    }
+}
+/** ============== Banner Two */
+.hero-banner-two {
+    .main-bg {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-top: 25px;
+        padding: 500px 0 30px;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 59%;
+            z-index: -1;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+        }
+    }
+    .hero-heading {
+        font-family: $font-CD;
+        font-size: 150px;
+        font-weight: 700;
+        line-height: 0.8666em;
+        text-transform: uppercase;
+        color: #fff;
+        margin-bottom: 25px;
+        span {
+            display: block;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 50px 100px rgba(0, 0, 0, 0.6);
+        }
+    }
+    .tags {
+        position: absolute;
+        left: 45px;
+        bottom: 50px;
+        li {
+            font-size: 18px;
+            font-weight: 500;
+            color: #fff;
+            padding: 0 35px;
+            line-height: 53px;
+            border-radius: 50px;
+            border: 1px solid #fff;
+            position: relative;
+            overflow: hidden;
+            &:before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top:0;
+                z-index: -1;
+                background: rgba(255, 255, 255, 0.2);
+                backdrop-filter: blur(3.5px);
+            }
+        }
+    }
+    .slider-arrows {
+        position: absolute;
+        right: 65px;
+        bottom: 50px;
+        z-index: 1;
+        li {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #fff;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(3.5px);
+            text-align: center;
+            line-height: 48px;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+            @include transition(0.3s);
+            &:hover {
+                background: #fff;
+                color: #000;
+            }
+        }
+    }
+}
+
+
+/** ============== Banner Three */
+.hero-banner-three {
+    .hero-heading {
+        font-family: $font-Sentient;
+        font-weight: normal;
+        font-size: 130px;
+        line-height: 0.9615em;
+        letter-spacing: -2.6px;
+        span {
+            font-family: $font-Switzer;
+            font-size: 36px;
+            padding: 15px 35px;
+            line-height: initial;
+            border-radius: 50px;
+            letter-spacing: 0;
+            position: absolute;
+            left: -18px;
+            top: 13px;
+            z-index: 1;
+            transform: rotate(11deg);
+            &:last-child {
+                left: auto;
+                top:auto;
+                right: -48px;
+                bottom: 48px;
+                transform: rotate(-11deg);
+            }
+        }
+    }
+    .shape_01 {
+        left: 0;
+        top:11%;
+        max-width: 7%;
+        animation: jumpThree 5s infinite linear;
+    }
+    .shape_02 {
+        right: 0;
+        bottom: 25%;
+        max-width: 7%;
+        animation: rotated 100s infinite linear;
+    }
+    .shape_03 {
+        top:3%;
+        left: -60px;
+        max-width: none;
+        width: calc(100% + 120px);
+        animation: jumpTwo 5s infinite linear;
+    }
+    .emoji_shape {
+        left: 8%;
+        bottom: 12%;
+        max-width: 14%;
+        animation: jumpTwo 5s infinite linear;
+    }
+    .bottom-info {
+        margin-top: -100px;
+        li {
+            margin-left: -12px;
+            &:first-child {
+                margin: 0;
+            }
+            img {
+                width: 65px;
+                height: 65px;
+                outline: 4px solid #fff;
+            }
+        }
+        strong {
+            font-size: 36px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: -5px;
+        }
+        .discuss-btn {
+            font-size: 22px;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 6px;
+            &:hover {
+                letter-spacing: 1.5px;
+            }
+        }
+    }
+}
+/** ============== Banner Four */
+.hero-banner-four {
+    background: url(../images/assets/bg_01.png) no-repeat center 50px;
+    padding: 240px 70px 20px;
+    background-size: cover;
+    .hero-heading {
+        font-family: $font-CD;
+        font-size: 190px;
+        line-height: 0.842em;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin: 100px 0 85px;
+        span {
+            font-family: $font-Sentient;
+            font-size: 240px;
+            font-weight: normal;
+            font-style: italic;
+            letter-spacing: -12px;
+            text-transform: capitalize;
+            display: block;
+            margin-top: -15px;
+        }
+    }
+    .cta-group {
+        li {
+            width: 315px;
+            height: 315px;
+            border-radius: 50%;
+            background: rgba($color: #fff, $alpha: 0.5);
+            margin: 0 -35px;
+            a {
+                font-family: $font-CD;
+                font-size: 24px;
+                font-weight: 500;
+                line-height: 1.375em;
+                letter-spacing: 2px;
+                color: #000;
+                text-transform: uppercase;
+                display: block;
+                width: 100%;
+                height: 100%;
+                background: #fff;
+                border-radius: 50%;
+                position: relative;
+                z-index: 1;
+            }
+            .sticker {
+                animation: rotated 100s infinite linear;
+            }
+        }
+    }
+    .sub-heading {
+        position: absolute;
+        left: 0;
+        top:0;
+        color: rgba($color: #fff, $alpha: 0.7);
+        max-width: 350px;
+        text-align: start;
+    }
+    ul {
+        .rating-box {
+            position: absolute;
+            right: 0;
+            top:-5px;
+            h4 {
+                font-family: $font-CD;
+                font-size: 100px;
+                line-height: 1em;
+                margin-bottom: 0;
+            }
+            p {
+                font-size: 22px;
+                color: rgba($color: #fff, $alpha: 0.6);
+                margin: 0;
+            }
+            &:nth-child(2) {
+                top:auto;
+                right: auto;
+                left: 0;
+                bottom: 75px;
+            }
+        } 
+    }
+    .social-icon-one {
+        position: absolute;
+        right: 0;
+        bottom: 75px;
+        a {
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            font-size: 18px;
+            color: #000;
+            &:hover {
+                background: $color-one;
+                color: #fff;
+            }
+        }
+    }
+}
+/** ============== Banner Five */
+.hero-banner-five {
+    .main-bg {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 590px 0 140px;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+    }
+    .hero-heading {
+        font-family: $font-Obviously-Narrow;
+        font-size: 140px;
+        line-height: 0.8571em;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #fff;
+    }
+    .round-shape {
+        width: 518px;
+        height: 518px;
+        background: $color-one;
+        border-radius: 50%;
+        position: absolute;
+        left: -9%;
+        bottom: 7%;
+        z-index: -1;
+        animation: plasma 5s infinite linear;
+    }
+    .slider-arrows {
+        position: absolute;
+        right: 100px;
+        bottom: 135px;
+        z-index: 1;
+        li {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            text-align: center;
+            line-height: 48px;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+            margin-left: 100px;
+            @include transition(0.3s);
+            &:hover {
+                background: #fff;
+                color: #000;
+            }
+        }
+    }
+    nav {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        top:18%;
+        z-index: 5;
+        .nav-wrapper {
+            margin: 0 -8px;
+            color: #fff;
+            max-width: 280px;
+            a {
+                text-transform: uppercase;
+                margin: 3px 8px;
+                @include transition(0.3s);
+                &:hover {
+                    color: $color-one;
+                }
+            }
+        }
+    }
+}
+/** ============== Banner Six */
+.hero-banner-six {
+    background: #FFF2E6;
+    padding: 185px 0 150px;
+    .hero-heading {
+        font-family: $font-Sentient;
+        font-size: 100px;
+        line-height: 1em;
+        letter-spacing: -2px;
+        margin-bottom: 35px;
+    }
+    h5 {
+        font-size: 32px;
+        padding: 62px 0 15px;
+    }
+    form {
+        max-width: 650px;
+        height: 70px;
+        input {
+            width: 100%;
+            height: 100%;
+            border: 2px solid #000;
+            padding: 0 90px 0 35px;
+            font-size: 18px;
+            border-radius: 10px;
+            &::placeholder {
+                color: #000;
+            }
+        }
+        button {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            top:0;
+            width: 90px;
+            background: #000;
+            border-radius: 0 10px 10px 0;
+            &:hover {
+                background: $color-three;
+            }
+        }
+    }
+    .card-wrapper {
+        position: absolute;
+        left: 0;
+        bottom: 48px;
+        z-index: 1;
+        width: 290px;
+        .main-count {
+            font-family: $font-Sentient;
+            font-size: 55px;
+            font-weight: 500;
+            letter-spacing: -2px;
+            margin-bottom: -12px;
+        }
+    }
+}
+/** ============== Banner Seven */
+.hero-banner-seven {
+    padding: 210px 0 0;
+    .hero-heading {
+        font-size: 110px;
+        line-height: 0.9636em;
+        font-weight: 600;
+        margin-bottom: 40px;
+    }
+    .screen-wrapper {
+        background: #F2F2F2;
+        border-radius: 40px;
+        padding: 108px 99px 75px;
+    }
+    .shape_01 {
+        bottom: 0;
+        left: 10%;
+        max-width: 87%;
+    }
+}
+/** ============== Banner Eight */
+.hero-banner-eight {
+    .hero-heading {
+        font-size: 190px;
+        line-height: 0.92105em;
+    }
+    .sticker {
+        animation: rotated 100s infinite linear;
+    }
+    .screen-wrapper .screen_01 {
+        right: 4%;
+        bottom: 6%;
+        z-index: 0;
+    }
+    .shape_01 {
+        right: 0;
+        top:7%;
+        max-width: 48%;
+    }
+}
+/** ============== Fancy Banner One */
+.fancy-banner-one {
+    .bg-wrapper {
+        background: url(../images/media/img_03.jpg) no-repeat center;
+        background-size: cover;
+        padding: 30px 35px;
+    }
+    .info {
+        font-family: $font-CD;
+        font-weight: 600;
+        color: #fff;
+        text-transform: uppercase;
+    }
+    h3 {
+        font-family: $font-CD;
+        font-size: 150px;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: center;
+        color: #fff;
+        line-height: .7666em;
+        margin: 460px 0 25px;
+        span {
+            display: block;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 50px 100px rgba(0, 0, 0, 0.6);
+        }
+    }
+    .tags {
+        li {
+            font-size: 18px;
+            font-weight: 500;
+            color: #fff;
+            padding: 0 35px;
+            line-height: 53px;
+            border-radius: 50px;
+            border: 1px solid #fff;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            &:before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top:0;
+                z-index: -1;
+                background: rgba(255, 255, 255, 0.2);
+                backdrop-filter: blur(2.5px);
+            }
+        }
+    }
+    .icon {
+        width: 72px;
+        height: 72px;
+        background: #fff;
+        &:hover {
+            background: $color-one;
+        }
+    }
+}
+/** ============== Fancy Banner Two */
+.fancy-banner-two {
+    text-align: center;
+    h2 {
+        font-family: $font-Sentient;
+        font-size: 120px;
+        line-height: 1em;
+        letter-spacing: -4px;
+        margin-bottom: 55px;
+        span {
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            &::before {
+                content: '';
+                position: absolute;
+                width: 103%;
+                height: 87%;
+                left: -11px;
+                top: 5px;
+                z-index: -1;
+                border-radius: 13px;
+                background: #FF9FE7;
+                transform: rotate(-2.87deg);
+            }
+        }
+    }
+    .shape_01 {
+        right: 30%;
+        bottom: 24%;
+        max-width: 5%;
+        animation: jumpTwo 5s infinite linear;
+    }
+}
+/** ============== Fancy Banner Three */
+.fancy-banner-three {
+    h2 {
+        font-family: $font-Obviously-Narrow;
+        font-size: 140px;
+        font-weight: 700;
+        line-height: 0.9285em;
+        text-transform: uppercase;
+        margin-bottom: 50px;
+    }
+    .round-shape {
+        width: 465px;
+        height: 465px;
+        background: $color-one;
+        border-radius: 50%;
+        position: absolute;
+        left: -6%;
+        top: -22%;
+        z-index: -1;
+        animation: plasma 5s infinite linear;
+    }
+}
+/** ============== Fancy Banner Four */
+.fancy-banner-four {
+    .img-wrapper {
+        border: 2px solid #000;
+        border-radius: 40px;
+        overflow: hidden;
+    }
+}
+/** ============== Fancy Banner Five */
+.fancy-banner-five {
+    background: #0B0B0B;
+    padding: 150px 0 120px;
+    h2 {
+        font-family: $font-Sentient;
+        font-size: 140px;
+        font-weight: normal;
+        color: #fff;
+        line-height: 1.0714em;
+        letter-spacing: -3px;
+        margin-bottom: 42px;
+        img {
+            margin: 0 15px;
+        }
+    }
+    .btn-six {
+        font-family: $font-Switzer;
+        text-transform: capitalize;
+        background: rgba($color: #fff, $alpha: 0.1);
+        &:hover {
+            background: $color-three;
+        }
+    }
+}
+/** ============== Fancy Banner Six */
+.fancy-banner-six {
+    .bg-wrapper {
+        background: #F7F7F7;
+        border-radius: 40px;
+        padding: 100px 0 0;
+        h2 {
+            font-size: 100px;
+            font-weight: 600;
+            line-height: 1em;
+        }
+    }
+}
+/** ============== Fancy Banner Seven */
+.fancy-banner-seven {
+    h2 {
+        font-size: 120px;
+        line-height: 1em;
+        margin: 0;
+        max-width: calc(100% - 400px);
+    }
+    .cta-btn {
+        width: 350px;
+        height: 350px;
+        background: $color-six;
+        padding: 2%;
+        &:hover {
+            background: $color-one;
+        }
+    }
+}
+/** ============== Fancy Banner Eight */
+.fancy-banner-eight {
+    .bg-wrapper {
+        padding: 110px 15px 110px;
+    }
+    .btn-four {
+        line-height: 60px;
+        font-size: 15px;
+        text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: 1px;
+        background: #fff;
+        color: #000;
+        &:hover {
+            background: $color-one;
+            color: #fff;
+        }
+    }
+    .shape_01 {
+        right: 0;
+        bottom: 0;
+        max-width: 38%;
+    }
+}
+/** ============== Inner Banner One */
+.inner-banner-one {
+    margin-top: 25px;
+    .bg-wrapper {
+        background-position: center;
+        background-size: cover;
+        padding: 200px 0 135px;
+    }
+    h2 {
+        font-family: $font-CD;
+        font-size: 110px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #fff;
+        margin-bottom: 0;
+        text-align: center;
+    }
+}
+/** ============== Inner Banner Two */
+.inner-banner-two {
+    .layer-one {
+        padding-bottom: 25px;
+        &:before {
+            content: '';
+            position: absolute;
+            left: 100px;
+            right: 100px;
+            bottom:0;
+            top: 20px;
+            border: 2px solid #000;
+            border-radius: 40px;
+            background: #fff;
+        }
+    }
+    .layer-two {
+        padding-bottom: 25px;
+        &:before {
+            content: '';
+            position: absolute;
+            left: 50px;
+            right: 50px;
+            bottom:0;
+            top: 20px;
+            border: 2px solid #000;
+            border-radius: 40px;
+            background: #fff;
+        }
+    }
+    .main-bg {
+        background: #fff;
+        border: 2px solid #000;
+        border-radius: 40px;
+        padding: 100px 10px 75px;
+        text-align: center;
+    }
+    h2 {
+        font-family: $font-Sentient;
+        font-size: 92px;
+        line-height: 1.073em;
+        letter-spacing: -1.84px;
+        display: inline-block;
+        margin: 0 0 22px;
+        span.sticker {
+            font-family: $font-Switzer;
+            font-size: 36px;
+            padding: 12px 38px;
+            line-height: initial;
+            display: inline-block;
+            font-weight: normal;
+            border-radius: 50px;
+            letter-spacing: 0;
+            transform: rotate(-13deg);
+            position: absolute;
+            left: -135px;
+            top: -23px;
+            &.right1 {
+                left: auto;
+                right: -160px;
+                transform: rotate(11.28deg);
+            }
+        }
+    }
+    .shape_01 {
+        left: 8%;
+        top:41%;
+        max-width: 7%;
+        animation: jumpThree 5s infinite linear;
+    }
+    .shape_02 {
+        right: 8%;
+        top: 40%;
+        max-width: 6%;
+        animation: rotated 100s infinite linear;
+    }
+}
+/** ============== Inner Banner Three */
+.inner-banner-three {
+    padding: 260px 0 155px;
+    h2 {
+        font-family: $font-CD;
+        font-size: 190px;
+        line-height: 0.842em;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin: 0;
+        span {
+            font-family: $font-Sentient;
+            font-size: 240px;
+            font-weight: normal;
+            font-style: italic;
+            letter-spacing: -12px;
+            text-transform: capitalize;
+            display: inline-block;
+            margin-top: -15px;
+        }
+    }
+    .shape_01 {
+        left: 0;
+        top:0;
+        max-width: 16%;
+    }
+    .shape_02 {
+        right: 0;
+        top:27%;
+        max-width: 17%;
+    }
+}
+
+/** ============== Inner Banner Four */
+.inner-banner-four {
+    background: #FFF2E6;
+    padding: 170px 0 90px;
+    text-align: center;
+    h2 {
+        font-family: $font-Sentient;
+        font-size: 100px;
+        letter-spacing: -2px;
+        margin-bottom: 30px;
+    }
+    ul {
+        margin: 0 -2px;
+        li {
+            padding: 0 2px 10px;
+            font-size: 24px;
+            color: rgba($color: #000, $alpha: 0.3);
+            &:last-child {
+                color: #000;
+            }
+            &:hover a {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+/** ============== Map Banner */
+.map-banner-one {
+    height: 535px;
+    .gmap_canvas {
+        border-radius: 40px;
+        overflow: hidden;
+    }
+}
+/** ============== Map Banner */
+.map-banner-two {
+    height: 550px;
+}
+/** ============== Video Banner One */
+.video-banner-one {
+    &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 62%;
+        background: #0B0B0B;
+        z-index: -1;
+    }
+    .bg-wrapper {
+        background: url(../images/media/img_133.jpg) no-repeat center;
+        background-size: cover;
+        padding: 40px;
+        border-radius: 40px;
+        height: 825px;
+    }
+    .play-btn {
+        width: 130px;
+        height: 130px;
+        padding: 15px;
+        background: #fff;
+        &:hover {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+        }
+    }
+}
+
+/** ============== Video Banner Two */
+.video-banner-two {
+    .bg-wrapper {
+        background: url(../images/media/img_142.jpg) no-repeat center;
+        background-size: cover;
+        padding: 40px;
+        border-radius: 30px;
+        height: 775px;
+    }
+    .play-btn {
+        width: 210px;
+        height: 210px;
+        padding: 30px;
+        background: #fff;
+        &:hover {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+        }
+    }
+}

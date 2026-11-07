@@ -1,0 +1,42 @@
+/* Yellow pill shape */
+.review-wrap {
+  background-color: #ffcb24 !important;
+  border-radius: 50px !important;
+  padding: 47px !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+}
+
+.review-content {
+  display: flex !important;
+  align-items: center !important;
+  gap: 27px !important;
+  max-width: 95% !important;
+}
+
+.review-content__left {
+  flex: none !important;
+}
+
+.review-title {
+  font-family: "Epilogue", sans-serif !important;
+  margin: 0 0 15px 0 !important;
+}
+
+.review-text {
+  font-size: 18px !important;
+  color: #4e4d4d !important;
+  margin-bottom: 0 !important;
+  line-height: 32px !important;
+}
+
+@media (max-width: 991px) {
+  .review-wrap {
+    padding: 15px !important;
+  }
+  .review-content {
+    gap: 27px !important;
+    max-width: 100% !important;
+    flex-direction: column !important;
+    text-align: center !important;
+  }
+}

@@ -1,0 +1,452 @@
+/* ===================== Contact Css ====================== */
+
+#contact-form {
+    .help-block {
+        position: absolute;
+        left: 0;
+        bottom: -18px;
+        font-size: 13px;
+        line-height: 20px;
+        color: #ff4d44;
+
+        ul {
+            margin: 0;
+        }
+    }
+}
+
+/** ============== Contact Section One */
+.contact-section-one {
+    .title-three {
+        h2 {
+            font-size: 480px;
+        }
+    }
+
+    .contact-form-bg {
+        background: #fff;
+        margin-top: -175px;
+    }
+
+    .form-style-one {
+        padding: 80px 90px 85px 85px;
+    }
+
+    .image-bg {
+        background: url(../images/media/img_32.jpg) no-repeat center top / cover;
+        width: 100%;
+        height: 100%;
+        min-height: 360px;
+    }
+}
+
+.form-style-one {
+    h3 {
+        font-family: $font-Obviously-Narrow;
+        font-size: 90px;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .input-group-meta {
+        label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 3px;
+        }
+
+        input {
+            width: 100%;
+            font-size: 18px;
+            border: none;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            font-size: 18px;
+            border: none;
+            border-bottom: 2px solid #000;
+            height: 145px;
+            min-height: 145px;
+            resize: none;
+            padding-bottom: 10px;
+        }
+    }
+
+    .btn-four {
+        line-height: 60px;
+        font-size: 20px;
+    }
+}
+
+/** ============== Contact Section Two */
+.contact-section-two {
+    .contact-form-bg {
+        padding: 90px 70px 80px;
+
+        h6 {
+            font-size: 20px;
+            font-weight: normal;
+            color: rgba($color: #fff, $alpha: 0.3);
+        }
+
+        .tel {
+            font-size: 28px;
+        }
+    }
+}
+
+.form-style-two {
+    .input-group-meta {
+        label {
+            font-size: 16px;
+            color: rgba($color: #fff, $alpha: 0.3);
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        input {
+            width: 100%;
+            border: none;
+            color: #fff;
+            background: transparent;
+            border-bottom: 1px solid rgba($color: #fff, $alpha: 0.15);
+            padding-bottom: 10px;
+
+            &::placeholder {
+                color: #fff;
+            }
+        }
+
+        textarea {
+            width: 100%;
+            border: none;
+            color: #fff;
+            background: transparent;
+            border-bottom: 1px solid rgba($color: #fff, $alpha: 0.15);
+            height: 180px;
+            min-height: 180px;
+            resize: none;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    }
+
+    .btn-four {
+        line-height: 60px;
+        font-size: 15px;
+        text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: 1px;
+        background: #fff;
+        color: #000;
+
+        &:hover {
+            background: $color-one;
+            color: #fff;
+        }
+    }
+}
+
+/** ============== Contact Section Three */
+.contact-section-three {
+    h2 {
+        font-family: $font-CD;
+        font-size: 90px;
+        line-height: 1.0555em;
+        text-align: center;
+    }
+
+    .contact-form-bg {
+        background: #F4F4F4;
+        padding: 75px 85px 75px;
+    }
+
+    .form-style-one {
+        .input-group-meta {
+            label {
+                font-size: 15px;
+                font-weight: normal;
+                color: rgba($color: #000, $alpha: 0.5);
+            }
+
+            input,
+            textarea {
+                font-size: 18px;
+                font-weight: 500;
+                color: #000;
+                background: transparent;
+
+                &::placeholder {
+                    color: #000;
+                }
+            }
+        }
+    }
+}
+
+/** ============== Contact Section Four */
+.contact-section-four {
+    .title-two h2 span.sticker {
+        position: absolute;
+        left: 0;
+        top: -45px;
+        transform: rotate(-5.5deg);
+        min-width: 225px;
+    }
+
+    .call-btn {
+        .icon {
+            width: 105px;
+        }
+
+        span {
+            display: block;
+            font-size: 20px;
+            text-transform: uppercase;
+            color: rgba($color: #000, $alpha: 0.3);
+        }
+
+        a {
+            font-size: 36px;
+            letter-spacing: -1px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 5px;
+        }
+    }
+
+    .form-style-one {
+        form {
+            border: 2px solid #000;
+            border-radius: 30px;
+            padding: 55px 65px;
+        }
+    }
+}
+
+/** ============== Contact Section Five */
+.contact-section-five {
+    .round-shape {
+        width: 520px;
+        height: 520px;
+        background: $color-one;
+        border-radius: 50%;
+        position: absolute;
+        left: -3%;
+        top: 0;
+        z-index: -1;
+        animation: plasma 5s infinite linear;
+    }
+
+    .call-btn {
+        .icon {
+            width: 90px;
+            height: 90px;
+            background: #F4F4F4;
+        }
+
+        span {
+            display: block;
+            font-size: 20px;
+            color: rgba($color: #000, $alpha: 0.45);
+            margin-bottom: 12px;
+        }
+
+        a {
+            font-family: $font-Obviously;
+            font-size: 28px;
+            font-weight: 500;
+        }
+    }
+
+    .form-style-one {
+        form {
+            background: #FFEEE8;
+            padding: 70px 65px 70px;
+        }
+
+        .input-group-meta {
+            label {
+                font-family: $font-Obviously-Narrow;
+                font-size: 20px;
+                font-weight: 600;
+                text-transform: uppercase;
+                margin-bottom: 8px;
+            }
+
+            input {
+                border: none;
+                height: 90px;
+                padding: 0 20px;
+            }
+
+            textarea {
+                border: none;
+                height: 288px;
+                padding: 20px;
+            }
+        }
+    }
+}
+
+/** ============== Contact Section Six */
+.contact-section-six {
+    .contact-block {
+        .icon {
+            width: 80px;
+            height: 80px;
+        }
+
+        h5 {
+            font-family: $font-Sentient;
+            font-size: 28px;
+            margin: 23px 0 11px;
+            letter-spacing: -0.28px;
+        }
+
+        p {
+            font-size: 20px;
+            line-height: 32px;
+            color: #878787;
+        }
+
+        .tel {
+            font-size: 24px;
+            color: #FF3294;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .email {
+            color: #000;
+            text-decoration: underline;
+        }
+    }
+
+    .form-style-one {
+        .input-group-meta label {
+            font-size: 15px;
+        }
+    }
+}
+
+/** ============== Contact Section Seven */
+.contact-section-seven {
+    .bg-wrapper {
+        background: #F6F6F6;
+        padding: 165px 0;
+
+        .form-style-one {
+            background: #fff;
+            border-radius: 30px;
+            padding: 70px 50px;
+
+            .input-group-meta {
+                label {
+                    font-size: 15px;
+                    color: rgba($color: #000, $alpha: 0.5);
+                    margin-bottom: 5px;
+                }
+
+                input {
+                    border-radius: 10px;
+                    border: 1px solid #F1F1F1;
+                    background: #F6F6F6;
+                    padding: 0 20px;
+                    height: 60px;
+                }
+
+                textarea {
+                    border-radius: 10px;
+                    border: 1px solid #F1F1F1;
+                    background: #F6F6F6;
+                    padding: 20px;
+                    height: 210px;
+                }
+            }
+
+            .btn-eight {
+                border-radius: 10px;
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+/** ============== Contact Section Eight */
+.contact-section-eight {
+    .shape_01 {
+        left: 0;
+        top: 22%;
+        max-width: 29%;
+    }
+
+    .form-style-one {
+        background: #fff;
+        border-radius: 30px;
+        padding: 80px 80px 70px;
+
+        .input-group-meta {
+            label {
+                font-size: 16px;
+                color: rgba($color: #000, $alpha: 0.5);
+                margin-bottom: 5px;
+            }
+
+            textarea {
+                height: 200px;
+            }
+        }
+
+        .btn-four {
+            border-radius: 10px;
+        }
+    }
+
+    .address-banner {
+        .icon {
+            width: 64px;
+            height: 64px;
+            background: #000;
+        }
+
+        .text {
+            width: calc(100% - 64px);
+            padding-left: 25px;
+
+            p {
+                margin-bottom: 3px;
+            }
+
+            a {
+                color: rgba($color: #161616, $alpha: 0.45);
+
+                &:hover {
+                    color: $color-one;
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .skew-line:before,
+        .skew-line:after {
+            content: '';
+            position: absolute;
+            height: 70px;
+            width: 1px;
+            transform: rotate(23deg);
+            top: 0;
+            left: -100px;
+            background: #000;
+        }
+
+        .skew-line:after {
+            left: auto;
+            right: -100px;
+        }
+    }
+}
