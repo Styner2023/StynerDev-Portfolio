@@ -1,0 +1,1924 @@
+/*
+Theme Name: Beeberry HTML5 Template
+Theme URI: https://themeforest.net/item/beeberry-beekeeping-and-honey-online-shop-html5-template/43618342
+Design by: techsometimes
+Developed by: A N Abdullah Al Numan
+Version: 2.3.1
+License: 
+Tags: 
+*/
+
+/*================================================
+[  Table of contents  ]
+================================================
+
+    1 Theme Default
+
+    2 Menu Bar
+
+    3 Banner
+
+    4 Our Services
+
+    5 Why Us
+
+    6 Download App
+
+    8 We Serve
+
+    9 Testimonial
+
+    10 Blog News
+
+    12 About Beeberry
+
+    13 Fun Fact
+
+    14 Gallery Display
+
+    15 Working Process 
+
+    16 Get In Touch
+
+    17 Team
+
+    18 Tasty Honey
+
+    19 Services Details
+
+    21 Who We Are
+
+    22 Make A New Story
+
+    23 Shop
+
+    24 Shop Details
+
+    26 Blog Details
+
+    28 Send Messag
+
+    30 Footer
+
+======================================
+[ End table content ]
+======================================*/
+
+@use "./abstracts/variables" as *;
+@use "./abstracts/autoprefixer" as *;
+
+@media (min-width: 370px) and (max-width: 575px) {
+  /*=====================
+      2 Menu Bar
+  =======================*/
+  .menu-bar {
+    &.v1,
+    &.v2 {
+      .menu-logo {
+        width: calc(45% - 15px);
+      }
+      .menu-right {
+        width: calc(55% - 15px);
+        & > ul > li:nth-child(2) {
+          display: inline-block;
+        }
+      }
+    }
+  }
+  /*=====================
+      6 Download App
+  =======================*/
+
+  .download-app {
+    &.v1 {
+      .download-btns {
+        ul {
+          @include d-flex;
+          @include align-items;
+          gap: 20px;
+        }
+      }
+    }
+  }
+  /*=====================
+      23 Shop
+  =======================*/
+  .shop.v1 .products .pro-right {
+    @include d-flex;
+    @include align-items;
+    @include flex-wrap;
+    @include justify-content-between;
+  }
+}
+
+@media (min-width: 575px) {
+  /*=====================
+      2 Menu Bar
+  =======================*/
+  .menu-bar {
+    &.v1,
+    &.v2 {
+      .menu-right {
+        & > ul > li:nth-child(1),
+        & > ul > li:nth-child(2) {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  /*=====================
+      3 Banner
+  =======================*/
+  .banner {
+    &.v2 {
+      .bee-1,
+      .bee-2 {
+        opacity: 1;
+      }
+    }
+  }
+
+  /*=====================
+      6 Download App
+  =======================*/
+  .download-app {
+    &.v1 {
+      .download-btns {
+        ul {
+          @include d-flex;
+          @include align-items;
+          gap: 20px;
+        }
+      }
+    }
+  }
+
+  /*========================
+      12 About Beeberry
+  ==========================*/
+  .about-beeberry {
+    &.v1 {
+      .exp-text p {
+        margin-left: 0;
+      }
+    }
+  }
+
+  /*========================
+      13 Fun Fact
+  ==========================*/
+  .fun-fact {
+    &.v1,
+    &.v2 {
+      ul {
+        @include d-flex;
+        @include flex-wrap;
+      }
+    }
+    &.v1 {
+      li {
+        position: relative;
+        padding: 0px 15px;
+        width: 50%;
+        &::before {
+          position: absolute;
+          content: "";
+          width: 100%;
+          height: 0px;
+          top: 40px;
+          border-top: 1px dashed $color-black;
+          z-index: -1;
+        }
+        &:nth-child(2) {
+          margin-top: 0;
+          &::before {
+            content: none;
+          }
+        }
+        &:last-child::before {
+          content: none;
+        }
+      }
+    }
+    &.v2 {
+      ul {
+        @include justify-content-between;
+        gap: 30px;
+      }
+      li ~ li {
+        margin-top: 0px;
+      }
+    }
+  }
+
+  /*=====================
+    10 Blog News
+=======================*/
+
+  .blog-news.v3 {
+    form {
+      gap: 10px;
+      input {
+        width: calc(100% - 160px);
+      }
+    }
+    .our-sweet-partners ul li {
+      width: calc(18% - 10px);
+    }
+  }
+
+  /*=====================
+      23 Shop
+  =======================*/
+  .shop.v1 .products .pro-right {
+    @include d-flex;
+    @include align-items;
+    @include flex-wrap;
+    @include justify-content-between;
+  }
+
+  /*=====================
+      27 Gallery Single
+  =======================*/
+
+  .gallery-single.v1 {
+    .big-img-count .box-content {
+      li {
+        width: calc(50% - 1px);
+        &:nth-last-child(1) {
+          border-radius: 0px 0px 20px 0px;
+        }
+        &:nth-last-child(2) {
+          border-radius: 0px 0px 0px 20px;
+        }
+      }
+    }
+  }
+
+  /*=====================
+    30 Footer
+=======================*/
+  .info-footer {
+    &.v1,
+    &.v2 {
+      .news-letter .subscribe-bar {
+        form {
+          @include d-flex;
+          gap: 20px;
+        }
+        .btn-anime {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  /*=====================
+      1 Theme Default
+  =======================*/
+  html:not([dir="rtl"]) {
+    /*=====================
+      15 Working Process 
+    =======================*/
+    .working-process {
+      &.v1 {
+        .process-boxs li .icon-box::before {
+          left: calc(50% + 145px);
+          @include transform(translateY(50%));
+        }
+      }
+    }
+  }
+
+  html[dir="rtl"] {
+    /*=====================
+      15 Working Process 
+    =======================*/
+    .working-process {
+      &.v1 {
+        .process-boxs li .icon-box::before {
+          right: calc(50% + 145px);
+          @include transform(translateY(50%) rotateY(-180deg));
+        }
+      }
+    }
+  }
+
+  /*=====================
+      3 Banner
+  =======================*/
+  .banner {
+    &.v3 {
+    }
+  }
+  /*=====================
+      4 Our Services
+  =======================*/
+  .our-services {
+    &.v1 .row > div:nth-last-child(2) .service-card,
+    &.v2 .row > div:nth-last-child(2) .service-card {
+      margin-bottom: 0px;
+    }
+  }
+  /*=====================
+      5 Why Us
+  =======================*/
+  .why-us {
+    &.v1 .big-pic {
+      width: 65%;
+      margin: 0 auto 50px auto;
+    }
+  }
+
+  /*=====================
+      10 Blog News
+  =======================*/
+  .blog-news {
+    &.v2 {
+      .row > div:nth-last-child(2) .blog-card {
+        margin-bottom: 0px;
+      }
+    }
+  }
+
+  /*========================
+      13 Fun Fact
+  ==========================*/
+  .fun-fact {
+    &.v2 ul li {
+      width: calc(50% - 20px);
+    }
+  }
+  /*=====================
+      15 Working Process 
+  =======================*/
+  .working-process {
+    &.v1 {
+      .process-boxs {
+        ul {
+          @include flex-direction-row;
+        }
+        li {
+          width: calc(50% - 15px);
+          .icon-box {
+            position: relative;
+            &::before {
+              position: absolute;
+              content: "";
+              width: 65px;
+              height: 30px;
+              top: calc(50% - 35px);
+              background-image: url("../img/working-process/right-shap.svg");
+              background-repeat: no-repeat;
+              background-position: center center;
+              background-size: contain;
+            }
+          }
+          &:nth-child(2) .icon-box::before {
+            content: none;
+          }
+        }
+      }
+    }
+  }
+  /*=====================
+      18 Tasty Honey
+  =======================*/
+  .tasty-honey.v1 .row > div:nth-last-child(2) .tasty-honey-card {
+    margin-bottom: 0;
+  }
+
+  /*=========================
+      19 Services Details
+  ===========================*/
+  .services-details.v1 {
+    .feedbac-box {
+      padding: 30px;
+      @include d-flex;
+      @include align-items;
+      @include justify-content-between;
+      @include flex-wrap;
+      border-radius: 20px;
+      gap: 30px;
+      .box-img,
+      .box-content {
+        width: calc(50% - 30px);
+      }
+      .box-content {
+        width: 100%;
+      }
+    }
+    .mid-box-imgs {
+      margin-top: 45px;
+      @include d-flex;
+      @include align-items;
+      @include flex-wrap;
+      gap: 30px;
+      .box-img {
+        width: calc(50% - 15px);
+        &:nth-child(2) {
+          margin-top: 0px;
+        }
+      }
+    }
+  }
+
+  /*=====================
+      23 Shop
+  =======================*/
+  .shop.v1 .products {
+    .pro-display-header {
+      @include d-flex;
+      @include align-items;
+      @include flex-wrap;
+    }
+    .pro-left {
+      width: 35%;
+    }
+    .pro-right {
+      width: 65%;
+      margin-top: 0;
+    }
+    .row > div:nth-last-child(2) .product-card {
+      margin-bottom: 0px;
+    }
+  }
+  /*==================
+      24 Shop Details
+  ====================*/
+  .shop-details.v1 {
+    .big-box-img {
+      width: 65%;
+    }
+    .product-tab .nav-tabs {
+      @include d-flex;
+      @include align-items;
+      @include flex-wrap;
+      & > li {
+        width: 50%;
+        & ~ li {
+          margin: 0px;
+        }
+      }
+      button {
+        padding: 15px 0px;
+      }
+    }
+  }
+
+  /*=====================
+      26 Blog Details
+  =======================*/
+  .blog-details.v1 {
+    .big-post-details {
+      .gallery-box-images .box-image {
+        width: calc(50% - 15px);
+      }
+    }
+  }
+
+  /*=====================
+      27 Gallery Single
+  =======================*/
+  .gallery-single.v1 .box-gallery .img-box {
+    width: calc(50% - 15px);
+  }
+}
+
+@media (min-width: 992px) {
+  /*=====================
+      1 Theme Default
+  =======================*/
+  .section-title-center,
+  .section-title-center-white {
+    h6 {
+      max-width: 25%;
+    }
+    h2 {
+      font-size: 48px;
+      line-height: 60px;
+      max-width: 58%;
+    }
+    p {
+      max-width: 75%;
+    }
+  }
+
+  .bg-honey-shap-2,
+  .bg-honey-shap-left,
+  .bg-honey-shap-right {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+  .bg-honey-shap-2 {
+    &::before {
+      height: 55vh;
+      left: -15px;
+      background: url("../img/honeycom-b-a/v1/banner-shapeleft.png");
+    }
+    &::after {
+      height: 45vh;
+      right: -15px;
+      background: url("../img/honeycom-b-a/v1/banner-shaperight.png");
+    }
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      width: 30vh;
+      top: 0;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+      z-index: -1;
+    }
+  }
+  .bg-honey-shap-left::before {
+    position: absolute;
+    content: "";
+    width: 30vh;
+    height: 55vh;
+    top: 0;
+    left: -15px;
+    background: url("../img/honeycom-b-a/v1/banner-shapeleft.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    z-index: -1;
+  }
+  .bg-honey-shap-right::after {
+    position: absolute;
+    content: "";
+    width: 30vh;
+    height: 45vh;
+    top: 0;
+    right: -15px;
+    background: url("../img/honeycom-b-a/v1/banner-shaperight.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    z-index: -1;
+  }
+
+  section {
+    &.pt-lg-spach {
+      padding-top: 200px;
+    }
+    &.pb-lg-spach {
+      padding-bottom: 200px;
+    }
+    &.mt-lg-spach {
+      margin-top: -100px;
+    }
+    &.mb-lg-spach {
+      margin-bottom: -100px;
+    }
+  }
+  .v1 .blog-sidebar__wrapper .blog-sidebar__widget:first-child {
+    margin-top: 0px;
+  }
+
+  .title-left-right {
+    @include d-flex;
+    @include align-items-end;
+    @include justify-content-between;
+    .left-content {
+      width: 45%;
+      margin-bottom: 0px;
+    }
+    .right-content {
+      width: 55%;
+      padding-left: 30px;
+    }
+  }
+
+  .post-link {
+    margin: 13px 0px;
+    &::before {
+      font-size: 18px;
+    }
+    &::after {
+      width: 50px;
+      height: 50px;
+      top: -13px;
+    }
+  }
+  .next-preve-post {
+    .prev-post,
+    .next-post {
+      width: calc(50% - 35px);
+      margin: 13px 0px 4px 0px;
+      &::before {
+        font-size: 18px;
+      }
+      &::after {
+        width: 50px;
+        height: 50px;
+        top: -13px;
+      }
+    }
+  }
+
+  html:not([dir="rtl"]) {
+    /*=====================
+      1 Theme Default
+    =======================*/
+    .row {
+      .content-left {
+        padding-right: 100px;
+      }
+      .right-content {
+        margin-left: auto;
+      }
+    }
+    .post-link {
+      padding-right: 80px;
+      &::before {
+        right: 22px;
+      }
+    }
+    .next-preve-post {
+      .prev-post {
+        padding-left: 80px;
+        &::before {
+          left: 22px;
+        }
+      }
+      .next-post {
+        padding-right: 80px;
+        &::before {
+          right: 22px;
+        }
+      }
+    }
+    /*=====================
+      6 Download App
+    =======================*/
+    .download-app.v1 .mobile-ads-box .side-img {
+      right: 0;
+    }
+    /*========================
+        12 About Beeberry
+    ==========================*/
+    .about-beeberry.v3 .content-left {
+      padding: 0px 0px 0px 100px;
+    }
+
+    /*=====================
+      16 Get In Touch
+    =======================*/
+    .get-in-touch.v1 .box-content .play-btn {
+      right: -50px;
+    }
+
+    /*========================
+        22 Make A New Story
+    ==========================*/
+    .make-a-new-story.v1 {
+      li {
+        margin-left: auto;
+        .count-item {
+          left: -70px;
+        }
+        &::after {
+          left: -50px;
+        }
+        &:nth-child(2n + 0) {
+          margin-left: inherit;
+          .count-item {
+            left: inherit;
+            right: -70px;
+          }
+          &::after {
+            left: inherit;
+            right: -51px;
+          }
+        }
+      }
+    }
+    /*==================
+        24 Shop Details
+    ====================*/
+    .shop-details.v1 {
+      .product-tab .nav-tabs button {
+        padding: 0px 50px 15px 0px;
+      }
+    }
+    /*=====================
+        28 Send Messag
+    =======================*/
+    .send-message.v1 .left-content {
+      padding-right: 60px;
+    }
+  }
+
+  html[dir="rtl"] {
+    /*=====================
+      1 Theme Default
+    =======================*/
+    .row {
+      .content-left {
+        padding-left: 100px;
+      }
+      .right-content {
+        margin-right: auto;
+      }
+    }
+
+    .post-link {
+      padding-left: 80px;
+      &::before {
+        left: 22px;
+      }
+    }
+
+    .next-preve-post {
+      .prev-post {
+        padding-right: 80px;
+        &::before {
+          right: 22px;
+        }
+      }
+      .next-post {
+        padding-left: 80px;
+        &::before {
+          left: 22px;
+        }
+      }
+    }
+
+    /*=====================
+      6 Download App
+    =======================*/
+    .download-app.v1 .mobile-ads-box .side-img {
+      left: 0;
+    }
+    /*========================
+        12 About Beeberry
+    ==========================*/
+    .about-beeberry.v3 .content-left {
+      padding: 0px 100px 0px 0px;
+    }
+    /*=====================
+      16 Get In Touch
+    =======================*/
+    .get-in-touch.v1 .box-content .play-btn {
+      left: -50px;
+    }
+
+    /*========================
+        22 Make A New Story
+    ==========================*/
+    .make-a-new-story.v1 {
+      li {
+        margin-right: auto;
+        .count-item {
+          right: -70px;
+        }
+        &::after {
+          right: -50px;
+        }
+        &:nth-child(2n + 0) {
+          margin-left: auto;
+          margin-right: inherit;
+          .count-item {
+            left: -70px;
+            right: inherit;
+          }
+          &::after {
+            left: -52px;
+            right: inherit;
+          }
+        }
+      }
+    }
+    /*==================
+        24 Shop Details
+    ====================*/
+    .shop-details.v1 {
+      .product-tab .nav-tabs button {
+        padding: 0px 0px 15px 50px;
+      }
+    }
+    /*=====================
+        28 Send Messag
+    =======================*/
+    .send-message.v1 .left-content {
+      padding-left: 60px;
+    }
+  }
+
+  /*=====================
+      3 Banner
+  =======================*/
+  .banner {
+    &.v1 {
+      .rount-profile-bg {
+        margin: 0;
+      }
+    }
+    &.v3 {
+      padding-top: 0;
+      .product-img {
+        width: 70%;
+        .small-img-1 {
+          width: 125px;
+          height: 125px;
+        }
+        .small-img-2 {
+          width: 110px;
+          height: 110px;
+        }
+      }
+      .bottom-content {
+        @include d-flex;
+        @include flex-wrap;
+      }
+      .future-list {
+        li {
+          width: 195px;
+        }
+      }
+      .scroll-down-2 {
+        margin-top: 0px;
+        text-align: inherit;
+      }
+      .bottom-content {
+        @include justify-content-between;
+        @include align-items-end;
+      }
+    }
+  }
+
+  /*=====================
+      4 Our Services
+  =======================*/
+  .our-services {
+    &.v2 {
+      .content-left {
+        margin-top: 0px;
+      }
+      .check-our-profile {
+        margin-top: 0px;
+      }
+    }
+  }
+
+  /*=====================
+      6 Download App
+  =======================*/
+
+  .download-app {
+    &.v1 {
+      .section-title {
+        margin-top: 0px;
+      }
+      .mobile-ads-box {
+        padding: 100px;
+        width: 100%;
+      }
+      .download-btns ul {
+        @include d-flex;
+        @include align-items;
+        gap: 20px;
+      }
+    }
+  }
+  /*=====================
+      9 Testimonial
+  =======================*/
+  .testimonial {
+    &.v1,
+    &.v2,
+    &.v3 {
+      .testimonial-card {
+        padding: 50px;
+      }
+    }
+    &.v1,
+    &.v2,
+    &.v3 {
+      .slider {
+        overflow: inherit;
+      }
+    }
+    &.v3 {
+      .testimonial-card .profile .profile-img {
+        margin: -80px auto 0px auto;
+      }
+    }
+  }
+
+  /*=====================
+      10 Blog News
+  =======================*/
+  .blog-news {
+    &.v1,
+    &.v3 {
+      .small-post {
+        .blog-card {
+          @include d-flex;
+        }
+        .blog-content {
+          width: calc(100% - 250px);
+          margin-top: 0;
+          .post-footer {
+            margin-top: 15px;
+          }
+        }
+      }
+    }
+    &.v1 {
+      .small-post {
+        margin-top: 0;
+        li:first-child {
+          padding-top: 0;
+        }
+        .blog-card {
+          @include flex-direction-row;
+          gap: 40px;
+          .blog-img {
+            width: 250px;
+            height: 180px;
+          }
+        }
+      }
+    }
+    &.v3 {
+      .blog-card {
+        @include align-items;
+        .blog-content {
+          .post-header h6 {
+            font-size: 14px;
+            line-height: 24px;
+          }
+        }
+      }
+      .small-post .blog-card {
+        gap: 20px;
+        .blog-img {
+          width: 170px;
+          height: 150px;
+        }
+      }
+      .contact-form {
+        margin-top: 0px;
+        & ~ .our-sweet-partners {
+          margin-top: 100px;
+        }
+      }
+    }
+  }
+
+  /*========================
+      12 About Beeberry
+  ==========================*/
+  .about-beeberry {
+    &.v1 {
+      .row ~ .video-box {
+        margin-top: 100px;
+      }
+      .video-box {
+        &::before,
+        &::after {
+          width: 450px;
+          height: 450px;
+        }
+      }
+    }
+  }
+
+  /*========================
+      13 Fun Fact
+  ==========================*/
+  .fun-fact {
+    &.v1 {
+      li {
+        width: 25%;
+        margin-top: 0;
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4) {
+          margin-top: 0;
+        }
+        &:nth-child(2)::before {
+          content: "";
+        }
+      }
+    }
+    &.v2 ul li {
+      width: calc(33.3333333% - 20px);
+    }
+  }
+  /*=========================
+      14 Gallery Display
+  ===========================*/
+  .gallery-display.v1 .gallery-content::after {
+    width: 400px;
+    height: 400px;
+  }
+
+  /*=====================
+      15 Working Process 
+  =======================*/
+  .working-process {
+    &.v1 .process-boxs {
+      margin-top: 80px;
+    }
+  }
+
+  /*=====================
+      16 Get In Touch
+  =======================*/
+  .get-in-touch.v1 {
+    .box-content .play-btn {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      top: 50%;
+      @include transform(translateY(-50%));
+      margin: 0px 0px -100px 0px;
+    }
+  }
+
+  /*=====================
+      18 Tasty Honey
+  =======================*/
+  .tasty-honey.v1 .tasty-honey-card {
+    .tasty-honey-header {
+      .my-icon {
+        font-size: 70px;
+      }
+      h4 {
+        font-size: 55px;
+        line-height: 65px;
+      }
+    }
+  }
+
+  /*========================
+      22 Make A New Story
+  ==========================*/
+  .make-a-new-story.v1 {
+    .section-title-center ~ .story-cards {
+      margin-top: 90px;
+    }
+    .story-cards {
+      li ~ li {
+        margin-top: 0;
+      }
+      .count-item {
+        position: absolute;
+        margin: 0;
+        &::before,
+        &::after {
+          content: none;
+        }
+      }
+    }
+    li {
+      position: relative;
+      width: calc(50% - 50px);
+      margin-top: -40px;
+      &::after {
+        position: absolute;
+        content: "";
+        width: 1px;
+        height: calc(100% + 60px);
+        top: 0px;
+        background: $color-border;
+      }
+    }
+    .content-img .year {
+      font-size: 22px;
+    }
+    .content-text {
+      padding: 50px;
+    }
+  }
+
+  /*==================
+      24 Shop Details
+  ====================*/
+  .shop-details.v1 {
+    .product-tab .nav-tabs li {
+      width: auto;
+    }
+  }
+
+  /*=====================
+      26 Blog Details
+  =======================*/
+  .blog-details.v1 {
+    .big-post-details .user {
+      &::before {
+        width: 80px;
+        height: 80px;
+        font-size: 40px;
+        -webkit-text-stroke: 2px $color-black;
+        line-height: 80px;
+      }
+      .user-content {
+        padding: 50px 130px;
+      }
+    }
+  }
+
+  /*=====================
+      27 Gallery Single
+  =======================*/
+
+  .gallery-single.v1 {
+    .big-img-count .box-content {
+      li {
+        padding: 35px 15px;
+        width: calc(25% - 1px);
+        &:nth-last-child(1) {
+          border-radius: 0px 0px 20px 0px;
+        }
+        &:nth-last-child(2) {
+          border-radius: 0px;
+        }
+        &:nth-last-child(4) {
+          border-radius: 0px 0px 0px 20px;
+        }
+      }
+    }
+    .check-mark-list li {
+      width: calc(50% - 10px);
+    }
+    .user {
+      padding: 50px;
+      @include justify-content-between;
+      .user-content {
+        width: calc(100% - 200px);
+      }
+    }
+  }
+
+  /*=====================
+      28 Send Messag
+  =======================*/
+  .send-message.v1 {
+    .message-form {
+      padding: 50px;
+      margin-top: 0;
+    }
+  }
+
+  /*=====================
+      30 Footer
+  =======================*/
+  .info-footer {
+    &.v1,
+    &.v2 {
+      .news-letter {
+        padding: 50px;
+        .section-title,
+        .subscribe-bar {
+          width: calc(50% - 15px);
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  /*=====================
+      1 Theme Default
+  =======================*/
+  .section-title,
+  .section-title-center,
+  .section-title-white,
+  .section-title-white-center {
+    h2 {
+      font-size: 48px;
+      line-height: 60px;
+    }
+  }
+  section {
+    padding: 100px 0px;
+    &.pt-xl-spach {
+      padding-top: 200px;
+    }
+    &.pb-xl-spach {
+      padding-bottom: 200px;
+    }
+    &.mt-xl-spach {
+      margin-top: -100px;
+    }
+    &.mb-xl-spach {
+      margin-bottom: -100px;
+    }
+  }
+
+  .breadcum.v1 {
+    padding: 100px 0px;
+    h2 {
+      font-size: 60px;
+      line-height: 70px;
+    }
+  }
+
+  .play-btn.v1,
+  .play-btn.v2,
+  .bouns-anime {
+    width: 80px;
+    height: 80px;
+    font-size: 24px;
+    line-height: 80px;
+  }
+
+  .pegination {
+    margin-top: 100px;
+    li a,
+    li .page-numbers {
+      font-size: 18px;
+      line-height: 50px;
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  html:not([dir="rtl"]) {
+    /*=====================
+        3 Banner
+    =======================*/
+    .banner {
+      &.v1,
+      &.v3 {
+        .banner-content {
+          padding: 100px 50px 100px 0px;
+        }
+      }
+      &.v1 {
+        &::after {
+          @include transform(translateY(-158px));
+        }
+        .banner-content {
+          &::before {
+            left: 10%;
+          }
+        }
+        .shape-1 {
+          left: -85px;
+          top: -143px;
+        }
+        .rount-profile-bg {
+          right: calc(-10% + 15px);
+          &::before {
+            left: -10px;
+          }
+          .play-btn {
+            left: -100px;
+          }
+        }
+      }
+    }
+    /*=====================
+        8 We Serve
+    =======================*/
+    .we-serve {
+      &.v1 {
+        .we-serve-card {
+          margin-right: 45px;
+          &::before {
+            right: -65px;
+          }
+        }
+        .row {
+          margin-right: -60px;
+          & > div:nth-last-child(1) .we-serve-card::before {
+            content: none;
+          }
+        }
+      }
+    }
+    /*=====================
+        15 Working Process 
+    =======================*/
+    .working-process.v1 .process-boxs {
+      li .icon-box::before {
+        left: calc(25% + 155px);
+      }
+    }
+    /*=====================
+        21 Who We Are
+    =======================*/
+    .who-we-are.v1 .who-we-are-wrapper .who-we-img {
+      margin-left: auto;
+    }
+    /*==================
+        24 Shop Details
+    ====================*/
+    .shop-details.v1 {
+      .big-box-img .zoom-btn {
+        right: 50px;
+      }
+      .product-tab .nav-tabs {
+        & > li ~ li {
+          margin-right: 20px;
+        }
+        button {
+          padding: 0px 50px 15px 0px;
+        }
+      }
+    }
+  }
+  html[dir="rtl"] {
+    /*=====================
+        3 Banner
+    =======================*/
+    .banner {
+      &.v1,
+      &.v3 {
+        .banner-content {
+          padding: 100px 0px 100px 50px;
+        }
+      }
+      &.v1 {
+        &::after {
+          @include transform(translateY(-158px) rotateY(180deg));
+        }
+        .banner-content {
+          padding: 100px 0px 100px 50px;
+          &::before {
+            right: 10%;
+          }
+        }
+        .shape-1 {
+          top: -122px;
+          right: -100px;
+          @include transform(rotate(-145deg));
+        }
+        .rount-profile-bg {
+          left: calc(-10% + 15px);
+          &::before {
+            right: -10px;
+          }
+          .play-btn {
+            right: -100px;
+          }
+        }
+      }
+    }
+    /*=====================
+        8 We Serve
+    =======================*/
+    .we-serve {
+      &.v1 {
+        .we-serve-card {
+          margin-left: 45px;
+          &::before {
+            left: -65px;
+          }
+        }
+        .row {
+          margin-left: -60px;
+          & > div:nth-last-child(1) .we-serve-card::before {
+            content: none;
+          }
+        }
+      }
+    }
+    /*=====================
+        15 Working Process 
+    =======================*/
+    .working-process.v1 .process-boxs {
+      li .icon-box::before {
+        right: calc(25% + 155px);
+      }
+    }
+    /*=====================
+        21 Who We Are
+    =======================*/
+    .who-we-are.v1 .who-we-are-wrapper .who-we-img {
+      margin-right: auto;
+    }
+    /*==================
+        24 Shop Details
+    ====================*/
+    .shop-details.v1 {
+      .big-box-img .zoom-btn {
+        left: 50px;
+      }
+      .product-tab .nav-tabs {
+        & > li ~ li {
+          margin-left: 20px;
+        }
+        button {
+          padding: 0px 0px 15px 50px;
+        }
+      }
+    }
+  }
+
+  /*=====================
+      2 Menu Bar
+  =======================*/
+  .menu-bar {
+    &.v1,
+    &.v2 {
+      padding: 0;
+      .menu-logo {
+        max-width: 160px;
+      }
+      .main-menu {
+        display: block;
+      }
+      .menu-right {
+        li:last-child {
+          display: none;
+        }
+        .shop-card-list .price {
+          display: inline-block;
+        }
+        .search-open-btn,
+        .wishlist-btn,
+        .shop-card-btn .my-icon {
+          width: 50px;
+          height: 50px;
+          line-height: 50px;
+        }
+      }
+    }
+    & ~ .h-spach {
+      margin-top: 95px;
+    }
+  }
+
+  /*=====================
+      3 Banner
+  =======================*/
+
+  .banner {
+    &.v1,
+    &.v2,
+    &.v3 {
+      .banner-content {
+        padding: 100px 0px;
+        &::before {
+          width: 50%;
+          bottom: 78px;
+        }
+      }
+    }
+    &.v1 {
+      .banner-content {
+        &::before {
+          bottom: 75px;
+        }
+        .section-title-white h2 {
+          font-size: 60px;
+          line-height: 72px;
+        }
+      }
+      .scroll-down-1 {
+        bottom: 80px;
+      }
+      &::before {
+        height: calc(100% - 165px);
+      }
+      &::after {
+        width: 60vw;
+        height: 200px;
+        margin-top: 158px;
+        margin-bottom: -158px;
+      }
+      .rount-profile-bg {
+        position: absolute;
+        width: calc(60% - 15px);
+        height: calc(100% + 90px);
+        top: calc(-17% + 15px);
+        border-radius: 100%;
+        background-position: 0 115px;
+        margin: 0;
+        &::before {
+          position: absolute;
+          content: "";
+          width: 100%;
+          height: 100%;
+          bottom: -20px;
+          border-radius: 100%;
+          background: $color-yellow;
+          z-index: -1;
+        }
+        .play-btn {
+          width: 308px;
+          height: 308px;
+          bottom: 0;
+          transform: none;
+          border: 5px solid $color-white;
+        }
+      }
+    }
+    &.v2,
+    &.v3 {
+      padding-bottom: 100px;
+    }
+    &.v2 {
+      &::before {
+        bottom: 200px;
+      }
+      .bee-1,
+      .bee-2 {
+        top: 15%;
+      }
+      .banner-box-img {
+        width: 68%;
+        .scroll-down-1 {
+          bottom: -50px;
+        }
+      }
+    }
+  }
+
+  /*=====================
+    4 Our Services
+  =======================*/
+  .our-services {
+    &.v1,
+    &.v3 {
+      .row > div:nth-last-child(3) .service-card,
+      .row > div:nth-last-child(4) .service-card {
+        margin-bottom: 0px;
+      }
+      .row ~ .more-link {
+        margin-top: 65px;
+      }
+    }
+    &.v2 {
+      ul,
+      ul ~ a {
+        margin-top: 60px;
+      }
+      li {
+        & ~ li {
+          margin-top: 30px;
+        }
+        a {
+          font-size: 28px;
+          line-height: 38px;
+        }
+      }
+    }
+    &.v3 .service-card {
+      margin-top: 70px;
+      .my-icon {
+        width: 120px;
+        height: 120px;
+        line-height: 120px;
+        margin: -120px auto 30px auto;
+      }
+    }
+  }
+
+  /*=====================
+      5 Why Us
+  =======================*/
+  .why-us {
+    &.v1 {
+      .big-pic {
+        width: 100%;
+      }
+      .big-pic {
+        margin-bottom: 0px;
+      }
+      li {
+        gap: 24px;
+        & ~ li {
+          margin-top: 60px;
+        }
+        .my-icon {
+          min-width: 80px;
+          width: 80px;
+          height: 80px;
+          line-height: 80px;
+          font-size: 40px;
+        }
+      }
+    }
+  }
+
+  /*=====================
+      8 We Serve
+  =======================*/
+  .we-serve {
+    &.v1 {
+      .we-serve-card {
+        position: relative;
+        &::before {
+          position: absolute;
+          content: "";
+          width: 55px;
+          height: 15px;
+          top: 50%;
+          @include transform(translateY(-50%));
+          background-image: url("../img/we-serve/shap.svg");
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center;
+        }
+      }
+      .row {
+        & > div:nth-last-child(2) .we-serve-card,
+        & > div:nth-last-child(3) .we-serve-card {
+          margin-bottom: 0px;
+        }
+        & > div:nth-last-child(1) .we-serve-card::before {
+          content: none;
+        }
+      }
+    }
+  }
+
+  /*=====================
+    9 Testimonial
+  =======================*/
+  .testimonial {
+    &.v1,
+    &.v2,
+    &.v3 {
+      .testimonial-card {
+        margin-top: 30px;
+        .profile {
+          .profile-img {
+            width: 80px;
+            height: 80px;
+            min-width: 80px;
+          }
+        }
+      }
+    }
+  }
+
+  /*=====================
+    10 Blog News
+  =======================*/
+  .blog-news {
+    &.v1 {
+      .small-post {
+        & > ul {
+          margin-top: 0;
+          & > li {
+            &:first-child {
+              padding-top: 0;
+              border-top: none;
+            }
+            &:last-child {
+              padding-bottom: 0;
+            }
+          }
+        }
+        .blog-card {
+          @include flex-direction-row-reverse;
+        }
+      }
+      .blog-card {
+        .blog-content h3 {
+          font-size: 32px;
+          line-height: 44px;
+        }
+      }
+    }
+    &.v2 {
+      .row > div:nth-last-child(3) .blog-card {
+        margin-bottom: 0px;
+      }
+    }
+  }
+
+  /*========================
+      13 Fun Fact
+  ==========================*/
+  .fun-fact {
+    &.v1,
+    &.v2 {
+      .my-icon {
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+        font-size: 36px;
+      }
+      h3 {
+        font-size: 45px;
+        line-height: 55px;
+      }
+    }
+    &.v1 li {
+      width: 25%;
+    }
+  }
+
+  /*=========================
+      14 Gallery Display
+  ===========================*/
+  .gallery-display {
+    &.v1 {
+      .gallery-btns {
+        ul {
+          padding: 6px 30px;
+          border: 1px solid $color-border;
+          border-radius: 50px;
+        }
+        button {
+          padding: 16px 40px;
+          color: $color-black;
+          border: none;
+          background: $color-tr;
+          margin: 0;
+        }
+      }
+      .gallery-content .text {
+        padding: 50px;
+      }
+      .gallery-items ~ .lode-btns {
+        margin-top: 60px;
+      }
+    }
+  }
+
+  /*=====================
+      15 Working Process 
+  =======================*/
+  .working-process.v1 .process-boxs {
+    ul {
+      gap: 88px;
+    }
+    li {
+      width: calc(25% - 88px);
+      .icon-box {
+        width: 110px;
+        height: 110px;
+        .my-icon {
+          font-size: 54px;
+          line-height: 110px;
+        }
+      }
+      &:nth-child(2) .icon-box::before {
+        content: "";
+      }
+    }
+  }
+
+  /*=====================
+      16 Get In Touch
+  =======================*/
+  .get-in-touch.v1 .box-content {
+    margin-bottom: -100px;
+  }
+
+  /*=====================
+    17 Team
+=======================*/
+  .team.v1 .slider {
+    margin: 50px 100px 0px 100px;
+  }
+  /*=====================
+      18 Tasty Honey
+  =======================*/
+  .tasty-honey.v1 .row > div:nth-last-child(3) .tasty-honey-card {
+    margin-bottom: 0;
+  }
+
+  /*=========================
+      19 Services Details
+  ===========================*/
+  .services-details.v1 {
+    h3 {
+      margin-top: 50px;
+    }
+    p {
+      margin-top: 30px;
+    }
+    .feedbac-box {
+      margin-top: 50px;
+      .box-img,
+      .box-content {
+        width: calc(33.3333333% - 30px);
+      }
+      .box-img {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  /*=====================
+      21 Who We Are
+  =======================*/
+  .who-we-are.v1 {
+    .who-we-are-wrapper {
+      .who-we-img {
+        width: 75%;
+        order: 3;
+        & ~ .who-we-box {
+          margin-bottom: calc(-20% - 100px);
+        }
+      }
+      .who-we-box {
+        position: relative;
+        padding: 60px;
+        width: 60%;
+      }
+    }
+  }
+
+  /*=====================
+      23 Shop
+  =======================*/
+
+  .shop.v1 {
+    .products {
+      .pro-display-header ~ .row {
+        margin-top: 40px;
+      }
+      .pro-right {
+        margin-top: 0px;
+      }
+      .row > div:nth-last-child(3) .product-card {
+        margin-bottom: 0px;
+      }
+    }
+  }
+
+  /*==================
+      24 Shop Details
+  ====================*/
+  .shop-details.v1 {
+    .big-box-img {
+      width: 100%;
+      .zoom-btn {
+        top: 50px;
+      }
+    }
+    .display-right {
+      h4 ~ p,
+      p ~ .quan-card,
+      .quan-card ~ ul {
+        margin-top: 40px;
+      }
+    }
+    .product-tab {
+      margin-top: 100px;
+      .nav-tabs {
+        border-bottom: 2px solid $color-border;
+        & > li ~ li {
+        }
+        button {
+          padding: 0px 50px 15px 0px;
+          font-size: 22px;
+          line-height: 32px;
+          &::before {
+            opacity: 0;
+          }
+          &::after {
+            content: none;
+          }
+        }
+      }
+    }
+  }
+
+  /*=====================
+      30 Footer
+  =======================*/
+  .info-footer {
+    &.v1,
+    &.v2 {
+      position: relative;
+      z-index: 1;
+      padding-top: 100px;
+      .footer-left .footer-logo {
+        max-width: 160px;
+      }
+      .footer__widget {
+        margin-top: 0;
+      }
+      .news-letter {
+        padding: 90px;
+      }
+      .box-insta-gallry {
+        display: grid;
+        grid-template-columns: 30% 70%;
+        align-items: center;
+        h4 {
+          padding: 50px 70px;
+          font-size: 40px;
+          line-height: 50px;
+        }
+      }
+      .mt-spach {
+        margin: 150px 0px -350px 0px;
+        @include transform(translateY(-350px));
+      }
+      .news-letter ~ .info-content,
+      .box-insta-gallry ~ .info-content {
+        margin-top: 100px;
+      }
+    }
+  }
+}

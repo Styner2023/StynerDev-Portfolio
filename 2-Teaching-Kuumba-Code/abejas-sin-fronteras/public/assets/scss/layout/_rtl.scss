@@ -1,0 +1,1192 @@
+/*
+Theme Name: Beeberry HTML5 Template
+Theme URI: https://themeforest.net/item/beeberry-beekeeping-and-honey-online-shop-html5-template/43618342
+Design by: techsometimes
+Developed by: A N Abdullah Al Numan
+Version: 2.3.1
+License: 
+Tags: 
+*/
+
+/*================================================
+[  Table of contents  ]
+================================================
+
+    1 Theme Default
+
+    2 Menu Bar
+
+    3 Banner
+
+    4 Our Services
+
+    7 Our Products
+
+    8 We Serve
+
+    9 Testimonial
+
+    10 Blog News
+
+    12 About Beeberry
+
+    14 Gallery Display
+
+    15 Working Process 
+
+    17 Team
+
+    22 Make A New Story
+
+    24 Shop Details
+
+    25 Blog
+
+    26 Blog Details
+
+    30 Footer
+
+======================================
+[ End table content ]
+======================================*/
+
+@use "../abstracts/variables" as *;
+@use "../abstracts/autoprefixer" as *;
+
+html:not([dir="rtl"]) {
+  /*=====================
+      1 Theme Default
+  =======================*/
+  .link-anime,
+  .btn-anime {
+    &.v1,
+    &.v2 {
+      &::before,
+      &::after {
+        left: 0;
+      }
+      &:hover::after {
+        left: 3px;
+      }
+    }
+  }
+
+  .scroll-bottom-Top {
+    right: 0px;
+    &.show {
+      right: 50px;
+    }
+  }
+
+  .v1 {
+    .blog-sidebar__wrapper {
+      .blog-sidebar__widget-head .blog-sidebar__widget-title {
+        padding-left: 30px;
+        &::before {
+          left: 0;
+        }
+      }
+      .best-seller-items li .item-text {
+        padding-left: 20px;
+      }
+      .latest-posts p .my-icon {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .post-link {
+    padding-right: 50px;
+    &::before {
+      content: "\e908";
+      right: 11px;
+    }
+    &::after {
+      right: 0;
+    }
+  }
+
+  .next-preve-post {
+    .prev-post {
+      padding-left: 50px;
+      &::before {
+        content: "\e906";
+        left: 11px;
+      }
+      &::after {
+        left: 0;
+      }
+    }
+    .next-post {
+      text-align: right;
+      padding-right: 50px;
+      &::before {
+        content: "\e908";
+        right: 11px;
+      }
+      &::after {
+        right: 0;
+      }
+    }
+  }
+
+  .section-title,
+  .section-title-white {
+    &.v1 h6::before {
+      left: 0;
+    }
+  }
+  /*=====================
+      2 Menu Bar
+  =======================*/
+  .menu-bar {
+    .main-menu {
+      & > ul {
+        & > li > a {
+          padding: 35px 0px 35px 15px;
+          &::before {
+            position: absolute;
+            content: "";
+            width: 9px;
+            height: 9px;
+            border-radius: 10px;
+            top: 50%;
+            left: 0;
+            opacity: 0.4;
+            background: $color-yellow;
+            @include transform(translateY(-50%));
+            @include transition;
+          }
+        }
+      }
+      li {
+        &.active > a::before,
+        &:hover > a::before,
+        &.current_page_parent > a::before,
+        &.current-menu-parent > a::before,
+        &.current_page_item > a::before {
+          opacity: 1;
+        }
+        &.has-dropdown {
+          & > a::after {
+            font-family: "icomoon";
+            content: "\e900";
+            speak: never;
+            font-size: calc(100% - 1px);
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            margin-left: 5px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            margin-left: 8px;
+          }
+          .has-dropdown > a {
+            position: relative;
+            padding-right: 50px;
+            &::after {
+              position: absolute;
+              top: 20px;
+              right: 33px;
+              @include transform(rotate(-90deg));
+              margin-left: 0;
+            }
+          }
+        }
+        li:hover > a {
+          padding-left: 45px;
+        }
+        ul {
+          left: 0;
+          ul {
+            left: 100%;
+          }
+        }
+      }
+    }
+    .menu-right {
+      .top-bar-search .search-close {
+        right: 80px;
+      }
+      .wishlist-btn .count,
+      .shop-card-btn .count {
+        right: -5px;
+      }
+      .wishlist-btn,
+      .shop-card-btn,
+      .shop-card-btn .price {
+        margin-right: 6px;
+      }
+      .mobile-menu-btn {
+        span {
+          left: 0;
+        }
+        &.active span {
+          &:nth-child(1) {
+            @include transform(translate(-1.5px, -5.3px) rotate(-135deg));
+          }
+          &:nth-child(2) {
+            @include transform(rotate(-180deg));
+          }
+          &:nth-child(3) {
+            @include transform(translate(-1.5px, 7.3px) rotate(135deg));
+          }
+        }
+      }
+      .mobile-menu-header {
+        .mobile-logo {
+          padding-left: 15px;
+        }
+        .close-mobile-btn {
+          border-left: 1px dashed $color-yellow;
+        }
+      }
+      .mobile-main-manu {
+        li.has-dropdown > {
+          a::after {
+            right: 24px;
+            @include transform(rotate(90deg));
+          }
+          ul {
+            padding-left: 10px;
+          }
+        }
+        a {
+          padding: 15px 40px 15px 20px;
+        }
+      }
+      .mobile-menu-bar {
+        left: -100%;
+        &.active {
+          left: 0;
+        }
+      }
+    }
+  }
+
+  /*=====================
+      3 Banner
+  =======================*/
+  .banner {
+    &.v1 {
+      &::before {
+        left: 0;
+      }
+      &::after {
+        @include transform(translateY(-135px));
+      }
+      .shape-1 {
+        left: -94px;
+        top: -170px;
+      }
+      .banner-content::before {
+        left: 22%;
+      }
+    }
+    &.v3 {
+      .flower-anime-btn {
+        .icon-play-t {
+          margin-right: 5px;
+          &::after {
+            left: calc(100% - 30px);
+          }
+        }
+      }
+      .future-list p::after {
+        content: "\e909";
+        margin-left: 15px;
+      }
+      .scroll-down-2 .my-icon {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  /*=====================
+      4 Our Services
+  =======================*/
+  .our-services {
+    &.v1 {
+      .service-card {
+        border-left: 3px solid $color-tr;
+        .my-icon {
+          padding: 10px 0px 0px 10px;
+          &::after {
+            left: -10px;
+          }
+        }
+        &:hover {
+          border-radius: 0px 20px 20px 0px;
+          border-color: $color-yellow;
+        }
+      }
+    }
+    &.v2 .check-our-profile {
+      &::before {
+        right: 0px;
+      }
+    }
+  }
+
+  /*=====================
+      7 Our Products
+  =======================*/
+  .our-products {
+    &.v1 .slider,
+    &.v2 .slider {
+      .next-btn {
+        left: 0;
+      }
+      .prev-btn {
+        right: 0;
+      }
+    }
+  }
+
+  /*=====================
+      8 We Serve
+  =======================*/
+  .we-serve {
+    &.v1 .we-serve-card .my-icon::after {
+      left: -10px;
+    }
+  }
+
+  /*=====================
+      9 Testimonial
+  =======================*/
+  .testimonial {
+    &.v1,
+    &.v2,
+    &.v3 {
+      .slider {
+        .next-btn {
+          left: 0;
+        }
+        .prev-btn {
+          right: 0;
+        }
+      }
+    }
+  }
+
+  /*=====================
+      10 Blog News
+  =======================*/
+  .blog-news {
+    &.v1 {
+      .blog-card .blog-content {
+        .post-footer {
+          .porfile h6 {
+            margin-left: 10px;
+          }
+          .post-link {
+            a {
+              padding-right: 50px;
+              &::before {
+                content: "\e908";
+                top: -1px;
+                right: 11px;
+              }
+              &::after {
+                top: -3px;
+                right: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+    &.v2 {
+      .blog-card {
+        .blog-content {
+          border-radius: 20px 0px 0px 0px;
+          margin-left: 40px;
+          h6 .my-icon {
+            margin-right: 10px;
+          }
+          .left-btn {
+            border-right: 1px solid $color-border;
+            left: -40px;
+          }
+        }
+        .profile-img {
+          left: 30px;
+        }
+      }
+    }
+  }
+
+  /*========================
+      12 About Beeberry
+  ==========================*/
+  .about-beeberry.v3 .abou-o-img img:nth-child(2) {
+    left: calc(38% - 12px);
+  }
+
+  /*=========================
+      14 Gallery Display
+  ===========================*/
+  .gallery-display {
+    &.v1 {
+      .gallery-content {
+        &::after {
+          right: -100%;
+          @include transform(translate(30%, -30%) rotate(-141deg));
+        }
+        &:hover::after {
+          right: 0%;
+        }
+      }
+    }
+  }
+
+  /*=====================
+      15 Working Process 
+  =======================*/
+
+  .working-process {
+    &.v1 {
+      .process-boxs li .icon-box .num-count {
+        right: -21px;
+      }
+    }
+  }
+
+  /*=====================
+      17 Team
+  =======================*/
+  .team.v1 {
+    .prev-btn,
+    .next-btn {
+      &::before {
+        left: 0;
+      }
+    }
+    .prev-btn {
+      right: 15px;
+      .my-icon {
+        margin-left: -40px;
+      }
+    }
+    .next-btn {
+      left: 15px;
+      .my-icon {
+        margin-left: 20px;
+      }
+    }
+  }
+
+  /*==================
+      20 FAQ
+  ====================*/
+  .faq.v1 {
+    .right-countent button {
+      padding: 20px 50px 20px 20px;
+      &::before {
+        right: 20px;
+      }
+    }
+  }
+
+  /*========================
+      22 Make A New Story
+  ==========================*/
+  .make-a-new-story.v1 .content-img .year {
+    left: 50px;
+  }
+
+  /*==================
+      24 Shop Details
+  ====================*/
+  .shop-details.v1 {
+    .display-right li .title ~ .text {
+      margin-left: 20px;
+    }
+    .product-tab .nav-tabs button {
+      &::before,
+      &::after {
+        left: 0;
+      }
+    }
+  }
+
+  /*=====================
+      25 Blog
+  =======================*/
+  .blog.v1 {
+    .big-post .slider {
+      .prev-btn,
+      .next-btn {
+        &::before {
+          left: 0;
+        }
+      }
+      .prev-btn {
+        right: 0;
+        .my-icon {
+          margin-left: -20px;
+        }
+      }
+      .next-btn {
+        left: 0;
+        .my-icon {
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+
+  /*=====================
+      26 Blog Details
+  =======================*/
+  .blog-details.v1 {
+    .big-post-details {
+      .post-content li .my-icon {
+        margin-right: 10px;
+      }
+      .slider {
+        .prev-btn,
+        .next-btn {
+          &::before {
+            left: 0;
+          }
+        }
+        .prev-btn {
+          right: 0;
+          .my-icon {
+            margin-left: -20px;
+          }
+        }
+        .next-btn {
+          left: 0;
+          .my-icon {
+            margin-left: 20px;
+          }
+        }
+      }
+      .user::before {
+        left: 0;
+        border-radius: 20px 0px;
+        @include transform(rotate(180deg));
+      }
+      .all-comments {
+        .comments-list > li > ul {
+          margin: 30px 0px 0px calc(9% + 15px);
+        }
+        .comment-wrapper .profile-text .content::before {
+          left: -25px;
+          border-right: 25px solid $color-white2;
+        }
+      }
+    }
+  }
+
+  /*=====================
+      27 Gallery Single
+  =======================*/
+  .gallery-single.v1 {
+    .user .user-profile::before {
+      right: -10px;
+    }
+  }
+
+  /*=====================
+      30 Footer
+  =======================*/
+  .info-footer {
+    &.v1,
+    &.v2 {
+      .useful-link li a {
+        padding-left: 16px;
+        &::before {
+          left: 0;
+        }
+        &:hover {
+          padding-left: 22px;
+        }
+      }
+    }
+  }
+}
+html[dir="rtl"] {
+  /*=====================
+      1 Theme Default
+  =======================*/
+
+  .icon-angle-left:before,
+  .icon-angle-right:before,
+  .icon-arrow-left-long:before,
+  .icon-arrow-left:before,
+  .icon-arrow-right-long:before,
+  .icon-arrow-right:before,
+  .icon-arrow-up-long:before,
+  .icon-comments:before,
+  .icon-dobble-angles-left:before,
+  .icon-dobble-angles-right:before,
+  .icon-magnifying-glass:before,
+  .icon-phone:before,
+  .icon-quote-right:before,
+  .icon-shipped:before,
+  .icon-tag:before {
+    display: inline-block;
+    @include transform(rotateY(-180deg));
+  }
+
+  .link-anime,
+  .btn-anime {
+    &.v1,
+    &.v2 {
+      &::before,
+      &::after {
+        right: 0px;
+      }
+      &:hover::after {
+        right: 3px;
+      }
+    }
+  }
+
+  .scroll-bottom-Top {
+    left: 0px;
+    &.show {
+      left: 50px;
+    }
+  }
+
+  .post-link {
+    padding-left: 50px;
+    &::before {
+      content: "\e906";
+      left: 11px;
+    }
+    &::after {
+      left: 0;
+    }
+  }
+
+  .next-preve-post {
+    .prev-post {
+      padding-right: 50px;
+      &::before {
+        content: "\e908";
+        right: 11px;
+      }
+      &::after {
+        right: 0;
+      }
+    }
+    .next-post {
+      text-align: left;
+      padding-left: 50px;
+      &::before {
+        content: "\e906";
+        left: 11px;
+      }
+      &::after {
+        left: 0;
+      }
+    }
+  }
+  .section-title,
+  .section-title-white {
+    &.v1 h6::before {
+      right: 0;
+    }
+  }
+
+  .v1 {
+    .blog-sidebar__wrapper {
+      .blog-sidebar__widget-head .blog-sidebar__widget-title {
+        padding-right: 30px;
+        &::before {
+          right: 0;
+        }
+      }
+      .best-seller-items li .item-text {
+        padding-right: 20px;
+      }
+      .latest-posts p .my-icon {
+        margin-left: 5px;
+      }
+    }
+  }
+
+  /*=====================
+      2 Menu Bar
+  =======================*/
+  .menu-bar {
+    .main-menu {
+      & > ul {
+        & > li > a {
+          padding: 35px 15px 35px 0px;
+          &::after {
+            position: absolute;
+            content: "";
+            width: 9px;
+            height: 9px;
+            border-radius: 10px;
+            top: 50%;
+            right: 0;
+            opacity: 0.4;
+            background: $color-yellow;
+            @include transform(translateY(-50%));
+            @include transition;
+          }
+        }
+      }
+      li {
+        &.active > a::after,
+        &:hover > a::after,
+        &.current_page_parent > a::after,
+        &.current-menu-parent > a::after,
+        &.current_page_item > a::after {
+          opacity: 1;
+        }
+        &.has-dropdown {
+          & > a::before {
+            font-family: "icomoon";
+            content: "\e900";
+            speak: never;
+            font-size: calc(100% - 1px);
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            margin-left: 5px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            margin-right: 8px;
+          }
+          .has-dropdown > a {
+            position: relative;
+            padding-left: 50px;
+            &::before {
+              position: absolute;
+              top: 20px;
+              left: 33px;
+              @include transform(rotate(90deg));
+              margin-right: 0;
+            }
+          }
+        }
+        li:hover > a {
+          padding-right: 45px;
+        }
+        ul {
+          right: 0;
+          ul {
+            right: 100%;
+          }
+        }
+      }
+    }
+    .menu-right {
+      .top-bar-search .search-close {
+        left: 80px;
+      }
+      .wishlist-btn .count,
+      .shop-card-btn .count {
+        left: -5px;
+      }
+      .wishlist-btn,
+      .shop-card-btn,
+      .shop-card-btn .price {
+        margin-left: 6px;
+      }
+      .mobile-menu-btn {
+        span {
+          right: 0;
+        }
+        &.active span {
+          &:nth-child(1) {
+            @include transform(translate(2.1px, -5.3px) rotate(135deg));
+          }
+          &:nth-child(2) {
+            @include transform(rotate(-180deg));
+          }
+          &:nth-child(3) {
+            @include transform(translate(2px, 7.4px) rotate(225deg));
+          }
+        }
+      }
+      .mobile-menu-header {
+        .mobile-logo {
+          padding-right: 15px;
+        }
+        .close-mobile-btn {
+          border-right: 1px dashed $color-yellow;
+        }
+      }
+      .mobile-main-manu {
+        li.has-dropdown > {
+          a::after {
+            left: 24px;
+            @include transform(rotate(-90deg));
+          }
+          ul {
+            padding-right: 10px;
+          }
+        }
+        a {
+          padding: 15px 20px 15px 40px;
+        }
+      }
+      .mobile-menu-bar {
+        right: -100%;
+        &.active {
+          right: 0;
+        }
+      }
+    }
+  }
+  /*=====================
+      3 Banner
+  =======================*/
+  .banner {
+    &.v1 {
+      &::before {
+        right: 0;
+      }
+      &::after {
+        @include transform(translateY(-135px) rotateY(180deg));
+      }
+      .shape-1 {
+        right: -105px;
+        top: -153px;
+        @include transform(rotate(-150deg));
+      }
+      .banner-content::before {
+        right: 22%;
+      }
+    }
+    &.v3 {
+      .flower-anime-btn {
+        .icon-play-t {
+          margin-left: 5px;
+          &::after {
+            @include transform(rotateY(180deg));
+            right: calc(100% - 30px);
+          }
+        }
+      }
+      .future-list p::after {
+        content: "\e907";
+        margin-right: 15px;
+      }
+      .scroll-down-2 .my-icon {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  /*=====================
+      4 Our Services
+  =======================*/
+  .our-services {
+    &.v1 {
+      .service-card {
+        border-right: 3px solid $color-tr;
+        .my-icon {
+          padding: 10px 10px 0px 0px;
+          &::after {
+            right: -10px;
+          }
+        }
+        &:hover {
+          border-radius: 20px 0px 0px 20px;
+          border-color: $color-yellow;
+        }
+      }
+    }
+    &.v2 .check-our-profile {
+      &::before {
+        left: 0px;
+      }
+    }
+  }
+
+  /*=====================
+      7 Our Products
+  =======================*/
+  .our-products {
+    &.v1 .slider,
+    &.v2 .slider {
+      .next-btn {
+        right: 0;
+      }
+      .prev-btn {
+        left: 0;
+      }
+    }
+  }
+
+  /*=====================
+      8 We Serve
+  =======================*/
+  .we-serve {
+    &.v1 .we-serve-card .my-icon::after {
+      right: -10px;
+    }
+  }
+  /*=====================
+      9 Testimonial
+  =======================*/
+  .testimonial {
+    &.v1,
+    &.v2,
+    &.v3 {
+      .slider {
+        .next-btn {
+          right: 0;
+        }
+        .prev-btn {
+          left: 0;
+        }
+      }
+    }
+  }
+
+  /*=====================
+      10 Blog News
+  =======================*/
+  .blog-news {
+    &.v1 {
+      .blog-card .blog-content {
+        .post-footer {
+          .porfile h6 {
+            margin-right: 10px;
+          }
+          .post-link {
+            a {
+              padding-left: 50px;
+              &::before {
+                content: "\e906";
+                top: 0px;
+                left: 11px;
+              }
+              &::after {
+                top: -3px;
+                left: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+    &.v2 {
+      .blog-card {
+        .blog-content {
+          border-radius: 0px 20px 0px 0px;
+          margin-right: 40px;
+          h6 .my-icon {
+            margin-left: 10px;
+          }
+          .left-btn {
+            border-left: 1px solid $color-border;
+            right: -40px;
+          }
+        }
+        .profile-img {
+          right: 30px;
+        }
+      }
+    }
+  }
+
+  /*========================
+      12 About Beeberry
+  ==========================*/
+  .about-beeberry.v3 .abou-o-img img:nth-child(2) {
+    right: calc(38% - 12px);
+  }
+
+  /*=========================
+    14 Gallery Display
+  ===========================*/
+  .gallery-display {
+    &.v1 {
+      .gallery-content {
+        &::after {
+          left: -100%;
+          @include transform(translate(-30%, -30%) rotate(140deg));
+        }
+        &:hover::after {
+          left: 0%;
+        }
+      }
+    }
+  }
+
+  /*=====================
+      15 Working Process 
+  =======================*/
+
+  .working-process {
+    &.v1 {
+      .process-boxs li .icon-box .num-count {
+        left: -21px;
+      }
+    }
+  }
+
+  /*=====================
+      17 Team
+  =======================*/
+  .team.v1 {
+    .prev-btn,
+    .next-btn {
+      &::before {
+        right: 0;
+      }
+    }
+    .prev-btn {
+      left: 15px;
+      .my-icon {
+        margin-right: -40px;
+      }
+    }
+    .next-btn {
+      right: 15px;
+      .my-icon {
+        margin-right: 20px;
+      }
+    }
+  }
+
+  /*==================
+      20 FAQ
+  ====================*/
+  .faq.v1 {
+    .right-countent button {
+      padding: 20px 20px 20px 50px;
+      &::before {
+        left: 20px;
+      }
+    }
+  }
+
+  /*========================
+      22 Make A New Story
+  ==========================*/
+  .make-a-new-story.v1 .content-img .year {
+    right: 50px;
+  }
+
+  /*==================
+      24 Shop Details
+  ====================*/
+  .shop-details.v1 {
+    .display-right li .title ~ .text {
+      margin-right: 20px;
+    }
+    .product-tab .nav-tabs button {
+      &::before,
+      &::after {
+        right: 0;
+      }
+    }
+  }
+
+  /*=====================
+      25 Blog
+  =======================*/
+  .blog.v1 {
+    .big-post .slider {
+      .prev-btn,
+      .next-btn {
+        &::before {
+          right: 0;
+        }
+      }
+      .prev-btn {
+        left: 0;
+        .my-icon {
+          margin-right: -20px;
+        }
+      }
+      .next-btn {
+        right: 0;
+        .my-icon {
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+
+  /*=====================
+      26 Blog Details
+  =======================*/
+  .blog-details.v1 {
+    .big-post-details {
+      .post-content li .my-icon {
+        margin-left: 10px;
+      }
+      .slider {
+        .prev-btn,
+        .next-btn {
+          &::before {
+            right: 0;
+          }
+        }
+        .prev-btn {
+          left: 0;
+          .my-icon {
+            margin-right: -20px;
+          }
+        }
+        .next-btn {
+          right: 0;
+          .my-icon {
+            margin-right: 20px;
+          }
+        }
+      }
+      .user::before {
+        right: 0;
+        border-radius: 20px 0px;
+        @include transform(rotateX(180deg));
+      }
+      .all-comments {
+        .comments-list > li > ul {
+          margin: 30px calc(9% + 15px) 0px 0px;
+        }
+        .comment-wrapper .profile-text .content::before {
+          right: -25px;
+          border-left: 25px solid $color-white2;
+        }
+      }
+    }
+  }
+
+  /*=====================
+      27 Gallery Single
+  =======================*/
+  .gallery-single.v1 {
+    .user .user-profile::before {
+      left: -10px;
+      @include transform(rotateY(180deg));
+    }
+  }
+
+  /*=====================
+      30 Footer
+  =======================*/
+  .info-footer {
+    &.v1,
+    &.v2 {
+      .useful-link li a {
+        padding-right: 16px;
+        &::before {
+          right: 0;
+        }
+        &:hover {
+          padding-right: 22px;
+        }
+      }
+    }
+  }
+}

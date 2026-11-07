@@ -1,0 +1,430 @@
+
+/*** 
+
+====================================================================
+	Main Footer
+====================================================================
+
+***/
+
+.main-footer{
+	position:relative;
+	background-color: var(--color-two);
+}
+
+.main-footer.style-two .widgets-section{
+	margin-top:0px;
+	padding-top:100px;
+}
+
+.main-footer.style-three .widgets-section{
+	margin-top:0px;
+	padding-top:200px;
+}
+
+.main-footer_pattern{
+	position: absolute;
+	left: 0px;
+	top:0px;
+	right:0px;
+	bottom: 0px;
+	background-size: cover;
+}
+
+.main-footer .inner-container{
+	position:relative;
+}
+
+.footer-logo{
+	position: relative;
+	margin-bottom: 15px;
+}
+
+.footer-text{
+	position: relative;
+	line-height: 30px;
+	font-size: 16px;
+	padding-right:30px;
+	color: var(--color-twentytwo);
+}
+
+.footer_socials{
+	position: relative;
+	margin-top: 20px;
+}
+
+.footer_socials a{
+	position: relative;
+	margin-right: 15px;
+	font-size:18px;
+	color: var(--color-twentythree);
+	font-family: 'Font Awesome 5 Brands';
+}
+
+.footer_socials a:hover{
+	color: var(--color-three);
+}
+
+.main-footer .widgets-section{
+	position:relative;
+	margin-top:-200px;
+	padding: 300px 0px 50px;
+}
+
+.footer-title{
+	position: relative;
+	margin-top: 15px;
+	margin-bottom: 25px;
+	color: var(--white-color);
+	text-transform: capitalize;
+	font-family: "Outfit", sans-serif;
+}
+
+.footer-column{
+	position: relative;
+	margin-bottom: 30px;
+}
+
+.footer-list{
+	position: relative;
+}
+
+.footer-list li{
+	position: relative;
+	margin-bottom: 15px;
+}
+
+.footer-list li:last-child{
+	margin-bottom: 0px;
+}
+
+.footer-list li a{
+	position: relative;
+	font-size:16px;
+	font-weight:400;
+	padding-left:28px;
+	color: var(--color-twentytwo);
+	transition:all 300ms ease;
+	-moz-transition:all 300ms ease;
+	-webkit-transition:all 300ms ease;
+	-ms-transition:all 300ms ease;
+	-o-transition:all 300ms ease;
+}
+
+.footer-list li a::before{
+	position: absolute;
+	/* Plain chevron. Was "\f180" from the icon font, which is that font's
+	   carrot glyph — too busy as a list bullet. */
+	content: "\203A";
+	left: 0px;
+	top: -3px;
+	font-size:18px;
+	line-height:inherit;
+	color: var(--color-three);
+	transition:all 300ms ease;
+	-moz-transition:all 300ms ease;
+	-webkit-transition:all 300ms ease;
+	-ms-transition:all 300ms ease;
+	-o-transition:all 300ms ease;
+	font-family: inherit;
+}
+
+.footer-list li a:hover{
+	color: var(--color-three);
+}
+
+/* News Widget */
+
+.news-widget-block{
+	position: relative;
+	min-height: 110px;
+	padding-left: 100px;
+	margin-bottom: 25px; 
+	border-bottom: 1px solid rgba(var(--white-color-rgb), 0.20);
+}
+
+.news-widget_image{
+	position: absolute;
+	left: 0px;
+	top: 2px;
+	width: 78px;
+	overflow: hidden;
+}
+
+.news-widget_title{
+	position: relative;
+	font-weight: 500;
+	font-size:18px;
+	margin-top:5px;
+	font-family: "Outfit", sans-serif;
+}
+
+.news-widget_title a{
+	position: relative;
+	color: var(--white-color);
+}
+
+.news-widget_post-date{
+	position: relative;
+	font-weight: 400;
+	font-size: 14px;
+	opacity:0.50;
+	color: var(--white-color);
+}
+
+.news-widget-block:last-child{
+	margin-bottom: 0px;
+	border:none;
+}
+
+.news-widget_title a:hover{
+	color: var(--color-three);
+}
+
+/* Contact List */
+
+.footer-contact_list{
+	position: relative;
+}
+
+.footer-contact_list li{
+	position: relative;
+	/* Flex row so the round icon is vertically centred against its label.
+	   The old absolute icon + padding-left left single-line rows sitting
+	   at the top of a 56px box, out of line with the icon. */
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	line-height: 28px;
+	font-size: 16px;
+	min-height:50px;
+	margin-bottom: 20px;
+	color: var(--white-color);
+}
+
+.footer-contact_list li:first-child{
+	position: relative;
+	color: #b9b9a4;
+}
+
+.footer-contact_list li .icon{
+	position: relative;
+	flex: 0 0 50px;
+	width:50px;
+	height:50px;
+	line-height: 50px;
+	text-align:center;
+	border-radius:50px;
+	display:inline-block;
+	color: var(--white-color);
+	font-family: "ecotones-icons";
+	background-color: var(--color-three);
+}
+
+.footer-contact_list li a{
+	position: relative;
+	font-size:18px;
+	font-weight:500;
+	color:var(--main-color);
+	font-family: "Outfit", sans-serif;
+}
+
+.footer-bottom{
+	position: relative;
+	margin-top:0px;
+	border-top: 1px solid rgba(var(--white-color-rgb), 0.20);
+}
+
+.main-footer_copyright{
+	position: relative;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 30px 0px;
+	text-align: center;
+	color: #000000;
+}
+
+.main-footer_copyright a{
+	color: #2D4A22;
+	font-weight: 600;
+	text-decoration: underline;
+}
+
+.main-footer_copyright a:hover{
+	color: #FFAC4A;
+}
+
+.footer_column{
+	position: relative;
+	margin-bottom: 30px;
+}
+/* ---------------------------------------------------------------------------
+ * Desktop / small-desktop footer layout
+ *
+ * Original Bootstrap classes collapse the big-columns at <992px (col-md-12),
+ * which makes the footer look "stacked" on any 13" laptop, iPad-landscape, or
+ * zoomed-in desktop browser. These overrides keep the 2-column big-column
+ * layout from 768px and up, with widgets stacked inside each big column.
+ * Phones (<768px) still get the original fully-stacked layout.
+ * ------------------------------------------------------------------------- */
+@media (min-width: 768px) and (max-width: 991.98px) {
+	.main-footer .widgets-section > .row > .big-column {
+		flex: 0 0 auto;
+		width: 50%;
+		max-width: 50%;
+	}
+	.main-footer .widgets-section .big-column > .row > .footer_column {
+		flex: 0 0 auto;
+		width: 100%;
+		max-width: 100%;
+	}
+}
+
+/* ====================================================================
+	Footer widgets — centred, one type size, one family
+	--------------------------------------------------------------
+	Contact rows, quick links and the Instagram handle all render at
+	the same size/family so nothing in the footer reads as a
+	different class of text.
+==================================================================== */
+
+.main-footer .footer-widget{
+	text-align:center;
+}
+
+/* Each list is a centred inline block whose rows are left-aligned inside it,
+   so every icon and chevron stacks on one vertical line instead of each row
+   centring on its own width. */
+.main-footer .footer-contact_list,
+.main-footer .footer-list{
+	display:inline-block;
+	text-align:left;
+}
+
+.main-footer .footer-title,
+.main-footer .footer-contact_list li,
+.main-footer .footer-contact_list li a,
+.main-footer .footer-list li a{
+	font-family: "Outfit", sans-serif;
+}
+
+.main-footer .footer-contact_list li,
+.main-footer .footer-contact_list li a,
+.main-footer .footer-list li a{
+	font-size:18px;
+	font-weight:500;
+}
+
+/* Rows start at the block's left edge; gap matches the quick-link chevron. */
+.main-footer .footer-contact_list li{
+	justify-content:flex-start;
+	gap:8px;
+	min-height:auto;
+	margin-bottom:15px;
+}
+
+/* Quick links: float the chevron inline instead of absolute so each row
+   centres as one "chevron + label" unit and the chevrons don't stagger. */
+.main-footer .footer-list li{
+	text-align:left;
+}
+
+.main-footer .footer-list li a{
+	display:inline-block;
+	padding-left:0px;
+}
+
+.main-footer .footer-list li a::before{
+	position:static;
+	display:inline-block;
+	margin-right:8px;
+}
+
+/* The Instagram glyph is Font Awesome, not the ecotones icon font. */
+.main-footer .footer-contact_list li .icon .fa-brands{
+	font-family: 'Font Awesome 6 Brands';
+	font-size:18px;
+	line-height:inherit;
+}
+
+/* ====================================================================
+	.footer-tight — footer with nothing overlapping it
+	--------------------------------------------------------------
+	.main-footer .widgets-section pairs margin-top:-200px with a
+	300px top padding so a section (the subscribe box) can sit over
+	the footer's top edge. Pages that no longer carry that section
+	get this class instead, which drops the reserved space.
+==================================================================== */
+
+.main-footer.footer-tight .widgets-section{
+	margin-top:0px;
+	padding:70px 0px 50px;
+}
+
+.main-footer.style-three.footer-tight .widgets-section{
+	padding-top:70px;
+}
+
+/* ====================================================================
+	Trim the dead space at the top and bottom of the footer
+==================================================================== */
+
+.main-footer.footer-tight .widgets-section{
+	padding:45px 0px 20px;
+}
+
+.main-footer.style-three.footer-tight .widgets-section{
+	padding-top:45px;
+}
+
+.main-footer.footer-tight .footer-title{
+	margin-top:0px;
+}
+
+.main-footer.footer-tight .footer_column{
+	margin-bottom:0px;
+}
+
+.main-footer.footer-tight .footer-contact_list li:last-child,
+.main-footer.footer-tight .footer-list li:last-child{
+	margin-bottom:0px;
+}
+
+.main-footer.footer-tight .main-footer_copyright{
+	padding:18px 0px 8px;
+}
+
+.main-footer.footer-tight .footer-legal{
+	padding-bottom:18px !important;
+}
+
+/* ====================================================================
+	Footer widget titles — underlined, a step up from the list type
+==================================================================== */
+
+.main-footer .footer-title{
+	/* List rows are 18px; the heading sits one step above them. */
+	font-size:22px;
+	line-height:30px;
+	text-decoration:underline;
+	text-underline-offset:6px;
+	text-decoration-thickness:1px;
+}
+
+/* Tighten the vertical rhythm of the contact rows. Row height is driven by
+   the icon disc, so the disc shrinks with the margin. */
+.main-footer .footer-contact_list li{
+	margin-bottom:6px;
+}
+
+.main-footer .footer-contact_list li .icon{
+	flex:0 0 36px;
+	width:36px;
+	height:36px;
+	line-height:36px;
+	font-size:15px;
+}
+
+.main-footer .footer-contact_list li .icon .fa-brands{
+	font-size:15px;
+}

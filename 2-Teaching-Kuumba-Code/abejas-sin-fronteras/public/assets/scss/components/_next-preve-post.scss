@@ -1,0 +1,67 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/autoprefixer" as *;
+
+.next-preve-post {
+  @include d-flex;
+  @include align-items;
+  @include justify-content-between;
+  @include flex-wrap;
+  gap: 30px;
+  .prev-post,
+  .next-post {
+    position: relative;
+    display: inline-block;
+    color: $color-black;
+    width: 100%;
+    line-height: 25px;
+    text-transform: capitalize;
+    margin: 2px 0px;
+    z-index: 1;
+    .text {
+      display: inline-block;
+      overflow: hidden;
+      width: 100%;
+      font-size: 18px;
+      font-weight: 500;
+      white-space: nowrap;
+      text-overflow: "...";
+    }
+    &::before {
+      position: absolute;
+      top: -1px;
+      font-size: 12px;
+      font-family: "icomoon";
+      color: $color-black;
+      speak: never;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      z-index: -1;
+    }
+    &::after {
+      position: absolute;
+      content: "";
+      top: -3px;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      border-radius: 50px;
+      opacity: 0.5;
+      background: $color-yellow;
+      z-index: -2;
+      @include transition;
+    }
+    &:hover {
+      color: $color-yellow;
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+  & ~ .all-comments {
+    margin-top: 70px;
+  }
+}

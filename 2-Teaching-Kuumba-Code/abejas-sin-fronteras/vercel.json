@@ -1,0 +1,13 @@
+{
+  "outputDirectory": "public",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.abejassinfronteras.org" }],
+      "destination": "https://abejassinfronteras.org/:path*",
+      "permanent": true
+    }
+  ]
+}

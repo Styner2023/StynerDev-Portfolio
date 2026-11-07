@@ -1,0 +1,26 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/autoprefixer" as *;
+
+.socials-links-box {
+  ul {
+    @include d-flex;
+    @include align-items;
+    @include flex-wrap;
+    gap: 20px;
+  }
+  a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 15px;
+    color: $color-black;
+    line-height: 40px;
+    border: 1px solid $color-white3;
+    border-radius: 50px;
+    background: $color-tr;
+    &:hover {
+      background: $color-yellow;
+    }
+  }
+}

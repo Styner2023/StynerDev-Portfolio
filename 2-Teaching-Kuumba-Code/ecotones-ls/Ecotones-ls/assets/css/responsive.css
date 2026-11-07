@@ -1,0 +1,2067 @@
+/*!
+ * Ecotones Land Stewardship — Custom Site
+ * Owner & Full-Stack Developer: StynerDev (https://www.stynerdev.com/)
+ * © 2026 — All rights reserved.
+ */
+
+@media only screen and (max-width: 2000px){
+	
+	
+	
+}
+
+@media only screen and (max-width: 1750px){
+
+	
+
+}
+
+@media only screen and (max-width: 1600px){
+
+	.fluid-two .outer-container {
+		background-position: -180px 0px;
+	}
+
+}
+
+
+@media only screen and (max-width: 1650px){
+
+	
+
+}
+
+@media only screen and (max-width: 1550px){
+
+	
+
+}
+
+@media only screen and (max-width: 1450px){
+	
+	.header-style-three .header-lower .left-box{
+		gap:25px;
+	}
+	
+	.fluid-one_image-two{
+		left:0px;
+	}
+	
+	.modern-one_icon,
+	.slider-two-arrow:before,
+	.slider-three_pattern-two{
+		display:none;
+	}
+	
+	.header-style-three .main-menu .navigation > li{
+		margin-right:16px;
+	}
+
+}
+
+@media only screen and (max-width: 1400px){
+
+	.main-header.header-style-two .header-lower .inner-container{
+		padding-right:15px;
+	}
+	
+	.header-style-two .main-menu .navigation > li{
+		margin-right:17px;
+	}
+	
+	.slider-two_experiance {
+		left: 30%;
+		top: 17%;
+	}
+	
+	.register-one{
+		background-image:inherit !important;
+	}
+
+}
+
+@media only screen and (max-width: 1350px){
+	
+	.modern-two_icon-three,
+	.main-header.header-style-three .header-phone_box{
+		display:none;
+	}
+	
+	.fluid-two .outer-container{
+		background-image:inherit !important;
+		background-color: var(--color-seven);
+	}
+	
+	.feature-block_five-inner::before{
+		border-bottom-color: var(--color-seven);
+	}
+	
+	.fluid-two .left-box{
+		padding:100px 60px 100px 15px;
+	}
+	
+	.contact-three .inner-container{
+		padding:90px 50px 90px;
+	}
+	
+}
+
+@media only screen and (max-width: 1300px){
+
+	.header-phone_box,
+	.testimonial-one_icon,
+	.modern-one_icon{
+		display:none;
+	}
+	
+	.support-one .inner-container{
+		margin-left:-30px;
+	}
+	
+	.header-style-two .header-lower .left-box{
+		gap:25px;
+	}
+	
+	.fluid-one .right-box{
+		padding-left:50px;
+	}
+	
+	.discount-one_content{
+		margin-left:0px;
+	}
+	
+	.discount-one_image{
+		margin-right:0px;
+	}
+	
+	.discount-box h3{
+		font-size:34px;
+	}
+
+}
+
+@media only screen and (max-width: 1240px){
+	
+	.modern-one_image{
+		margin-right:-40px;
+	}
+	
+	.services-block_one-inner{
+		padding:40px 30px 35px;
+	}
+	
+	.support-one .inner-container {
+		margin-left: 0px;
+	}
+	
+	.support-one_form-outer{
+		padding:85px 60px 125px;
+	}
+
+	.support-one_bg-image{
+		margin-right: -380px;
+	}
+	
+	.slider-three_icon,
+	.slider-three_icon-two{
+		display:none;
+	}
+	
+	.slider-three-arrow{
+		left:35px;
+	}
+	
+	.main-header.header-style-three.fixed-header .header-lower .inner-container{
+		padding-right:0px;
+	}
+	
+	.page-title .bread-crumb li{
+		font-size:16px;
+	}
+	
+	.page-title{
+		padding:250px 0px 100px;
+	}
+	
+	.contact-three_title-outer{
+		padding-right:0px;
+	}
+	
+	.slider-three .swiper-slide{
+		padding-top:250px;
+	}
+	
+	.header-style-four .header-off{
+		display:none !important;
+	}
+
+}
+
+@media only screen and (max-width: 1140px){
+	
+	.main-header .main-menu .navigation > li{
+		margin-right: 15px;
+	}
+
+	.main-header .main-menu .navigation > li > a{
+		font-size: 16px;
+	}
+
+	.main-header .header-lower{
+		border-radius: 0px;
+	}
+
+	.main-header .header-lower .outer-box {
+		gap:12px;
+	}
+	
+	.project-one_icon,
+	.category-one_icon{
+		left:40px;
+	}
+	
+	.project-one_icon-two,
+	.category-one_icon-two{
+		right:40px;
+	}
+	
+	.video-one_overlay{
+		left:50px;
+		right: 50px;
+	}
+	
+	.testimonial-block_one-text{
+		font-size:24px;
+		line-height:40px;
+	}
+	
+	.support-one_form-outer {
+		padding: 60px 50px 60px;
+	}
+	
+	.fluid-one_icon,
+	.subscribe-one_icon,
+	.slider-two_experiance,
+	.subscribe-one_icon-two,
+	.slider-three_image-layer{
+		display:none;
+	}
+	
+	.fluid-one .right-box{
+		padding:60px 15px 60px 30px;
+	}
+	
+	.main-header.header-style-two .header-lower .logo-box{
+		padding-right:20px;
+	}
+	
+	.services-block_four-inner{
+		padding:0px 20px 30px;
+	}
+	
+	.services-block_four-text,
+	.services-block_four-title{
+		padding:0px 0px;
+	}
+	
+	.fluid-two .left-box{
+		padding-right:0px;
+	}
+	
+	.fluid-two .left-box_inner{
+		padding-left:0px;
+	}
+	
+	.main-header.header-style-three .header-lower .logo-box{
+		padding:0px 15px;
+	}
+	
+	.main-header.header-style-three .header-lower .inner-container{
+		padding-right:15px;
+	}
+	
+	.faq-one .inner-container{
+		padding:55px 30px 50px;
+	}
+	
+	.faq-icon{
+		margin-top:20px;
+	}
+	
+	.faq-one{
+		padding-top:100px;
+	}
+	
+	.faq-one_title-box .text br{
+		display:none;
+	}
+	
+	.service-detail .inner-box{
+		padding-left:0px;
+	}
+	
+	.sidebar-page-container .sidebar-side{
+		order:2;
+	}
+	
+	.sidebar-page-container .content-side{
+		order:1;
+	}
+	
+	.shop-detail_content-column .inner-column{
+		padding-left:0px;
+	}
+	
+	.shop-detail_gallery-column .inner-column{
+		padding-right:0px;
+	}
+	
+	 .shoping-cart-section .table-outer {
+		overflow-y: auto;
+	}
+	
+	.contact-two .info-column_inner{
+		padding-right:0px;
+	}
+	
+	.slider-three_content-inner{
+		max-width:100%;
+	}
+	
+	.slider-three_heading br{
+		display:none;
+	}
+	
+}
+
+@media only screen and (min-width: 768px){
+	
+	
+	
+}
+	
+@media only screen and (max-width: 1023px){
+	
+	.main-header .main-box .logo-box {
+		position:relative;
+		left:0px;
+		top:0px;
+		right:0px;
+		bottom:0px;
+		margin:0px;
+		text-align:left;
+	}
+	
+	.main-header .outer-box{
+		position: static;
+		display:block;
+	}
+
+	.main-header{
+		position:relative;
+		top:0px;
+		background-color: var(--color-two);
+	}
+	
+	.main-header .mobile-nav-toggler{
+		display:block;
+	}
+	
+	.main-header .sticky-header .mobile-nav-toggler{
+		display:block;
+	}
+	
+	.main-header .nav-outer,
+	.main-header .sticky-header .main-menu{
+		display:none;
+	}
+	
+	.main-header #navbarSupportedContent{
+		display:block;
+	}
+	
+	.main-header .mCSB_inside > .mCSB_container{
+		margin-right:0px;
+	}
+
+	.main-header .main-menu{
+		display: none;
+	}
+	
+	.main-header .header-lower{
+		background-color:var(--main-color);
+	}
+	
+	.main-header .header-lower .inner-container{
+		padding:0px 0px;
+	}
+	
+	.slider-one .swiper-slide{
+		padding-top:120px;
+	}
+	
+	.main-header.header-style-three .header-lower{
+		background:none;
+	}
+	
+	.shop-detail_content-column{
+		order:1;
+	}
+	
+	.shop-detail_gallery-column{
+		order:2;
+	}
+	
+	.mobile-menu .navigation > li.has-mega-menu .demo-page{
+		display:none;
+	}
+	
+	.hidden-mobile-menu{
+		display:block;
+	}
+
+}
+
+@media only screen and (max-width: 990px){
+
+	.mobile-menu .navigation li.has-mega-menu > .mega-menu {
+		display: none;
+		overflow: hidden;
+	}
+	
+	.category-block_one-inner::before{
+		box-shadow:0px 0px 15px rgba(0,0,0,0.10);
+	}
+	
+	.modern-one_image{
+		margin-right:0px;
+	}
+	
+	.modern-one_content-column{
+		margin-bottom:60px;
+	}
+	
+	.modern-one_circle{
+		left:0px;
+	}
+	
+	.support-one_bg-image{
+		left:0px;
+		margin-right:0px;
+	}
+	
+	.support-one_product{
+		display:none;
+	}
+	
+	.slider-one .main-slider-prev{
+		left:20px;
+	}
+	
+	.slider-one .main-slider-next{
+		right:20px;
+	}
+	
+	.main-header.header-style-two .header-lower{
+		background-color:var(--white-color);
+	}
+	
+	.main-header.header-style-two .header-lower .inner-container{
+		padding-right:0px;
+	}
+	
+	.main-header.header-style-two .mobile-nav-toggler{
+		color:var(--color-four);
+	}
+	
+	.news-one_icon,
+	.slider-two_image-layer{
+		display:none;
+	}
+	
+	.slider-two .swiper-slide{
+		padding:120px 0px 150px;
+	}
+	
+	.slider-two_content{
+		justify-content: flex-start;
+	}
+	
+	.slider-two-arrow{
+		left:0px;
+		bottom:25px;
+	}
+	
+	.slider-two_counter{
+		top:50px;
+	}
+	
+	.discount-one_content-column{
+		order:1;
+	}
+	
+	.discount-one_image-column{
+		order:2;
+		margin-bottom:0px;
+	}
+	
+	.team-one{
+		padding-top:110px;
+	}
+	
+	.fluid-one .left-box{
+		position:relative;
+		width:100%;
+		border:none;
+		background-image:none;
+	}
+	
+	.fluid-one_image{
+		display:block;
+	}
+	
+	.fluid-one .right-box{
+		width:100%;
+		float:left;
+	}
+	
+	.fluid-one .right-box_inner{
+		max-width:100%;
+	}
+	
+	.fluid-one .right-box{
+		padding:80px 15px 80px 15px;
+	}
+	
+	.main-header.header-style-three .mobile-nav-toggler{
+		color:var(--color-four);
+	}
+	
+	.modern-two_icon,
+	.modern-two_pattern{
+		display:none;
+	}
+	
+	.modern-two_icon-two{
+		right:15px;
+		bottom:5%;
+		left:auto;
+	}
+	
+	.slider-three .swiper-slide{
+		padding-top:150px;
+	}
+	
+	.slider-three_image-layer{
+		display:none;
+	}
+	
+	.slider-three_icon{
+		left:auto;
+		right:5%;
+		top:10%;
+	}
+	
+	.slider-three_content-inner{
+		max-width:100%;
+	}
+	
+	.fluid-two .left-box{
+		width:100%;
+		padding:80px 20px 80px;
+	}
+	
+	.fluid-two .right-box{
+		position:relative;
+		width:100%;
+		float:left;
+		background-image:none !important;
+	}
+	
+	.fluid-two_image{
+		display:block;
+	}
+	
+	.fluid-two .left-box_inner{
+		max-width:100%;
+	}
+	
+	.news-two_icon-two{
+		right:10px;
+	}
+	
+	.page-title {
+		padding: 150px 0px 100px;
+	}
+	
+	.team-detail{
+		padding-top:100px;
+	}
+	
+	.team-detail_content-column{
+		order:1;
+	}
+	
+	.team-detail_image-column{
+		order:2;
+	}
+	
+	.team-detail_content{
+		padding-left:0px;
+	}
+	
+	.contact-three_title-outer{
+		text-align:center;
+	}
+	
+}
+
+@media only screen and (max-width: 820px){
+
+	h1{
+		font-size:80px;
+	}
+	
+	h2{
+		font-size:40px;
+		line-height:50px;
+	}
+	
+	.video-one_text{
+		margin-top:20px;
+	}
+	
+	.slider-one_heading i{
+		margin-left:0px;
+		top:0px;
+	}
+	
+	.slider-one_bold{
+		font-size: 50px;
+		line-height: 60px;
+	}
+	
+	.slider-one_text{
+		font-size:18px;
+		line-height:30px;
+	}
+	
+	.header-top .right-box{
+		display:none !important;
+	}
+	
+	.slider-three_experiance,
+	.slider-two_counter,
+	.project-one_icon,
+	.project-one_icon-two,
+	.category-one_icon,
+	.support-one_color-layer,
+	.support-one_grass,
+	.category-one_icon-two{
+		display:none;
+	}
+	
+	.testimonial-block_one-content{
+		padding-left:0px;
+		padding-right:0px;
+	}
+	
+	.testimonial-block_one-image{
+		position:relative;
+	}
+	
+	.testimonial-block_one-rating{
+		text-align:left;
+		margin-bottom:20px;
+	}
+	
+	.project-one{
+		padding:110px 0px 110px;
+	}
+	
+	.slider-two_icon{
+		right:20px;
+		bottom:40px;
+	}
+	
+	.page-title h2{
+		font-size:44px;
+	}
+	
+	.footer-contact_list li{
+		max-width:100%;
+	}
+	
+}
+
+@media only screen and (max-width: 767px){
+	
+	.main-header .header-upper .logo-outer {
+		position:relative;
+		width:100%;
+	}
+
+	.main-header .sticky-header .outer-box{
+		display:block;
+		right: 0px;
+		left: auto;
+		top:0px;
+	}
+
+	.main-header .main-menu{
+		width:100%;
+		display:none;
+	}
+	
+	.slider-three_icon,
+	.video-one .left-box,
+	.subscribe-one_grass,
+	.testimonial-two_icon,
+	.main-header .main-menu .navbar-collapse > .navigation li.dropdown:after,
+	.main-header .main-menu .navigation > li > ul:before{
+		display:none !important;	
+	}
+	
+	.main-header .main-box .logo-box{
+		float:none;
+		text-align:center;
+		padding-bottom:10px;
+	}
+
+	.main-header .header-lower .outer-box{
+		position:relative;
+		z-index:12;
+		display:block;
+	}
+	
+	.main-header .main-menu .navbar-header .navbar-toggler{
+		display: inline-block;
+		z-index: 12;
+		width: 50px;
+		height: 40px;
+		float: none;
+		padding: 0px;
+		text-align: center;
+		border-radius: 0px;
+		background: none;
+		border: 1px solid #ffffff;
+	}
+	
+	.main-header .main-menu .navbar-header .navbar-toggler .icon-bar{
+		position: relative;
+		background: #ffffff;
+		height: 2px;
+		width: 26px;
+		display: block;
+		margin:0 auto;
+		margin:5px 11px;
+	}
+	
+	.main-header .nav-outer .mobile-nav-toggler{
+		display: block;
+	}
+	
+	.main-header #navbarSupportedContent{
+		display:block;
+	}
+	
+	.main-header .mCSB_inside > .mCSB_container{
+		margin-right:0px;
+	}
+	
+	.slider-one_bold{
+		margin-top:20px;
+	}
+	
+	.slider-one_bold {
+		font-size: 40px;
+		line-height: 50px;
+	}
+	
+	.video-one_play{
+		margin:0 auto;
+	}
+	
+	.video-one_overlay{
+		text-align:center;
+	}
+	
+	.slider-one_button{
+		margin-top:30px;
+	}
+	
+	.testimonial-one .testimonial__nav{
+		position:relative;
+		top:0px;
+		margin-top:30px;
+	}
+	
+	.testimonial-block_one-inner{
+		padding:40px 40px;
+	}
+	
+	.testimonial-one .testimonial__nav-pagination{
+		bottom:30px;
+	}
+	
+	.slider-two_heading{
+		font-size:50px;
+		line-height:60px;
+	}
+	
+	.slider-three_heading{
+		font-size:50px;
+		line-height:60px;
+	}
+	
+	.fluid-two .right-box::before,
+	.fluid-two .right-box::after,
+	.slider-three_heading br{
+		display:none;
+	}
+	
+	.welcome-one_title-inner{
+		padding-right:0px;
+	}
+	
+	.faq-one_title-box h2{
+		font-size:32px;
+		line-height:42px;
+	}
+	
+	.faq-one .lower-box{
+		margin-top:25px;
+	}
+	
+	.faq-one .lower-box .text{
+		font-size:18px;
+		margin-bottom:15px;
+	}
+	
+	.shop-detail .prod-tabs .tabs-content{
+		padding:30px 30px;
+	}
+	
+	.comment-box.reply-comment{
+		margin-left:0px;
+	}
+	
+}
+
+@media only screen and (max-width: 599px){
+	
+	.slider-two_icon,
+	.news-two_icon,
+	.slider-one_icon,
+	.slider-two_pattern,
+	.testimonial-one_icon-two,
+	.rtl .modern-two_icon-two,
+	.main-header_button{
+		display:none;
+	}
+	
+	.slider-one .swiper-slide {
+		padding-bottom: 110px;
+	}
+	
+	.slider-one-arrow{
+		bottom:20px;
+	}
+	
+	.slider-one_pattern-two,
+	.slider-one_image-layer{
+		bottom:0px;
+	}
+	
+	.modern-one_check{
+		font-size:16px;
+	}
+	
+	.feature-block_one-inner{
+		font-size:15px;
+	}
+	
+	h2 {
+		font-size: 34px;
+		line-height: 44px;
+	}
+	
+	.testimonial-one{
+		padding-top:110px;
+	}
+	
+	.testimonial-block_one-inner {
+		padding: 30px 30px;
+	}
+	
+	.testimonial-block_one-text {
+		font-size: 18px;
+		line-height: 32px;
+	}
+	
+	.support-one_form-outer {
+		padding: 35px 25px 35px;
+	}
+	
+	.email-box{
+		padding:30px 25px;
+		margin-top:30px;
+	}
+	
+	.email-box a{
+		font-size:16px;
+	}
+	
+	.subscribe-one_text{
+		font-size:16px;
+		line-height:26px;
+	}
+	
+	.discount-box_inner{
+		padding:0px;
+		min-height:auto;
+	}
+	
+	.discount-box_price{
+		position:relative;
+		margin-bottom:25px;
+	}
+	
+	.testimonial-block_three-inner{
+		padding:25px 25px;
+	}
+	
+	.welcome-one_feature{
+		padding-right:0px;
+	}
+	
+	.welcome-one_text br{
+		display:none;
+	}
+	
+	.welcome-one_feature-button{
+		position:relative;
+		top:0px;
+		margin-top:20px;
+	}
+	
+	.counter-block_one{
+		margin-top:0px;
+	}
+	
+	.welcome-one{
+		padding-bottom:60px;
+	}
+	
+	.page-title {
+		padding: 100px 0px 100px;
+	}
+	
+	.faq-one .inner-container {
+		padding: 30px 20px 30px;
+	}
+	
+	.accordion-box.style-two .block .acc-btn{
+		font-size:18px;
+		line-height:30px;
+	}
+	
+	.faq-one .lower-box .text a{
+		margin-left:0px;
+	}
+	
+	.price-block_one-list{
+		margin-left:0px;
+		margin-right:0px;
+	}
+	
+	.team-detail .emergenc-box{
+		font-size:15px;
+	}
+	
+	.team-detail .emergenc-box a{
+		margin-left:15px;
+	}
+	
+	.sidebar-widget .widget-content{
+		padding:25px 25px;
+	}
+	
+	.project-detail .bold-text{
+		font-size:18px;
+		line-height:28px;
+	}
+	
+	.project-detail_info{
+		padding:25px 25px;
+	}
+	
+	.project-detail_consult{
+		padding:40px 30px 20px;
+	}
+	
+	.comment-box .comment{
+		padding-left:0px;
+	}
+	
+	.comment-box .author-thumb{
+		position:relative;
+		margin-bottom:20px;
+	}
+	
+	.contact-two .title-box h3,
+	.contact-three_title,
+	h3 {
+		line-height: 36px;
+		font-size: 26px;
+	}
+	
+	.contact-two .title-box .text{
+		font-size:16px;
+		line-height:26px;
+	}
+	
+	.post-share-options .post-tags span{
+		display:block;
+		margin-bottom:10px;
+	}
+	
+	.post-share-options .post-tags{
+		margin-bottom:10px;
+	}
+	
+	.author-box_inner{
+		padding-right:0px;
+	}
+	
+	.author-box .author-image{
+		position:relative;
+		margin-bottom:15px;
+	}
+	
+	.author-box{
+		padding:25px 25px;
+	}
+	
+	.contact-three .inner-container {
+		padding: 60px 20px 60px;
+	}
+	
+	
+	
+}
+
+@media only screen and (max-width: 479px) {
+	
+	.main-header .search-box-btn{
+		font-size:16px;
+	}
+	
+	.navSidebar-button{
+		font-size:22px;
+	}
+	
+	.main-header .mobile-nav-toggler{
+		font-size:18px;
+	}
+	
+	.main-header .header-lower .outer-box{
+		gap:11px;
+	}
+	
+	.slider-one_text{
+		font-size: 16px;
+		line-height: 28px;
+	}
+	
+	.project-block_one-content{
+		margin-right:0px;
+	}
+	
+	.header-top,
+	.news-one_icon-two,
+	.modern-one_circle,
+	.project-block_one-options,
+	.sec-title_heading br,
+	.slider-one_text br{
+		display:none;
+	}
+	
+	.video-one_play span{
+		width:74px;
+		height:74px;
+		line-height:70px;
+	}
+	
+	.video-one_play .ripple, .video-one_play .ripple::before, .video-one_play .ripple::after{
+		width:74px;
+		height:74px;
+	}
+	
+	.team-block_one-image{
+		padding:12px 12px 0px;
+	}
+	
+	.testimonial-one .testimonial__nav-pagination{
+		position:relative;
+		bottom:0px;
+		margin-top:25px;
+	}
+	
+	h1 {
+		font-size: 50px;
+		line-height:60px;
+	}
+	
+	h2 {
+		font-size: 30px;
+		line-height: 40px;
+	}
+	
+	h3 {
+		line-height: 32px;
+		font-size: 22px;
+	}
+	
+	.blog-detail_content,
+	.news-block_three-content{
+		padding:25px 25px;
+	}
+	
+	.slider-two_heading {
+		font-size: 36px;
+		line-height: 46px;
+	}
+	
+	.slider-two_text{
+		font-size:16px;
+		line-height:28px;
+	}
+	
+	.email-box_inner{
+		padding-left:0px;
+	}
+	
+	.email-box_inner .icon{
+		position:relative;
+		margin-bottom:20px;
+	}
+	
+	.newsletter-box .form-group button{
+		position:relative;
+		right:0px;
+		top:0px;
+		bottom:0px;
+		margin-top:5px;
+		font-size:14px;
+	}
+	
+	.main-header.header-style-two .header-lower .logo-box {
+		padding-right: 10px;
+		padding-left: 10px;
+	}
+	
+	.main-header.header-style-three{
+		min-height:90px;
+		background:inherit !important;
+	}
+	
+	.main-header.header-style-three .header-lower .inner-container{
+		padding-right:0px;
+	}
+	
+	.news-block_two-content{
+		padding:20px 20px;
+	}
+	
+	.news-two_icon-two,
+	.testimonial-two_icon,
+	.modern-two_icon-two,
+	.feature-block_five-inner::before,
+	.main-header.header-style-three .header-lower .search-box-btn,
+	.main-header.header-style-three .header-lower .navSidebar-button,
+	.main-header.header-style-two .navSidebar-button{
+		display:none;
+	}
+	
+	.feature-block_five-content{
+		padding-top:4px;
+	}
+	
+	.testimonial-block_three-inner {
+		padding: 20px 20px;
+	}
+	
+	.testimonial-block_three-author{
+		font-size:20px;
+	}
+	
+	.slider-three_heading {
+		font-size: 34px;
+		line-height: 44px;
+	}
+	
+	.slider-three_text{
+		font-size:16px;
+		line-height:28px;
+	}
+	
+	.project-detail_title,
+	.service-detail h2,
+	.page-title h2 {
+		font-size: 34px;
+		line-height:44px;
+	}
+	
+	.accordion-box .block .acc-btn{
+		font-size:16px;
+		line-height:28px;
+	}
+	
+	.accordion-box .block .acc-btn{
+		padding:15px 16px;
+		padding-right: 50px;
+	}
+	
+	.service-detail_list{
+		margin-bottom:0px;
+	}
+	
+	.service-detail_list li{
+		font-size:16px;
+		margin-bottom:5px;
+	}
+	
+	.project-block_one-overlay{
+		left:10px;
+		bottom:10px;
+	}
+	
+	.filter-box .results{
+		font-size:15px;
+		margin-bottom:10px;
+	}
+	
+	.shop-detail .prod-tabs .tab-btns .tab-btn{
+		display:block;
+		margin:0px 0px 5px;
+	}
+	
+	.shop-detail .prod-tabs .tabs-content {
+		padding: 20px 15px;
+	}
+	
+	.shop-detail_content-column .button-box{
+		margin-left:10px;
+	}
+	
+	.shop-detail_content-column .like-btn{
+		margin-top:0px;
+		margin-left:0px;
+	}
+	
+	.coupon-form .form-group button{
+		position:relative;
+		width:100%;
+		display:block;
+		margin-top:10px;
+	}
+	
+	.blog-detail_list li{
+		font-size:14px;
+		line-height:26px;
+	}
+	
+	.error-section .text{
+		font-size:16px;
+		line-height:26px;
+		margin-top:15px;
+	}
+	
+	.info-box_one-content{
+		padding-left:0px;
+	}
+	
+	.info-box_one .icon{
+		position:relative;
+		margin-bottom:20px;
+	}
+	
+	.contact-two iframe{
+		height:250px;
+	}
+	
+}
+
+/* Homepage 04 Responsive */
+
+
+@media only screen and (max-width: 1650px){
+
+	
+
+}
+
+@media only screen and (max-width: 1550px){
+
+	.about-one_image{
+		margin-left:-100px;
+	}
+
+}
+
+@media only screen and (max-width: 1450px){
+	
+}
+
+@media only screen and (max-width: 1400px){
+
+	.about-one_counter{
+		left:0px;
+	}
+	
+	.shop-three .product-block_two,
+	.category-two .category-block_two{
+		width:25%;
+	}
+	
+	.rtl .slider-four_image {
+		margin-left: -120px;
+	}
+
+}
+
+@media only screen and (max-width: 1350px){
+	
+}
+
+@media only screen and (max-width: 1300px){
+	
+	.main-header.header-style-four .header-phone_box{
+		display:flex;
+	}
+	
+	.slider-four .swiper-slide{
+		padding:80px 0px 150px;
+	}
+	
+	.slider-four_image{
+		margin-top:60px;
+	}
+	
+	.slider-four_vector-three,
+	.slider-four_email,
+	.about-one-icon_two,
+	.slider-four_content::before,
+	.slider-four_content::after{
+		display:none;
+	}
+	
+	.slider-four_image img{
+		max-width:100%;
+	}
+	
+	.about-one_image {
+		margin-left: 0px;
+	}
+	
+	.about-one_image-two{
+		right:30px;
+	}
+	
+	
+	
+}
+
+@media only screen and (max-width: 1240px){
+	
+	.shop-three .product-block_two,
+	.category-two .category-block_two {
+		width: 33.33333%;
+	}
+	
+	.services-block_five-image,
+	.off-one-icon_two{
+		display:none;
+	}
+	
+	.off-one_image{
+		margin-left:-80px;
+	}
+	
+	.off-one_content{
+		padding-top:80px;
+	}
+	
+	.rtl .slider-four_image {
+		margin-left: 0px;
+	}
+	
+}
+
+@media only screen and (max-width: 1140px){
+	
+	.off-one-icon_one,
+	.about-one_counter{
+		display:none;
+	}
+	
+	.about-one_check{
+		font-size:16px;
+	}
+	
+	.off-one_content{
+		padding-left:0px;
+	}
+	
+	.slider-four_text{
+		font-size:50px;
+		line-height:64px;
+	}
+	
+}
+
+@media only screen and (min-width: 768px){
+	
+	
+	
+}
+	
+@media only screen and (max-width: 1023px){
+	
+}
+
+@media only screen and (max-width: 990px){
+	
+	.main-header.header-style-four .header-lower .options-box{
+		
+	}
+	
+	.rtl .slider-four_content-inner{
+		max-width:100%;
+	}
+	
+	.main-header.header-style-four .mobile-nav-toggler{
+		color:#111111;
+	}
+	
+	.main-header.header-style-four .header-lower .nav-outer {
+		position: relative;
+		display: block !important;
+	}
+	
+	.main-header.header-style-four .info-box{
+		border-radius:0px;
+	}
+	
+	.slider-four_image{
+		margin-left:0px;
+		text-align:center;
+	}
+	
+	.shop-block_one-off{
+		margin-top:0px;
+	}
+	
+	.shop-block_one-title{
+		font-size:28px;
+	}
+	
+	.off-one_content-column,
+	.about-one_content-column{
+		order:1;
+	}
+	
+	.off-one_image-column,
+	.about-one_image-column{
+		order:2;
+	}
+	
+	.shop-three .product-block_two,
+	.category-two .category-block_two {
+		width: 50%;
+	}
+	
+	.off-one_image {
+		margin-left: 0px;
+		text-align:center;
+	}
+	
+}
+
+@media only screen and (max-width: 820px){
+	
+}
+
+@media only screen and (max-width: 767px){
+	
+	.about-one_image-two {
+		right: 15px;
+	}
+	
+	.main-header.header-style-four .header-phone_box {
+		display: none;
+	}
+	
+	.slider-four_image{
+		display:none;
+	}
+	
+	.testimonial-three .title-box{
+		font-size:32px;
+		line-height:42px;
+	}
+	
+	.testimonial-three .title-box span{
+		font-size:42px;
+	}
+	
+	.testimonial-block_four-text{
+		font-size:24px;
+		line-height:34px;
+	}
+	
+	.slider-four .swiper-slide.alternate{
+		padding-bottom:100px;
+	}
+	
+}
+
+@media only screen and (max-width: 599px){
+	
+	.slider-four_heading{
+		font-size:100px;
+		line-height:100px;
+		padding-bottom:20px;
+	}
+	
+	.slider-four_text {
+		font-size: 36px;
+		line-height: 56px;
+	}
+	
+	.off-one_text br,
+	.testimonial-three-arrow,
+	.slider-four_vector-five,
+	.slider-four_vector-one,
+	.shop-block_one-image{
+		display:none;
+	}
+	
+	.testimonial-three .testimonial_carousel-pagination,
+	.testimonial-three-arrow{
+		margin-top:0px;
+	}
+	
+	.testimonial-three{
+		padding:100px 0px 100px;
+	}
+	
+	.shop-block_one-inner{
+		padding:25px 30px;
+	}
+	
+	.shop-three .product-block_two,
+	.category-two .category-block_two {
+		padding:0px 5px;
+		width: 100%;
+	}
+	
+	.testimonial-block_four-inner{
+		padding:30px 30px;
+	}
+	
+	.subscribe-two_text{
+		font-size:16px;
+	}
+	
+	.slider-four_content-inner{
+		padding-top:0px;
+	}
+	
+	.slider-four .swiper-slide.alternate{
+		padding-bottom:110px;
+	}
+	
+}
+
+@media only screen and (max-width: 479px) {
+	
+	.slider-four_heading {
+		font-size: 70px;
+		line-height:80px;
+		padding-bottom:20px;
+	}
+	
+	.feature-block_seven-inner{
+		padding:0px;
+	}
+	
+	.feature-block_seven-icon{
+		position:relative;
+		margin-bottom:20px;
+		display:inline-block;
+	}
+	
+	.main-header.header-style-four .info-box .user,
+	.about-one_image-two{
+		display:none;
+	}
+	
+	.about-one_image-inner{
+		padding-bottom:0px;
+	}
+	
+	.testimonial-block_four-text {
+		font-size: 22px;
+		line-height: 34px;
+	}
+	
+	.testimonial-block_four-rating{
+		margin-top:15px;
+	}
+	
+	.subscribe-two .inner-container{
+		padding:45px 25px;
+	}
+	
+	.off-one_text {
+		line-height: 26px;
+		font-size: 16px;
+	}
+	
+	.main-header.header-style-four .header-upper .logo-box{
+		padding-right:25px;
+	}
+	
+	.off-one_title{
+		font-size:30px;
+	}
+	
+	.rtl .feature-block_seven-inner{
+		padding-right:0px;
+	}
+	
+}
+/* iOS Safari ignores background-attachment: fixed and renders hero
+   backgrounds blank on mobile. Force scroll attachment for touch / small
+   screens so .page-title hero images appear. */
+@media (max-width: 1024px), (hover: none) and (pointer: coarse) {
+	.page-title {
+		background-attachment: scroll;
+	}
+}
+
+/* Mobile fix: trim the slider-one hero on About/Services so it doesn't
+   balloon vertically. The global h1 is 150px/160px which overflows narrow
+   viewports and inflates the slide; the .slider-one .swiper-slide also
+   keeps 350px bottom padding down to 600px. Tighten both for phones. */
+@media (max-width: 767px) {
+	.slider-one .swiper-slide {
+		padding-top: 110px;
+		padding-bottom: 110px;
+	}
+	.slider-one_heading {
+		font-size: 64px;
+		line-height: 70px;
+	}
+	.slider-one_heading i img {
+		max-width: 60px;
+		height: auto;
+	}
+	.slider-one_bold {
+		font-size: 32px;
+		line-height: 40px;
+	}
+	.slider-one_text br { display: none; }
+	.slider-one .main-slider-prev,
+	.slider-one .main-slider-next { display: none !important; }
+}
+
+@media (max-width: 480px) {
+	.slider-one_heading {
+		font-size: 52px;
+		line-height: 58px;
+	}
+	.slider-one_bold {
+		font-size: 26px;
+		line-height: 34px;
+	}
+	.slider-one .swiper-slide {
+		padding-top: 90px;
+		padding-bottom: 90px;
+	}
+}
+
+/* Mobile fix: balance discount-one section on phones. Native 16:9 image
+   feels stunted (~196px tall on 349px screen), and the bilingual box
+   (.discount-box with 175px EN/ES circle) feels oversized. Bump the image
+   a bit taller AND trim the box so the two read as proportional.
+   Applies to all pages that use .discount-one (index, services). */
+@media (max-width: 767px) {
+	.discount-one_image { margin-right: 0; margin-left: 0; }
+	.discount-one_image img {
+		aspect-ratio: 5 / 4;
+		height: auto;
+		object-fit: cover;
+		object-position: center;
+		border-radius: 8px;
+	}
+	.discount-one .discount-box { padding: 22px 22px; }
+	.discount-one .discount-box_price {
+		width: 130px;
+		height: 130px;
+		font-size: 32px;
+		padding-top: 32px;
+		margin-bottom: 18px;
+	}
+	.discount-one .discount-box_price span {
+		font-size: 16px;
+		margin-top: 6px;
+	}
+	.discount-one .discount-box h3 {
+		font-size: 22px;
+		line-height: 1.25;
+		margin-bottom: 10px;
+	}
+	.discount-one .discount-box p {
+		font-size: 14px;
+		line-height: 1.55;
+	}
+}
+@media (max-width: 480px) {
+	.discount-one_image img { aspect-ratio: 4 / 3; }
+	.discount-one .discount-box_price {
+		width: 110px;
+		height: 110px;
+		font-size: 28px;
+		padding-top: 26px;
+	}
+	.discount-one .discount-box_price span {
+		font-size: 14px;
+		margin-top: 4px;
+	}
+}
+
+/* Mobile fix: testimonial-two ("What People Say About Working With Us") on
+   the home page uses 130px top + 130px bottom padding with no responsive
+   override, leaving big empty bands above and below the testimonial card
+   on phones. Trim padding and tighten the title margin. */
+@media (max-width: 767px) {
+	.testimonial-two { padding: 60px 0 60px; }
+	.testimonial-two .sec-title { margin-bottom: 28px; }
+}
+@media (max-width: 480px) {
+	.testimonial-two { padding: 48px 0 48px; }
+	.testimonial-two .sec-title { margin-bottom: 22px; }
+}
+
+/* Mobile fix: testimonial-three ("Landowners and Crews We've Worked With")
+   keeps 100px bottom padding even on phones, so there's a big empty band
+   below the pagination dots. Trim it down. */
+@media (max-width: 767px) {
+	.testimonial-three { padding: 60px 0 50px; }
+}
+@media (max-width: 480px) {
+	.testimonial-three { padding: 48px 0 36px; }
+}
+
+/* Mobile fix: shop-three ("Featured Plants — Browse Our Nursery Native
+   Plant Catalog") uses 130px top + 100px bottom on every breakpoint, so
+   there's a big empty band below the carousel on phones. Trim it. */
+@media (max-width: 767px) {
+	.shop-three { padding: 60px 0 50px; }
+}
+@media (max-width: 480px) {
+	.shop-three { padding: 48px 0 36px; }
+}
+
+/* Mobile fix: category-one ("Categories — Restoration Services For Your
+   Land") uses 100px top + 80px bottom with no responsive override, so
+   it feels overpadded on phones. Match the trim pattern. */
+@media (max-width: 767px) {
+	.category-one { padding: 60px 0 50px; }
+}
+@media (max-width: 480px) {
+	.category-one { padding: 48px 0 36px; }
+}
+
+/* Mobile fix: category-two (section above Categories) uses 120px top +
+   110px bottom on every breakpoint. Match the trim pattern. */
+@media (max-width: 767px) {
+	.category-two { padding: 60px 0 50px; }
+}
+@media (max-width: 480px) {
+	.category-two { padding: 48px 0 36px; }
+}
+
+/* Mobile fix: about-one ("Heal The Land, Grow The Future" — sits directly
+   above the "What We Do" section) uses 130px top + 100px bottom. Match
+   the trim pattern. */
+@media (max-width: 767px) {
+	.about-one { padding: 60px 0 50px; }
+}
+@media (max-width: 480px) {
+	.about-one { padding: 48px 0 36px; }
+}
+
+/* Mobile fix: modern-one ("What We Do — Built For The Long View") uses
+   130px top + 110px bottom. The big top padding shows as a cream gap
+   between the previous section's image and the WHAT WE DO eyebrow. */
+@media (max-width: 767px) {
+	.modern-one { padding: 60px 0 50px; }
+}
+@media (max-width: 480px) {
+	.modern-one { padding: 48px 0 36px; }
+}
+
+/* Mobile fix: shop-two (section directly below the hero on the home page)
+   uses 130px top + 100px bottom, leaving big white bands above and below
+   the shop blocks on phones. */
+@media (max-width: 767px) {
+	.shop-two { padding: 60px 0 50px; }
+}
+@media (max-width: 480px) {
+	.shop-two { padding: 48px 0 36px; }
+}
+
+/* Contrast fix: services-six ("What We Offer") cards use white background
+   with body text colored --color-eight (pale sage rgb 149,166,137), which
+   is only ~2.6:1 contrast against white — fails WCAG AA. Bump to a
+   readable neutral. Applies at every breakpoint, not just mobile. */
+.services-six .services-block_five-text { color: #5a5a5a; }
+
+/* Mobile fix: services-six ("Our Why") uses 130/100 padding everywhere,
+   plus the WHY card has heavy padding. Trim both on phones so the section
+   doesn't balloon vertically. */
+@media (max-width: 767px) {
+	.services-six { padding: 60px 0 50px; }
+	.services-six .services-block_five-inner { padding: 28px 22px 28px !important; }
+	/* Center the bouncing leaf icon on mobile, with a slight rightward
+	   offset (the user wants it just past dead-center, leaning right).
+	   Cannot use transform for centering — the bounce animation owns it. */
+	.services-six_bounce-leaf {
+		right: auto !important;
+		left: calc(50% - 25px) !important; /* 110/2 = 55 ; shift right 30px */
+		margin: 0 !important;
+		width: 110px !important;
+		bottom: 8px !important;
+	}
+	.services-six_bounce-leaf img { width: 100% !important; height: auto !important; }
+}
+@media (max-width: 480px) {
+	.services-six { padding: 48px 0 36px; }
+	.services-six .services-block_five-inner { padding: 24px 18px 24px !important; }
+	.services-six_bounce-leaf {
+		width: 90px !important;
+		left: calc(50% - 20px) !important; /* 90/2 = 45 ; shift right 25px */
+	}
+}
+
+/* About page — Canticle Pond right column. Two stacked images use
+   layered overlap on desktop (negative margin-top + side shifts).
+   On mobile, reset all those tricks so the two images stack cleanly
+   one above the other with a normal gap. */
+@media (max-width: 991px) {
+	.canticle-pond-section .fluid-one_image-two { margin: 0 0 32px 0 !important; }
+}
+
+/* About page — Parkridge Pond (Long-Term Project) section.
+   .discount-one_pattern's top:-276px creates excessive cream bleed
+   above the section. Pull it in to a small breathing-room amount
+   instead of going to 0. Plus add modest padding-top on the section
+   so the Long-Term Project eyebrow has room above it. Scoped to
+   .parkridge-section only. */
+.parkridge-section .discount-one_pattern { top: -50px !important; }
+.parkridge-section { padding-top: 50px; }
+
+/* The slider-one hero has a "spinning wheel" badge (the PROTECT • GROW •
+   ECOTONES • RESTORE circular logo with experiance.png) anchored to the
+   bottom of the hero. The wheel image extends below the section's bottom
+   edge into the next section, where torn-paper top decorations (z-index:3)
+   were covering it. Bump the wheel above any z-index:3 decoration. */
+.slider-one_icon { z-index: 50 !important; }
+
+/* Services page — Service Area / "Stewardship Across Northern California"
+   section. Default .about-one padding is 130px top — too much empty
+   space above the welcome-founder.jpg image on mobile. Also the hidden
+   green check banner uses visibility:hidden which preserves desktop
+   height intentionally, but on mobile that invisible space sits between
+   the content and the image creating an awkward gap. Drop to display:none
+   on mobile only. */
+@media (max-width: 767px) {
+	.about-one.service-area { padding-top: 50px !important; padding-bottom: 50px !important; }
+	.about-one.service-area .about-one_check[style*="visibility:hidden"] { display: none !important; }
+}
+@media (max-width: 480px) {
+	.about-one.service-area { padding-top: 36px !important; padding-bottom: 36px !important; }
+}
+
+/* Services page — Custodians section ("We're Custodians Of The Natural
+   Landscape"). The .discount-one.style-two has padding-top:100px which
+   leaves a big empty band above the heading on mobile (where the column
+   ordering puts content first). Trim. Also hide the corner-leaf decor
+   on mobile where it overlaps the heading. */
+@media (max-width: 991px) {
+	/* Section uses overflow:visible on desktop so the corner-leaf decor can
+	   show fully. On mobile that lets the color-layer bleed 260px up into
+	   the section above — restore overflow:hidden for phones/tablets. */
+	.discount-one.style-two { overflow: hidden !important; }
+}
+@media (max-width: 767px) {
+	.discount-one.style-two { padding-top: 40px !important; padding-bottom: 50px !important; }
+	.custodians-decor { display: none !important; }
+}
+@media (max-width: 480px) {
+	.discount-one.style-two { padding-top: 28px !important; padding-bottom: 36px !important; }
+}
+
+/* Services page — Bilingual Trainings section. Section has inline
+   padding:80px 0 140px on desktop. On mobile that's excessive empty
+   space above the heading and below the image. Also the .about-one_check
+   uses visibility:hidden (preserves desktop height intentionally), but
+   on mobile that invisible space adds ~100-120px of unwanted gap — drop
+   it to display:none on mobile only. */
+@media (max-width: 991px) {
+	section.about-one[style*="padding:80px 0 140px"] { padding: 50px 0 50px !important; }
+	section.about-one[style*="padding:80px 0 140px"] .about-one_check[style*="visibility:hidden"] { display: none !important; }
+}
+@media (max-width: 480px) {
+	section.about-one[style*="padding:80px 0 140px"] { padding: 36px 0 36px !important; }
+}
+
+/* Services page — Custodians section. The vertical pond-clip video and
+   the negative-margin content-pull-up are desktop-only design moves. On
+   mobile the columns stack — keeping the inline absolute video and the
+   negative content margin would push elements off-screen and overlap
+   the image. Reset both for ≤991px. */
+@media (max-width: 991px) {
+	.custodians-video {
+		position: relative !important;
+		right: auto !important;
+		top: auto !important;
+		width: 100% !important;
+		max-width: none !important;
+		aspect-ratio: 4 / 3 !important;
+		margin: 16px 0 0 !important;
+		display: block;
+		border-radius: 8px !important;
+		border: none !important;
+	}
+	.custodians-content {
+		margin-top: 0 !important;
+	}
+}
+
+/* About page — Canticle Pond section. The "Habitat That Holds" caption
+   sits under the small pond-2.jpg image on the right column. On mobile
+   (where columns stack) it reads beautifully. On desktop the right column
+   would overflow the section's bottom because the image + caption stack
+   is taller than the 3 feature blocks on the left. Hide caption on
+   desktop only — content works in mobile context, preserves desktop sizing. */
+@media (min-width: 992px) {
+	.canticle-pond_caption { display: none; }
+}
+
+/* Mobile only: trim the .fluid-one .right-box bottom padding (the existing
+   rule sets 80px bottom on small screens, leaving a big empty band under
+   the Habitat caption). */
+@media (max-width: 991px) {
+	.fluid-one .right-box { padding-bottom: 30px !important; }
+}
+
+/* Mobile fix: welcome-one ("Rooted In Northern California" on /about).
+   Trim the top padding so the title sits closer to the section above. */
+@media (max-width: 767px) {
+	.welcome-one { padding-top: 50px; padding-bottom: 50px; }
+}
+@media (max-width: 480px) {
+	.welcome-one { padding-top: 36px; padding-bottom: 36px; }
+}
+
+/* Mobile fix: testimonial-one ("What Our Customers Have To Say" on /about).
+   The 234px circular image + the section's 130px bottom padding make each
+   card absurdly tall on phones. Shrink the image and trim the section
+   padding to the standard mobile rhythm we use elsewhere on the site. */
+@media (max-width: 767px) {
+	.testimonial-one { padding: 60px 0 50px; }
+	.testimonial-block_one-image img {
+		width: 140px !important;
+		height: 140px !important;
+	}
+	.testimonial-block_one-inner { padding: 30px 24px 36px; }
+}
+@media (max-width: 480px) {
+	.testimonial-one { padding: 48px 0 36px; }
+	.testimonial-block_one-image img {
+		width: 110px !important;
+		height: 110px !important;
+	}
+	.testimonial-block_one-inner { padding: 24px 20px 28px; }
+}
+
+/* Mobile fix: contact page — kill the big empty gap between the hero
+   (.page-title.contact-hero) and the staff card (.contact-two). Hero
+   keeps a substantial bottom on desktop (180px); contact-two keeps 110px
+   top + 240px bottom. Stacked on a phone that's huge dead space. */
+@media (max-width: 767px) {
+	.page-title.contact-hero { padding-bottom: 40px; }
+	.contact-two { padding: 40px 0 60px; }
+}
+@media (max-width: 480px) {
+	.page-title.contact-hero { padding-bottom: 32px; }
+	.contact-two { padding: 32px 0 48px; }
+}
+
+/* Mobile fix: shop page — .shop-one (the listing section with "Showing
+   1–12 of 13 results") uses 130px top + 130px bottom. Trim the top so
+   the results header sits closer to the hero on phones. */
+@media (max-width: 767px) {
+	.shop-one { padding: 50px 0 60px; }
+}
+@media (max-width: 480px) {
+	.shop-one { padding: 36px 0 48px; }
+}
+
+/* Mobile fix: fluid-one ("What We Do — Stewardship That Stays With The
+   Land"). Native 16:9 image renders ~196px tall on a 349px phone, leaving
+   the play button cramped in a thin strip. Force a taller aspect ratio
+   with object-fit cover, give the photo rounded corners, and pad the
+   image area so it reads as a video card on phones. */
+@media (max-width: 990px) {
+	.fluid-one .left-box {
+		margin: 0 14px 28px;
+		border-radius: 10px;
+		overflow: hidden;
+		box-shadow: 0 14px 32px -16px rgba(0,0,0,0.4);
+	}
+	.fluid-one_image img {
+		aspect-ratio: 5 / 4;
+		height: auto;
+		object-fit: cover;
+		object-position: center;
+	}
+}
+@media (max-width: 480px) {
+	.fluid-one_image img { aspect-ratio: 4 / 3; }
+	/* Play button slightly smaller on narrow phones so it sits naturally on the photo. */
+	.fluid-one_play span {
+		width: 92px;
+		height: 92px;
+		line-height: 92px;
+		font-size: 22px;
+	}
+	.fluid-one_play:before {
+		left: -10px; top: -10px; right: -10px; bottom: -10px;
+	}
+}
+
+/* Mobile fix: Contact "Get In Touch". The left column's last row is the
+   phone (margin-bottom:0 as :last-child) and the right column's first row
+   is the email, so when the two columns stack on phones those two icon
+   rows touch. Restore the normal 22px row rhythm above the second column. */
+@media (max-width: 767px) {
+	.contact-info .row > [class*="col-"] + [class*="col-"] {
+		margin-top: 22px;
+	}
+}

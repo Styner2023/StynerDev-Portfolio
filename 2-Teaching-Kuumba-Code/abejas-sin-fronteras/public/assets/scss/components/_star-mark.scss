@@ -1,0 +1,29 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/autoprefixer" as *;
+
+.star-mark {
+  @include d-flex;
+  @include align-items;
+  gap: 8px;
+  .my-icon {
+    font-size: 19px;
+    color: $color-yellow;
+  }
+  &.star-1 .my-icon:nth-child(1)::before,
+  &.star-2 .my-icon:nth-child(1)::before,
+  &.star-2 .my-icon:nth-child(2)::before,
+  &.star-3 .my-icon:nth-child(1)::before,
+  &.star-3 .my-icon:nth-child(2)::before,
+  &.star-3 .my-icon:nth-child(3)::before,
+  &.star-4 .my-icon:nth-child(1)::before,
+  &.star-4 .my-icon:nth-child(2)::before,
+  &.star-4 .my-icon:nth-child(3)::before,
+  &.star-4 .my-icon:nth-child(4)::before,
+  &.star-5 .my-icon:nth-child(1)::before,
+  &.star-5 .my-icon:nth-child(2)::before,
+  &.star-5 .my-icon:nth-child(3)::before,
+  &.star-5 .my-icon:nth-child(4)::before,
+  &.star-5 .my-icon:nth-child(5)::before {
+    content: "\e939";
+  }
+}

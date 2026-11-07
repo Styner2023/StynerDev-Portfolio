@@ -1,0 +1,30 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# Python (serve.py helper)
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node (in case)
+node_modules/
+
+# Vercel
+.vercel
+
+# Refact.ai IDE agent metadata
+.refact/
+
+# Local-only parking folder for unused assets pulled out of the project
+_unused-assets/
+
+# Source design files (large, not needed in repo)
+*.psd
+*.ai
+*.sketch
+*.fig

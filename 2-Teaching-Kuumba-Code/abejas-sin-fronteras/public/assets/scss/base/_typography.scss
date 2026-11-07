@@ -1,0 +1,218 @@
+@charset "UTF-8";
+
+/*
+Theme Name: Beeberry HTML5 Template
+Theme URI: https://themeforest.net/item/beeberry-beekeeping-and-honey-online-shop-html5-template/43618342
+Design by: techsometimes
+Developed by: A N Abdullah Al Numan
+Version: 2.3.1
+License: 
+Tags: 
+*/
+
+/*================================================
+[  Table of contents  ]
+================================================
+
+    1 Theme Default
+
+    2 Menu Bar
+
+    3 Banner
+
+    4 Our Services
+
+    5 Why Us
+
+    6 Download App
+
+    7 Our Products
+
+    8 We Serve
+
+    9 Testimonial
+
+    10 Blog News
+
+    11 Our Sweet Clients
+
+    12 About Beeberry
+
+    13 Fun Fact
+
+    14 Gallery Display
+
+    15 Working Process 
+
+    16 Get In Touch
+
+    17 Team
+
+    18 Tasty Honey
+
+    19 Services Details
+
+    20 FAQ
+
+    21 Who We Are
+
+    22 Make A New Story
+
+    23 Shop
+
+    24 Shop Details
+
+    25 Blog
+
+    26 Blog Details
+
+    27 Gallery Single
+
+    28 Send Messag
+
+    29 Contact US
+
+    30 Footer
+
+======================================
+[ End table content ]
+======================================*/
+
+@use "../abstracts/variables" as *;
+@use "../abstracts/autoprefixer" as *;
+
+/* =================
+    Google Fonts 
+===================*/
+
+@import url("https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@400;500;700;800;900&family=Roboto:wght@400;500;700&display=swap");
+
+/*=====================
+    1 Theme Default
+=======================*/
+
+.row,
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl,
+.container-xxl {
+  --bs-gutter-x: 1.875rem;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  line-height: 25px;
+  letter-spacing: 0.2px;
+  word-spacing: 0px;
+  word-wrap: break-word;
+  background: $color-white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Arima Madurai", cursive;
+  color: $color-black;
+}
+
+h1 {
+  font-size: 54px;
+  line-height: 66px;
+}
+
+h2 {
+  font-size: 48px;
+  line-height: 60px;
+}
+
+h3 {
+  font-size: 32px;
+  line-height: 44px;
+}
+
+h4 {
+  font-size: 24px;
+  line-height: 36px;
+}
+
+h5 {
+  font-size: 20px;
+  line-height: 30px;
+}
+
+h6 {
+  font-size: 18px;
+  line-height: 28px;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  line-height: 26px;
+  color: $color-gBlack;
+}
+.color-green {
+  color: $color-green;
+}
+
+a,
+button,
+.btn {
+  outline: none;
+  cursor: pointer;
+  color: $color-black;
+  @include transition;
+  &:hover {
+    color: $color-yellow;
+    outline: none;
+  }
+}
+a {
+  text-decoration: none;
+  &:hover {
+    color: $color-yellow;
+    text-decoration: none;
+  }
+}
+
+.btn,
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 0em rgba(0, 123, 255, 0.25);
+}
+
+input,
+.uneditable-input,
+select,
+textarea {
+  @include transition;
+}
+
+section {
+  padding: 65px 0px;
+  &.pt-spach {
+    padding-top: 200px;
+  }
+  &.pb-spach {
+    padding-bottom: 200px;
+  }
+  &.mt-spach {
+    margin-top: -100px;
+  }
+  &.mb-spach {
+    margin-bottom: -100px;
+  }
+}

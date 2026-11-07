@@ -1,0 +1,40 @@
+/* =================
+    Root Color 
+=================*/
+
+:root {
+  --color-white: #ffffff;
+  --color-white2: #f9f6f2;
+  --color-white3: #e2d9d2;
+  --color-black: #2b221f;
+  --color-black2: #201a18;
+  --color-black3: #3f3532;
+  --color-gBlack: #50413c;
+  --color-gBlack2: #aca5a3;
+  --color-yellow: #fcc41a;
+  --color-green: #639533;
+  --color-border: #e5e1dd;
+  --color-fb: #3b5998;
+  --color-tw: #00acee;
+  --color-pin: #c8232c;
+  --color-in: #8a3ab9;
+  --color-tr: transparent;
+}
+
+//Color
+$color-white: var(--color-white);
+$color-white2: var(--color-white2);
+$color-white3: var(--color-white3);
+$color-black: var(--color-black);
+$color-black2: var(--color-black2);
+$color-black3: var(--color-black3);
+$color-gBlack: var(--color-gBlack);
+$color-gBlack2: var(--color-gBlack2);
+$color-yellow: var(--color-yellow);
+$color-green: var(--color-green);
+$color-border: var(--color-border);
+$color-fb: var(--color-fb);
+$color-tw: var(--color-tw);
+$color-pin: var(--color-pin);
+$color-in: var(--color-in);
+$color-tr: var(--color-tr);

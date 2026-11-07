@@ -1,0 +1,473 @@
+<!--
+    Abejas Sin Fronteras / Bees Tropical Flavor
+    Custom Site Owner & Full-Stack Developer: StynerDev
+    https://www.stynerdev.com/
+    Built and maintained for Yorlis & Nills McCune
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Bees Tropical Flavor - Abejas Sin Fronteras - Beekeeping and Honey Online Shop">
+    <meta name="description" content="Bees Tropical Flavor - Abejas Sin Fronteras - Beekeeping and Honey Online Shop">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Contact · Abejas Sin Fronteras</title>
+
+    <!-- Favicon set (Abejas Sin Fronteras) -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon-abejas-sin-fronteras/favicon.ico?v=3">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-abejas-sin-fronteras/favicon-96x96.png?v=3">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon-abejas-sin-fronteras/favicon.svg?v=3">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-abejas-sin-fronteras/apple-touch-icon.png?v=3">
+    <link rel="manifest" href="assets/favicon-abejas-sin-fronteras/site.webmanifest?v=3">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <!-- All Icons -->
+    <link rel="stylesheet" href="assets/all-icons/myicon.css">
+
+    <!-- Plugin -->
+    <link rel="stylesheet" href="assets/css/plugins.css">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Responsive -->
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <!-- Custom overrides -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+
+    <style>
+        .banner.v1::before {
+            background: #ffffff;
+            height: 100%;
+        }
+        .banner.v1 .banner-content::before {
+            background: transparent;
+        }
+        .banner.v1 .banner-content .section-title-white h6,
+        .banner.v1 .banner-content .section-title-white h2 {
+            color: #1a1a1a;
+        }
+        .banner.v1 .banner-content .check-mark-list.v1 h6,
+        .banner.v1 .banner-content .check-mark-list.v1 p {
+            color: #1a1a1a;
+        }
+        .banner.v1 .bee-fly {
+            position: absolute;
+            width: 116px;
+            height: 107px;
+            top: 30%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .banner.v1 .bee-fly-1 {
+            left: 8%;
+            background-image: url("assets/img/banner/v2/shap-1.png");
+            animation: bee-fly-anim 11s ease-out infinite alternate;
+        }
+        .banner.v1 .bee-fly-2 {
+            right: 8%;
+            background-image: url("assets/img/banner/v2/shap-2.png");
+            animation: bee-fly-anim 11s 0.8s ease-out infinite alternate;
+        }
+        .banner.v1 .bee-fly-3 {
+            top: auto;
+            bottom: 12%;
+            left: 48%;
+            width: 90px;
+            height: 80px;
+            background-image: url("assets/img/banner/v2/shap-2.png");
+            animation: bee-fly-anim 9s 1.5s ease-out infinite alternate;
+        }
+        .banner.v1 .bee-fly-4 {
+            top: auto;
+            bottom: 18%;
+            left: 64%;
+            width: 75px;
+            height: 70px;
+            background-image: url("assets/img/banner/v2/shap-1.png");
+            animation: bee-fly-anim-flipped 13s 0.4s ease-out infinite alternate-reverse;
+        }
+        @keyframes bee-fly-anim-flipped {
+            0%   { transform: scaleX(-1) translate(-40%, 0%); }
+            30%  { transform: scaleX(-1) translate(-9%, -50%) rotate(30deg); }
+            40%  { transform: scaleX(-1) translate(-2%, -30%) rotate(10deg); }
+            80%  { transform: scaleX(-1) translate(-9%, -50%); }
+            100% { transform: scaleX(-1) translate(-40%, -10%); }
+        }
+        .banner.v1 .bee-fly-5 {
+            top: auto;
+            bottom: 5%;
+            left: 18%;
+            width: 80px;
+            height: 72px;
+            background-image: url("assets/img/banner/v2/shap-2.png");
+            animation: bee-fly-anim 10s 1.2s ease-out infinite alternate;
+        }
+        @media (max-width: 991px) {
+            .banner.v1 .bee-fly-5 { width: 58px; height: 52px; }
+        }
+        @media (max-width: 575px) {
+            .banner.v1 .bee-fly-5 { width: 40px; height: 36px; }
+        }
+        @media (max-width: 991px) {
+            .banner.v1 .bee-fly-3 { width: 65px; height: 58px; }
+            .banner.v1 .bee-fly-4 { width: 55px; height: 50px; }
+        }
+        @media (max-width: 575px) {
+            .banner.v1 .bee-fly-3 { width: 45px; height: 40px; }
+            .banner.v1 .bee-fly-4 { width: 38px; height: 35px; }
+        }
+        @keyframes bee-fly-anim {
+            0%   { transform: translate(-40%, 0%); }
+            30%  { transform: translate(-9%, -50%) rotate(30deg); }
+            40%  { transform: translate(-2%, -30%) rotate(10deg); }
+            80%  { transform: translate(-9%, -50%); }
+            100% { transform: translate(-40%, -10%); }
+        }
+        @media (max-width: 991px) {
+            .banner.v1 .bee-fly { width: 80px; height: 75px; }
+        }
+        @media (max-width: 575px) {
+            .banner.v1 .bee-fly { width: 55px; height: 50px; }
+        }
+        .send-message.v1 {
+            background: #ffffff;
+        }
+        .send-message.v1 .message-form {
+            position: relative;
+            background: #ffffff;
+            padding: 40px 35px;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12), 0 6px 16px rgba(0, 0, 0, 0.06);
+        }
+        @media (max-width: 575px) {
+            .send-message.v1 .message-form {
+                padding: 28px 22px;
+                border-radius: 12px;
+            }
+        }
+        .send-message.v1 .message-form::after {
+            content: "";
+            position: absolute;
+            right: -20px;
+            top: 0;
+            width: 140px;
+            height: 160px;
+            background-image: url("assets/img/liquid-honey-dripping-and-flowing-set-png/flowing%20and%20dripping%20honey%20png-14.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: top right;
+            pointer-events: none;
+        }
+        @media (max-width: 991px) {
+            .send-message.v1 .message-form::after { width: 110px; height: 130px; top: 0; }
+        }
+        @media (max-width: 575px) {
+            .send-message.v1 .message-form::after { width: 80px; height: 95px; top: 0; right: -10px; }
+        }
+    </style>
+
+</head>
+
+<body class="nav-divider">
+    <div class="preloder"></div>
+
+    <div id="main-wrapper">
+        <header>
+            <!-- Menu Bar Start -->
+            <div class="menu-bar v1">
+                <div class="container">
+                    <div class="menu-bar-content">
+                        <div class="menu-logo">
+                            <a href="/"><img src="assets/img/images-whatsapp/Logo-Abejas-Sin-Fronteras.svg" alt="Abejas Sin Fronteras"><span class="brand-name"><span class="brand-line">Abejas</span><span class="brand-line">Sin Fronteras</span></span></a>
+                        </div>
+                        <nav class="main-menu">
+                            <ul>
+                                <li>
+                                    <a href="/">Inicio</a>
+                                </li>
+                                <li><a href="contact">Contacto</a></li>
+                                <li class="nav-shop-item"><a href="https://www.etsy.com/shop/Jicote" target="_blank" rel="noopener" class="nav-shop-link"><span class="my-icon icon-heart" aria-hidden="true"></span>Tienda en Etsy · Etsy Shop</a></li>
+                                <li class="nav-shop-item"><a href="contact" class="nav-shop-link nav-donate-link"><span class="my-icon icon-bee" aria-hidden="true"></span>Donar · Donate</a></li>
+                            </ul>
+                        </nav>
+                        <div class="menu-right">
+                            <ul>
+                                <li class="etsy-item">
+                                    <a href="https://www.etsy.com/shop/Jicote" target="_blank" rel="noopener" class="wishlist-btn etsy-shop-btn" aria-label="Tienda en Etsy · Etsy shop" title="Tienda en Etsy · Etsy shop"><span class="my-icon icon-heart" aria-hidden="true"></span><span class="etsy-label">Etsy</span></a>
+                                </li>
+                                <li class="donate-item">
+                                    <a href="contact" class="wishlist-btn etsy-shop-btn donate-btn" aria-label="Donar · Donate" title="Apoya a la red · Support the network"><span class="my-icon icon-bee" aria-hidden="true"></span><span class="etsy-label">Donar</span></a>
+                                </li>
+                                <li class="menu-toggle-item">
+                                    <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="h-spach"></div>
+            <!-- Menu Bar End -->
+        </header>
+        <main>
+            <!-- Banner Start -->
+            <section class="banner v1">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-10">
+                            <div class="banner-content">
+                                <div class="section-title-white v1">
+                                    <h2>¿Quieres juntarte a esta colmena?</h2>
+                                </div>
+                                <ul class="check-mark-list v1">
+                                    <li>
+                                        <h6>Formación y acompañamiento entre abejas · Training &amp; accompaniment</h6>
+                                        <span class="my-icon icon-check"></span>
+                                    </li>
+                                    <li>
+                                        <h6>Una red viva en toda Abya Yala · A living network across Abya Yala</h6>
+                                        <span class="my-icon icon-check"></span>
+                                    </li>
+                                </ul>
+                                <ul class="all-btns">
+                                    <li>
+                                        <a href="https://docs.google.com/forms/d/1_WoHABKbEsB3nSEAlKrGUSGnLDsKA_ZtbNp--FSC6NQ/viewform" target="_blank" rel="noopener" class="link-anime v1">Únete a la colmena · Join the hive</a>
+                                    </li>
+                                    <li>
+                                        <a href="#send-message" class="link-anime v1">Adopta un nido en cualquier esquina de nuestra Abya Yala</a>
+                                    </li>
+                                    <li>
+                                        <a href="#send-message" class="link-anime v1">Escríbenos · Write to us</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Banner End -->
+            <!-- Send Message Start -->
+            <section class="send-message v1" id="send-message">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="left-content">
+                                <div class="section-title v1">
+                                    <h6>Escríbenos · Send a message</h6>
+                                    <h2>¿Tienes preguntas?<span class="title-en">Have questions?</span></h2>
+                                    <p>Las abejas nativas sociales y solitarias son un legado de nuestros ancestros. Las cuidamos porque cuidarlas es cuidar nuestra memoria y nuestra raíz.</p>
+                                </div>
+                                <div class="socials-links-box">
+                                    <ul>
+                                        <li><a href="#" aria-label="Facebook"><span class="my-icon icon-facebook"></span></a></li>
+                                        <li><a href="#" aria-label="Twitter"><span class="my-icon icon-twitter"></span></a></li>
+                                        <li><a href="#" aria-label="LinkedIn"><span class="my-icon icon-linkedin-in"></span></a></li>
+                                        <li><a href="https://www.instagram.com/abejasinfronteras/" target="_blank" rel="noopener" aria-label="Instagram @abejasinfronteras" title="@abejasinfronteras"><span class="my-icon icon-instagram"></span></a></li>
+                                        <li><a href="#" aria-label="Skype"><span class="my-icon icon-skype"></span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <form action="https://formsubmit.co/ajax/contact@abejassinfronteras.org" method="POST" class="message-form">
+                                <input type="hidden" name="_subject" value="Nuevo mensaje desde la web · Abejas Sin Fronteras">
+                                <input type="hidden" name="_template" value="table">
+                                <input type="text" name="_honey" class="d-none" tabindex="-1" autocomplete="off" aria-hidden="true">
+                                <ul>
+                                    <li>
+                                        <h5>Nombre · Name</h5>
+                                        <input type="text" name="name" placeholder="Tu nombre · Your name" required>
+                                    </li>
+                                    <li>
+                                        <h5>Correo · Email</h5>
+                                        <input type="email" name="email" placeholder="tucorreo@ejemplo.com" required>
+                                    </li>
+                                    <li>
+                                        <h5>Teléfono · Phone</h5>
+                                        <input type="tel" name="phone" placeholder="+505 0000 0000">
+                                    </li>
+                                    <li>
+                                        <h5>Mensaje · Message</h5>
+                                        <textarea name="message" required
+                                            placeholder="Escribe tu mensaje aquí · Write your message here"></textarea>
+                                    </li>
+                                </ul>
+                                <button type="submit" class="btn-anime v2">Enviar · Send</button>
+                                <p class="response"></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Send Message End -->
+            <!-- Contact US Start -->
+            <section class="contact-us v1 bg-cover-center" data-background="assets/img/contact/bg.jpg">
+                <div class="container">
+                    <div class="section-title-center-white v1">
+                        <h6>Contacto · Contact</h6>
+                        <h2>Ponte en contacto<span class="title-en">Get in touch</span></h2>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 col-xl-7">
+                            <div class="info-content">
+                                <ul>
+                                    <li>
+                                        <span class="my-icon icon-phone"></span>
+                                        <p><a href="tel:+15105769937">+1 (510) 576-9937</a></p>
+                                    </li>
+                                    <li>
+                                        <span class="my-icon icon-location-dot"></span>
+                                        <p>1967 Harrington Ave, Oakland, CA 94601</p>
+                                    </li>
+                                    <li>
+                                        <span class="my-icon icon-envelope"></span>
+                                        <p><a href="mailto:contact@abejassinfronteras.org">contact<wbr>@abejassinfronteras.org</a></p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Contact US End -->
+            <!-- Contact Map Start -->
+            <div class="contact-map v1 pb-xl-spach">
+                <iframe title="1967 Harrington Ave, Oakland, CA 94601"
+                    src="https://www.google.com/maps?q=1967+Harrington+Ave,Oakland,CA+94601&z=16&output=embed"></iframe>
+            </div>
+            <!-- Contact Map End -->
+        </main>
+        <footer>
+            <div class="info-footer v1 bg-cover-center"
+                data-background="assets/img/Nicaragua-background/6.png">
+                <div class="container">
+                    <div class="news-letter bg-cover-center mt-spach"
+                        data-background="assets/img/Nicaragua-CTA-Banner/1.png">
+                        <div class="section-title shap-green v1">
+                            <h6>Boletín · Newsletter</h6>
+                            <h2>Suscribite al boletín informativo de nuestra red</h2>
+                        </div>
+                        <div class="subscribe-bar">
+                            <form action="#">
+                                <input type="email" placeholder="Tu correo · Email" aria-label="Tu correo · Your email">
+                                <button type="submit" class="btn-anime v1">Suscribirme</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="info-content">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-12 col-xl-3">
+                                <div class="footer__widget">
+                                    <div class="footer__widget-content">
+                                        <div class="footer-left">
+                                            <div class="footer-logo">
+                                                <a href="/">
+                                                    <img src="assets/img/images-whatsapp/Logo-Abejas-Sin-Fronteras.svg" alt="Abejas Sin Fronteras">
+                                                                                                    </a>
+                                            </div>
+                                            <p>Abejas Sin Fronteras somos una colmena de personas abejas que trabajan por amor para cuidar el territorio y todos sus seres.</p>
+                                            <ul class="socials-links-box v1">
+                                                <li><a href="#" aria-label="Facebook"><span class="my-icon icon-facebook"></span></a></li>
+                                                <li><a href="#" aria-label="Twitter"><span class="my-icon icon-twitter"></span></a></li>
+                                                <li><a href="#" aria-label="Pinterest"><span class="my-icon icon-pinterest-p"></span></a></li>
+                                                <li><a href="https://www.instagram.com/abejasinfronteras/" target="_blank" rel="noopener" aria-label="Instagram @abejasinfronteras" title="@abejasinfronteras"><span class="my-icon icon-instagram"></span></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4 col-xl-2">
+                                <div class="footer__widget">
+                                    <h4 class="footer__widget-title">Páginas</h4>
+                                    <div class="footer__widget-content">
+                                        <div class="useful-link">
+                                            <ul>
+                                                <li><a href="/">Inicio · Home</a></li>
+                                                <li><a href="faq">Preguntas · FAQ</a></li>
+                                                <li><a href="contact">Contacto · Contact</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4 col-xl-4">
+                                <div class="footer__widget">
+                                    <h4 class="footer__widget-title">Contacto</h4>
+                                    <div class="footer__widget-content">
+                                        <div class="info-link">
+                                            <p>1967 Harrington Ave, Oakland, CA 94601</p>
+                                            <ul>
+                                                <li>
+                                                    <a href="tel:+15105769937">
+                                                        <span class="my-icon icon-phone"></span>
+                                                        <span class="text">+1 (510) 576-9937</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="mailto:contact@abejassinfronteras.org">
+                                                        <span class="my-icon icon-envelope"></span>
+                                                        <span class="text">contact<wbr>@abejassinfronteras.org</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4 col-xl-3">
+                                <div class="footer__widget">
+                                    <h4 class="footer__widget-title">Instagram</h4>
+                                    <div class="footer__widget-content">
+                                        <div class="insta-gallry">
+                                            <ul>
+                                                <li><a href="https://www.instagram.com/abejasinfronteras/" target="_blank" rel="noopener"><img src="assets/img/footer/instagram/ig-1.jpg" alt="Abejas Sin Fronteras en Instagram 1" loading="lazy"></a></li>
+                                                <li><a href="https://www.instagram.com/abejasinfronteras/" target="_blank" rel="noopener"><img src="assets/img/footer/instagram/ig-2.jpg" alt="Abejas Sin Fronteras en Instagram 2" loading="lazy"></a></li>
+                                                <li><a href="https://www.instagram.com/abejasinfronteras/" target="_blank" rel="noopener"><img src="assets/img/footer/instagram/ig-3.jpg" alt="Abejas Sin Fronteras en Instagram 3" loading="lazy"></a></li>
+                                                <li><a href="https://www.instagram.com/abejasinfronteras/" target="_blank" rel="noopener"><img src="assets/img/footer/instagram/ig-4.jpg" alt="Abejas Sin Fronteras en Instagram 4" loading="lazy"></a></li>
+                                                <li><a href="https://www.instagram.com/abejasinfronteras/" target="_blank" rel="noopener"><img src="assets/img/footer/instagram/ig-5.jpg" alt="Abejas Sin Fronteras en Instagram 5" loading="lazy"></a></li>
+                                                <li><a href="https://www.instagram.com/abejasinfronteras/" target="_blank" rel="noopener"><img src="assets/img/footer/instagram/ig-6.jpg" alt="Abejas Sin Fronteras en Instagram 6" loading="lazy"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-footer">
+                        <div class="left-text">
+                            <p>© 2026 <a href="/">Abejas Sin Fronteras · Bees Tropical Flavor</a>. Todos los derechos reservados · All rights reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- jQuery -->
+    <script src="assets/js/jquery-3.6.3.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="assets/js/plugins.js"></script>
+
+    <!-- Index -->
+    <script src="assets/js/index.js"></script>
+</body>
+
+</html>

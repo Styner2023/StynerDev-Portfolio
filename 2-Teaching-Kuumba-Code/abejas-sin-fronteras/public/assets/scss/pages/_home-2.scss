@@ -1,0 +1,348 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/autoprefixer" as *;
+
+/*=========================
+    11 Our Sweet Clients
+===========================*/
+.our-sweet-clients {
+  &.v1,
+  &.v2 {
+    li {
+      text-align: center;
+    }
+  }
+}
+
+/*========================
+    12 About Beeberry
+==========================*/
+.about-beeberry {
+  &.v1 {
+    .left-content {
+      padding-right: 50px;
+    }
+    .exp-text {
+      @include d-flex;
+      @include align-items;
+      @include flex-wrap;
+      margin-top: 30px;
+      h2 {
+        font-size: 60px;
+        line-height: 70px;
+        font-weight: 900;
+      }
+      p {
+        position: relative;
+        padding-left: 110px;
+        &::before {
+          position: absolute;
+          content: "";
+          width: 95px;
+          height: 2px;
+          left: 0;
+          top: 50%;
+          @include transform(translateY(-50%));
+          background: $color-black;
+        }
+      }
+    }
+    .right-content p ~ a {
+      margin-top: 50px;
+    }
+    .row ~ .video-box {
+      margin-top: 60px;
+    }
+  }
+  &.v2,
+  &.v3 {
+    .content-left {
+      margin-top: 30px;
+      .section-title ~ .check-mark-list {
+        margin-top: 40px;
+      }
+      .check-mark-list ~ .link-anime,
+      .check-mark-list ~ .btn-anime {
+        margin-top: 40px;
+      }
+    }
+  }
+  &.v2 {
+    .content-right img {
+      width: 100%;
+    }
+  }
+  &.v3 {
+    .abou-o-img img {
+      width: 100%;
+      max-width: calc(67% - 15px);
+      border-radius: 20px;
+      &:nth-child(2) {
+        position: relative;
+        bottom: 0px;
+        margin-top: -38%;
+      }
+    }
+  }
+}
+
+/*========================
+    13 Fun Fact
+==========================*/
+.fun-fact {
+  &.v1,
+  &.v2 {
+    li ~ li {
+      margin-top: 25px;
+    }
+    .my-icon {
+      width: 65px;
+      height: 65px;
+      text-align: center;
+      line-height: 65px;
+      font-size: 25px;
+    }
+    h3 {
+      font-weight: 900;
+      & ~ h5 {
+        margin-top: 5px;
+      }
+    }
+    h5 {
+      font-weight: 700;
+    }
+  }
+  &.v1 {
+    .my-icon {
+      color: $color-black;
+      border-radius: 100px;
+      box-shadow: 1px 1px 32px rgba(0, 0, 0, 0.1);
+      background: $color-white;
+      & ~ .text {
+        margin-top: 25px;
+      }
+    }
+  }
+  &.v2 {
+    ul li {
+      @include d-flex;
+      @include align-items;
+      @include flex-wrap;
+      width: 100%;
+      gap: 20px;
+    }
+    .my-icon {
+      color: $color-yellow;
+      border-radius: 10px;
+      border: 1px solid $color-yellow;
+      background: $color-black2;
+    }
+    h3,
+    h5 {
+      color: $color-white;
+    }
+  }
+}
+
+/*=========================
+    14 Gallery Display
+===========================*/
+.gallery-display {
+  &.v1 {
+    .gallery-btns {
+      ul {
+        text-align: center;
+      }
+      li {
+        display: inline-block;
+      }
+      button {
+        padding: 16px 40px;
+        font-family: "Arima Madurai", cursive;
+        font-weight: 900;
+        font-size: 16px;
+        line-height: 22px;
+        color: $color-black;
+        border: 1px solid $color-border;
+        border-radius: 50px;
+        background: $color-tr;
+        margin: 10px 5px;
+        &.active {
+          border-color: $color-tr;
+          background: $color-yellow;
+        }
+      }
+      & ~ .gallery-items {
+        margin-top: 60px;
+      }
+    }
+    .gallery-content {
+      position: relative;
+      display: inline-block;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 30px;
+      &::before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        background: linear-gradient(
+          358.9deg,
+          #2b221f 11.13%,
+          rgba(43, 34, 31, 0) 98.98%
+        );
+        @include transition;
+        z-index: 1;
+      }
+      &::after {
+        position: absolute;
+        content: "";
+        width: 35vw;
+        height: 35vw;
+        top: -100%;
+        z-index: 2;
+        opacity: 0;
+        background-image: url("../img/honeycom-b-a/v1/shap-2.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        @include transition;
+      }
+      .video-box {
+        &::before,
+        &::after {
+          content: none;
+        }
+      }
+      img {
+        width: 100%;
+        @include filter(blur(0.3px) grayscale(0.2));
+        @include transform(rotate(1deg) scale(1.1));
+        @include transition;
+      }
+      .tag {
+        display: inline-block;
+        padding: 1px 20px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: $color-black;
+        border-radius: 50px;
+        background: $color-yellow;
+        & ~ h3 {
+          margin-top: 30px;
+        }
+      }
+      h3 {
+        color: $color-white;
+        font-weight: 900;
+        a {
+          color: $color-white;
+          &:hover {
+            color: $color-yellow;
+          }
+        }
+      }
+      .text {
+        position: absolute;
+        width: 100%;
+        padding: 30px;
+        bottom: -100%;
+        left: 0;
+        z-index: 3;
+        opacity: 0;
+        visibility: hidden;
+        @include transition;
+      }
+      &:hover {
+        &::before,
+        &::after {
+          opacity: 1;
+        }
+        &::after {
+          top: 0%;
+        }
+        img {
+          @include filter(blur(0px) grayscale(0));
+          @include transform(rotate(0deg) scale(1));
+        }
+        .text {
+          opacity: 1;
+          visibility: visible;
+          bottom: 0;
+        }
+      }
+    }
+    .gallery-item:nth-last-child(1) .gallery-content,
+    .gallery-item:nth-last-child(2) .gallery-content {
+      margin-bottom: 0;
+    }
+    .gallery-items ~ .lode-btns {
+      margin-top: 40px;
+    }
+    .lode-btns {
+      text-align: center;
+    }
+  }
+}
+
+/*=====================
+    15 Working Process 
+=======================*/
+
+.working-process {
+  &.v1 {
+    .process-boxs {
+      margin-top: 60px;
+      ul {
+        @include d-flex;
+        @include align-items;
+        @include flex-wrap;
+        @include justify-content-center;
+        @include flex-direction-column;
+        gap: 30px;
+      }
+      li {
+        width: 100%;
+        text-align: center;
+        .icon-box {
+          position: relative;
+          width: 85px;
+          height: 85px;
+          text-align: center;
+          border-radius: 10px;
+          border: 1px solid $color-yellow;
+          background: $color-black;
+          margin: 22px auto 0px auto;
+          .my-icon {
+            font-size: 40px;
+            color: $color-yellow;
+            line-height: 85px;
+          }
+          .num-count {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            top: -21px;
+            font-size: 18px;
+            line-height: 40px;
+            color: $color-white;
+            border-radius: 50px;
+            border: 1px solid $color-yellow;
+            background: $color-black;
+          }
+        }
+        h5 {
+          color: $color-white;
+          font-weight: 700;
+          margin-top: 30px;
+        }
+        &:last-child .icon-box::before {
+          content: none;
+        }
+      }
+    }
+  }
+}

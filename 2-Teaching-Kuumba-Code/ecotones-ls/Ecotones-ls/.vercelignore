@@ -1,0 +1,8 @@
+# Raw client deliverables — optimized copies live in assets/images/portfolio/
+assets/ecotones-webdev/
+
+# macOS
+.DS_Store
+
+# Local tools (not for production)
+tools/

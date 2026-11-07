@@ -1,0 +1,143 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/autoprefixer" as *;
+
+/*=====================
+    21 Who We Are
+=======================*/
+
+.who-we-are.v1 {
+  background: $color-white2;
+  .who-we-are-wrapper {
+    @include d-flex;
+    @include flex-direction-column;
+    gap: 30px;
+  }
+  .who-we-img img {
+    width: 100%;
+    border-radius: 20px;
+  }
+  .who-we-box {
+    padding: 50px;
+    border: 1px solid $color-border;
+    border-radius: 20px;
+    background: $color-white;
+    .section-title ~ .check-mark-list {
+      margin-top: 20px;
+    }
+  }
+}
+
+/*========================
+    22 Make A New Story
+==========================*/
+.make-a-new-story.v1 {
+  padding-top: 0;
+  background: $color-white2;
+  .section-title-center ~ .story-cards {
+    margin-top: 60px;
+  }
+  .story-cards {
+    li {
+      & ~ li {
+        margin-top: 60px;
+      }
+      &:first-child .count-item::after {
+        content: none;
+      }
+    }
+    .count-item,
+    .more-story-btn {
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      border-radius: 50px;
+      font-weight: 500;
+      color: $color-black;
+      box-shadow: 0px 6px 8px rgba(211, 211, 211, 0.25);
+      background: $color-white;
+      z-index: 1;
+    }
+    .count-item {
+      position: relative;
+      margin: 0 auto;
+      &::before,
+      &::after {
+        position: absolute;
+        content: "";
+        width: 1px;
+        height: 60px;
+        left: 20px;
+        background: $color-border;
+      }
+      &::before {
+        top: 40px;
+      }
+      &::after {
+        bottom: 40px;
+      }
+    }
+    .more-story-btn {
+      position: relative;
+      &:hover {
+        background: $color-yellow;
+      }
+      &::before {
+        position: absolute;
+        content: "";
+        width: 1px;
+        height: 60px;
+        top: -60px;
+        left: 20px;
+        pointer-events: none;
+        user-select: none;
+        background: $color-border;
+      }
+    }
+  }
+  .story-cards .count-item ~ .story-content,
+  .story-cards ul ~ .more-story {
+    margin-top: 60px;
+  }
+  .more-story {
+    text-align: center;
+  }
+  .content-img {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px 20px 0px 0px;
+    img {
+      width: 100%;
+      @include filter(blur(0.3px) grayscale(0.2));
+      @include transform(rotate(1deg) scale(1.1));
+      @include transition;
+    }
+    .year {
+      position: absolute;
+      padding: 30px 30px 10px 30px;
+      text-align: center;
+      bottom: 0px;
+      font-family: "Arima Madurai", cursive;
+      font-size: 22px;
+      font-weight: 700;
+      border: 1px solid $color-white2;
+      border-radius: 500px 500px 0px 0px;
+      background: $color-white;
+    }
+  }
+  .content-text {
+    padding: 30px;
+    border-radius: 0px 0px 20px 20px;
+    background: $color-white;
+    h3 {
+      font-weight: 900;
+    }
+    p {
+      margin-top: 15px;
+    }
+  }
+  .story-content:hover .content-img img {
+    @include filter(blur(0) grayscale(0));
+    @include transform(scale(1) rotate(0deg));
+  }
+}

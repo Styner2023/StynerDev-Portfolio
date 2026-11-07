@@ -1,0 +1,43 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/autoprefixer" as *;
+
+/*=====================
+    18 Tasty Honey
+=======================*/
+.tasty-honey.v1 {
+  background: $color-white2;
+  .tasty-honey-card {
+    position: relative;
+    padding: 40px;
+    border-radius: 20px;
+    background: $color-white;
+    margin-bottom: 30px;
+    .tasty-honey-header {
+      @include d-flex;
+      @include flex-wrap;
+      @include justify-content-between;
+      gap: 30px;
+      h4 {
+        font-weight: 900;
+        color: $color-tr;
+        opacity: 0.5;
+        -webkit-text-stroke: 1px $color-black;
+      }
+      .my-icon {
+        font-size: 30px;
+      }
+    }
+    .tasty-honey-body {
+      h4 {
+        font-weight: 900;
+        margin-top: 25px;
+      }
+      p {
+        margin-top: 20px;
+      }
+    }
+  }
+  .row > div:nth-last-child(1) .tasty-honey-card {
+    margin-bottom: 0px;
+  }
+}

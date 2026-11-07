@@ -1,0 +1,13 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/autoprefixer" as *;
+
+.tags-social {
+  @include d-flex;
+  @include align-items;
+  @include justify-content-between;
+  @include flex-wrap;
+  gap: 20px;
+  & ~ .next-preve-post {
+    margin-top: 50px;
+  }
+}

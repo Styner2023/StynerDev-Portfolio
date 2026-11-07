@@ -1,0 +1,96 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/autoprefixer" as *;
+
+.product-card {
+  &.v1,
+  &.v2 {
+    text-align: center;
+    border: 1px solid rgba(43, 34, 31, 0.1);
+    .product-img img {
+      max-width: 180px;
+      height: 180px;
+      @include transition;
+    }
+    .product-content {
+      margin-top: 40px;
+      h4,
+      h5 {
+        font-weight: 700;
+      }
+      h5 {
+        font-family: "Roboto", sans-serif;
+        margin-top: 5px;
+      }
+      p {
+        margin-top: 5px;
+      }
+    }
+    .shop-btns {
+      @include d-flex;
+      @include align-items;
+      gap: 15px;
+      a {
+        display: block;
+        width: 50px;
+        height: 50px;
+        font-size: 17px;
+        text-align: center;
+        line-height: 50px;
+        border-radius: 100px;
+      }
+    }
+    &:hover {
+      background: $color-white;
+      .product-img img {
+        @include filter;
+        @include transform(scale(1.1));
+      }
+    }
+  }
+  &.v1 {
+    position: relative;
+    padding: 45px 30px 70px 30px;
+    border-radius: 0px 0px 300px 300px;
+    background: $color-white2;
+    @include transition;
+    .shop-btns {
+      position: absolute;
+      bottom: -24px;
+      left: 50%;
+      @include transform(translateX(-50%));
+      a {
+        color: $color-black;
+        background: $color-white;
+        &:hover {
+          background: $color-yellow;
+        }
+      }
+    }
+  }
+  &.v2 {
+    padding: 45px 30px;
+    border-radius: 20px;
+    background: $color-white;
+    .product-img {
+      margin: 0 auto;
+      & ~ .product-content {
+        margin-top: 40px;
+      }
+    }
+    .product-content ~ .shop-btns {
+      margin-top: 30px;
+    }
+    .shop-btns {
+      @include justify-content-center;
+      a {
+        color: $color-black;
+        border: 1px solid $color-yellow;
+        background: $color-yellow;
+        &:hover {
+          color: $color-yellow;
+          background: $color-white;
+        }
+      }
+    }
+  }
+}

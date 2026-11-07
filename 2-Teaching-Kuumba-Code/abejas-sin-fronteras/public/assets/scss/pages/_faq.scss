@@ -1,0 +1,67 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/autoprefixer" as *;
+
+/*==================
+    20 FAQ
+====================*/
+
+.faq.v1 {
+  background: $color-white2;
+  .left-content {
+    padding-right: 50px;
+    .section-title ~ .link-anime {
+      margin-top: 30px;
+    }
+  }
+  .right-countent {
+    ul {
+      margin-top: 30px;
+    }
+    li ~ li {
+      margin-top: 15px;
+    }
+    button {
+      position: relative;
+      font-family: "Arima Madurai", cursive;
+      width: 100%;
+      color: $color-black;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 28px;
+      text-align: inherit;
+      border-radius: 5px;
+      border: 1px solid $color-border;
+      background: $color-white;
+      &::before {
+        position: absolute;
+        top: 25px;
+        font-size: 16px;
+        color: $color-yellow;
+        @include transform(rotate(180deg));
+        @include transition;
+        font-family: "icomoon";
+        content: "\e919";
+        speak: never;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      &.collapsed {
+        &::before {
+          @include transform(rotate(0deg));
+          color: $color-black;
+        }
+      }
+    }
+    .box-content {
+      padding: 30px;
+      border: 1px solid $color-border;
+      border-top: none;
+      background: $color-white;
+    }
+  }
+}

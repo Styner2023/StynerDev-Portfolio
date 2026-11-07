@@ -1,0 +1,7 @@
+.vercel
+
+# macOS
+.DS_Store
+
+# Raw client deliverables — optimized copies live in assets/images/portfolio/
+assets/ecotones-webdev/

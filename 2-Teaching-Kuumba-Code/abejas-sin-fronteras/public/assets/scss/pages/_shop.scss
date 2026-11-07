@@ -1,0 +1,28 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/autoprefixer" as *;
+
+/*=====================
+    23 Shop
+=======================*/
+
+.shop.v1 {
+  background: $color-white2;
+  .products {
+    .pro-right {
+      margin-top: 20px;
+      .my-select .current {
+        background: $color-tr;
+        font-size: 14px;
+      }
+    }
+    .pro-display-header ~ .row {
+      margin-top: 30px;
+    }
+    .product-card {
+      margin-bottom: 60px;
+    }
+    .row > div:nth-last-child(1) .product-card {
+      margin-bottom: 0px;
+    }
+  }
+}

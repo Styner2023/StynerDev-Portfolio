@@ -1,0 +1,314 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/autoprefixer" as *;
+
+/*=====================
+    26 Blog Details
+=======================*/
+
+.blog-details.v1 {
+  .big-post-details {
+    .post-img {
+      border-radius: 20px;
+      overflow: hidden;
+      &.video-box {
+        &::before {
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          opacity: 0.3;
+          background: $color-black;
+          @include transform(translate(0%, 0%) rotate(0deg));
+        }
+        &::after {
+          content: none;
+        }
+      }
+      img {
+        width: 100%;
+        @include filter(blur(0.3px) grayscale(0.2));
+        @include transition;
+      }
+    }
+    .post-content {
+      ul {
+        padding-top: 20px;
+        @include d-flex;
+        @include align-items;
+        @include flex-wrap;
+        gap: 20px;
+      }
+      li .my-icon {
+        font-size: 15px;
+        color: $color-green;
+      }
+      h3 {
+        font-weight: 900;
+        margin-top: 20px;
+      }
+      h3 ~ p,
+      p ~ p,
+      p ~ .gallery-box-images {
+        margin-top: 30px;
+      }
+      & ~ .tags-social {
+        margin-top: 50px;
+      }
+    }
+    .slider {
+      padding-bottom: 0;
+      .swiper-slide {
+        overflow: hidden;
+      }
+      .prev-btn,
+      .next-btn {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        line-height: 55px;
+        top: 50%;
+        @include transform(translateY(-50%));
+        background: $color-tr;
+        z-index: 1;
+        &::before {
+          position: absolute;
+          content: "";
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          border-radius: 100px;
+          background: $color-green;
+          @include transition;
+          z-index: -1;
+        }
+        .my-icon {
+          color: $color-white;
+          font-size: 20px;
+        }
+      }
+    }
+    .user {
+      position: relative;
+      border-radius: 20px;
+      margin-top: 40px;
+      &::before {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        content: "\e934";
+        top: 0;
+        color: $color-tr;
+        font-size: 20px;
+        text-align: center;
+        line-height: 50px;
+        background: $color-yellow;
+        font-family: "icomoon";
+        speak: never;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-text-stroke: 1.5px $color-black;
+      }
+      .user-content {
+        padding: 70px 30px 30px 30px;
+        h5 {
+          font-family: "Roboto", sans-serif;
+          font-weight: 400;
+          & ~ p {
+            margin-top: 12px;
+          }
+        }
+        h5,
+        p {
+          color: $color-white;
+        }
+        a {
+          color: $color-yellow;
+          &:hover {
+            color: $color-white;
+          }
+        }
+        & ~ p {
+          margin-top: 30px;
+        }
+      }
+    }
+    .gallery-box-images {
+      @include d-flex;
+      @include align-items;
+      @include justify-content-between;
+      @include flex-wrap;
+      gap: 30px;
+      .box-image {
+        width: 100%;
+        img {
+          width: 100%;
+          border-radius: 20px;
+        }
+      }
+    }
+    .all-comments {
+      h4 {
+        font-weight: 700;
+        & ~ .comments-list {
+          margin-top: 40px;
+        }
+      }
+      .comments-list > li {
+        & ~ li {
+          margin-top: 35px;
+        }
+      }
+      .comment-wrapper {
+        @include d-flex;
+        @include justify-content-between;
+        .profile-img {
+          width: 60px;
+          height: 60px;
+          min-width: 60px;
+          overflow: hidden;
+          border-radius: 100px;
+          img {
+            width: 100%;
+            height: 100%;
+            @include object-fit;
+            @include object-position;
+          }
+        }
+        .profile-text {
+          width: calc(100% - 90px);
+          .comment-info {
+            gap: 20px;
+            &,
+            li {
+              @include d-flex;
+              @include align-items;
+              @include flex-wrap;
+            }
+            li {
+              gap: 8px;
+            }
+            h6 {
+              font-family: "Roboto", sans-serif;
+              font-weight: 500;
+            }
+            .my-icon {
+              font-size: 16px;
+              color: $color-green;
+            }
+            & ~ .content {
+              margin-top: 15px;
+            }
+          }
+          .content {
+            position: relative;
+            padding: 40px 30px;
+            background: $color-white2;
+            &::before {
+              position: absolute;
+              content: "";
+              width: 25px;
+              height: 19px;
+              top: 0;
+              border-bottom: 19px solid $color-tr;
+              background: $color-tr;
+            }
+            & ~ .reply-btn {
+              margin-top: 15px;
+            }
+          }
+          .reply-btn {
+            @include d-flex;
+            @include flex-wrap;
+            gap: 10px;
+            padding: 0;
+            color: $color-green;
+            font-weight: 500;
+            font-size: 16px;
+            background: $color-tr;
+            &:hover {
+              color: $color-yellow;
+            }
+          }
+        }
+      }
+      & ~ .comments-form {
+        margin-top: 70px;
+      }
+    }
+    .comments-form {
+      h3 {
+        font-weight: 700;
+        & ~ p {
+          margin-top: 5px;
+        }
+      }
+      p ~ .main-form {
+        margin-top: 30px;
+      }
+      .main-form {
+        input {
+          width: 100%;
+          height: 70px;
+          border: 1px solid $color-border;
+          border-radius: 5px;
+          font-size: 16px;
+          line-height: 26px;
+        }
+        .group-input {
+          @include d-flex;
+          @include align-items;
+          gap: 30px;
+          & ~ input,
+          & ~ textarea {
+            margin-top: 30px;
+          }
+        }
+        .check-box {
+          @include d-flex;
+          gap: 10px;
+          input {
+            padding: 0;
+            width: 14px;
+            height: 14px;
+            min-width: 14px;
+            border-radius: 1px;
+            border: 1px solid $color-border;
+            margin-top: 2px;
+            &:checked {
+              background-color: $color-yellow;
+              border-color: $color-yellow;
+            }
+            &:focus {
+              box-shadow: none;
+            }
+          }
+          label {
+            width: calc(100% - 20px);
+            color: $color-gBlack;
+            font-size: 16px;
+            line-height: 26px;
+            margin-top: -5px;
+          }
+        }
+        textarea {
+          width: 100%;
+          height: 140px;
+          padding: 15px 20px;
+          border: 1px solid $color-border;
+          border-radius: 5px;
+          font-size: 16px;
+          line-height: 26px;
+          & ~ .check-box,
+          & ~ .btn-anime {
+            margin-top: 30px;
+          }
+        }
+      }
+    }
+  }
+}

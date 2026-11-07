@@ -1,0 +1,443 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/autoprefixer" as *;
+
+/*=====================
+    2 Menu Bar
+=======================*/
+.menu-bar {
+  &.v1,
+  &.v2 {
+    position: fixed;
+    padding: 20px 0px;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 5;
+    .menu-bar-content,
+    .main-menu > ul,
+    .menu-right > ul {
+      @include d-flex;
+      @include align-items;
+    }
+    .menu-bar-content {
+      @include flex-wrap;
+      @include justify-content-between;
+      gap: 30px;
+    }
+    .menu-logo {
+      max-width: 130px;
+      a {
+        display: inline-block;
+      }
+      img {
+        width: 100%;
+      }
+    }
+    .main-menu {
+      display: none;
+      & > ul {
+        gap: 30px;
+        & > li > a {
+          position: relative;
+          display: inline-block;
+          text-transform: uppercase;
+          font-weight: 700;
+        }
+      }
+      li {
+        position: relative;
+        ul {
+          padding-top: 0;
+          position: absolute;
+          min-width: 220px;
+          gap: 0;
+          top: 120%;
+          opacity: 0;
+          visibility: hidden;
+          z-index: 4;
+          @include transition;
+          @include flex-direction-column;
+          @include box-shadow(0 0 30px rgba(0, 0, 0, 0.09));
+          li:hover > ul {
+            top: 0;
+          }
+        }
+        &:hover > ul {
+          top: 100%;
+          opacity: 1;
+          visibility: visible;
+        }
+        li {
+          & ~ li {
+            border-top: 1px dashed $color-yellow;
+          }
+          a {
+            display: block;
+            padding: 15px 35px;
+            font-weight: 500;
+          }
+          &:hover > a,
+          &.active > a {
+            color: $color-yellow;
+          }
+        }
+      }
+    }
+    .menu-right {
+      & > ul {
+        gap: 20px;
+        @include justify-content-end;
+        & > li:nth-child(1),
+        & > li:nth-child(2) {
+          display: none;
+        }
+      }
+      .top-bar-search {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 5;
+        opacity: 0;
+        visibility: hidden;
+        @include transition;
+        .search-overlay {
+          position: fixed;
+          content: "";
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          opacity: 0.8;
+          z-index: -1;
+          background: #000000;
+        }
+        .search-close {
+          position: absolute;
+          padding: 0;
+          top: 120px;
+          font-size: 24px;
+          color: $color-white;
+          background: $color-tr;
+          &:hover {
+            color: $color-yellow;
+          }
+        }
+        form {
+          @include d-flex;
+          @include align-items;
+          position: absolute;
+          width: 50%;
+          height: 70px;
+          top: 50%;
+          left: 50%;
+          border-bottom: 1px solid $color-border;
+          background: $color-tr;
+          @include transform(translate(-50%, -150%) scale(0.8));
+          @include transition;
+          input {
+            width: calc(100% - 40px);
+            height: 100%;
+            font-size: 24px;
+            color: $color-white;
+            background: $color-tr;
+          }
+          button {
+            width: 70px;
+            height: 100%;
+            padding: 0;
+            color: $color-white;
+            font-size: 24px;
+            background: $color-tr;
+            &:hover {
+              color: $color-yellow;
+            }
+          }
+        }
+        &.active {
+          opacity: 1;
+          visibility: visible;
+          form {
+            @include transform(translate(-50%, -50%) scale(1));
+          }
+        }
+      }
+      .search-open-btn,
+      .wishlist-btn,
+      .shop-card-btn .my-icon {
+        margin-bottom: 2px;
+        position: relative;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 80px;
+        z-index: 1;
+        font-size: 18px;
+        box-shadow: 0px 2px 0px $color-yellow;
+      }
+      .shop-card-btn .my-icon {
+        display: inline-block;
+      }
+      .wishlist-btn,
+      .shop-card-btn {
+        display: inline-block;
+        position: relative;
+        .count {
+          position: absolute;
+          width: 22px;
+          height: 22px;
+          text-align: center;
+          font-size: 10px;
+          font-weight: 500;
+          line-height: 22px;
+          border-radius: 50px;
+          color: $color-black;
+          top: -5px;
+          z-index: 1;
+          background: $color-yellow;
+        }
+      }
+      .shop-card-btn {
+        background: $color-tr;
+        .price {
+          display: none;
+          font-size: 14px;
+          line-height: 24px;
+          font-weight: 700;
+        }
+      }
+      .shop-card-list .offcanvas-backdrop.show {
+        opacity: 0.8;
+      }
+      .mobile-menu-btn {
+        position: relative;
+        width: 35px;
+        height: 25px;
+        background: $color-tr;
+        span {
+          position: absolute;
+          width: 100%;
+          height: 2px;
+          border-radius: 10px;
+          background: $color-yellow;
+          @include transition;
+          &:nth-child(1) {
+            top: 0;
+          }
+          &:nth-child(3) {
+            bottom: 0;
+          }
+        }
+        &.active {
+          span {
+            &:nth-child(1) {
+              width: 15px;
+              top: 23px;
+            }
+            &:nth-child(2) {
+              width: 75%;
+            }
+            &:nth-child(3) {
+              width: 15px;
+              bottom: 23px;
+            }
+          }
+        }
+      }
+      .mobile-menu-bar {
+        position: fixed;
+        width: 320px;
+        max-width: 100%;
+        height: 100%;
+        top: 0;
+        opacity: 0;
+        visibility: hidden;
+        background: $color-white;
+        box-shadow: 0 0 30px rgb(0 0 0 / 9%);
+        @include transition;
+        z-index: 5;
+        &.active {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+      .mobile-menu-header {
+        @include d-flex;
+        @include align-items;
+        gap: 30px;
+        @include justify-content-between;
+        border-bottom: 1px dashed $color-yellow;
+        .mobile-logo {
+          a {
+            display: inline-block;
+            max-width: 140px;
+            img {
+              max-width: 100%;
+            }
+          }
+          img {
+            max-width: 140px;
+          }
+        }
+        .close-mobile-btn {
+          padding: 25px;
+          font-size: 20px;
+          background: $color-tr;
+        }
+      }
+      .mobile-overflow {
+        margin-top: 25px;
+        overflow-y: auto;
+        height: calc(100% - 100px);
+      }
+      .mobile-main-manu {
+        li {
+          border-top: 1px dashed $color-yellow;
+          &.active {
+            & > a {
+              color: $color-yellow;
+            }
+            a > .my-icon {
+              @include transform(rotate(0deg));
+            }
+          }
+          &.has-dropdown {
+            & > a::after {
+              position: absolute;
+              font-family: "icomoon";
+              content: "\e900";
+              speak: never;
+              font-size: calc(100% - 5px);
+              font-style: normal;
+              font-weight: normal;
+              font-variant: normal;
+              text-transform: none;
+              line-height: 1;
+              -webkit-font-smoothing: antialiased;
+              -moz-osx-font-smoothing: grayscale;
+              top: 21px;
+              font-size: 12px;
+              @include transition;
+            }
+            &.active > a::after {
+              @include transform(rotate(0deg));
+            }
+          }
+        }
+        & > ul > li:first-child {
+          border-top: none;
+        }
+        ul {
+          ul {
+            display: none;
+            a {
+              font-size: calc(100% - 0.4px);
+            }
+          }
+        }
+        a {
+          position: relative;
+          display: block;
+          font-size: 15px;
+          line-height: 25px;
+          font-weight: 700;
+        }
+      }
+      .social-link {
+        padding: 20px 20px;
+        @include d-flex;
+        @include align-items;
+        @include justify-content-between;
+        @include flex-wrap;
+        gap: 15px;
+        a {
+          display: block;
+          width: 45px;
+          height: 45px;
+          line-height: 45px;
+          border-radius: 50px;
+          text-align: center;
+          font-size: 15px;
+          color: $color-yellow;
+          border: 1px solid $color-yellow;
+          background: $color-white;
+          &:hover {
+            color: $color-white;
+            background: $color-yellow;
+          }
+        }
+      }
+      .mobile-menu-overlay {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        visibility: hidden;
+        background: #000000;
+        @include transition;
+        z-index: 2;
+        &.active {
+          opacity: 0.8;
+          visibility: visible;
+        }
+      }
+    }
+  }
+  &.v1 {
+    background: $color-black2;
+    &.sticky-header {
+      box-shadow: 4px 0px 20px 10px rgba(0, 0, 0, 0.34);
+    }
+    .main-menu li a,
+    .main-menu li.active > a,
+    .main-menu li:hover > a,
+    .main-menu li.current_page_parent > a,
+    .main-menu li.current-menu-parent > a,
+    .main-menu li.current_page_item > a,
+    .main-menu li li a,
+    .menu-right .search-open-btn,
+    .menu-right .wishlist-btn,
+    .menu-right .shop-card-btn .my-icon,
+    .menu-right .shop-card-btn .price {
+      color: $color-white;
+    }
+    .main-menu li ul,
+    .menu-right .search-open-btn,
+    .menu-right .wishlist-btn,
+    .menu-right .shop-card-btn .my-icon {
+      background: $color-black;
+    }
+  }
+  &.v2 {
+    background: $color-white2;
+    &.sticky-header {
+      box-shadow: 4px 0px 20px 10px rgba(138, 138, 138, 0.34);
+    }
+    .main-menu li a,
+    .main-menu li.active > a,
+    .main-menu li:hover > a,
+    .main-menu li.current_page_parent > a,
+    .main-menu li.current-menu-parent > a,
+    .main-menu li.current_page_item > a,
+    .main-menu li li a,
+    .menu-right .search-open-btn,
+    .menu-right .wishlist-btn,
+    .menu-right .shop-card-btn .my-icon,
+    .menu-right .shop-card-btn .price {
+      color: $color-black;
+    }
+    .main-menu li ul,
+    .menu-right .search-open-btn,
+    .menu-right .wishlist-btn,
+    .menu-right .shop-card-btn .my-icon {
+      background: $color-white;
+    }
+  }
+  & ~ .h-spach {
+    margin-top: 82px;
+  }
+}

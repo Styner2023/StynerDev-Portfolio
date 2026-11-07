@@ -1,0 +1,185 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/autoprefixer" as *;
+
+/*=====================
+    16 Get In Touch
+=======================*/
+.get-in-touch.v1 {
+  .box-content {
+    position: relative;
+    padding: 50px;
+    z-index: 1;
+    &::before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      opacity: 0.8;
+      background: $color-black;
+      z-index: -1;
+    }
+    .section-title-white ~ .star-mark {
+      margin-top: 30px;
+    }
+    p {
+      color: $color-white;
+      margin-top: 20px;
+    }
+    .play-btn {
+      margin-top: 30px;
+    }
+  }
+}
+
+/*=====================
+    17 Team
+=======================*/
+.team.v1 {
+  background: $color-white2;
+  & > .container {
+    position: relative;
+  }
+  .slider {
+    margin-top: 50px;
+  }
+  .prev-btn,
+  .next-btn {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 60%;
+    color: $color-black;
+    font-size: 20px;
+    line-height: 52px;
+    @include transform(translateY(-50%));
+    background: $color-tr;
+    z-index: 1;
+    &::before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      top: 0;
+      opacity: 0.5;
+      border-radius: 100px;
+      background: $color-yellow;
+      @include transition;
+      z-index: -1;
+    }
+    &:hover::before {
+      opacity: 1;
+    }
+  }
+
+  .team-card {
+    .profile-img {
+      position: relative;
+      border-radius: 20px 20px 0px 0px;
+      overflow: hidden;
+      &::before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        background: $color-white;
+        z-index: 1;
+        @include transition;
+      }
+      img {
+        width: 100%;
+        @include transition;
+      }
+      ul {
+        position: absolute;
+        width: 100%;
+        @include d-flex;
+        @include flex-wrap;
+        @include align-items;
+        @include justify-content-center;
+        gap: 5px;
+        top: 50%;
+        left: 50%;
+        opacity: 0;
+        visibility: hidden;
+        @include transform(translate(-50%, -50%) scale(0.8));
+        @include transition;
+        z-index: 2;
+      }
+      li {
+        a {
+          display: block;
+          width: 40px;
+          height: 40px;
+          font-size: 16px;
+          color: $color-white;
+          text-align: center;
+          line-height: 40px;
+          border-radius: 4px;
+        }
+        &.fb a {
+          background: $color-fb;
+          &:hover {
+            color: $color-fb;
+          }
+        }
+        &.tw a {
+          background: $color-tw;
+          &:hover {
+            color: $color-tw;
+          }
+        }
+        &.pin a {
+          background: $color-pin;
+          &:hover {
+            color: $color-pin;
+          }
+        }
+        &.in a {
+          background: $color-in;
+          &:hover {
+            color: $color-in;
+          }
+        }
+        a:hover {
+          background: $color-white;
+        }
+      }
+    }
+    .profile-info {
+      padding: 30px;
+      border-radius: 0px 0px 20px 20px;
+      background: $color-green;
+      h4,
+      p {
+        color: $color-white;
+      }
+      h4 {
+        font-family: "Roboto", sans-serif;
+        font-weight: 500;
+      }
+      p {
+        margin-top: 5px;
+      }
+    }
+    &:hover {
+      .profile-img {
+        img {
+          @include transform(scale(1.1));
+        }
+        &::before {
+          opacity: 0.5;
+        }
+        ul {
+          @include transform(translate(-50%, -50%) scale(1));
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+  }
+}

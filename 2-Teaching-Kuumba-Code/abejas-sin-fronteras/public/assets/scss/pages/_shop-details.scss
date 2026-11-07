@@ -1,0 +1,181 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/autoprefixer" as *;
+
+/*==================
+    24 Shop Details
+====================*/
+.shop-details.v1 {
+  background: $color-white2;
+  .big-box-img {
+    position: relative;
+    .zoom-btn {
+      position: absolute;
+      width: 45px;
+      height: 45px;
+      top: 30px;
+      right: 30px;
+      text-align: center;
+      line-height: 45px;
+      border-radius: 50px;
+      border: 1px solid $color-border;
+      background: $color-white;
+      z-index: 2;
+    }
+    .slider {
+      border-radius: 20px;
+      padding-bottom: 0;
+    }
+    .swiper-slide {
+      overflow: hidden;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .small-box-img {
+    width: 65%;
+    margin-top: 30px;
+    .slider {
+      padding-bottom: 0;
+    }
+    .swiper-slide {
+      width: 120px;
+      border-radius: 10px;
+      border: 2px solid $color-border;
+      overflow: hidden;
+      img {
+        width: 100%;
+      }
+      a {
+        pointer-events: none;
+      }
+      &.swiper-slide-thumb-active,
+      &:hover {
+        border-color: $color-yellow;
+      }
+    }
+  }
+  .quan-card {
+    @include d-flex;
+    @include align-items;
+    @include flex-wrap;
+    gap: 30px;
+    .quantity-count {
+      width: 150px;
+      @include d-flex;
+      @include align-items;
+      border-radius: 3px;
+      border: 1px solid $color-border;
+      .count-plus-btn,
+      .count-down-btn {
+        width: 50px;
+        height: 60px;
+        font-size: 18px;
+        color: $color-black;
+        background: $color-tr;
+      }
+      input {
+        font-family: "Arima Madurai", cursive;
+        padding: 0;
+        width: calc(100% - 100px);
+        height: 60px;
+        font-size: 18px;
+        text-align: center;
+        font-weight: 900;
+        line-height: 28px;
+        background: $color-tr;
+      }
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin: 0;
+      }
+
+      input[type="number"] {
+        -webkit-appearance: textfield;
+        -moz-appearance: textfield;
+        appearance: textfield;
+      }
+    }
+  }
+  .display-right {
+    margin-top: 40px;
+    h3,
+    h4 {
+      font-weight: 900;
+    }
+    h3 {
+      & ~ h4 {
+        margin-top: 10px;
+      }
+    }
+    h4 ~ p,
+    p ~ .quan-card,
+    .quan-card ~ ul {
+      margin-top: 30px;
+    }
+    li {
+      & ~ li {
+        margin-top: 13px;
+      }
+      .title {
+        font-family: "Arima Madurai", cursive;
+        font-weight: 900;
+      }
+    }
+  }
+  .product-tab {
+    margin-top: 40px;
+    .nav-tabs {
+      border-bottom: none;
+      & > li ~ li {
+        margin-top: 20px;
+      }
+      button {
+        @include d-flex;
+        @include flex-wrap;
+        @include align-items;
+        gap: 20px;
+        width: 100%;
+        position: relative;
+        padding-bottom: 15px;
+        text-align: inherit;
+        font-family: "Arima Madurai", cursive;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 28px;
+        color: $color-black;
+        background: $color-tr;
+        &::before,
+        &::after {
+          position: absolute;
+          content: "";
+          height: 2px;
+          bottom: -2px;
+          background: $color-border;
+        }
+        &::after {
+          width: 100%;
+        }
+        &::before {
+          width: 50%;
+          opacity: 0;
+          visibility: hidden;
+          background: $color-black;
+          @include transition;
+          z-index: 1;
+        }
+        &.active::before {
+          width: 100%;
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+    .tab-content {
+      padding-top: 24px;
+    }
+  }
+}

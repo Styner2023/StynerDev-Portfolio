@@ -1,0 +1,213 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/autoprefixer" as *;
+
+.v1 {
+  .blog-sidebar__wrapper {
+    .blog-sidebar__widget {
+      margin-top: 50px;
+    }
+    .blog-sidebar__widget-head {
+      padding: 30px 30px 0px 30px;
+      border: 1px solid $color-border;
+      border-radius: 10px 10px 0px 0px;
+      border-bottom: none;
+      .blog-sidebar__widget-title {
+        position: relative;
+        font-weight: 700;
+        &::before {
+          position: absolute;
+          content: "";
+          height: 17px;
+          width: 17px;
+          top: 8px;
+          border-radius: 50px;
+          border: 3px solid rgba(43, 34, 31, 0.1);
+          background: $color-yellow;
+        }
+      }
+    }
+    .blog-sidebar__widget-content {
+      padding: 30px;
+      border-radius: 0px 0px 10px 10px;
+      border: 1px solid $color-border;
+      border-top: none;
+    }
+    .search-widget {
+      form {
+        @include d-flex;
+        @include align-items;
+        border: 1px solid $color-border;
+      }
+      input {
+        width: 100%;
+        font-size: 16px;
+        border-radius: 5px 0px 0px 5px;
+      }
+      button {
+        padding: 0;
+        width: 50px;
+        height: 50px;
+        font-size: 15px;
+        color: $color-gBlack;
+        border-radius: 0px 5px 5px 0px;
+        background: $color-white;
+      }
+    }
+    .category-list {
+      li {
+        @include d-flex;
+        @include align-items;
+        gap: 14px;
+        & ~ li {
+          margin-top: 20px;
+        }
+      }
+      h6 {
+        font-weight: 700;
+      }
+      .my-icon {
+        color: $color-green;
+        font-size: 18px;
+      }
+    }
+    .best-seller-items {
+      li {
+        @include d-flex;
+        @include align-items;
+        & ~ li {
+          padding-top: 20px;
+          border-top: 1px dashed $color-border;
+          margin-top: 20px;
+        }
+        .item-img {
+          width: 100px;
+          border-radius: 0px 0px 200px 200px;
+          overflow: hidden;
+          img {
+            width: 100%;
+            @include filter(blur(0.3px) grayscale(0.2));
+            @include transform(rotate(1deg) scale(1.1));
+            @include transition;
+          }
+        }
+        .item-text {
+          width: calc(100% - 100px);
+          h6,
+          p {
+            font-size: 18px;
+            line-height: 28px;
+          }
+          h6 {
+            font-weight: 900;
+            & ~ p {
+              margin-top: 10px;
+            }
+          }
+        }
+        &:hover .item-img img {
+          @include filter(blur(0px) grayscale(0));
+          @include transform(rotate(0deg) scale(1));
+        }
+      }
+    }
+    .my-range-slider {
+      .my-range-slider-wrapper {
+        width: 100%;
+        padding: 0px 16px 0px 4px;
+        & ~ .tag-price {
+          margin-top: 25px;
+        }
+      }
+      &[data-slider-double="true"] .my-range-slider-wrapper {
+        padding: 0px 34px 0px 4px;
+        .slider-track::before {
+          width: calc(100% + 38px);
+        }
+      }
+      .slider-track {
+        position: relative;
+        width: 100%;
+        height: 20px;
+        &::before {
+          position: absolute;
+          content: "";
+          left: -4px;
+          top: 50%;
+          width: 100%;
+          height: 4px;
+          border-radius: 5px;
+          background: #dee4ec;
+          @include transform(translateY(-50%));
+        }
+        .slider-bar {
+          position: absolute;
+          pointer-events: none;
+          width: 100vw;
+          height: 4px;
+          left: 0;
+          top: 50%;
+          cursor: default;
+          @include transform(translate(15px, -50%));
+          background: #fcc41a;
+        }
+      }
+      .slider-handle {
+        width: 20px;
+        height: 20px;
+        background: #fcc41a;
+        position: absolute;
+        top: 50%;
+        user-select: none;
+        border-radius: 50px;
+        cursor: pointer;
+        &:nth-child(1) {
+          @include transform(translate(-4px, -50%));
+        }
+        &:nth-child(2) {
+          @include transform(translate(14px, -50%));
+        }
+      }
+      .tag-price {
+        ul {
+          @include d-flex;
+          @include align-items;
+          @include justify-content-between;
+        }
+        .tag {
+          padding: 5px 20px;
+          font-weight: 700;
+          color: $color-black;
+          border-radius: 3px;
+          background: $color-yellow;
+        }
+        p {
+          font-size: 16px;
+          line-height: 26px;
+          font-weight: 500;
+          color: #73747d;
+        }
+      }
+    }
+    .latest-posts {
+      li {
+        @include d-flex;
+        @include align-items;
+        gap: 20px;
+        & ~ li {
+          padding-top: 15px;
+          border-top: 1px dashed $color-border;
+          margin-top: 15px;
+        }
+      }
+      .post-img img {
+        border-radius: 5px;
+      }
+      .post-text h6 {
+        font-weight: 800;
+        & ~ p {
+          margin-top: 4px;
+        }
+      }
+    }
+  }
+}

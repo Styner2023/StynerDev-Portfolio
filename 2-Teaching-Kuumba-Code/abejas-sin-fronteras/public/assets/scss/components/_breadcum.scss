@@ -1,0 +1,42 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/autoprefixer" as *;
+
+.breadcum.v1 {
+  text-align: center;
+  padding: 60px 0px;
+  h2 {
+    color: $color-white;
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 50px;
+    & ~ ul {
+      margin-top: 20px;
+    }
+  }
+  ul {
+    @include d-flex;
+    @include align-items;
+    @include justify-content-center;
+    gap: 5px;
+    color: $color-white;
+    font-size: 15px;
+    line-height: 34px;
+    font-weight: 600;
+  }
+  li ~ li {
+    @include d-flex;
+    @include align-items;
+    gap: 5px;
+    &::before {
+      content: "/";
+    }
+  }
+  a {
+    display: block;
+    font-size: 15px;
+    color: $color-white;
+    &:hover {
+      color: $color-yellow;
+    }
+  }
+}
