@@ -1,0 +1,84 @@
+.mxd-elementor-promo
+  position: relative
+  padding-bottom: 10.4rem
+  +MQ(M)
+    padding-bottom: 9.4rem
+  +MQ(XXXL)
+    padding-bottom: 13.3rem
+
+.mxd-elementor-promo__item
+  // background-color: red
+  +MQ(XL)
+    display: flex
+    flex-direction: column
+    justify-content: center
+
+.mxd-elementor-promo__content
+  // margin-bottom: 5rem
+  text-align: center
+  // background-color: pink
+  +MQ(M)
+    max-width: 600px
+    margin: 0 auto
+  +MQ(XL)
+    // max-width: 700px
+    margin: 0
+    // padding-bottom: 1.7rem
+    text-align: left
+  +MQ(XXXL)
+    // padding-bottom: 3.2rem
+
+.mxd-elementor-promo__image
+  position: relative
+  padding-bottom: 1rem
+  max-width: 840px
+  margin: 0 auto
+  .img-mobile
+    display: block
+  .img-desktop
+    display: none
+  +MQ(XL)
+    max-width: none
+    .img-mobile
+      display: none
+    .img-desktop
+      display: block
+
+.mxd-elementor-promo__obj01,
+.mxd-elementor-promo__obj02
+  img
+    display: block
+    width: 100%
+    height: auto
+
+.mxd-elementor-promo__obj01
+  display: none
+  +MQ(XL)
+    display: block
+    +position(absolute, 3rem -4rem null null)
+    width: 9rem
+    height: auto
+  +MQ(XXL)
+    top: 4rem
+    right: -5rem
+    width: 11rem
+  +MQ(XXXL)
+    top: 5rem
+    right: -6rem
+    width: 15rem
+
+.mxd-elementor-promo__obj02
+  display: none
+  +MQ(XL)
+    display: block
+    +position(absolute, null null -1rem 19rem)
+    width: 5rem
+    height: auto
+  +MQ(XXL)
+    bottom: -2rem
+    left: 24rem
+    width: 6rem
+  +MQ(XXXL)
+    bottom: -3rem
+    left: 30rem
+    width: 8rem

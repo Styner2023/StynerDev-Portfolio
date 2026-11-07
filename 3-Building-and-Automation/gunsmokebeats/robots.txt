@@ -1,0 +1,16 @@
+# Gunsmoke Beats — robots.txt
+# Allow all search engines to crawl everything.
+
+User-agent: *
+Allow: /
+Disallow: /mail.php
+
+# Block AI training crawlers (optional — remove if you want your content used for AI training)
+User-agent: GPTBot
+Disallow: /
+User-agent: CCBot
+Disallow: /
+User-agent: ClaudeBot
+Disallow: /
+
+Sitemap: https://gunsmokebeats.com/sitemap.xml

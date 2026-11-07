@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 238.2 108.3">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700');
+      .brand-text-mobile {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        font-size: 54px;
+        letter-spacing: -2px;
+        fill: currentColor;
+      }
+    </style>
+  </defs>
+  <text x="0" y="46" class="brand-text-mobile">Gun</text>
+  <text x="0" y="100" class="brand-text-mobile">Smoke</text>
+</svg>
