@@ -1,0 +1,37 @@
+// Font Family
+$font_body: 'Roboto', sans-serif;
+$font_heading: 'Barlow', sans-serif;
+
+// Default Color — Kuumba Code brand palette
+// NOTE: the LIVE site is the compiled assets/css/style.css. sass is not
+// installed, so colour edits are applied there directly. In the compiled CSS
+// the old "dark" role is SPLIT: dark TEXT -> Ink, dark BACKGROUNDS -> Indigo.
+// Pale neutrals dominate; the featured accents are Orange + Blue + Gold.
+$color_white: #ffffff;
+$color_black: #000000;
+$color_body: #0C0C0C;      // Ink — body text
+$color_dark: #0C0C0C;      // Ink — headings / dark text (was Plum; de-emphasised)
+$color_dark_bg: #2F40F1;   // Indigo Blue — dark section backgrounds (footer, CTA)
+$color_light: #FBF7F2;     // Cream — pale page / section background
+$color_border: #C9BEB6;    // Taupe
+$color_primary: #FFC84C;   // Gold (yellow) — primary accent
+$color_warning: #EB672D;   // Orange — secondary accent
+
+// Kuumba Code — extended brand colors (available for future use)
+$color_plum: #4A1E3D;
+$color_orange: #EB672D;
+$color_gold: #FFC84C;
+$color_indigo: #2F40F1;
+$color_green: #4BA970;
+$color_burnt_orange: #C9521E;
+$color_ink: #0C0C0C;
+$color_warm_gray: #6B6460;
+$color_taupe: #C9BEB6;
+$color_cream: #FBF7F2;
+$color_peach: #FFF4EC;
+
+// Border Transition
+$border_radius: 8px;
+
+// Default Transition
+$transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);

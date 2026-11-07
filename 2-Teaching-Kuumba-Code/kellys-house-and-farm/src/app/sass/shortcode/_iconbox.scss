@@ -1,0 +1,63 @@
+/**
+ * Developer: StynerDev
+ * Dev Website: https://www.styner.dev/
+ * Website URL: https://www.stynerdev.com/
+ *
+ * Copyright (c) 2026
+ */
+
+/*--------------------------------------------------------------
+  11. Iconbox
+----------------------------------------------------------------*/
+.cs_iconbox.cs_style_1 {
+  // Icon and title share a row; the text runs full width below.
+  .cs_iconbox_head {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .cs_iconbox_icon {
+    flex: none;
+    height: 48px;
+    width: 48px;
+    position: relative;
+    font-size: 18px;
+    color: var(--heading-color);
+    &::before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+      background-color: #e1ece2;
+    }
+    i {
+      position: relative;
+      z-index: 2;
+    }
+  }
+}
+.cs_iconbox.cs_style_2 {
+  background-color: #e1ece3;
+  border-radius: 20px;
+  padding: 16px;
+  transition: all 0.3s ease;
+  .cs_iconbox_icon {
+    margin-bottom: 16px;
+    display: flex;
+    color: var(--heading-color);
+    font-size: 24px;
+  }
+  .cs_iconbox_icon,
+  .cs_heading_color {
+    transition: all 0.3s ease;
+  }
+  &:hover {
+    background-color: var(--heading-color);
+    .cs_iconbox_icon,
+    .cs_heading_color {
+      color: var(--white-color);
+    }
+  }
+}

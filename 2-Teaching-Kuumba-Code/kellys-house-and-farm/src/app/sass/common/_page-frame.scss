@@ -1,0 +1,101 @@
+/**
+ * Developer: StynerDev
+ * Dev Website: https://www.styner.dev/
+ * Website URL: https://www.stynerdev.com/
+ *
+ * Copyright (c) 2026
+ */
+
+/*--------------------------------------------------------------
+  Page Frame - the whole site as one narrow, scrollable column
+  (link-in-bio shape). The frame is a CSS query container, and the
+  template's responsive rules use `@container page (...)` instead of
+  `@media`, so every section lays out by the column's width, not the
+  window's: on desktop the column shows the same layout as a phone.
+  Set --cs-frame-max to none to get the full-width site back.
+----------------------------------------------------------------*/
+@use "sass:math";
+
+:root {
+  --cs-frame-max: 560px;
+}
+
+html,
+body {
+  background-color: var(--gray-color);
+}
+
+.cs_page_frame {
+  container-type: inline-size;
+  container-name: page;
+  position: relative;
+  width: 100%;
+  max-width: var(--cs-frame-max);
+  min-height: 100vh;
+  margin-inline: auto;
+  background-color: var(--white-color);
+  overflow-x: clip;
+  box-shadow: 0 0 60px rgb(55 72 54 / 12%);
+}
+
+// The header is fixed to the window, so pin it to the column instead.
+// Layout containment makes it the containing block for the fixed mobile
+// menu, which then slides in over the column rather than the whole window.
+.cs_page_frame .cs_site_header {
+  right: 0;
+  max-width: var(--cs-frame-max);
+  margin-inline: auto;
+  contain: layout;
+  overflow-x: clip;
+}
+
+// Bootstrap's grid sizes by the window. Reset its responsive columns and
+// re-apply them by the column's width, smallest breakpoint first.
+$cs-frame-breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+@each $bp, $min in $cs-frame-breakpoints {
+  @for $i from 1 through 12 {
+    .cs_page_frame .row > .col-#{$bp}-#{$i} {
+      flex: 0 0 auto;
+      width: 100%;
+    }
+    .cs_page_frame .row > .offset-#{$bp}-#{$i} {
+      margin-left: 0;
+    }
+  }
+}
+
+@each $bp, $min in $cs-frame-breakpoints {
+  @container page (min-width: #{$min}) {
+    @for $i from 1 through 12 {
+      .cs_page_frame .row > .col-#{$bp}-#{$i} {
+        width: math.percentage(math.div($i, 12));
+      }
+      .cs_page_frame .row > .offset-#{$bp}-#{$i} {
+        margin-left: math.percentage(math.div($i, 12));
+      }
+    }
+  }
+}
+
+// One-page navigation: menu links jump to sections on the home page.
+// Stop the fixed header (80px) from covering the section heading.
+.cs_anchor {
+  scroll-margin-top: 80px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

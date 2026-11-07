@@ -1,0 +1,13 @@
+{
+  "name": "ecotones-og-image-generator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static SVG-to-JPG OG/Twitter card generator for Ecotones Land Stewardship.",
+  "main": "generate.js",
+  "scripts": {
+    "generate": "node generate.js --all"
+  },
+  "dependencies": {
+    "sharp": "^0.33.5"
+  }
+}

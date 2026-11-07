@@ -1,0 +1,246 @@
+/**
+ * Developer: StynerDev
+ * Dev Website: https://www.styner.dev/
+ * Website URL: https://www.stynerdev.com/
+ *
+ * Copyright (c) 2026
+ */
+
+"use client";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+
+const data = {
+	logo: "/assets/img/logo_2.svg",
+	logoUrl: "/",
+	menuItems: [
+		{ label: "ABOUT", href: "/about" },
+		{
+			label: "SERVICES",
+			href: "/services",
+			children: [
+				{ label: "SERVICES", href: "/services" },
+				{ label: "SERVICE DETAILS", href: "/services/services-details" },
+			],
+		},
+		{
+			label: "PROJECTS",
+			href: "/projects",
+			children: [
+				{ label: "PROJECTS", href: "/projects" },
+				{ label: "PROJECT DETAILS", href: "/projects/project-details" },
+			],
+		},
+		{
+			label: "Pages",
+			href: "/",
+			children: [
+				{ label: "FAQ", href: "/faq" },
+				{ label: "GALLERY", href: "/gallery" },
+				{ label: "BLOG", href: "/blog" },
+				{ label: "BLOG DETAILS", href: "/blog/blog-details" },
+				{ label: "LOGIN", href: "/login" },
+				{ label: "REGISTER", href: "/signup" },
+				{ label: "RESET PASSWORD", href: "/forgot-password" },
+			],
+		},
+		{ label: "CONTACT", href: "/contact" },
+	],
+};
+
+const Header2 = () => {
+	const [isShowMobileMenu, setIsShowMobileMenu] = useState(false);
+	const [openMobileSubmenuIndex, setOpenMobileSubmenuIndex] = useState<
+		number | null
+	>(null);
+	const [isSticky, setIsSticky] = useState("");
+	const [isSearchActive, setIsSearchActive] = useState(false);
+
+	const handleOpenMobileSubmenu = (index: number): void => {
+		setOpenMobileSubmenuIndex(openMobileSubmenuIndex === index ? null : index);
+	};
+
+	useEffect(() => {
+		const handleScroll = () => {
+			setIsSticky(window.scrollY > 100 ? "cs_sticky_active" : "");
+		};
+
+		window.addEventListener("scroll", handleScroll);
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, []);
+
+	return (
+		<>
+			<header
+				className={`cs_site_header cs_style_1 cs_color_1 cs_sticky_header ${
+					isSticky ? isSticky : ""
+				}`}
+			>
+				<div className="cs_main_header">
+					<div className="container">
+						<div className="cs_main_header_in">
+							<div className="cs_main_header_left">
+								<Link className="cs_site_branding" href={data.logoUrl}>
+									<Image
+										src={data.logo}
+										alt="Kelly’s House and Farm"
+										width={178}
+										height={40}
+										className="object-contain"
+									/>
+								</Link>
+							</div>
+							<div className="cs_main_header_center">
+								<div className="cs_nav cs_heading_color">
+									<nav
+										className={`cs_nav_list_wrap text-uppercase ${
+											isShowMobileMenu ? "cs_active" : ""
+										}`}
+									>
+										<ul className={`cs_nav_list`}>
+											{data.menuItems.map((item, index) => (
+												<li
+													key={index}
+													className={
+														item.children ? "menu-item-has-children" : ""
+													}
+												>
+													<Link href={item.href}>{item.label}</Link>
+													{item.children && (
+														<>
+															<ul
+																style={{
+																	display:
+																		openMobileSubmenuIndex === index
+																			? "block"
+																			: "none",
+																}}
+															>
+																{item.children.map((child, i) => (
+																	<li
+																		key={i}
+																		onClick={() =>
+																			setIsShowMobileMenu(!isShowMobileMenu)
+																		}
+																	>
+																		<Link href={child.href}>{child.label}</Link>
+																	</li>
+																))}
+															</ul>
+															<span
+																className={`cs_munu_dropdown_toggle ${
+																	openMobileSubmenuIndex === index
+																		? "active"
+																		: ""
+																}`}
+																onClick={() => handleOpenMobileSubmenu(index)}
+															>
+																<span />
+															</span>
+														</>
+													)}
+												</li>
+											))}
+										</ul>
+									</nav>
+									<span
+										className={`cs_menu_toggle ${
+											isShowMobileMenu && "cs_toggle_active"
+										}`}
+										onClick={() => setIsShowMobileMenu(!isShowMobileMenu)}
+									>
+										<span></span>
+									</span>
+								</div>
+							</div>
+							<div className="cs_main_header_right">
+								<div className="cs_header_icon_btns">
+									<Link href="#" className="cs_header_icon_btn cs_center">
+										<svg
+											width={20}
+											height={20}
+											viewBox="0 0 20 20"
+											fill="none"
+											xmlns="http://www.w3.org/2000/svg"
+										>
+											<path
+												d="M17.0711 12.9289C15.9819 11.8398 14.6855 11.0335 13.2711 10.5454C14.786 9.50199 15.7812 7.75578 15.7812 5.78125C15.7812 2.59348 13.1878 0 10 0C6.81223 0 4.21875 2.59348 4.21875 5.78125C4.21875 7.75578 5.21402 9.50199 6.72898 10.5454C5.31453 11.0335 4.01813 11.8398 2.92895 12.9289C1.0402 14.8177 0 17.3289 0 20H1.5625C1.5625 15.3475 5.34754 11.5625 10 11.5625C14.6525 11.5625 18.4375 15.3475 18.4375 20H20C20 17.3289 18.9598 14.8177 17.0711 12.9289ZM10 10C7.67379 10 5.78125 8.1075 5.78125 5.78125C5.78125 3.455 7.67379 1.5625 10 1.5625C12.3262 1.5625 14.2188 3.455 14.2188 5.78125C14.2188 8.1075 12.3262 10 10 10Z"
+												fill="currentColor"
+											/>
+										</svg>
+									</Link>
+									<button
+										type="button"
+										className="cs_header_icon_btn cs_search_tobble_btn cs_center"
+										onClick={() => setIsSearchActive(!isSearchActive)}
+									>
+										<svg
+											width={20}
+											height={20}
+											viewBox="0 0 20 20"
+											fill="none"
+											xmlns="http://www.w3.org/2000/svg"
+										>
+											<g>
+												<path
+													d="M19.7556 18.5774L14.0682 12.89C15.1699 11.5292 15.8332 9.8 15.8332 7.91669C15.8332 3.55174 12.2815 9.15527e-05 7.91656 9.15527e-05C3.55161 9.15527e-05 0 3.5517 0 7.91666C0 12.2816 3.55165 15.8333 7.9166 15.8333C9.7999 15.8333 11.5291 15.1699 12.8899 14.0683L18.5773 19.7557C18.7398 19.9182 18.9531 19.9999 19.1665 19.9999C19.3798 19.9999 19.5932 19.9182 19.7557 19.7557C20.0815 19.4299 20.0815 18.9032 19.7556 18.5774ZM7.9166 14.1666C4.46996 14.1666 1.66666 11.3633 1.66666 7.91666C1.66666 4.47001 4.46996 1.66672 7.9166 1.66672C11.3632 1.66672 14.1665 4.47001 14.1665 7.91666C14.1665 11.3633 11.3632 14.1666 7.9166 14.1666Z"
+													fill="currentColor"
+												/>
+											</g>
+											<defs>
+												<clipPath>
+													<rect width={20} height={20} fill="currentColor" />
+												</clipPath>
+											</defs>
+										</svg>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+			<div
+				className={`cs_header_form_wrap cs_center ${
+					isSearchActive ? "active" : ""
+				}`}
+			>
+				<div
+					className="cs_header_form_overlay"
+					onClick={() => setIsSearchActive(!isSearchActive)}
+				/>
+				<form action="#" className="cs_header_form">
+					<input
+						type="text"
+						className="cs_header_form_input"
+						placeholder="Search..."
+					/>
+					<button type="button" className="cs_header_form_btn cs_center">
+						<svg
+							width={20}
+							height={20}
+							viewBox="0 0 20 20"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<g>
+								<path
+									d="M19.7556 18.5774L14.0682 12.89C15.1699 11.5292 15.8332 9.8 15.8332 7.91669C15.8332 3.55174 12.2815 9.15527e-05 7.91656 9.15527e-05C3.55161 9.15527e-05 0 3.5517 0 7.91666C0 12.2816 3.55165 15.8333 7.9166 15.8333C9.7999 15.8333 11.5291 15.1699 12.8899 14.0683L18.5773 19.7557C18.7398 19.9182 18.9531 19.9999 19.1665 19.9999C19.3798 19.9999 19.5932 19.9182 19.7557 19.7557C20.0815 19.4299 20.0815 18.9032 19.7556 18.5774ZM7.9166 14.1666C4.46996 14.1666 1.66666 11.3633 1.66666 7.91666C1.66666 4.47001 4.46996 1.66672 7.9166 1.66672C11.3632 1.66672 14.1665 4.47001 14.1665 7.91666C14.1665 11.3633 11.3632 14.1666 7.9166 14.1666Z"
+									fill="currentColor"
+								/>
+							</g>
+							<defs>
+								<clipPath>
+									<rect width={20} height={20} fill="currentColor" />
+								</clipPath>
+							</defs>
+						</svg>
+					</button>
+				</form>
+			</div>
+		</>
+	);
+};
+
+export default Header2;

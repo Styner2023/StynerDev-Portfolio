@@ -1,0 +1,1039 @@
+<!doctype html>
+<!--
+  Kuumba Code
+  Copyright (c) 2026 Kuumba Code. All rights reserved.
+
+  Website development, customization, and technical implementation by StynerDev.
+  https://www.styner.dev/
+  https://www.stynerdev.com/
+
+  Third-party frameworks, fonts, icons, and imagery remain subject to their
+  respective licenses. See THIRD_PARTY_NOTICES.md.
+-->
+<html lang="en">
+
+  <head>
+
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+	<!-- Development Credit / Metadata -->
+	<meta name="author" content="StynerDev">
+	<meta name="designer" content="StynerDev">
+	<meta name="publisher" content="Kuumba Code">
+	<meta name="copyright" content="Copyright (c) 2026 Kuumba Code. All rights reserved.">
+	<link rel="author" href="https://www.styner.dev/">
+	<link rel="author" type="text/plain" href="humans.txt">
+
+  	<title>Coding 101 — Python &amp; Game Development, taught by Styner Stiner</title>
+    <meta name="description" content="Coding 101 — hands-on programming taught from the ground up, for kids and adults with no experience assumed. Two separate courses: Python, and block-based game development. A paid course taught by Styner Stiner, separate from the free Kuumba Code cohorts.">
+    <link rel="canonical" href="https://www.kuumbacode.com/coding-101">
+
+    <!-- Open Graph / social sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Kuumba Code">
+    <meta property="og:title" content="Coding 101 — Python &amp; Game Development, taught by Styner Stiner">
+    <meta property="og:description" content="Coding 101 — hands-on programming taught from the ground up, for kids and adults with no experience assumed. Two separate courses: Python, and block-based game development. A paid course taught by Styner Stiner, separate from the free Kuumba Code cohorts.">
+    <meta property="og:url" content="https://www.kuumbacode.com/coding-101">
+    <meta property="og:image" content="https://www.kuumbacode.com/assets/images/social/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Coding 101 — hands-on programming taught by Styner Stiner">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Coding 101 — Python &amp; Game Development, taught by Styner Stiner">
+    <meta name="twitter:description" content="Coding 101 — hands-on programming taught from the ground up, for kids and adults with no experience assumed. Two separate courses: Python, and block-based game development. A paid course taught by Styner Stiner, separate from the free Kuumba Code cohorts.">
+    <meta name="twitter:image" content="https://www.kuumbacode.com/assets/images/social/og-image.jpg">
+  	<link rel="shortcut icon" href="assets/images/Logo/KuumbaCode-Logo.svg">
+
+  	<!-- Framework - CSS Include -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+    <!-- Icon Font - CSS Include -->
+    <link rel="stylesheet" type="text/css" href="assets/css/fontawesome.css">
+
+    <!-- Animation - CSS Include -->
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+
+    <!-- Cursor - CSS Include -->
+    <link rel="stylesheet" type="text/css" href="assets/css/cursor.css">
+
+    <!-- Carousel - CSS Include -->
+    <link rel="stylesheet" type="text/css" href="assets/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css">
+
+    <!-- Video & Image Popup - CSS Include -->
+    <link rel="stylesheet" type="text/css" href="assets/css/magnific-popup.css">
+
+    <!-- Vanilla Calendar - CSS Include -->
+    <link rel="stylesheet" type="text/css" href="assets/css/vanilla-calendar.min.css">
+
+    <!-- Custom - CSS Include -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/kuumba.css?v=40">
+  </head>
+
+
+  <body>
+
+    <!-- Body Wrap - Start -->
+    <div class="page_wrapper">
+
+      <!-- Back To Top - Start -->
+      <div class="backtotop">
+        <a href="#" class="scroll">
+          <i class="far fa-arrow-up"></i>
+        </a>
+      </div>
+      <!-- Back To Top - End -->
+
+      <!-- Site Header - Start
+      ================================================== -->
+      <header class="site_header site_header_1">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col col-lg-3 col-5">
+              <div class="site_logo">
+                <a class="site_link kuumba_wordmark" href="index.html"><img src="assets/images/Logo/KuumbaCode-Logo.svg" alt="Kuumba Code logo" class="brand_mark" style="height:38px;width:auto;vertical-align:middle;margin-right:10px;">
+                  Kuumba<span>Code</span>
+                </a>
+              </div>
+            </div>
+            <div class="col col-lg-6 col-2">
+              <nav class="main_menu navbar navbar-expand-lg">
+                <div class="main_menu_inner collapse navbar-collapse justify-content-center" id="main_menu_dropdown">
+                  <ul class="main_menu_list unordered_list_center">
+                    <li><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="dropdown">
+                      <a class="nav-link" href="course.html" id="program_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        The Program
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="program_submenu">
+                        <li><a href="bootcamp.html">AI Video Bootcamp</a></li>
+                        <li><a href="beatmaster.html">BeatMaster Lab</a></li>
+                        <li><a href="course.html">Our Courses</a></li>
+                        <li><a href="course_details.html">How It Works</a></li>
+                        <li><a href="mentor.html">Our Students</a></li>
+                        <li aria-hidden="true" style="height:1px;padding:0;margin:9px 20px 8px;background:#C9BEB6;opacity:.55;"></li>
+                        <li><a href="birthday-game-lab.html">Birthday Game Labs</a></li>
+                        <li><a href="coding-101.html">Coding 101</a></li>
+                      </ul>
+                    </li>
+                    <li><a class="nav-link" href="about.html">About</a></li>
+                    <li><a class="nav-link" href="support.html">The Ask</a></li>
+                    <li><a class="nav-link" href="contact.html">Contact</a></li>
+                  </ul>
+                
+                  <!-- Mobile only: Apply / Give live inside the menu, because the
+                       header row is too narrow for them beside the hamburger. -->
+                  <ul class="kc_mobile_cta unordered_list">
+                    <li>
+                      <a class="btn border_dark" href="apply.html">
+                        <span><small>Apply</small><small>Apply</small></span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="btn btn_warning" href="support.html">
+                        <span><small>Support</small><small>Support</small></span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+            <div class="col col-lg-3 col-5">
+              <ul class="header_btns_group unordered_list_end">
+                <li>
+                  <button class="mobile_menu_btn" type="button" data-bs-toggle="collapse" data-bs-target="#main_menu_dropdown" aria-controls="main_menu_dropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="far fa-bars"></i>
+                  </button>
+                </li>
+                <li class="kc_header_cta">
+                  <a class="btn border_dark" href="apply.html">
+                    <span>
+                      <small>Apply</small>
+                      <small>Apply</small>
+                    </span>
+                  </a>
+                </li>
+                <li class="kc_header_cta">
+                  <a class="btn btn_warning" href="support.html">
+                    <span>
+                      <small>Support</small>
+                      <small>Support</small>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Site Header - End
+      ================================================== -->
+
+
+      <!-- Main Body - Start
+      ================================================== -->
+      <main class="page_content">
+
+        <!-- Coding 101 - Start
+        ================================================== -->
+        <style>
+        /* Coding 101 — scoped to this page, same bordered-card language the
+           Birthday Game Lab and the support cards use. No emoji anywhere. */
+        .c101_wrap { -webkit-font-smoothing: antialiased; }
+
+        .c101_eyebrow {
+          display: inline-flex; align-items: center; gap: 9px;
+          margin-bottom: 18px; padding: 7px 16px;
+          border: 1.5px solid #0C0C0C; border-radius: 100px;
+          font-family: 'Barlow', sans-serif; font-size: 11.5px; font-weight: 700;
+          letter-spacing: 1.6px; text-transform: uppercase; color: #0C0C0C; background: #FFFFFF;
+        }
+        .c101_eyebrow i { color: #EB672D; font-size: 12px; }
+
+        .c101_claim {
+          margin: 6px 0 22px; padding-left: 22px; border-left: 5px solid #EB672D;
+          font-family: 'Barlow', sans-serif;
+          font-size: clamp(22px, 2.8vw, 33px); font-weight: 600;
+          line-height: 1.15; letter-spacing: -0.02em; color: #0C0C0C;
+        }
+
+        .c101_photo {
+          margin: 0; border: 2px solid #0C0C0C; border-radius: 20px;
+          box-shadow: 8px 9px 0 0 #0C0C0C; overflow: hidden; line-height: 0; background: #FFF4EC;
+        }
+        .c101_photo img { display: block; width: 100%; height: 400px; object-fit: cover; }
+
+        /* Positioning note — this is not a Kuumba Code programme. */
+        .c101_note {
+          margin: 0; padding: 26px 30px;
+          border-left: 5px solid #FFC84C; background: #FFF4EC; border-radius: 0 12px 12px 0;
+          font-size: 16px; line-height: 1.72; color: #4a4440;
+        }
+        .c101_note strong { color: #0C0C0C; }
+
+        /* Two courses */
+        .c101_card {
+          height: 100%; display: flex; flex-direction: column;
+          padding: 36px 32px 32px;
+          border: 2px solid #0C0C0C; border-radius: 18px;
+          box-shadow: 6px 7px 0 0 #0C0C0C; background: #FFFFFF;
+        }
+        .c101_card.is_browser { background: #FFF4EC; }
+        .c101_icon {
+          display: inline-flex; align-items: center; justify-content: center;
+          width: 58px; height: 58px; margin-bottom: 20px;
+          border: 2px solid #0C0C0C; border-radius: 14px;
+          background: #FFC84C; font-size: 24px; color: #0C0C0C;
+        }
+        .c101_card.is_browser .c101_icon { background: #EB672D; color: #FFFFFF; }
+        .c101_kind {
+          display: block; margin-bottom: 6px;
+          font-family: 'Barlow', sans-serif; font-size: 11.5px; font-weight: 700;
+          letter-spacing: 1.6px; text-transform: uppercase; color: #EB672D;
+        }
+        .c101_card h3 {
+          margin: 0 0 10px; font-family: 'Barlow', sans-serif;
+          font-size: 26px; font-weight: 600; letter-spacing: -0.02em; color: #0C0C0C;
+        }
+        .c101_card .c101_lead { margin: 0 0 24px; font-size: 16px; line-height: 1.7; color: #4a4440; }
+
+        .c101_req {
+          margin: 0 0 18px; padding: 20px 22px;
+          border-radius: 12px; background: #FBF7F2; border: 1px solid #E4DAD1;
+        }
+        .c101_card.is_browser .c101_req { background: #FFFFFF; border-color: #F0DFD2; }
+        .c101_req_head {
+          display: flex; align-items: center; gap: 9px; margin-bottom: 12px;
+          font-family: 'Barlow', sans-serif; font-size: 14.5px; font-weight: 600; color: #0C0C0C;
+        }
+        .c101_req_head i { color: #EB672D; font-size: 14px; }
+        .c101_req ul { margin: 0; padding: 0; list-style: none; }
+        .c101_req li {
+          position: relative; padding: 5px 0 5px 18px;
+          font-size: 14.5px; line-height: 1.5; color: #4a4440;
+        }
+        .c101_req li:before {
+          content: ""; position: absolute; left: 0; top: 13px;
+          width: 5px; height: 5px; border-radius: 100%; background: #EB672D;
+        }
+        .c101_caveat { margin: 12px 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6460; }
+        .c101_caveat strong { color: #0C0C0C; }
+
+        .c101_links { margin-top: auto; display: flex; flex-wrap: wrap; gap: 10px 18px; }
+        .c101_links a {
+          display: inline-flex; align-items: center; gap: 7px;
+          font-family: 'Barlow', sans-serif; font-size: 14.5px; font-weight: 600;
+          color: #0C0C0C; border-bottom: 2px solid #FFC84C; padding-bottom: 2px;
+          transition: color .25s, border-color .25s;
+        }
+        .c101_links a:hover { color: #EB672D; border-bottom-color: #EB672D; }
+        .c101_links i { font-size: 11px; color: #6B6460; }
+
+        /* Practicalities */
+        .c101_fact {
+          height: 100%; padding: 30px 30px 28px;
+          border: 2px solid #0C0C0C; border-radius: 16px; background: #FFFFFF;
+        }
+        .c101_fact_head {
+          display: flex; align-items: center; gap: 12px; margin-bottom: 12px;
+        }
+        .c101_fact_head i {
+          display: inline-flex; align-items: center; justify-content: center;
+          width: 42px; height: 42px; flex: 0 0 auto;
+          border-radius: 10px; background: #FFF4EC; color: #EB672D; font-size: 17px;
+        }
+        .c101_fact_head h3 {
+          margin: 0; font-family: 'Barlow', sans-serif;
+          font-size: 19px; font-weight: 600; letter-spacing: -0.015em; color: #0C0C0C;
+        }
+        .c101_fact p { margin: 0; font-size: 15.5px; line-height: 1.7; color: #4a4440; }
+
+        /* Closing CTA */
+        .c101_cta { background: #FBF7F2; }
+        .c101_fits { background: #FBF7F2; padding-top: 0; }
+        .c101_cta_card {
+          padding: 58px 54px; border: 2px solid #0C0C0C; border-radius: 22px;
+          box-shadow: 9px 10px 0 0 #0C0C0C; background: #FFFFFF; text-align: center;
+        }
+        .c101_cta_card h2 {
+          margin: 0 0 16px; font-family: 'Barlow', sans-serif;
+          font-size: clamp(27px, 3.2vw, 40px); font-weight: 600;
+          line-height: 1.1; letter-spacing: -0.022em; color: #0C0C0C;
+        }
+        .c101_cta_card p { max-width: 660px; margin: 0 auto 12px; font-size: 16.5px; line-height: 1.72; color: #4a4440; }
+        .c101_cta_btns { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 30px; }
+        .c101_next {
+          max-width: 620px; margin: 34px auto 0; padding: 24px 28px 22px;
+          border: 1.5px solid #E4DAD1; border-radius: 14px; background: #FBF7F2; text-align: left;
+        }
+        .c101_next_head {
+          display: flex; align-items: flex-start; gap: 10px;
+          margin: 0 0 16px !important; font-size: 15px !important; line-height: 1.6 !important;
+          color: #4a4440 !important;
+        }
+        .c101_next_head i { color: #EB672D; font-size: 14px; margin-top: 3px; }
+        .c101_next_head strong { color: #0C0C0C; }
+        .c101_next_steps { margin: 0; padding: 0; list-style: none; counter-reset: none; }
+        .c101_next_steps li { display: flex; gap: 12px; padding: 7px 0; }
+        .c101_next_steps .num {
+          flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center;
+          width: 25px; height: 25px; border-radius: 100%; background: #FFC84C;
+          font-family: 'Barlow', sans-serif; font-size: 13px; font-weight: 700; color: #0C0C0C;
+        }
+        .c101_next_steps .txt { font-size: 14.8px; line-height: 1.6; color: #4a4440; }
+        .c101_next_steps .txt strong { color: #0C0C0C; }
+
+        .c101_direct { margin-top: 22px !important; font-size: 14.5px !important; color: #6B6460 !important; }
+        .c101_direct a { color: #EB672D; font-weight: 600; text-decoration: underline; }
+
+
+        /* --- Photography ------------------------------------------------- */
+        .c101_card { overflow: hidden; padding: 0; }
+        .c101_card_photo { margin: 0; line-height: 0; border-bottom: 2px solid #0C0C0C; }
+        .c101_card_photo img {
+          display: block; width: 100%; height: 230px; object-fit: cover;
+          transition: transform .55s cubic-bezier(.2,.7,.3,1);
+        }
+        .c101_card:hover .c101_card_photo img { transform: scale(1.045); }
+        .c101_card_body {
+          display: flex; flex-direction: column; flex: 1 1 auto;
+          padding: 0 32px 32px;
+        }
+        .c101_card .c101_icon {
+          position: relative; z-index: 2; margin-top: -30px; margin-bottom: 18px;
+          box-shadow: 3px 4px 0 0 #0C0C0C;
+        }
+
+        /* Three-step strip */
+        .c101_sub {
+          max-width: 640px; margin: 14px auto 0;
+          font-size: 16.5px; line-height: 1.7; color: #4a4440;
+        }
+        .c101_steps {
+          display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+        }
+        .c101_step {
+          margin: 0; display: flex; flex-direction: column;
+          border: 2px solid #0C0C0C; border-radius: 18px;
+          box-shadow: 6px 7px 0 0 #0C0C0C; overflow: hidden; background: #FFFFFF;
+        }
+        .c101_step:nth-child(2) { box-shadow: 6px 7px 0 0 #EB672D; }
+        .c101_step:nth-child(3) { box-shadow: 6px 7px 0 0 #FFC84C; }
+        .c101_step img { display: block; width: 100%; height: 215px; object-fit: cover; }
+        .c101_step figcaption {
+          display: flex; gap: 14px; padding: 22px 22px 24px;
+          border-top: 2px solid #0C0C0C; flex: 1 1 auto;
+        }
+        .c101_step_no {
+          flex: 0 0 auto; font-family: 'Barlow', sans-serif;
+          font-size: 26px; font-weight: 700; line-height: 1;
+          letter-spacing: -0.03em; color: #EB672D;
+        }
+        .c101_step_txt { display: block; }
+        .c101_step_txt strong {
+          display: block; margin-bottom: 6px; font-family: 'Barlow', sans-serif;
+          font-size: 18px; font-weight: 600; letter-spacing: -0.015em; color: #0C0C0C;
+        }
+        .c101_step_txt span { display: block; font-size: 14.8px; line-height: 1.62; color: #4a4440; }
+
+        /* Photo + facts band */
+        .c101_band { background: #FBF7F2; padding-top: 92px; }
+        .c101_band_photo {
+          margin: 0; border: 2px solid #0C0C0C; border-radius: 20px;
+          box-shadow: 8px 9px 0 0 #EB672D; overflow: hidden; line-height: 0; background: #FFF4EC;
+        }
+        .c101_band_photo img { display: block; width: 100%; height: 430px; object-fit: cover; }
+        .c101_band_head {
+          margin: 0 0 26px; font-family: 'Barlow', sans-serif;
+          font-size: clamp(26px, 3vw, 36px); font-weight: 600;
+          line-height: 1.12; letter-spacing: -0.022em; color: #0C0C0C;
+        }
+        .c101_band .c101_fact + .c101_fact { margin-top: 20px; }
+
+        /* Wide band above the closing CTA */
+        .c101_cta_band {
+          margin: 0 0 -58px; position: relative; z-index: 1;
+          border: 2px solid #0C0C0C; border-radius: 22px;
+          box-shadow: 8px 9px 0 0 #FFC84C; overflow: hidden; line-height: 0;
+        }
+        .c101_cta_band img {
+          display: block; width: 100%; height: 265px; object-fit: cover; object-position: center 34%;
+        }
+        .c101_cta .c101_cta_card { position: relative; z-index: 2; }
+
+        @media (max-width: 991px) {
+          .c101_steps { grid-template-columns: 1fr 1fr; }
+          .c101_steps .c101_step:last-child { grid-column: 1 / -1; }
+          .c101_steps .c101_step:last-child img { height: 250px; }
+          .c101_band_photo { margin-bottom: 40px; }
+          .c101_band_photo img { height: 330px; }
+          .c101_card_photo img { height: 210px; }
+          .c101_cta_band { margin-bottom: -56px; }
+          .c101_cta_band img { height: 220px; }
+        }
+        @media (max-width: 575px) {
+          .c101_steps { grid-template-columns: 1fr; }
+          .c101_steps .c101_step:last-child { grid-column: auto; }
+          .c101_steps .c101_step:last-child img { height: 200px; }
+          .c101_step { box-shadow: 5px 6px 0 0 #0C0C0C; }
+          .c101_step img { height: 200px; }
+          .c101_card_body { padding: 0 24px 26px; }
+          .c101_band_photo img { height: 240px; }
+          .c101_cta_band { margin-bottom: -44px; box-shadow: 5px 6px 0 0 #FFC84C; }
+          .c101_cta_band img { height: 170px; }
+        }
+
+        @media (max-width: 991px) {
+          .c101_photo { margin-top: 38px; }
+          .c101_photo img { height: 330px; }
+          .c101_card { margin-bottom: 26px; }
+          .c101_fact { margin-bottom: 22px; }
+          .c101_cta_card { padding: 44px 30px; }
+        }
+        @media (max-width: 575px) {
+          .c101_claim { padding-left: 16px; }
+          .c101_card { box-shadow: 5px 6px 0 0 #0C0C0C; }
+          .c101_photo img { height: 250px; }
+          .c101_cta_card { padding: 36px 22px; box-shadow: 6px 7px 0 0 #0C0C0C; }
+          .c101_cta_btns .btn { width: 100%; }
+        }
+        </style>
+
+        <div class="c101_wrap">
+
+        <!-- Page Banner - Start
+        ================================================== -->
+        <section class="page_banner">
+          <div class="container">
+            <div class="content_wrapper">
+              <div class="row align-items-center">
+                <div class="col col-lg-7">
+                  <ul class="breadcrumb_nav unordered_list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="course.html">The Program</a></li>
+                    <li>Coding 101</li>
+                  </ul>
+                  <span class="c101_eyebrow"><i class="fas fa-code"></i> Paid Course</span>
+                  <h1 class="page_title">Coding 101</h1>
+                  <p class="c101_claim">Start from zero &mdash; blocks or Python.</p>
+                  <p class="page_description">
+                    Hands-on programming, taught from the ground up &mdash; for kids and adults, with
+                    no experience assumed. There are two courses: Python, and game development. Each
+                    stands on its own &mdash; take one, or take both.
+                  </p>
+                  <ul class="meta_info_list unordered_list">
+                    <li><i class="fas fa-user"></i><span>Taught by Styner Stiner</span></li>
+                    <li><i class="fas fa-chart-bar"></i><span>Complete beginners welcome</span></li>
+                    <li><i class="fas fa-users"></i><span>Kids &amp; adults</span></li>
+                  </ul>
+                  <ul class="banner_btns_group unordered_list">
+                    <li>
+                      <a class="btn btn_warning" href="https://docs.google.com/forms/d/e/1FAIpQLSclBlFN0_1AKYByEbHRGP1J5er2YQfGhHI785nN0UlNO2nvXg/viewform?usp=sharing&amp;ouid=109526440544605163030" target="_blank" rel="noopener noreferrer">
+                        <span><small>Start an Inquiry</small><small>Start an Inquiry</small></span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="btn border_dark" href="#c101_courses">
+                        <span><small>See the Two Courses</small><small>See the Two Courses</small></span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col col-lg-5">
+                  <figure class="c101_photo">
+                    <img src="assets/images/Coding-101/coding-101-hero.jpg"
+                         width="1500" height="1163"
+                         alt="Two girls at a laptop with a robotic arm, one reacting with delight">
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Page Banner - End
+        ================================================== -->
+
+
+        <!-- Positioning - Start
+        ================================================== -->
+        <section class="section_space_lg pb-0">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col col-lg-10">
+                <p class="c101_note">
+                  <strong>Coding 101 is my own teaching, and it is paid for directly.</strong>
+                  It is not a Kuumba Code program and no donated or grant money funds it. The free
+                  Kuumba Code cohorts keep running alongside it, covering AI and digital skills, and
+                  they stay free for every student. Coding 101 is the course you pay for, taught by me.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Positioning - End
+        ================================================== -->
+
+
+        <!-- How A Class Runs - Start
+        ================================================== -->
+        <section class="section_space_lg pb-0" id="c101_how">
+          <div class="container">
+            <div class="section_heading text-center">
+              <h2 class="heading_text mb-0">What a Class Actually Looks Like</h2>
+              <p class="c101_sub">
+                Not lectures. You sit down, you build something, and you leave with it working.
+              </p>
+            </div>
+
+            <div class="c101_steps">
+              <figure class="c101_step">
+                <img src="assets/images/Coding-101/c101-step-start.jpg" width="1100" height="825" loading="lazy"
+                     alt="An instructor sitting with students at a table of laptops and robotics parts">
+                <figcaption>
+                  <span class="c101_step_no">01</span>
+                  <span class="c101_step_txt">
+                    <strong>Start from zero</strong>
+                    <span>No experience assumed. We set up the tools together and write something
+                    that runs on the very first day.</span>
+                  </span>
+                </figcaption>
+              </figure>
+
+              <figure class="c101_step">
+                <img src="assets/images/Coding-101/c101-step-build.jpg" width="1100" height="825" loading="lazy"
+                     alt="Two students at a laptop working through a project together">
+                <figcaption>
+                  <span class="c101_step_no">02</span>
+                  <span class="c101_step_txt">
+                    <strong>Build something real</strong>
+                    <span>Every session makes a thing &mdash; a program, a game, a project you can
+                    open, run, and show somebody.</span>
+                  </span>
+                </figcaption>
+              </figure>
+
+              <figure class="c101_step">
+                <img src="assets/images/Coding-101/c101-step-works.jpg" width="1100" height="825" loading="lazy"
+                     alt="A student reacting with delight as the project she built starts working">
+                <figcaption>
+                  <span class="c101_step_no">03</span>
+                  <span class="c101_step_txt">
+                    <strong>Then make it your own</strong>
+                    <span>Change it, break it, fix it, add to it. That is the part where the
+                    learning actually sticks.</span>
+                  </span>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+        <!-- How A Class Runs - End
+        ================================================== -->
+
+
+        <!-- Two Courses - Start
+        ================================================== -->
+        <section class="section_space_lg" id="c101_courses">
+          <div class="container">
+            <div class="section_heading text-center">
+              <h2 class="heading_text mb-0">Two Separate Courses</h2>
+            </div>
+
+            <div class="row">
+              <div class="col col-lg-6">
+                <div class="c101_card">
+                  <figure class="c101_card_photo">
+                    <img src="assets/images/Coding-101/c101-card-python.jpg" width="1400" height="788" loading="lazy"
+                         alt="A laptop showing lines of code on a classroom table of student projects">
+                  </figure>
+                  <div class="c101_card_body">
+                  <span class="c101_icon"><i class="fab fa-python"></i></span>
+                  <span class="c101_kind">Text-based code</span>
+                  <h3>Python</h3>
+                  <p class="c101_lead">A real programming language, typed from the first line.</p>
+
+                  <div class="c101_req">
+                    <p class="c101_req_head"><i class="fas fa-laptop"></i> Needs a laptop that can install software</p>
+                    <ul>
+                      <li>Windows or macOS</li>
+                      <li>16&nbsp;GB RAM</li>
+                      <li>14&Prime; screen or larger</li>
+                    </ul>
+                    <p class="c101_caveat"><strong>Tablets and most Chromebooks won&rsquo;t work.</strong></p>
+                  </div>
+
+                  <div class="c101_links">
+                    <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">
+                      python.org <i class="fas fa-external-link"></i>
+                    </a>
+                  </div>
+                  </div><!-- /.c101_card_body -->
+                </div>
+              </div>
+
+              <div class="col col-lg-6">
+                <div class="c101_card is_browser">
+                  <figure class="c101_card_photo">
+                    <img src="assets/images/Coding-101/c101-card-gamedev.jpg" width="1400" height="788" loading="lazy"
+                         alt="Children gathered at a laptop, one grinning at the camera">
+                  </figure>
+                  <div class="c101_card_body">
+                  <span class="c101_icon"><i class="fas fa-gamepad"></i></span>
+                  <span class="c101_kind">Block-based</span>
+                  <h3>Game Development</h3>
+                  <p class="c101_lead">Drag-and-drop game building &mdash; design it, test it, play it.</p>
+
+                  <div class="c101_req">
+                    <p class="c101_req_head"><i class="fas fa-globe"></i> Runs in a web browser</p>
+                    <ul>
+                      <li>Nothing to install</li>
+                      <li>Chromebooks fine</li>
+                      <li>Any modern browser</li>
+                    </ul>
+                    <p class="c101_caveat"><strong>A school or shared family laptop works for this one.</strong></p>
+                  </div>
+
+                  <div class="c101_links">
+                    <a href="https://scratch.mit.edu/" target="_blank" rel="noopener noreferrer">
+                      Scratch <i class="fas fa-external-link"></i>
+                    </a>
+                    <a href="https://arcade.makecode.com/" target="_blank" rel="noopener noreferrer">
+                      MakeCode Arcade <i class="fas fa-external-link"></i>
+                    </a>
+                  </div>
+                  </div><!-- /.c101_card_body -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Two Courses - End
+        ================================================== -->
+
+
+        <!-- Practicalities - Start
+        ================================================== -->
+        <section class="section_space_lg c101_band">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col col-lg-6">
+                <figure class="c101_band_photo">
+                  <img src="assets/images/Coding-101/c101-band-classroom.jpg" width="1300" height="975" loading="lazy"
+                       alt="Students at a long table working on laptops and hardware projects together">
+                </figure>
+              </div>
+              <div class="col col-lg-6">
+                <h2 class="c101_band_head">Before You Sign Up</h2>
+                <div class="c101_fact">
+                  <div class="c101_fact_head">
+                    <i class="fas fa-user-lock"></i>
+                    <h3>Parents approve the setup</h3>
+                  </div>
+                  <p>
+                    Nothing is installed and no account is created without your OK. Prefer not to
+                    install anything? We can work in the browser instead.
+                  </p>
+                </div>
+                <div class="c101_fact">
+                  <div class="c101_fact_head">
+                    <i class="fas fa-calendar"></i>
+                    <h3>Scheduling and pricing</h3>
+                  </div>
+                  <p>
+                    Each course is priced separately and set per student, so it fits the age and
+                    starting point. Get in touch and we&rsquo;ll work it out.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Practicalities - End
+        ================================================== -->
+
+
+        <!-- Closing CTA - Start
+        ================================================== -->
+        <section class="section_space_lg c101_cta">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col col-lg-11">
+                <figure class="c101_cta_band">
+                  <img src="assets/images/Coding-101/c101-cta-band.jpg" width="2000" height="860" loading="lazy"
+                       alt="A classroom of students building electronics and robotics projects together">
+                </figure>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col col-lg-10">
+                <div class="c101_cta_card">
+                  <h2>Ask About Coding 101</h2>
+                  <p>
+                    Tell me the student&rsquo;s age, which course interests you &mdash; Python, game
+                    development, or both &mdash; and what device you have. I&rsquo;ll come back with
+                    scheduling and a price.
+                  </p>
+                  <div class="c101_cta_btns">
+                    <a class="btn btn_warning" href="https://docs.google.com/forms/d/e/1FAIpQLSclBlFN0_1AKYByEbHRGP1J5er2YQfGhHI785nN0UlNO2nvXg/viewform?usp=sharing&amp;ouid=109526440544605163030" target="_blank" rel="noopener noreferrer">
+                      <span><small>Start an Inquiry</small><small>Start an Inquiry</small></span>
+                    </a>
+                  </div>
+
+                  <div class="c101_next">
+                    <p class="c101_next_head">
+                      <i class="fas fa-info-circle"></i>
+                      <span>This form is an inquiry &mdash; <strong>not an enrollment.</strong></span>
+                    </p>
+                    <ol class="c101_next_steps">
+                      <li>
+                        <span class="num">1</span>
+                        <span class="txt">You tell me the student&rsquo;s age, which course, and what device you have.</span>
+                      </li>
+                      <li>
+                        <span class="num">2</span>
+                        <span class="txt">I reply with scheduling and a price for that student.</span>
+                      </li>
+                      <li>
+                        <span class="num">3</span>
+                        <span class="txt">You confirm. <strong>Only then is a seat held.</strong></span>
+                      </li>
+                    </ol>
+                  </div>
+
+                  <p class="c101_direct">
+                    Would rather just write? Reach me at
+                    <a href="mailto:styner@kuumbacode.com">styner@kuumbacode.com</a>.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Closing CTA - End
+        ================================================== -->
+
+        <!-- How This Fits - Start
+        ================================================== -->
+        <section class="section_space_lg pt-0 c101_fits">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col col-lg-11">
+                <div class="kc_fits_band">
+                  <div class="kc_fits_media">
+                    <img src="assets/images/StockImages/seeking-cohort.webp"
+                         width="1900" height="1266" loading="lazy"
+                         alt="A group of young Kuumba Code learners standing together, smiling">
+                  </div>
+                  <div class="kc_fits_body">
+                    <h4>How this fits with the rest of Kuumba Code</h4>
+                    <p>
+                      Coding 101 is <strong>my own teaching, paid for directly</strong>. Kuumba Code
+                      itself is a free, AI-powered education program for underserved communities &mdash;
+                      free for every student, always, and funded by donors rather than by fees.
+                    </p>
+                    <div class="kc_fits_links">
+                      <a href="course.html">See the free courses <i class="fas fa-long-arrow-right"></i></a>
+                      <a href="about.html">Why Kuumba Code exists <i class="fas fa-long-arrow-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- How This Fits - End
+        ================================================== -->
+
+
+        </div><!-- /.c101_wrap -->
+        <!-- Coding 101 - End
+        ================================================== -->
+
+      </main>
+      <!-- Main Body - End
+      ================================================== -->
+
+      <!-- Site Footer - Start
+      ================================================== -->
+      <footer class="site_footer">
+        <div class="footer_widget_area">
+          <div class="container">
+            <div class="row">
+              <div class="col col-lg-3 col-md-6 col-sm-6">
+                <div class="footer_widget">
+                  <div class="site_logo">
+                    <a class="site_link kuumba_wordmark on_dark" href="index.html"><img src="assets/images/Logo/KuumbaCode-Logo.svg" alt="Kuumba Code logo" class="brand_mark" style="height:38px;width:auto;vertical-align:middle;margin-right:10px;filter:brightness(0) invert(1);">
+                      Kuumba<span>Code</span>
+                    </a>
+                  </div>
+                  <p>
+                    A free, AI-powered education program for underserved communities of every age — from children in foster-care homes to elders in senior homes — across Nigeria, Suriname, and the United States. Talent is everywhere. Opportunity is not.
+                  </p>
+                  <ul class="social_links unordered_list">
+                    <!-- Placeholder links: replace href="#" with the real profile URL
+                         as each account goes live. Keep aria-label in sync. -->
+                    <li>
+                      <a href="#" aria-label="Kuumba Code on Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </li>
+                    <li>
+                      <a href="#" aria-label="Kuumba Code on Instagram"><i class="fab fa-instagram"></i></a>
+                    </li>
+                    <li>
+                      <a href="https://www.youtube.com/@KuumbaCode" target="_blank" rel="noopener noreferrer" aria-label="Kuumba Code on YouTube"><i class="fab fa-youtube"></i></a>
+                    </li>
+                    <li>
+                      <a href="#" aria-label="Kuumba Code on TikTok"><svg class="kc_tiktok_icon" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M448,209.9a210.1,210.1,0,0,1-122.8-39.3V349.4A162.6,162.6,0,1,1,185,188.3V278.2a74.6,74.6,0,1,0,52.2,71.2V0l88,0a121.2,121.2,0,0,0,1.9,22.2h0A122.2,122.2,0,0,0,381,102.4a121.4,121.4,0,0,0,67,20.1Z"/></svg></a>
+                    </li>
+                    <li>
+                      <a href="#" aria-label="Kuumba Code on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col col-lg-6">
+                <div class="row">
+                  <div class="col col-md-4 col-sm-4">
+                    <div class="footer_widget">
+                      <h3 class="footer_widget_title">Links</h3>
+                      <ul class="page_list unordered_list_block">
+                        <li>
+                          <a href="about.html">
+                            <span class="item_icon"><i class="fas fa-caret-right"></i></span>
+                            <span class="item_text">About</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="course.html">
+                            <span class="item_icon"><i class="fas fa-caret-right"></i></span>
+                            <span class="item_text">Courses</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="mentor.html">
+                            <span class="item_icon"><i class="fas fa-caret-right"></i></span>
+                            <span class="item_text">Our Students</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="birthday-game-lab.html">
+                            <span class="item_icon"><i class="fas fa-caret-right"></i></span>
+                            <span class="item_text">Birthday Game Labs</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="coding-101.html">
+                            <span class="item_icon"><i class="fas fa-caret-right"></i></span>
+                            <span class="item_text">Coding 101</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="support.html">
+                            <span class="item_icon"><i class="fas fa-caret-right"></i></span>
+                            <span class="item_text">The Ask</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="contact.html">
+                            <span class="item_icon"><i class="fas fa-caret-right"></i></span>
+                            <span class="item_text">Contact</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col col-md-4 col-sm-4">
+                    <div class="footer_widget">
+                      <h3 class="footer_widget_title">The Courses</h3>
+                      <ul class="page_list unordered_list_block">
+                        <li>
+                          <a href="course.html">
+                            <span class="item_icon"><i class="fas fa-caret-right"></i></span>
+                            <span class="item_text">Create</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="course.html">
+                            <span class="item_icon"><i class="fas fa-caret-right"></i></span>
+                            <span class="item_text">Grow</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="course.html">
+                            <span class="item_icon"><i class="fas fa-caret-right"></i></span>
+                            <span class="item_text">Earn</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="course.html">
+                            <span class="item_icon"><i class="fas fa-caret-right"></i></span>
+                            <span class="item_text">Build</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col col-md-4 col-sm-4">
+                    <div class="footer_widget">
+                      <h3 class="footer_widget_title">Support</h3>
+                      <ul class="page_list unordered_list_block">
+                        <li>
+                          <a href="support.html">
+                            <span class="item_icon"><i class="fas fa-caret-right"></i></span>
+                            <span class="item_text">Ways to Give</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="support.html">
+                            <span class="item_icon"><i class="fas fa-caret-right"></i></span>
+                            <span class="item_text">Fund a Student</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="faq.html">
+                            <span class="item_icon"><i class="fas fa-caret-right"></i></span>
+                            <span class="item_text">FAQ</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="about.html">
+                            <span class="item_icon"><i class="fas fa-caret-right"></i></span>
+                            <span class="item_text">Our Story</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="contact.html">
+                            <span class="item_icon"><i class="fas fa-caret-right"></i></span>
+                            <span class="item_text">Contact</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col col-lg-3 col-md-6 col-sm-6">
+                <div class="footer_widget">
+                  <h3 class="footer_widget_title">Contact &amp; Giving</h3>
+                  <ul class="contact_info_list unordered_list_block">
+                    <li>
+                      <i class="fas fa-envelope"></i>
+                      <a href="mailto:hello@kuumbacode.com">hello@kuumbacode.com</a>
+                    </li>
+                    <li>
+                      <i class="fas fa-globe"></i>
+                      <a href="https://kuumbacode.com">kuumbacode.com</a>
+                    </li>
+                    <li>
+                      <i class="fas fa-hand-holding-heart"></i>
+                      <span>Support: kuumbacode.com/support</span>
+                    </li>
+                  </ul>
+                  <p class="mb-0">
+                    Tax-deductible through our 501(c)(3) fiscal sponsor, Canticle Farm. EIN 46-1484633.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright_widget">
+          <div class="container">
+            <p class="copyright_text text-center mb-0">
+              Copyright © 2026 <b>Kuumba Code</b>. All rights reserved. · Fiscally sponsored by Canticle Farm, a 501(c)(3) nonprofit.
+            </p>
+            <p class="copyright_text text-center mb-0">
+              This website and its content are the property of Kuumba Code. Unauthorized copying, reproduction, distribution, or commercial use is prohibited without prior written permission.
+            </p>
+            <p class="copyright_text text-center mb-0">
+              Website designed and developed by <a href="https://www.styner.dev/" target="_blank" rel="noopener">StynerDev</a>
+            </p>
+          </div>
+        </div>
+      </footer>
+      <!-- Site Footer - End
+      ================================================== -->
+
+    </div>
+    <!-- Body Wrap - End -->
+
+    <!-- Framework - Jquery Include -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap-dropdown-ml-hack.js"></script>
+
+    <!-- animation - jquery include -->
+    <script src="assets/js/cursor.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/tilt.min.js"></script>
+    <script src="assets/js/parallax.min.js"></script>
+    <script src="assets/js/parallax-scroll.js"></script>
+
+    <!-- Carousel - Jquery Include -->
+    <script src="assets/js/slick.min.js"></script>
+
+    <!-- Video & Image Popup - Jquery Include -->
+    <script src="assets/js/magnific-popup.min.js"></script>
+
+    <!-- Counter Up - Jquery Include -->
+    <script src="assets/js/waypoint.js"></script>
+    <script src="assets/js/counterup.min.js"></script>
+
+    <!-- Countdown Timer - jquery include -->
+    <script src="assets/js/countdown.js"></script>
+
+    <!-- Vanilla Calendar - Jquery Include -->
+    <script src="assets/js/vanilla-calendar.min.js"></script>
+
+    <!-- Custom - Jquery Include -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/kuumba-footer.js"></script>
+
+  </body>
+</html>
+

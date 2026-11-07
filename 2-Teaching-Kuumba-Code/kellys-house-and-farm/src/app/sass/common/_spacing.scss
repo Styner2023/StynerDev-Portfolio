@@ -1,0 +1,36 @@
+/**
+ * Developer: StynerDev
+ * Dev Website: https://www.styner.dev/
+ * Website URL: https://www.stynerdev.com/
+ *
+ * Copyright (c) 2026
+ */
+
+/*--------------------------------------------------------------
+  3. Spacing
+----------------------------------------------------------------*/
+@for $i from 1 through 60 {
+  .cs_mb_#{$i} {
+    margin-bottom: $i + px;
+  }
+}
+@container page (min-width: 992px) {
+  @for $i from 1 through 150 {
+    .cs_height_#{$i} {
+      height: $i + px;
+    }
+  }
+}
+
+@container page (max-width: 991px) {
+  @for $i from 1 through 60 {
+    .cs_mb_lg_#{$i} {
+      margin-bottom: $i + px;
+    }
+  }
+  @for $i from 1 through 150 {
+    .cs_height_lg_#{$i} {
+      height: $i + px;
+    }
+  }
+}

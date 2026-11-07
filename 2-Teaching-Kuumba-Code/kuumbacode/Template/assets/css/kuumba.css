@@ -1,0 +1,1294 @@
+/* ==========================================================================
+   Kuumba Code — brand overrides layered on top of style.css
+   Palette: Plum #4A1E3D · Orange #EB672D · Gold #FFC84C · Indigo #2F40F1
+            Green #4BA970 · Ink #0C0C0C · Cream #FBF7F2 · Peach #FFF4EC · Taupe #C9BEB6
+   ========================================================================== */
+
+/* Text wordmark logo -------------------------------------------------------- */
+.kuumba_wordmark {
+  font-family: 'Barlow', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.4px;
+  color: #4A1E3D;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.kuumba_wordmark span {
+  color: #EB672D;
+  margin-left: 6px;
+}
+.kuumba_wordmark:hover { color: #4A1E3D; }
+.kuumba_wordmark.on_dark { color: #ffffff; }
+.kuumba_wordmark.on_dark:hover { color: #ffffff; }
+.kuumba_wordmark.on_dark span { color: #FFC84C; }
+
+/* Small caps eyebrow labels, matching the brief ---------------------------- */
+.kuumba_eyebrow {
+  display: block;
+  width: 100%;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #EB672D;
+  margin-bottom: 18px;
+}
+.kuumba_eyebrow.on_dark { color: #FFC84C; }
+
+/* The card-equalizing rule `.courses_section .row > [class*="col"]` sets the
+   columns to display:flex, which also hits the section heading's own row and
+   shrink-wraps the title to its widest word. Keep the heading columns as normal
+   blocks so the title fills its column and wraps naturally. */
+.courses_section .section_heading .row > [class*="col"] {
+  display: block;
+  margin-bottom: 0;
+}
+
+/* Gold rule used under headings in the brief ------------------------------- */
+.kuumba_rule {
+  width: 96px;
+  height: 3px;
+  background: #FFC84C;
+  border: 0;
+  margin: 22px 0 0;
+}
+
+/* Give / support highlight card ------------------------------------------- */
+.kuumba_ask_amount {
+  color: #FFC84C;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 800;
+}
+
+/* Footer contact list ------------------------------------------------------ */
+.contact_info_list li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.contact_info_list li i { color: #FFC84C; width: 16px; }
+.contact_info_list a { color: inherit; }
+.contact_info_list a:hover { color: #FFC84C; }
+
+/* "Most impact" pricing ribbon --------------------------------------------- */
+/* Original sat flush at top:0 with square top corners, so it read as cut off.
+   Float it as a rounded pill straddling the card's top edge instead. */
+.pricing_card .card_badge {
+  top: -13px;
+  padding: 5px 18px;
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 0.08em;
+  font-weight: 800;
+  color: #0C0C0C;
+  background-color: #FFC84C;
+  border-radius: 40px;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(31, 29, 13, 0.22);
+}
+
+/* Country / focus chips ---------------------------------------------------- */
+.kuumba_chip {
+  display: inline-block;
+  padding: 6px 16px;
+  margin: 4px 6px 4px 0;
+  border-radius: 40px;
+  background: #FFF4EC;
+  border: 1px solid #C9BEB6;
+  color: #4A1E3D;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Hero image — crop landscape stock photo to a clean portrait/square ------- */
+.hero_banner .banner_image_1 .image_wrap img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Why Now grid — keep the 4 stock photos a uniform square so they align ---- */
+.advertisement_section .images_group .image_wrap img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Pilot-cohort avatars — fill the 50px circle, centered on faces ----------- */
+.banner_image_1 .satisfied_student .students_thumbnail span img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+/* Abby's photo is full-body — crop to the top so her face shows */
+.banner_image_1 .satisfied_student .students_thumbnail > li:last-child span img {
+  object-position: center top;
+}
+
+/* Intro video — taller 16:9 frame instead of the wide/short poster ratio -- */
+.intro_video .video_wrap {
+  aspect-ratio: 16 / 9;
+}
+.intro_video .video_wrap img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Mentor/team cards — uniform portrait crop, top-aligned on faces --------- */
+.mentor_item .mentor_image > a {
+  aspect-ratio: 3 / 4;
+}
+.mentor_item .mentor_image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* Course listing/archive cards — uniform image crop + equal-height -------- */
+.courses_archive_section .row > [class*="col"] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.courses_archive_section .course_card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+.courses_archive_section .course_card .item_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+.courses_archive_section .course_card .item_content .btn_unfill {
+  margin-top: auto;
+}
+.courses_archive_section .course_card .item_image > a {
+  display: block;
+  aspect-ratio: 4 / 3;
+}
+.courses_archive_section .course_card .item_image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+
+/* Bootcamp credentials + final-video rubric -------------------------------- */
+.kc_credential {
+  height: 100%;
+  padding: 30px 28px;
+  border-radius: 16px;
+  background: #FBF7F2;
+  border-top: 4px solid #4A1E3D;
+  box-shadow: 0 10px 30px rgba(74, 30, 61, .07);
+}
+.kc_credential--gold { border-top-color: #FFC84C; background: #FFF4EC; }
+/* Seal — gives each credential a visual anchor instead of opening with text. */
+.kc_credential_seal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  margin-bottom: 16px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(74, 30, 61, .12);
+}
+.kc_credential_seal img { width: 30px; height: 30px; }
+.kc_credential--gold .kc_credential_seal { background: #FFC84C; }
+.kc_credential_when {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #4A1E3D;
+  color: #FBF7F2;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.kc_credential--gold .kc_credential_when { background: #EB672D; }
+.kc_credential_title { margin: 0 0 6px; font-size: 24px; color: #4A1E3D; }
+.kc_credential_lead { margin: 0 0 16px; font-weight: 600; color: #4A1E3D; }
+.kc_req_list { margin: 0; padding: 0; list-style: none; }
+.kc_req_list li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 9px;
+  line-height: 1.5;
+}
+.kc_req_list li:last-child { margin-bottom: 0; }
+.kc_req_list li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 7px;
+  width: 14px; height: 8px;
+  border-left: 2.5px solid #EB672D;
+  border-bottom: 2.5px solid #EB672D;
+  transform: rotate(-45deg);
+}
+
+/* Mobile header — the right-hand column is only 5 of 12 columns, so the
+   hamburger, Apply and Give were colliding. Below the lg breakpoint the two
+   buttons move inside the menu instead, where there's room to tap them. */
+.kc_mobile_cta { display: none; }
+@media (max-width: 991px) {
+  .header_btns_group .kc_header_cta { display: none; }
+  .kc_mobile_cta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 6px 0 18px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(74, 30, 61, .12);
+    width: 100%;
+  }
+  .kc_mobile_cta .btn { min-width: 130px; text-align: center; }
+}
+
+/* Social placeholders read as inactive until a real URL is set. */
+.social_links a[href="#"] { opacity: .55; }
+.social_links a[href="#"]:hover { opacity: .8; }
+
+/* TikTok — Font Awesome 5 has no glyph for it, so it's an inline SVG.
+   The template colours icons via `.social_links a i`, which an <svg> doesn't
+   match, so currentColor fell through to the default link blue. Match the
+   icon-font rule exactly: same colour, same size, same transition. */
+.social_links a .kc_tiktok_icon {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: -0.125em;
+  color: #0C0C0C;
+  -webkit-transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ---------------------------------------------------------------------------
+   COLLAPSIBLE FOOTER (mobile only)
+
+   Four stacked link lists make the footer a long scroll on a phone. Below
+   768px each titled section collapses to its heading. The collapsing is
+   driven by kuumba-footer.js — never by CSS alone — so if JavaScript fails
+   the footer stays fully readable rather than permanently hidden.
+--------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .footer_widget.kc_collapsible { border-bottom: 1px solid rgba(255, 255, 255, .14); }
+  .footer_widget.kc_collapsible .footer_widget_title {
+    position: relative;
+    margin: 0;
+    padding: 16px 34px 16px 0;
+    cursor: pointer;
+    user-select: none;
+  }
+  /* Chevron */
+  .footer_widget.kc_collapsible .footer_widget_title::after {
+    content: "";
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    width: 9px;
+    height: 9px;
+    margin-top: -6px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform .25s ease;
+    opacity: .75;
+  }
+  .footer_widget.kc_collapsible.is_open .footer_widget_title::after {
+    transform: rotate(-135deg);
+  }
+  .footer_widget.kc_collapsible .footer_widget_title:focus-visible {
+    outline: 2px solid #FFC84C;
+    outline-offset: 3px;
+  }
+  .footer_widget.kc_collapsible.is_open > *:not(.footer_widget_title) {
+    padding-bottom: 14px;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   HORIZONTAL OVERFLOW GUARD
+
+   The template positions decorative shapes outside the layout (left: -217px,
+   right: -220px, and similar). On a wide screen the container absorbs them; on
+   a phone they widen the document past the viewport, which pushed the header's
+   hamburger off-screen and clipped headline text mid-word.
+
+   Nothing here uses position: sticky, so clamping the document is safe.
+--------------------------------------------------------------------------- */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Belt and braces: media should never exceed its container. */
+img,
+video,
+iframe {
+  max-width: 100%;
+}
+
+/* Course info modal — a quick look at what a course is before committing to
+   a page visit. Bootstrap handles focus trapping and Esc; this is styling. */
+.kc_course_modal .modal-content {
+  border: 0;
+  border-radius: 18px;
+  overflow: hidden;
+}
+.kc_course_modal .modal-header {
+  align-items: flex-start;
+  gap: 12px;
+  padding: 24px 24px 14px;
+  border-bottom: 0;
+}
+.kc_modal_eyebrow {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #EB672D;
+}
+.kc_course_modal .modal-title { font-size: 24px; color: #4A1E3D; line-height: 1.25; }
+.kc_course_modal .modal-body { padding: 4px 24px 20px; }
+.kc_modal_outcome {
+  font-size: 17px;
+  font-weight: 700;
+  color: #4A1E3D;
+  padding-left: 14px;
+  border-left: 4px solid #FFC84C;
+  margin-bottom: 16px;
+}
+.kc_modal_facts { margin: 18px 0 0; padding: 18px 0 0; list-style: none; border-top: 1px solid rgba(74,30,61,.12); }
+.kc_modal_facts li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 14.5px;
+  color: rgba(28,28,28,.82);
+}
+.kc_modal_facts li:last-child { margin-bottom: 0; }
+.kc_modal_facts i { width: 18px; color: #EB672D; }
+.kc_course_modal .modal-footer {
+  gap: 10px;
+  padding: 16px 24px 22px;
+  border-top: 0;
+  background: #FBF7F2;
+}
+@media (max-width: 575px) {
+  .kc_course_modal .modal-title { font-size: 20px; }
+  .kc_course_modal .modal-footer { flex-direction: column; align-items: stretch; }
+  .kc_course_modal .modal-footer .btn { width: 100%; text-align: center; }
+}
+
+/* Invite Us — three cards, two directions. The tag makes the direction of
+   each one obvious at a glance instead of having to read the body copy. */
+.kc_invite_card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 32px 28px 28px;
+  border: 2px solid #0C0C0C;
+  border-radius: 18px;
+  box-shadow: 6px 7px 0 0 #0C0C0C;
+  background: #FFFFFF;
+  transition: transform .28s cubic-bezier(.25, 1, .5, 1), box-shadow .28s cubic-bezier(.25, 1, .5, 1);
+}
+.kc_invite_card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 10px 0 0 #0C0C0C;
+}
+.kc_invite_card--reverse {
+  background: #FFF4EC;
+  box-shadow: 6px 7px 0 0 #EB672D;
+}
+.kc_invite_card--reverse:hover { box-shadow: 9px 10px 0 0 #EB672D; }
+
+/* Icon tile — gives each card an anchor point so the three read as a set. */
+.kc_invite_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  margin-bottom: 18px;
+  border: 2px solid #0C0C0C;
+  border-radius: 14px;
+  background: #FFC84C;
+  font-size: 21px;
+  color: #0C0C0C;
+}
+.kc_invite_card--reverse .kc_invite_icon { background: #EB672D; color: #FFFFFF; }
+
+.kc_invite_tag {
+  display: inline-block;
+  align-self: flex-start;
+  margin-bottom: 12px;
+  padding: 6px 13px;
+  border: 1.5px solid #0C0C0C;
+  border-radius: 999px;
+  background: #FFFFFF;
+  color: #0C0C0C;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.kc_invite_tag--reverse { background: #EB672D; border-color: #0C0C0C; color: #FFFFFF; }
+
+.kc_invite_card .iconbox_title {
+  margin-bottom: 12px;
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: -0.018em;
+  color: #0C0C0C;
+}
+.kc_invite_card .kc_invite_text {
+  margin-bottom: 20px;
+  font-size: 15.5px;
+  line-height: 1.68;
+  color: #4a4440;
+}
+
+/* Pinned to the card foot so the three "what to do next" lines align across
+   the row regardless of how long each description runs. */
+.kc_invite_card .kc_invite_action {
+  margin: auto 0 0;
+  padding-top: 16px;
+  border-top: 2px dashed #E4DAD1;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #6B6460;
+}
+.kc_invite_card .kc_invite_action strong { color: #0C0C0C; }
+.kc_invite_card .kc_invite_action i {
+  margin-right: 7px;
+  font-size: 12px;
+  color: #EB672D;
+}
+@media (max-width: 767px) {
+  .kc_invite_card { box-shadow: 4px 5px 0 0 #0C0C0C; padding: 26px 22px 24px; }
+  .kc_invite_card--reverse { box-shadow: 4px 5px 0 0 #EB672D; }
+}
+
+/* Our Mission — the lead line was styled like any other subheading, so the
+   strongest sentence on the page had no more weight than the small print. */
+.kc_eyebrow {
+  display: inline-block;
+  margin-bottom: 18px;
+  padding: 6px 15px;
+  border-radius: 999px;
+  background: #FFC84C;
+  color: #4A1E3D;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.kc_mission_lead {
+  font-size: 46px !important;
+  line-height: 1.16 !important;
+  letter-spacing: -0.02em;
+  color: #4A1E3D;
+  margin-bottom: 18px;
+}
+.kc_mission_lead_accent { color: #EB672D; }
+.kc_mission_sub {
+  font-size: 19px;
+  font-weight: 600;
+  color: rgba(74, 30, 61, .8);
+}
+/* First body paragraph carries the mission statement itself — lead it. */
+.kc_mission_intro {
+  font-size: 19px;
+  line-height: 1.62;
+  font-weight: 600;
+  color: #4A1E3D;
+  padding-left: 20px;
+  border-left: 4px solid #FFC84C;
+}
+
+/* Programme list — square bullets replaced with gold checks. */
+.kc_prog_list {
+  margin: 0 0 28px;
+  padding: 0;
+  list-style: none;
+}
+.kc_prog_list li {
+  position: relative;
+  padding-left: 32px;
+  margin-bottom: 14px;
+  line-height: 1.5;
+  color: #1c1c1c;
+}
+.kc_prog_list li:last-child { margin-bottom: 0; }
+.kc_prog_list li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 6px;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: #FFC84C;
+}
+.kc_prog_list li::after {
+  content: "";
+  position: absolute;
+  left: 5px; top: 10px;
+  width: 8px; height: 4px;
+  border-left: 2px solid #4A1E3D;
+  border-bottom: 2px solid #4A1E3D;
+  transform: rotate(-45deg);
+}
+
+/* Flexible formats — was a hairline rule; now a distinct tinted block. */
+.kc_flex_formats {
+  padding: 22px;
+  border-radius: 14px;
+  background: #FBF7F2;
+}
+.kc_flex_label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #EB672D;
+}
+.kc_flex_formats p { font-size: 14.5px; line-height: 1.6; color: rgba(28,28,28,.8); }
+
+@media (max-width: 767px) {
+  .kc_mission_lead { font-size: 30px !important; }
+  .kc_mission_intro { font-size: 17px; }
+}
+
+/* "Girls deserve room to be imperfect" — a real student, not stock. Sits on
+   the plum band, so the frame is gold to lift it off the background. */
+.kc_girls_photo {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 3px solid #FFC84C;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, .28);
+  line-height: 0;
+  margin-bottom: 24px;
+}
+.kc_girls_photo img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  object-position: center 18%;
+  display: block;
+}
+.kc_girls_caption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 26px 18px 14px;
+  background: linear-gradient(to top, rgba(74, 30, 61, .92), rgba(74, 30, 61, 0));
+  color: #FBF7F2;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+@media (min-width: 992px) {
+  .kc_girls_photo { margin-bottom: 0; margin-right: 12px; }
+}
+@media (max-width: 575px) {
+  .kc_girls_photo img { height: 340px; }
+}
+
+/* Rubric band — its own background so the three sections read as three
+   distinct things rather than one long column of text. */
+.kc_rubric_band {
+  background: #FBF7F2;
+  padding: 72px 0;
+  margin-top: 10px;
+}
+
+/* Team & partners — real faces, not generic icons. */
+.kc_person {
+  height: 100%;
+  padding: 30px 24px 28px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid rgba(74, 30, 61, .1);
+  text-align: center;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.kc_person:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(74, 30, 61, .14);
+}
+.kc_person_photo {
+  width: 128px;
+  height: 128px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #FBF7F2;
+  border: 3px solid #FFC84C;
+}
+.kc_person_photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+/* Canticle Farm is a logo, not a portrait — contain it, don't crop it. */
+.kc_person_photo--logo {
+  background: #fff;
+  border-color: rgba(74, 30, 61, .18);
+}
+.kc_person_photo--logo img {
+  object-fit: contain;
+  object-position: center;
+  padding: 14px;
+}
+.kc_person_name { margin: 0 0 8px; font-size: 21px; color: #4A1E3D; }
+.kc_person_role {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: #4A1E3D;
+  color: #FBF7F2;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.kc_person_note { margin: 0 0 14px; color: rgba(28, 28, 28, .78); line-height: 1.55; }
+/* Post-nominals sit quietly beside the name — credibility without shouting. */
+.kc_person_creds {
+  display: block;
+  margin-top: 3px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  color: rgba(74, 30, 61, .55);
+}
+.kc_person_link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #4A1E3D;
+  border-bottom: 2px solid #FFC84C;
+  padding-bottom: 2px;
+  transition: color .2s ease, border-color .2s ease;
+}
+.kc_person_link:hover { color: #EB672D; border-color: #EB672D; }
+.kc_person_link i { font-size: 12px; }
+/* Inside an About team card the link sits under "Read full bio" — the card is
+   a flex column with the bio button pushed to the bottom, so keep them apart. */
+.kc_card_profile { margin-top: 12px; }
+
+/* Rubric criteria */
+.kc_rubric {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 26px;
+}
+.kc_rubric_item {
+  padding: 22px 20px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid rgba(74, 30, 61, .12);
+}
+.kc_rubric_item h3 {
+  margin: 0 0 14px;
+  font-size: 17px;
+  color: #4A1E3D;
+}
+.kc_scale { display: flex; gap: 5px; }
+.kc_scale span {
+  flex: 1;
+  height: 7px;
+  border-radius: 4px;
+  background: #4A1E3D;
+}
+.kc_scale span:nth-child(1) { opacity: .22; }
+.kc_scale span:nth-child(2) { opacity: .45; }
+.kc_scale span:nth-child(3) { opacity: .7; }
+.kc_scale span:nth-child(4) { background: #FFC84C; opacity: 1; }
+
+/* Level legend */
+.kc_levels {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 26px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.kc_levels li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: #4A1E3D;
+}
+.kc_level_num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: #4A1E3D;
+  color: #FBF7F2;
+  font-size: 12px;
+  font-weight: 700;
+}
+.kc_levels li:last-child .kc_level_num { background: #FFC84C; color: #4A1E3D; }
+@media (max-width: 991px) {
+  .kc_rubric { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 575px) {
+  .kc_rubric { grid-template-columns: 1fr; }
+}
+
+/* Closing quote band (BeatMaster Lab). Deep plum with animated equaliser bars —
+   a music page should feel like one. No buttons: the page's call to action is
+   the application form above it. No imagery: the page is already heavy. */
+.kc_quote_band {
+  background: #4A1E3D;
+  padding: 72px 0 64px;
+  overflow: hidden;
+  position: relative;
+}
+.kc_pullquote {
+  margin: 0;
+  text-align: center;
+  padding: 34px 0;
+}
+.kc_pullquote p {
+  margin: 0 0 20px;
+  font-size: 52px;
+  line-height: 1.14;
+  font-weight: 700;
+  color: #FBF7F2;
+  letter-spacing: -0.02em;
+}
+.kc_quote_accent { color: #FFC84C; }
+.kc_pullquote cite {
+  display: block;
+  font-style: normal;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(251, 247, 242, 0.6);
+}
+
+/* Equaliser bars */
+.kc_eq {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 7px;
+  height: 46px;
+}
+.kc_eq--flip { align-items: flex-start; }
+.kc_eq span {
+  display: block;
+  width: 7px;
+  border-radius: 4px;
+  background: #FFC84C;
+  height: 30%;
+  animation: kc_eq_pulse 1.15s ease-in-out infinite;
+}
+.kc_eq span:nth-child(3n)   { background: #EB672D; }
+.kc_eq span:nth-child(4n)   { background: rgba(251, 247, 242, 0.5); }
+.kc_eq span:nth-child(2)    { animation-delay: -.10s }
+.kc_eq span:nth-child(3)    { animation-delay: -.62s }
+.kc_eq span:nth-child(4)    { animation-delay: -.31s }
+.kc_eq span:nth-child(5)    { animation-delay: -.85s }
+.kc_eq span:nth-child(6)    { animation-delay: -.22s }
+.kc_eq span:nth-child(7)    { animation-delay: -.70s }
+.kc_eq span:nth-child(8)    { animation-delay: -.42s }
+.kc_eq span:nth-child(9)    { animation-delay: -.95s }
+.kc_eq span:nth-child(10)   { animation-delay: -.15s }
+.kc_eq span:nth-child(11)   { animation-delay: -.55s }
+.kc_eq span:nth-child(12)   { animation-delay: -.78s }
+.kc_eq span:nth-child(13)   { animation-delay: -.36s }
+.kc_eq span:nth-child(14)   { animation-delay: -.90s }
+.kc_eq span:nth-child(15)   { animation-delay: -.48s }
+@keyframes kc_eq_pulse {
+  0%, 100% { height: 22%; opacity: .75; }
+  50%      { height: 100%; opacity: 1; }
+}
+/* Respect visitors who ask for less motion — bars hold a static pattern. */
+@media (prefers-reduced-motion: reduce) {
+  .kc_eq span { animation: none; height: 55%; }
+  .kc_eq span:nth-child(odd) { height: 85%; }
+}
+@media (max-width: 767px) {
+  .kc_quote_band { padding: 52px 0 46px; }
+  .kc_pullquote p { font-size: 32px; }
+  .kc_eq { gap: 5px; height: 34px; }
+  .kc_eq span { width: 5px; }
+  .kc_eq span:nth-child(n+12) { display: none; }
+}
+
+/* Per-photo crop corrections. Card images cover a 4/3 box and default to
+   centre, which cuts off subjects who aren't centred in the original frame.
+   The "Course 4 — Build" portrait sits in the left third, so bias it left. */
+/* ---------------------------------------------------------------------------
+   PER-PHOTO CROP CORRECTIONS
+
+   Card frames crop from the centre by default (.mentor_item is 3/4 portrait,
+   .course_card is 4/3). Stock photos that leave the subject off to one side
+   get sliced. Each rule below nudges the crop back onto the subject.
+
+   These selectors deliberately include a card class, because the template's
+   own `.mentor_item .mentor_image img` rule (0,2,1) outranks a bare
+   `img[src*=...]` (0,1,1) and would otherwise win.
+
+   To add another: find the subject's horizontal centre as a % of the image
+   width, then use roughly half that value.
+--------------------------------------------------------------------------- */
+
+/* "Course 4 — Build" — subject in the left third, empty space right. */
+.mentor_item .mentor_image img[src*="small-business-entrepreneur-and-portrait-of-a-wom"],
+.course_card .item_image img[src*="small-business-entrepreneur-and-portrait-of-a-wom"],
+img[src*="small-business-entrepreneur-and-portrait-of-a-wom"] {
+  -o-object-position: 15% center;
+     object-position: 15% center;
+}
+
+/* "Course 2 — Grow" — subject further left still; right half is bare orange. */
+.mentor_item .mentor_image img[src*="smiling-woman-using-tablet-on-orange"],
+.course_card .item_image img[src*="smiling-woman-using-tablet-on-orange"],
+img[src*="smiling-woman-using-tablet-on-orange"] {
+  -o-object-position: 12% center;
+     object-position: 12% center;
+}
+
+/* The Students carousel — equal-height cards with full-height photos ------- */
+.testimonial_carousel .slick-track {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+.testimonial_carousel .slick-slide {
+  height: auto !important;
+  float: none;
+}
+.testimonial_carousel .slick-slide > div,
+.testimonial_carousel .carousel_item,
+.testimonial_carousel .testimonial_item {
+  height: 100%;
+}
+.testimonial_item .testimonial_image {
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 160px;
+          flex: 0 0 160px;
+  max-width: 160px;
+  min-height: 240px;
+}
+.testimonial_item .testimonial_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.testimonial_item .testimonial_image img.img_top {
+  object-position: center top;
+}
+
+/* Application form embed (Google Forms) */
+.apply_form_embed {
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.06);
+}
+.apply_form_embed iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+}
+@media (max-width: 767px) {
+  .apply_form_embed {
+    border-radius: 12px;
+  }
+  .apply_form_embed iframe {
+    height: 1600px;
+  }
+}
+
+/* Apply page — country selector tabs */
+.apply_country_tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px;
+}
+.apply_country_tab {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 12px 26px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+  background: transparent;
+  font-weight: 600;
+  line-height: 1.2;
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.apply_country_tab:hover {
+  border-color: rgba(0, 0, 0, 0.35);
+  transform: translateY(-1px);
+}
+.apply_country_tab.active {
+  background: #1c1c1c;
+  border-color: #1c1c1c;
+  color: #fff;
+}
+.apply_country_tab small {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  opacity: 0.65;
+  text-transform: uppercase;
+}
+.apply_country_tab.is_soon:not(.active) {
+  border-style: dashed;
+}
+
+.apply_panel_intro {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+/* Apply page — "opening soon" panel */
+.apply_soon {
+  text-align: center;
+  padding: 56px 28px;
+  border: 1px dashed rgba(0, 0, 0, 0.18);
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.02);
+}
+.apply_soon h3 {
+  margin-bottom: 12px;
+}
+.apply_soon p {
+  max-width: 460px;
+  margin: 0 auto 26px;
+}
+
+/* Bootcamp hero — the gold "FREE" badge (only custom bit kept; page otherwise
+   uses the template's native section designs) */
+.bootcamp_free_badge {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 7px 18px;
+  border-radius: 999px;
+  background: #FFC84C;
+  color: #4A1E3D;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* Bootcamp callout on the courses page — self-contained flex, does not
+   rely on the template's overridden .row/.col */
+.course_bootcamp_callout {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 10px 0 40px;
+  padding: 34px 38px;
+  border-radius: 18px;
+  background: #FBF7F2;
+  border: 1px solid rgba(74, 30, 61, 0.12);
+  border-left: 5px solid #FFC84C;
+}
+.course_bootcamp_text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.course_bootcamp_badge {
+  display: inline-block;
+  white-space: nowrap;
+  margin-bottom: 14px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: #FFC84C;
+  color: #4A1E3D;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.course_bootcamp_title {
+  margin: 0 0 10px;
+  font-size: 26px;
+  line-height: 1.25;
+  color: #4A1E3D;
+}
+.course_bootcamp_desc {
+  margin: 0;
+  color: rgba(74, 30, 61, 0.85);
+}
+.course_bootcamp_action {
+  flex: 0 0 auto;
+}
+@media (max-width: 767px) {
+  .course_bootcamp_callout {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+    padding: 26px 22px;
+  }
+  .course_bootcamp_title { font-size: 22px; }
+}
+
+/* Apply page — fee disclosure note */
+.apply_fee_note {
+  max-width: 620px;
+  margin: 0 auto 24px;
+  padding: 14px 20px;
+  text-align: center;
+  font-size: 14px;
+  background: #FBF7F2;
+  border: 1px solid rgba(74, 30, 61, 0.12);
+  border-radius: 10px;
+}
+.apply_fee_note strong { color: #EB672D; }
+
+/* Home hero (desktop): lower the "pilot cohort" card so it clears the
+   "Fund a Student" CTA button instead of overlapping it. */
+@media (min-width: 1200px) {
+  .banner_image_1 .satisfied_student { bottom: -96px; }
+}
+
+/* Page-banner hero buttons (e.g. bootcamp): the template only spaces
+   .hero_banner buttons, so .page_banner ones touched. Add a gap.
+   Same applies to CTA sections (e.g. the BeatMaster Lab footer CTA). */
+.page_banner .banner_btns_group,
+.course_deals_section .banner_btns_group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Intro video poster — the group photo puts a face dead centre, so the play
+   button is dropped below it rather than over it. Loaded after style.css, so
+   this wins on order at equal specificity. */
+.intro_video .video_wrap .video_play_btn { top: 72%; }
+@media (max-width: 767px) {
+  .intro_video .video_wrap .video_play_btn { top: 68%; }
+}
+
+/* Shared CTA pill used by the Birthday Game Lab banner. It lived only in the
+   page-scoped blocks on index/course/contact, so the banner rendered an
+   unstyled link on any other page that used it. */
+.kcbgl_btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border: 2px solid #0C0C0C;
+  border-radius: 100px;
+  background: #FFC84C;
+  font-family: 'Barlow', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  color: #0C0C0C;
+  white-space: nowrap;
+  transition: 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.kcbgl_btn:hover { background: #EB672D; color: #FFFFFF; }
+.kcbgl_btn i { font-size: 13px; }
+
+/* Birthday Game Lab banner — shared by several pages, so it
+   lives here rather than being duplicated in each page's scoped style block. */
+/* Full banner — sized to carry the same visual weight as the three
+   invite cards above it, rather than reading as a footnote. */
+.kcbgl_banner {
+  display: flex;
+  align-items: stretch;
+  border: 2px solid #0C0C0C;
+  border-radius: 22px;
+  box-shadow: 9px 10px 0 0 #0C0C0C;
+  background: #FFFFFF;
+  overflow: hidden;
+}
+.kcbgl_banner_media {
+  flex: 0 0 38%;
+  min-height: 330px;
+  border-right: 2px solid #0C0C0C;
+  line-height: 0;
+  background: #FFF4EC;
+}
+.kcbgl_banner_media img { width: 100%; height: 100%; object-fit: cover; object-position: center 42%; display: block; }
+.kcbgl_banner_body {
+  flex: 1 1 auto;
+  padding: 42px 46px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.kcbgl_banner_tag {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 7px 16px;
+  border-radius: 100px;
+  background: #EB672D;
+  font-family: 'Barlow', sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+.kcbgl_banner_body h3 {
+  margin: 0 0 14px;
+  font-family: 'Barlow', sans-serif;
+  font-size: clamp(26px, 2.9vw, 36px);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.022em;
+  color: #0C0C0C;
+}
+.kcbgl_banner_body p { margin: 0 0 14px; font-size: 16.5px; line-height: 1.7; color: #4a4440; }
+.kcbgl_banner_body p strong { color: #0C0C0C; }
+.kcbgl_banner_body .fine { font-size: 14px; line-height: 1.6; color: #6B6460; margin-bottom: 26px; }
+@media (max-width: 991px) {
+  .kcbgl_banner { flex-direction: column; }
+  .kcbgl_banner_media { flex: 0 0 auto; min-height: 0; height: 260px; border-right: 0; border-bottom: 2px solid #0C0C0C; }
+  .kcbgl_banner_body { padding: 34px 30px; }
+}
+
+/* "How this fits with the rest of Kuumba Code" — the closing band on the pages
+   that sell something paid. Same shape as .kcsup_band on the support page, in
+   the bordered/hard-shadow language the rest of those pages use. */
+.kc_fits_band {
+  display: flex;
+  align-items: stretch;
+  border: 2px solid #0C0C0C;
+  border-radius: 20px;
+  box-shadow: 9px 10px 0 0 #FFC84C;
+  background: #0C0C0C;
+  overflow: hidden;
+}
+.kc_fits_media { flex: 0 0 36%; min-height: 300px; line-height: 0; }
+.kc_fits_media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.kc_fits_body { flex: 1 1 auto; align-self: center; padding: 44px 46px; }
+.kc_fits_band h4 {
+  margin: 0 0 14px;
+  font-family: 'Barlow', sans-serif;
+  font-size: clamp(21px, 2.3vw, 27px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+}
+.kc_fits_band p { margin: 0; font-size: 16px; line-height: 1.72; color: #CFC9C3; }
+.kc_fits_band p strong { color: #FFC84C; }
+.kc_fits_links { display: flex; flex-wrap: wrap; gap: 12px 26px; margin-top: 24px; }
+.kc_fits_links a {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-family: 'Barlow', sans-serif; font-size: 14.5px; font-weight: 600;
+  color: #FFFFFF; padding-bottom: 3px; border-bottom: 2px solid #EB672D;
+  transition: color .25s, border-color .25s;
+}
+.kc_fits_links a:hover { color: #FFC84C; border-bottom-color: #FFC84C; }
+.kc_fits_links i { font-size: 12px; color: #EB672D; }
+.kc_fits_links a:hover i { color: #FFC84C; }
+@media (max-width: 991px) {
+  .kc_fits_band { flex-direction: column; }
+  .kc_fits_media { flex: 0 0 auto; min-height: 0; height: 240px; }
+  .kc_fits_body { padding: 34px 30px; }
+}
+@media (max-width: 575px) {
+  .kc_fits_band { box-shadow: 6px 7px 0 0 #FFC84C; }
+  .kc_fits_media { height: 190px; }
+  .kc_fits_body { padding: 28px 22px; }
+}
+
+/* Mirrored variant — lets two banners sit near each other without reading as
+   the same block twice. Media stays first in the DOM for screen readers. */
+.kcbgl_banner.is_reverse { flex-direction: row-reverse; }
+.kcbgl_banner.is_reverse .kcbgl_banner_media {
+  border-right: 0;
+  border-left: 2px solid #0C0C0C;
+}
+.kcbgl_banner_tag.is_paid_course { background: #0C0C0C; color: #FFC84C; }
+@media (max-width: 991px) {
+  .kcbgl_banner.is_reverse { flex-direction: column; }
+  .kcbgl_banner.is_reverse .kcbgl_banner_media { border-left: 0; border-bottom: 2px solid #0C0C0C; }
+}
+
+@media (max-width: 575px) {
+  .kcbgl_banner { box-shadow: 6px 7px 0 0 #0C0C0C; }
+  .kcbgl_banner_media { height: 200px; }
+  .kcbgl_banner_body { padding: 28px 22px; }
+  .kcbgl_banner_body .kcbgl_btn { width: 100%; justify-content: center; }
+}

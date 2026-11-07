@@ -1,0 +1,424 @@
+/* 3.3 - Course - Start
+================================================== */
+.course_list_wrap {
+	.course_list {
+		margin: -10px;
+	}
+}
+
+.course_small_layout {
+	padding: 10px;
+	align-items: center;
+	display: inline-flex;
+	border-radius: $border_radius;
+	.item_image {
+		max-width: 120px;
+		overflow: hidden;
+		margin-right: 20px;
+		border-radius: $border_radius;
+		img {
+			transition: $transition;
+		}
+	}
+
+	.item_title {
+		display: block;
+		font-size: 18px;
+		font-weight: 600;
+		line-height: 24px;
+		color: $color_dark;
+		margin-bottom: 10px;
+		transition: $transition;
+		font-family: $font_heading;
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+
+	.item_price {
+		color: $color_dark;
+		font-family: $font_heading;
+		del {
+			opacity: .8;
+			font-size: 14px;
+			font-weight: 500;
+			margin-right: 2px;
+		}
+		b {
+			font-size: 22px;
+			font-weight: 700;
+			line-height: 25px;
+		}
+	}
+
+	&:hover {
+		background-color: $color_light;
+		.item_image {
+			img {
+				transform: scale(1.08);
+			}
+		}
+		.item_title {
+			text-decoration: underline;
+		}
+	}
+}
+
+.course_card {
+	overflow: hidden;
+	position: relative;
+	transition: $transition;
+	padding: 28px 28px 32px;
+	border-radius: $border_radius;
+	background-color: $color_white;
+	border: 2px solid $color_border;
+	&:hover {
+		z-index: 1;
+		border-color: $color_dark;
+		transform: translate(-2px, -2px);
+		box-shadow: 10px 10px 0 0 $color_dark;
+	}
+	.item_image {
+		margin-bottom: 23px;
+		>a {
+			display: block;
+			overflow: hidden;
+			position: relative;
+			border-radius: $border_radius;
+		}
+		img {
+			width: 100%;
+			display: block;
+		}
+	}
+	.item_price {
+		.sale_price {
+			font-size: 28px;
+			font-weight: 700;
+			line-height: 32px;
+			color: $color_dark;
+			font-family: $font_heading;
+		}
+		.remove_price {
+			font-size: 14px;
+			font-weight: 500;
+			line-height: 20px;
+		}
+	}
+
+	.item_title {
+		margin: 0;
+		padding: 10px 0 24px;
+		>a {
+			font-size: 22px;
+			font-weight: 700;
+			line-height: 26px;
+			color: $color_dark;
+			&:hover {
+				opacity: .7;
+			}
+		}
+	}
+}
+
+.course_card.style_2 {
+	.item_image {
+		margin: -28px -28px 23px;
+		>a {
+			border-radius: 0;
+		}
+	}
+}
+
+.course_card.list_layout {
+	display: flex;
+	align-items: center;
+	&:not(:last-child) {
+		margin-bottom: 30px;
+	}
+	.item_image {
+		flex: 0 0 310px;
+	}
+}
+.course_card.list_layout .item_image,
+.courses_archive_section .course_card.list_layout .item_image {
+	margin: 0 30px 0 0;
+}
+
+// Courses Archive Section - Start
+.courses_archive_section {
+	.course_card {
+		.item_image {
+			margin: -30px -30px 23px;
+		}
+	}
+}
+// Courses Archive Section - End
+
+// Filter Topbar - Start
+.filter_topbar {
+	display: flex;
+	align-items: center;
+	margin-bottom: 40px;
+	justify-content: space-between;
+}
+.filter_result {
+	margin: 0;
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 24px;
+	color: $color_dark;
+	font-family: $font_heading;
+}
+.filter_buttons_list {
+	margin: -6px;
+	>li {
+		padding: 6px;
+	}
+
+	button {
+		height: 44px;
+		display: flex;
+		font-size: 14px;
+		font-weight: 600;
+		padding: 5px 19px;
+		color: $color_dark;
+		align-items: center;
+		justify-content: center;
+		text-transform: uppercase;
+		font-family: $font_heading;
+		border-radius: $border_radius;
+		background-color: $color_light;
+		border: 2px solid $color_border;
+		&:hover {
+			color: $color_white;
+			border-color: $color_dark;
+			background-color: $color_dark;
+		}
+		i {
+			margin-right: 6px;
+		}
+	}
+
+	.form_item select {
+		height: 44px;
+		font-size: 14px;
+		font-weight: 600;
+		padding: 0 30px 0 20px;
+		text-transform: uppercase;
+		font-family: $font_heading;
+		background-color: $color_light;
+	}
+}
+// Filter Topbar - End
+
+// Filter Offcanvas - Start
+.offCanvas_overlay {
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 998;
+	display: none;
+	position: fixed;
+	background-color: rgba(0, 0, 0, 0.8);
+	backdrop-filter: saturate(180%) blur(8px);
+	&.active {
+		display: block;
+	}
+}
+.offCanvas_close_btn {
+	width: 40px;
+	height: 40px;
+	color: $color_dark;
+	align-items: center;
+	display: inline-flex;
+	justify-content: center;
+	border-radius: $border_radius;
+	background-color: $color_light;
+	&:hover {
+		color: $color_white;
+		background-color: $color_dark;
+	}
+}
+
+.filter_offcanvas {
+	&.position-fixed {
+		top: 0;
+		right: -320px;
+		bottom: 0;
+		z-index: 999;
+		width: 300px;
+		transition: $transition;
+		background-color: $color_white;
+		box-shadow: -5px 0 10px 0 rgba(0, 0, 0, 0.1);
+		&.active {
+			right: 0;
+		}
+		>.content_wrapper {
+			height: 100%;
+			overflow-y: scroll;
+			padding: 110px 30px 50px;
+			&::-webkit-scrollbar {
+				width: 0px;
+			}
+		}
+
+		.close_btn_wrap {
+			top: 0;
+			left: 0;
+			right: 0;
+			z-index: 1;
+			padding: 30px;
+			position: absolute;
+			background-color: $color_white;
+		}
+	}
+}
+// Filter Offcanvas - End
+
+// Course Deals Section - Start
+.course_deals_section {
+	.shape_img_1 {
+		top: -85px;
+		left: -110px;
+		max-width: 270px;
+	}
+	.shape_img_2 {
+		top: -46px;
+		right: 158px;
+		max-width: 102px;
+	}
+	.shape_img_3 {
+		right: -80px;
+		bottom: -116px;
+		max-width: 380px;
+	}
+}
+// Course Deals Section - End
+
+// Courses Section - Start
+.courses_section {
+	.row > [class*="col"] {
+		display: flex;
+		margin-bottom: 24px;
+	}
+	.course_card {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		.item_content {
+			display: flex;
+			flex-direction: column;
+			flex: 1 1 auto;
+			.btn_unfill {
+				margin-top: auto;
+			}
+		}
+		.item_image {
+			> a {
+				aspect-ratio: 4 / 3;
+			}
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+}
+// Courses Section - End
+
+// Featured Bootcamp Banner (the program running now) - Start
+.course_bootcamp_callout {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px 40px;
+	margin-bottom: 60px;
+	padding: 38px 40px;
+	border-radius: $border_radius;
+	background-color: $color_peach;
+	border: 1px solid $color_border;
+	border-left: 6px solid $color_warning;
+	box-shadow: 0 20px 50px rgba($color_ink, 0.06);
+
+	.course_bootcamp_text {
+		flex: 1 1 500px;
+	}
+	.course_bootcamp_badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		margin-bottom: 16px;
+		padding: 7px 15px;
+		border-radius: 50px;
+		background-color: $color_warning;
+		color: $color_white;
+		font-family: $font_heading;
+		font-size: 12px;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+	.course_bootcamp_title {
+		margin-bottom: 12px;
+		color: $color_dark;
+		font-size: 30px;
+		line-height: 1.2;
+	}
+	.course_bootcamp_desc {
+		margin-bottom: 20px;
+		max-width: 640px;
+		color: $color_warm_gray;
+	}
+	.course_bootcamp_days {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px 24px;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		li {
+			position: relative;
+			padding-left: 26px;
+			color: $color_dark;
+			font-family: $font_heading;
+			font-weight: 600;
+			font-size: 15px;
+
+			i {
+				position: absolute;
+				left: 0;
+				top: 3px;
+				color: $color_warning;
+			}
+		}
+	}
+	.course_bootcamp_action {
+		flex: 0 0 auto;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 14px;
+	}
+}
+@media (max-width: 991px) {
+	.course_bootcamp_callout {
+		padding: 30px 26px;
+
+		.course_bootcamp_title {
+			font-size: 26px;
+		}
+		.course_bootcamp_action {
+			width: 100%;
+		}
+	}
+}
+// Featured Bootcamp Banner - End
+
+/* 3.3 - Course - End
+================================================== */

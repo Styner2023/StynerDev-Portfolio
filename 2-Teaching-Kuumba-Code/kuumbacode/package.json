@@ -1,0 +1,44 @@
+{
+  "name": "kuumba-code",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Kuumba Code — static HTML site served from Template/, styles compiled from SCSS.",
+  "author": {
+    "name": "StynerDev",
+    "url": "https://www.styner.dev/"
+  },
+  "contributors": [
+    {
+      "name": "StynerDev",
+      "url": "https://www.stynerdev.com/"
+    }
+  ],
+  "homepage": "https://www.kuumbacode.com/",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "npm-run-all --parallel css:watch serve",
+    "serve": "browser-sync start --config bs-config.js",
+    "build": "npm-run-all --serial css:sass css:prefix",
+    "css:watch": "onchange \"Template/assets/scss/**/*.scss\" --initial -- npm run build",
+    "css:sass": "sass Template/assets/scss/style.scss Template/assets/css/style.css --style=expanded --no-source-map --quiet",
+    "css:prefix": "postcss Template/assets/css/style.css --use autoprefixer --no-map --replace",
+    "deploy": "bash scripts/deploy.sh"
+  },
+  "browserslist": [
+    "last 4 versions",
+    "ie >= 10",
+    "safari >= 6",
+    "ios >= 6",
+    "android >= 4",
+    "> 0.2%"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^10.5.2",
+    "browser-sync": "^3.0.4",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0",
+    "postcss": "^8.5.19",
+    "postcss-cli": "^11.0.1",
+    "sass": "^1.101.0"
+  }
+}

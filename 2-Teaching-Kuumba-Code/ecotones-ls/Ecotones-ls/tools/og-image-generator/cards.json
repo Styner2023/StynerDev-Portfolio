@@ -1,0 +1,44 @@
+[
+  {
+    "slug": "home",
+    "eyebrow": "NATIVE PLANTS · STEWARDSHIP",
+    "title": "Watershed-specific land care across Northern California",
+    "output": "og-home.jpg"
+  },
+  {
+    "slug": "services",
+    "eyebrow": "STEWARDSHIP SERVICES",
+    "title": "Biochar, defensible space, restoration, ponds, trainings",
+    "output": "og-services.jpg"
+  },
+  {
+    "slug": "shop",
+    "eyebrow": "CALIFORNIA NATIVE PLANT NURSERY",
+    "title": "Drought-adapted natives grown for your watershed",
+    "output": "og-shop.jpg"
+  },
+  {
+    "slug": "contact",
+    "eyebrow": "REQUEST A QUOTE",
+    "title": "Tell Robert about your project",
+    "output": "og-contact.jpg"
+  },
+  {
+    "slug": "gallery",
+    "eyebrow": "PROJECT GALLERY",
+    "title": "Restoration, native plantings, and bilingual fieldwork",
+    "output": "og-gallery.jpg"
+  },
+  {
+    "slug": "about",
+    "eyebrow": "ABOUT ECOTONES LS",
+    "title": "Bilingual stewardship, watershed by watershed",
+    "output": "og-about.jpg"
+  },
+  {
+    "slug": "default",
+    "eyebrow": "NORTHERN CALIFORNIA STEWARDSHIP",
+    "title": "California native plants and watershed-specific land care",
+    "output": "og-default.jpg"
+  }
+]

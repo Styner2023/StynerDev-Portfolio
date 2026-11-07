@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="overlay" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.22"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="#2D4A22"/>
+  <rect width="1200" height="630" fill="url(#overlay)"/>
+
+  <text x="80" y="130"
+        font-family="'Helvetica Neue', Arial, sans-serif"
+        font-size="48"
+        font-weight="700"
+        fill="#FFFFFF"
+        letter-spacing="0.96">Ecotones LS</text>
+
+  <text x="80" y="340"
+        font-family="'Helvetica Neue', Arial, sans-serif"
+        font-size="22"
+        font-weight="600"
+        fill="#DCE4D6"
+        letter-spacing="3.3">{{EYEBROW}}</text>
+
+  <text x="80" y="400"
+        font-family="'Helvetica Neue', Arial, sans-serif"
+        font-size="60"
+        font-weight="700"
+        fill="#FFFFFF">
+    <tspan x="80" dy="0">{{TITLE_LINE_1}}</tspan>
+    <tspan x="80" dy="66">{{TITLE_LINE_2}}</tspan>
+  </text>
+
+  <rect x="1040" y="540" width="80" height="4" fill="#A4C285"/>
+
+  <text x="1120" y="580"
+        font-family="'Helvetica Neue', Arial, sans-serif"
+        font-size="18"
+        font-weight="500"
+        fill="#A4C285"
+        text-anchor="end">ecotonesls.com</text>
+</svg>

@@ -1,0 +1,121 @@
+"use client";
+
+import DashboardBreadcrumb from "@/components/layout/dashboard-breadcrumb";
+import LoadingSkeleton from "@/components/loading-skeleton";
+import EmptyState from "@/components/shared/empty-state";
+import ExportButton from "@/components/shared/export-button";
+import { ShieldCheck } from "lucide-react";
+import { useEffect, useState } from "react";
+import AgentEarnings from "./components/agent-earnings";
+import BestAgentsCard from "./components/best-agents-card";
+import OverallVolume from "./components/overall-volume";
+import ReasonCalls from "./components/reason-calls";
+import RecentCallsCard from "./components/recent-calls-card";
+import SalesCountriesCallCenter from "./components/sales-countries-call-center";
+import StateCard from "./components/state-card";
+
+interface AuditLog {
+    id: string;
+    userId: string;
+    action: string;
+    entityType: string;
+    entityId: string;
+    createdAt: string;
+    newValue: Record<string, unknown> | null;
+}
+
+interface UserInfo {
+    id: string;
+    firstName: string;
+    lastName: string;
+    role: string;
+    avatarUrl: string | null;
+}
+
+const AuditTrailPage = () => {
+    const [auditLogs, setAuditLogs] = useState<AuditLog[]>([]);
+    const [users, setUsers] = useState<Record<string, UserInfo>>({});
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        Promise.all([
+            fetch("/api/audit-logs?limit=100").then((r) => {
+                if (!r.ok) return [];
+                return r.json();
+            }),
+            fetch("/api/users?limit=200").then((r) => {
+                if (!r.ok) return [];
+                return r.json();
+            }),
+        ])
+            .then(([logData, userData]) => {
+                const logs = Array.isArray(logData) ? logData : (logData?.logs && Array.isArray(logData.logs) ? logData.logs : []);
+                setAuditLogs(logs);
+
+                const userList = Array.isArray(userData) ? userData : [];
+                const userMap: Record<string, UserInfo> = {};
+                userList.forEach((u: UserInfo) => { userMap[u.id] = u; });
+                setUsers(userMap);
+            })
+            .catch(() => {})
+            .finally(() => setLoading(false));
+    }, []);
+
+    if (loading) {
+        return (
+            <>
+                <DashboardBreadcrumb title="Audit Trail" text="Activity Log" />
+                <LoadingSkeleton />
+            </>
+        );
+    }
+
+    return (
+        <>
+            <div className="flex items-center justify-between flex-wrap gap-2">
+                <DashboardBreadcrumb title="Audit Trail" text="Activity Log" />
+                <ExportButton type="audit_trail" label="Export Audit Trail" />
+            </div>
+
+            {auditLogs.length === 0 && (
+                <div className="mt-6 rounded-xl bg-white dark:bg-slate-800 border border-neutral-200 dark:border-slate-700">
+                    <EmptyState
+                        icon={ShieldCheck}
+                        title="No audit entries yet"
+                        message="Every data mutation — grants, expenses, approvals, logins — is logged here automatically. Entries will appear as your team uses the platform."
+                    />
+                </div>
+            )}
+
+            <div className="">
+                <StateCard auditLogs={auditLogs} />
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-12 gap-6">
+                <div className="col-span-12 2xl:col-span-4">
+                    <AgentEarnings auditLogs={auditLogs} />
+                </div>
+                <div className="col-span-12 2xl:col-span-8">
+                    <OverallVolume auditLogs={auditLogs} />
+                </div>
+
+                <div className="col-span-12 2xl:col-span-6">
+                    <SalesCountriesCallCenter auditLogs={auditLogs} />
+                </div>
+
+                <div className="col-span-12 2xl:col-span-6">
+                    <BestAgentsCard auditLogs={auditLogs} users={users} />
+                </div>
+
+                <div className="col-span-12 2xl:col-span-8">
+                    <RecentCallsCard auditLogs={auditLogs} users={users} />
+                </div>
+
+                <div className="col-span-12 2xl:col-span-4">
+                    <ReasonCalls auditLogs={auditLogs} />
+                </div>
+            </div>
+        </>
+    );
+};
+export default AuditTrailPage;

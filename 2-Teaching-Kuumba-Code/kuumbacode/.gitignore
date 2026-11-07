@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Local image archives / backups (kept on disk, not in the repo)
+_unused_images/
+_original_images_backup/
+.template_backup_*/
+
+# Deploy
+.vercel
+
+# Tooling
+.refact/
+.claude/settings.local.json
+
+# OS
+.DS_Store

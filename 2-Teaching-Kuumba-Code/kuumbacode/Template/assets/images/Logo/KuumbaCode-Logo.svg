@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250" width="100%" height="100%">
+  <defs>
+    <style>
+      .logo-mark { fill: none; stroke: #111111; stroke-width: 8; stroke-linecap: round; }
+      .logo-dot { fill: #111111; }
+    </style>
+  </defs>
+
+  <!-- Background is transparent by default unless a rect is added -->
+  <g transform="translate(25, 25)">
+    <!-- Central Dot -->
+    <circle cx="100" cy="100" r="6" class="logo-dot" />
+    
+    <!-- Rays -->
+    <!-- Top vertical ray -->
+    <line x1="94" y1="78" x2="88" y2="46" class="logo-mark" />
+    <!-- Top right diagonal ray -->
+    <line x1="113" y1="88" x2="148" y2="52" class="logo-mark" />
+    <!-- Right horizontal ray -->
+    <line x1="118" y1="100" x2="190" y2="100" class="logo-mark" />
+    <!-- Bottom right steep diagonal ray -->
+    <line x1="112" y1="112" x2="168" y2="168" class="logo-mark" />
+    <!-- Bottom left long steep ray -->
+    <line x1="94" y1="113" x2="82" y2="190" class="logo-mark" />
+    <!-- Left short ray lower -->
+    <line x1="84" y1="107" x2="72" y2="114" class="logo-mark" />
+    <!-- Left short ray upper -->
+    <line x1="84" y1="92" x2="63" y2="80" class="logo-mark" />
+  </g>
+</svg>

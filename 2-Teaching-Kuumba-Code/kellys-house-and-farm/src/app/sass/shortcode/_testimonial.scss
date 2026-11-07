@@ -1,0 +1,48 @@
+/**
+ * Developer: StynerDev
+ * Dev Website: https://www.styner.dev/
+ * Website URL: https://www.stynerdev.com/
+ *
+ * Copyright (c) 2026
+ */
+
+/*--------------------------------------------------------------
+  13. Testimonial
+----------------------------------------------------------------*/
+.swiper-slide:has(> .cs_testimonial.cs_style_1) {
+  height: auto;
+  display: flex;
+}
+
+.cs_testimonial.cs_style_1 {
+  // Quotes differ in length: every slide stretches to the tallest, so centre
+  // the quote in it and keep the name on the bottom line, level with the arrows.
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  .cs_testimonial_blockquote {
+    font-style: initial;
+    margin-block: auto;
+    padding-bottom: 48px;
+    span {
+      color: rgb(55 72 54 / 75%);
+    }
+  }
+  .cs_testimonial_meta {
+    padding-inline: 32px;
+  }
+  .cs_testimonial_avatar_designation {
+    color: rgb(55 72 54 / 75%);
+  }
+  .cs_testimonial_meta_wrap {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    img {
+      height: 48px;
+      width: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+}

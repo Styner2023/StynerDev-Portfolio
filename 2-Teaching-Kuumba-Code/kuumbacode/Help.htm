@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kuumba Code — Free AI &amp; Digital Skills for Girls and Women</title>
+    <meta name="description" content="Kuumba Code is a free, virtual AI-and-digital-skills program for girls and women across Nigeria, Suriname, and the United States. Create, Grow, Earn, Build — taught live in English and Dutch, free for every student." />
+    <style>
+        :root {
+            --plum:   #4A1E3D;
+            --gold:   #FFC84C;
+            --orange: #EB672D;
+            --cream:  #FBF7F2;
+            --peach:  #FFF4EC;
+            --green:  #4BA970;
+            --indigo: #2F40F1;
+            --ink:    #2b1a25;
+        }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            margin: 0;
+            background: var(--cream);
+            color: var(--ink);
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, .serif {
+            font-family: Georgia, Cambria, "Times New Roman", serif;
+            line-height: 1.2;
+            color: var(--plum);
+        }
+        a { color: var(--indigo); }
+        .wrap { max-width: 920px; margin: 0 auto; padding: 0 24px; }
+
+        /* Header / hero */
+        header {
+            background: var(--plum);
+            color: var(--cream);
+            padding: 56px 0 64px;
+        }
+        header .brand {
+            display: inline-flex; align-items: center; gap: 10px;
+            font-family: Georgia, serif; font-weight: 700; font-size: 1.15rem;
+            letter-spacing: .5px; color: var(--gold);
+        }
+        header .brand .dot {
+            width: 12px; height: 12px; border-radius: 50%; background: var(--gold);
+            box-shadow: 0 0 0 4px rgba(255,200,76,.25);
+        }
+        header h1 { color: #fff; font-size: clamp(2rem, 5vw, 3.1rem); margin: 22px 0 10px; }
+        header p.lede { color: #f3e7ee; font-size: 1.2rem; max-width: 44ch; margin: 0 0 28px; }
+        .promise {
+            display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px;
+        }
+        .promise span {
+            background: rgba(255,255,255,.10); border: 1px solid rgba(255,200,76,.4);
+            color: #fff; padding: 6px 14px; border-radius: 999px; font-size: .9rem; font-weight: 600;
+        }
+        .cta {
+            display: inline-block; margin-top: 30px; background: var(--gold); color: var(--plum);
+            font-weight: 700; text-decoration: none; padding: 13px 26px; border-radius: 999px;
+            transition: transform .15s ease, background .15s ease;
+        }
+        .cta:hover { background: #ffd873; transform: translateY(-1px); }
+
+        /* Sections */
+        section { padding: 52px 0; }
+        section:nth-of-type(even) { background: var(--peach); }
+        .eyebrow {
+            text-transform: uppercase; letter-spacing: .14em; font-size: .78rem; font-weight: 700;
+            color: var(--orange); margin: 0 0 8px;
+        }
+        section h2 { font-size: clamp(1.5rem, 3.5vw, 2.1rem); margin: 0 0 16px; }
+        section p { max-width: 68ch; }
+
+        /* The Path cards */
+        .path { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; margin-top: 26px; }
+        .card {
+            background: #fff; border: 1px solid #efe2d8; border-radius: 16px; padding: 22px;
+            border-top: 5px solid var(--gold);
+        }
+        .card:nth-child(1){ border-top-color: var(--orange); }
+        .card:nth-child(2){ border-top-color: var(--green); }
+        .card:nth-child(3){ border-top-color: var(--gold); }
+        .card:nth-child(4){ border-top-color: var(--indigo); }
+        .card .num { font-size: .8rem; font-weight: 700; color: #b79; letter-spacing: .1em; }
+        .card h3 { margin: 6px 0 8px; font-size: 1.2rem; }
+        .card p { font-size: .95rem; margin: 0; color: #4a3b44; }
+        .card .badge {
+            display: inline-block; margin-top: 12px; font-size: .72rem; font-weight: 700;
+            padding: 3px 10px; border-radius: 999px; background: var(--peach); color: var(--plum);
+        }
+
+        /* Pedagogy steps */
+        .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; margin-top: 24px; counter-reset: step; }
+        .step { background:#fff; border:1px solid #efe2d8; border-radius: 14px; padding: 18px; }
+        .step h3 { margin: 0 0 4px; font-size: 1.05rem; }
+        .step p { font-size: .9rem; margin: 0; color:#4a3b44; }
+        .step::before {
+            counter-increment: step; content: counter(step);
+            display:inline-flex; align-items:center; justify-content:center;
+            width: 30px; height: 30px; border-radius: 50%; background: var(--plum); color: var(--gold);
+            font-weight: 700; font-family: Georgia, serif; margin-bottom: 10px;
+        }
+        .jollof {
+            margin-top: 22px; background: #fff; border-left: 5px solid var(--orange);
+            padding: 16px 20px; border-radius: 0 12px 12px 0; font-size: .98rem;
+        }
+
+        /* Two-column info */
+        .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 8px; }
+        .cols ul { padding-left: 20px; margin: 6px 0; }
+        .cols li { margin-bottom: 8px; }
+
+        /* Contact */
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 16px; margin-top: 20px; }
+        .contact-grid a { display:block; background:#fff; border:1px solid #efe2d8; border-radius: 12px; padding: 16px; text-decoration:none; color: var(--ink); }
+        .contact-grid a strong { display:block; color: var(--plum); font-family: Georgia, serif; }
+        .contact-grid a span { color: var(--indigo); font-size: .95rem; }
+
+        footer { background: var(--plum); color: #e8d7e0; padding: 34px 0; font-size: .9rem; }
+        footer a { color: var(--gold); }
+        footer .legal { color: #c6a9b8; margin-top: 8px; }
+        footer .brand { color: var(--gold); font-family: Georgia, serif; font-weight: 700; }
+
+        @media (max-width: 640px) { .cols { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="wrap">
+            <span class="brand"><span class="dot"></span>KUUMBA CODE</span>
+            <h1>Create. Grow. Earn. Build.</h1>
+            <p class="lede">Free AI and digital-skills training for girls and women — in Nigeria, Suriname, and the United States.</p>
+            <div class="promise">
+                <span>Free</span><span>Live</span><span>Beginner-friendly</span><span>English &amp; Dutch</span>
+            </div>
+            <a class="cta" href="mailto:apply@kuumbacode.com">Apply — it's free</a>
+        </div>
+    </header>
+
+    <section>
+        <div class="wrap">
+            <p class="eyebrow">What Kuumba Code Is</p>
+            <h2>A free path from consumer to creator</h2>
+            <p>Kuumba Code is a free, virtual AI-and-digital-skills program for girls and women. Over a four-course path — Create, Grow, Earn, Build — students learn to make content, grow an audience, earn income, and launch their own website or platform. It's taught live, in English and Dutch, and it's free for every student, always — funded by grants and donations. Every student leaves with something real that she built herself, not just theory.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="wrap">
+            <p class="eyebrow">The Name</p>
+            <h2>Creativity, capability, community</h2>
+            <p><strong>Kuumba</strong> is the Swahili word for <em>creativity</em> — and the sixth principle of the Nguzo Saba: to leave your community more beautiful and beneficial than you inherited it. <strong>Code</strong> means both writing software and the code a person lives by. Together, Kuumba Code stands for creativity, capability, and community.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="wrap">
+            <p class="eyebrow">The Path</p>
+            <h2>Four courses, taken in order</h2>
+            <p>Each course runs live and virtual in 8-week quarterly cohorts, and each one is free. The website build is always the final capstone — by the end, you point to a platform you own.</p>
+            <div class="path">
+                <div class="card">
+                    <div class="num">COURSE 01</div>
+                    <h3>Create</h3>
+                    <p>Content &amp; AI strategy. You leave with content you've made and an AI content workflow.</p>
+                </div>
+                <div class="card">
+                    <div class="num">COURSE 02</div>
+                    <h3>Grow</h3>
+                    <p>Analytics, SEO &amp; growth. You leave with an audience-growth system and SEO/analytics fluency.</p>
+                </div>
+                <div class="card">
+                    <div class="num">COURSE 03</div>
+                    <h3>Earn</h3>
+                    <p>Lead generation, email &amp; monetization. You leave with income strategies you can run.</p>
+                </div>
+                <div class="card">
+                    <div class="num">COURSE 04</div>
+                    <h3>Build</h3>
+                    <p>Website, brand &amp; platform. The capstone: you launch your own website or platform.</p>
+                    <span class="badge">Capstone — coming soon</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="wrap">
+            <p class="eyebrow">How It's Taught</p>
+            <h2>You'll actually make something</h2>
+            <p>Every lesson uses a four-step, gradual-release model — so beginners are never dropped in the deep end.</p>
+            <div class="steps">
+                <div class="step"><h3>Learn</h3><p>The concept, explained plainly.</p></div>
+                <div class="step"><h3>See</h3><p>A worked example you can follow.</p></div>
+                <div class="step"><h3>Practice</h3><p>Guided, low-stakes reps.</p></div>
+                <div class="step"><h3>Your Turn</h3><p>You apply it to your own project.</p></div>
+            </div>
+            <p class="jollof">A running <strong>&ldquo;easy jollof rice, no blender&rdquo;</strong> creator example threads through the lessons, so every abstract idea lands on something concrete and familiar. Workbooks are real teaching tools with completed samples — never blank capture sheets.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="wrap">
+            <p class="eyebrow">Who It's For</p>
+            <h2>Designed for complete beginners</h2>
+            <div class="cols">
+                <div>
+                    <ul>
+                        <li>Girls and women, roughly ages 16–55. Boys are welcome; everyone who shares the mission is welcome alongside them.</li>
+                        <li>No prior coding or tech background needed. If you can use a phone, you can start.</li>
+                    </ul>
+                </div>
+                <div>
+                    <ul>
+                        <li>Fully virtual, so it's location-flexible across the communities we serve.</li>
+                        <li>Taught bilingually in English and Dutch, in small quarterly cohorts.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="wrap">
+            <p class="eyebrow">Who Builds It</p>
+            <h2>Founded, led, and taught by a working developer</h2>
+            <p>Kuumba Code is founded, led, and taught by <strong>Styner Stiner</strong> — a working full-stack developer and systems architect. It's incubated at <strong>Canticle Farm</strong> in Oakland, California, and fiscally sponsored by Canticle Farm, a 501(c)(3) — so donations are tax-deductible through the sponsor.</p>
+            <p>We don't rescue anyone. We hand people the keys. Students are creators and founders, and we speak to them that way.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="wrap">
+            <p class="eyebrow">Get in Touch</p>
+            <h2>Apply, ask, or support a student</h2>
+            <div class="contact-grid">
+                <a href="mailto:apply@kuumbacode.com"><strong>Apply</strong><span>apply@kuumbacode.com</span></a>
+                <a href="mailto:hello@kuumbacode.com"><strong>General</strong><span>hello@kuumbacode.com</span></a>
+                <a href="mailto:styner@kuumbacode.com"><strong>Founder</strong><span>styner@kuumbacode.com</span></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="wrap">
+            <span class="brand">KUUMBA CODE</span> ·
+            <a href="https://kuumbacode.com">kuumbacode.com</a>
+            <div class="legal">
+                Incubated at &amp; fiscally sponsored by Canticle Farm, Oakland, CA — a 501(c)(3), EIN 46-1484633.
+                Donations are tax-deductible through the sponsor.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

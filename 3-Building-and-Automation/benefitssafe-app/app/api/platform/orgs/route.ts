@@ -1,0 +1,117 @@
+// GET /api/platform/orgs — list every tenant organization for the
+// platform-admin org picker. Platform-admin only. Includes the platform org
+// itself (flagged via isPlatformOrg) so the client can show a "back to
+// platform view" option and keep a single source of truth for org state.
+//
+// TODO(scale): this endpoint is hard-capped at 500 rows (MAX_ORGS below)
+// and the client does an in-memory substring filter on the full list.
+// That's fine for the pre-launch platform-admin team (<<100 orgs in the
+// DB), but it MUST be replaced with real cursor-based pagination +
+// server-side search BEFORE we cross ~10K tenant orgs. Two concrete
+// failure modes at that scale:
+//   1. The 500-row cap silently truncates results — an admin searching
+//      for a specific nonprofit may get "not found" on a real org.
+//   2. Unbounded SELECT * over the Organization table competes with
+//      write traffic on the writer endpoint (this route uses the writer
+//      intentionally so platform admins see their own recent writes).
+// Fix shape when triggered: add `?cursor=<orgCode>&search=<q>&limit=50`,
+// use `WHERE (orgCode, id) > (cursorOrgCode, cursorId) ORDER BY (orgCode,
+// id)` with a covering index, and push `search` down as an ILIKE against
+// the already-indexed `name` column. Do NOT implement now — YAGNI until
+// we actually cross the 500-org threshold.
+
+import { GuardDenial, requirePlatformAdmin } from "@/lib/auth-guard";
+import {
+  STALE_CACHE_KEY_PREFIX,
+  STALE_CACHE_TTL,
+  cachedWithStaleness,
+  hashParams,
+  jitterTtl,
+} from "@/lib/cache";
+import { prisma } from "@/lib/db";
+import { errorResponse } from "@/lib/error-response";
+import { NextResponse } from "next/server";
+
+const ROUTE = "api/platform/orgs:GET";
+const MAX_ORGS = 500;
+
+export async function GET(request: Request) {
+  try {
+    await requirePlatformAdmin(ROUTE, "GET");
+
+    const { searchParams } = new URL(request.url);
+    const search = searchParams.get("search")?.trim() || "";
+
+    // Platform-scoped key — the list is cross-tenant by definition, so no
+    // per-org prefix. The hashParams segment differentiates search
+    // variants so degraded-mode hits preserve query specificity.
+    const staleResult = await cachedWithStaleness({
+      key: `${STALE_CACHE_KEY_PREFIX}:platform:orgs:${hashParams(request)}`,
+      ttlSeconds: jitterTtl(STALE_CACHE_TTL.PLATFORM_STATS.ttlSeconds),
+      maxStaleSeconds: STALE_CACHE_TTL.PLATFORM_STATS.maxStaleSeconds,
+      fetcher: async () => {
+        const where: Record<string, unknown> = {};
+        if (search) {
+          where.OR = [
+            { name: { contains: search, mode: "insensitive" } },
+            { orgCode: { contains: search, mode: "insensitive" } },
+          ];
+        }
+
+        const orgs = await prisma.organization.findMany({
+          where: where as never,
+          select: {
+            id: true,
+            name: true,
+            orgCode: true,
+            isPlatformOrg: true,
+            subscriptionStatus: true,
+          },
+          orderBy: [{ isPlatformOrg: "desc" }, { name: "asc" }],
+          take: MAX_ORGS,
+        });
+
+        return {
+          orgs,
+          total: orgs.length,
+          truncated: orgs.length === MAX_ORGS,
+        };
+      },
+    });
+
+    if (staleResult.kind === "unavailable") {
+      return errorResponse({
+        kind: "dependency_unavailable",
+        message: "Aurora is currently unavailable; please retry.",
+        route: ROUTE,
+        method: "GET",
+        retryAfterSeconds: 30,
+      });
+    }
+
+    if (staleResult.kind === "stale") {
+      return NextResponse.json(
+        {
+          ...staleResult.data,
+          _meta: {
+            stale: true,
+            staleSeconds: staleResult.staleSeconds,
+            cachedAt: staleResult.cachedAt,
+          },
+        },
+        { headers: { "X-Data-Staleness": String(staleResult.staleSeconds) } },
+      );
+    }
+
+    return NextResponse.json(staleResult.data);
+  } catch (error) {
+    if (error instanceof GuardDenial) return error.toErrorResponse();
+    return errorResponse({
+      kind: "internal",
+      message: "Internal server error",
+      route: ROUTE,
+      method: "GET",
+      cause: error,
+    });
+  }
+}

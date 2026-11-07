@@ -1,0 +1,28 @@
+# Files kept locally but never deployed.
+# Vercel serves only Template/ (see outputDirectory in vercel.json); everything
+# listed here is excluded from the upload so deploys stay small and fast.
+
+# Unused images pulled out of Template/assets/images — originals kept locally.
+_unused_images
+
+# Full-resolution originals, kept before web compression. Restore from here if
+# a compressed image ever looks wrong.
+_original_images_backup
+
+# Old template snapshot, superseded by Template/
+.template_backup_1783153525
+
+# Vendor template docs — not part of the site.
+Documentation
+Help.htm
+
+# Installed fresh by Vercel from package.json.
+node_modules
+
+# Deploy helper — runs on this machine, never on Vercel.
+scripts
+
+# Project notes.
+*.md
+
+.DS_Store

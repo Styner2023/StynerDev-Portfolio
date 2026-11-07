@@ -1,0 +1,203 @@
+/**
+ * Developer: StynerDev
+ * Dev Website: https://www.styner.dev/
+ * Website URL: https://www.stynerdev.com/
+ *
+ * Copyright (c) 2026
+ */
+
+/*--------------------------------------------------------------
+  10. Hero
+----------------------------------------------------------------*/
+.cs_circle_group {
+  display: flex;
+  padding-left: 10px;
+  span {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--white-color);
+    margin-left: -10px;
+    &:first-child {
+      transition: all 0.65s ease;
+    }
+    &:last-child {
+      transition: all 0.45s ease;
+    }
+  }
+}
+.cs_hero.cs_style_1 {
+  position: relative;
+  .cs_hero_in {
+    min-height: 780px;
+    padding: 150px 0;
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .cs_hero_title {
+    b {
+      font-weight: 600;
+    }
+  }
+  .cs_hero_subtitle {
+    max-width: 770px;
+    @container page (max-width: 1400px) {
+      max-width: 690px;
+    }
+    @container page (max-width: 1400px) {
+      max-width: 620px;
+    }
+  }
+  .cs_hero_text {
+    max-width: 1020px;
+    position: relative;
+    z-index: 2;
+    @container page (max-width: 1400px) {
+      max-width: 750px;
+    }
+  }
+  .cs_hero_btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+    align-items: center;
+  }
+  .cs_hero_funfact_wrap {
+    border-radius: 20px;
+    position: absolute;
+    top: 166px;
+    right: 0;
+    overflow: hidden;
+    padding: 1px;
+    @container page (max-width: 991px) {
+      display: none;
+    }
+    &:hover {
+      .cs_circle_group {
+        span {
+          &:first-child {
+            transform: translateX(60px);
+          }
+          &:last-child {
+            transform: translateX(-60px);
+          }
+        }
+      }
+    }
+  }
+  .cs_hero_funfact {
+    border-radius: inherit;
+    padding: 24px 16px;
+    box-shadow: -2px 0px 7px 0px rgb(255 255 255 / 50%);
+  }
+  .cs_hero_box {
+    padding: 24px;
+    position: absolute;
+    bottom: 64px;
+    right: 0;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: linear-gradient(
+      241deg,
+      rgba(255, 255, 255, 0.5) -7.37%,
+      rgba(255, 255, 255, 0.1) 89.52%
+    );
+    backdrop-filter: blur(5px);
+    width: 410px;
+    @container page (max-width: 991px) {
+      display: none;
+    }
+  }
+  .cs_hero_box_btn {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+  }
+  .container {
+    position: relative;
+    z-index: 3;
+  }
+  .cs_hero_bg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    .cs_slider,
+    .cs_slider_container,
+    .cs_slider_wrapper,
+    .slick-list,
+    .slick-track,
+    .slick-track * {
+      height: 100%;
+    }
+  }
+  .cs_slide {
+    height: 100%;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+// Let swipes and drags on the hero text reach the photo slider underneath;
+// links and buttons stay clickable.
+.cs_hero.cs_style_1 > .container {
+  pointer-events: none;
+  a,
+  button {
+    pointer-events: auto;
+  }
+}
+
+// Back / pause-play / next buttons under the slide counter.
+.cs_hero_controls {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+.cs_hero_control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgb(249 251 243 / 60%);
+  border-radius: 50%;
+  background-color: rgb(249 251 243 / 12%);
+  backdrop-filter: blur(4px);
+  color: var(--white-color);
+  transition: background-color 0.3s ease;
+  &:hover,
+  &:focus-visible {
+    background-color: rgb(249 251 243 / 28%);
+  }
+}
+
+// Real photos need a scrim for the white headline (template green, no new colors).
+.cs_hero.cs_style_1 .cs_hero_bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgb(55 72 54 / 35%) 0%,
+    rgb(55 72 54 / 55%) 55%,
+    rgb(55 72 54 / 70%) 100%
+  );
+}
+
+// The long farm name needs a smaller step on the narrowest phones, so it
+// stays on three lines and the buttons stay high enough to fade in on load.
+@container page (max-width: 359px) {
+  .cs_hero.cs_style_1 .cs_hero_title {
+    font-size: 52px;
+  }
+}

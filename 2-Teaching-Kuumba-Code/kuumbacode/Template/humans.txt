@@ -1,0 +1,30 @@
+/* ORGANIZATION */
+
+Organization: Kuumba Code
+Copyright: 2026 Kuumba Code
+Website: https://www.kuumbacode.com/
+YouTube: https://www.youtube.com/@KuumbaCode
+
+/* DEVELOPMENT */
+
+Developer: StynerDev
+Developer Portfolio: https://www.styner.dev/
+Development Website: https://www.stynerdev.com/
+
+/* TECHNOLOGY */
+
+Custom development, customization, integration, configuration, deployment,
+performance optimization, and ongoing technical maintenance provided by
+StynerDev.
+
+Standards: HTML5, CSS3, SCSS, JavaScript
+Components: Bootstrap, Slick, Magnific Popup, Vanilla Calendar, FontAwesome
+Tooling: Sass, PostCSS, Autoprefixer, BrowserSync
+
+/* LEGAL */
+
+Copyright © 2026 Kuumba Code. All rights reserved. This website and its
+content are the property of Kuumba Code.
+
+Third-party frameworks, libraries, fonts, icons, and imagery remain subject
+to their respective licenses. See THIRD_PARTY_NOTICES.md.
