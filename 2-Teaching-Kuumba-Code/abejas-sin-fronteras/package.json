@@ -1,0 +1,25 @@
+{
+    "name": "abejas-sin-fronteras",
+    "version": "1.0.0",
+    "description": "Abejas Sin Fronteras / Bees Tropical Flavor — raw native-bee honey and agroecological spices from Nicaragua. Custom static site by StynerDev.",
+    "main": "public/index.html",
+    "scripts": {
+        "dev": "browser-sync start --config bs-config.js",
+        "start": "npm run dev"
+    },
+    "keywords": [
+        "abejas-sin-fronteras",
+        "bees-tropical-flavor",
+        "honey",
+        "nicaragua",
+        "agroecological",
+        "stingless-bees",
+        "meliponicultura"
+    ],
+    "author": "StynerDev (https://www.stynerdev.com/)",
+    "license": "UNLICENSED",
+    "homepage": "https://www.stynerdev.com/",
+    "devDependencies": {
+        "browser-sync": "^3.0.2"
+    }
+}

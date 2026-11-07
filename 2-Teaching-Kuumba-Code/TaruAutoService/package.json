@@ -1,0 +1,12 @@
+{
+    "name": "taruautoservice",
+    "version": "1.0.0",
+    "description": "TaruAutoService Website",
+    "scripts": {
+        "dev": "python3 -m http.server 3000",
+        "start": "python3 -m http.server 3000"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}
