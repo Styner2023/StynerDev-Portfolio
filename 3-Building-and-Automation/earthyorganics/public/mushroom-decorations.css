@@ -1,0 +1,73 @@
+/* Mushroom Decoration Enhancements */
+
+/* Subtle floating animation for mushroom decorations */
+@keyframes mushroomFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+@keyframes mushroomFloatReverse {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(10px) rotate(-2deg); }
+}
+
+/* Apply animations to mushroom decorations */
+.hero-mushroom-1 img,
+[src*="mushroom-hand-drawn-vintage-illustration"] {
+  animation: mushroomFloat 6s ease-in-out infinite;
+  transition: opacity 0.3s ease;
+}
+
+.hero-mushroom-2 img {
+  animation: mushroomFloatReverse 8s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+/* Hover effects for interactive mushrooms */
+.hero-mushroom-1:hover img,
+.hero-mushroom-2:hover img {
+  opacity: 0.8 !important;
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-mushroom-1,
+  .hero-mushroom-2 {
+    display: none; /* Hide on mobile for cleaner look */
+  }
+  
+  /* Keep some decorations but make them smaller */
+  [style*="mushroom-hand-drawn-vintage-illustration"] {
+    max-width: 60px !important;
+    opacity: 0.2 !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .hero-mushroom-1 {
+    left: 20px !important;
+    max-width: 60px !important;
+  }
+  
+  .hero-mushroom-2 {
+    right: 30px !important;
+    max-width: 70px !important;
+  }
+}
+
+/* Section-specific mushroom styling */
+.about-layout1 [src*="mushroom-hand-drawn-vintage-illustration"] {
+  filter: sepia(20%) saturate(80%) hue-rotate(90deg);
+}
+
+.product-layout2 [src*="mushroom-hand-drawn-vintage-illustration"] {
+  filter: brightness(0) invert(1);
+  opacity: 0.4 !important;
+}
+
+/* Subtle pulse effect for footer mushrooms */
+.footer-layout1 [src*="mushroom-hand-drawn-vintage-illustration"] {
+  animation: mushroomFloat 10s ease-in-out infinite;
+  filter: brightness(0.8) contrast(1.2);
+}

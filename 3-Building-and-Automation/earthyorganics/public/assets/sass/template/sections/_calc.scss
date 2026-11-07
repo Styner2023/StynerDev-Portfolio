@@ -1,0 +1,28 @@
+.calc-img {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 50%;
+  display: inline-block;
+  @include respond-below(md) {
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.clc-layout2 {
+  position: relative;
+  z-index: 1;
+  .calc-ele2-1 {
+    position: absolute;
+    right: 166px;
+    top: 126px;
+  }
+}

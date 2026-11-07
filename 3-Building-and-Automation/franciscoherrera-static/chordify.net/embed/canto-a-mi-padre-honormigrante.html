@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Chordify</title>
+<meta content="noindex,follow" name="robots"/>
+<link href="https://chordify.net/chords/canto-a-mi-padre-honormigrante" rel="canonical"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="https://chordify.net/icons-font/icons.css?1775648691" media="screen" rel="stylesheet" type="text/css"/>
+<link href="https://chordify.net/css/embed.css?1775648691" rel="stylesheet"/>
+<script>
+        window.loadUrl = '/api/v2/songs/youtube:5-RusYoRmfc/chords?vocabulary=extended_inversions';
+        window.embedHost = 'https://q12w3e4r.fastwebcloud.net';
+    </script>
+<script>
+        window.chordifyLibraryProps = {
+            "chordLang": "english"
+        };
+    </script>
+<script>
+        window.Consent = {
+            ask: function() {},
+            data: {
+                "analytics": null,
+                "audienceInsights": null,
+                "deviceStorage": null,
+                "measureAds": null,
+                "personalisedContent": null
+            },
+            fundingChoicesSrc: "https://chordify.net/js/fundingchoices.js?1674225250",
+        };
+        window.needsConsent = true;
+        window.googlefc = window.googlefc || {};
+        window.googlefc.ccpa = window.googlefc.ccpa || {};
+        window.googlefc.callbackQueue = window.googlefc.callbackQueue || [];
+    </script>
+<script defer="" src="https://chordify.net/js/lang.js?1778056417&amp;lang=en" type="text/javascript"></script>
+<script>
+        window.initialInstrument = 'guitar';
+    </script>
+<script src="https://chordify.net/js-bundles/embed-lib-bundle.js?1777024657" type="module"></script>
+<link href="//www.youtube.com" rel="dns-prefetch"/>
+</head>
+<body class="embedpage">
+<div id="top">
+<header>
+<button class="icon-info"></button>
+<h1>
+<a href="https://chordify.net/chords/canto-a-mi-padre-honormigrante?utm_medium=embed" target="_blank">
+<b>Play along with:</b> Canto a mi Padre
+			</a>
+</h1>
+</header>
+<div id="viewOptions">
+<div class="instruments">
+<button class="active" name="guitar">guitar</button>
+<button name="ukulele">ukulele</button>
+<button name="piano">piano</button>
+<button name="mandolin">Mandolin</button>
+</div>
+<div id="viewToggle">
+<button name="chords">Chords</button>
+<button class="active" name="diagrams">diagrams</button>
+</div>
+</div>
+</div>
+<div class="chordlang-english" id="song-data"></div>
+<div>
+<div class="view-diagrams" data-externalid="5-RusYoRmfc" data-pseudoid="youtube:5-RusYoRmfc" data-stream="https://www.youtube.com/watch?v=5-RusYoRmfc" data-type="youtube" id="song">
+<div class="notranslate" id="chordsArea">
+<div class="chords-scroll" id="chordsScrollbox">
+<div class="chords chordlang-english loading" id="chords"></div>
+</div>
+<div class="diagrams" id="diagrams"></div>
+</div>
+</div>
+<div id="controls">
+<ul class="controls">
+<li class="play"><button class="button-play disabled" name="play"><span class="icon-caret-right"></span></button></li>
+</ul>
+<footer>
+<a href="https://chordify.net?utm_medium=embed" target="_blank">Chords by <span class="logo icon-logo"></span></a>
+</footer>
+</div>
+</div>
+<div id="youtube"></div>
+<div class="overlay" id="overlay">
+<button name="close">close</button>
+<h2>Chordify extracts high quality chords from [any song] to practice, produce and play</h2>
+<a class="button" href="https://chordify.net?utm_medium=embed" target="_blank">Visit chordify.net for more information and features</a>
+<button name="playOverlay" style="position:fixed;left:23px;width:40px;height:40px;bottom:56px;cursor:pointer;"></button>
+</div>
+<div class="overlay" id="tooSmall">
+<h2>This Chordify player isn't available on small screens.</h2>
+<h2>Get the iOS app instead!</h2>
+<a class="button" href="https://itunes.apple.com/app/chordify-tune-into-chords/id1073624757" rel="noopener nofollow noreferrer" target="_blank">Get the app</a>
+<br/><br/>
+<a href="https://chordify.net/chords/canto-a-mi-padre-honormigrante?utm_medium=embed">Or open in Chordify</a>
+</div>
+<script>
+        window.addEventListener('resize', function() {
+            var chordHeight = document.querySelector('.chord')
+            if (!chord) {
+                return
+            }
+            var chordHeight = chord.offsetHeight
+            if (chordHeight <= 5) {
+                return
+            }
+            const bar = document.querySelector('.bar')
+            if (!bar) {
+                return
+            }
+            bar.style.height = chordHeight - 1
+        });
+        document.addEventListener('ready', function() {
+            var overlayEl = document.querySelector('#overlay')
+            var showOverlay = true;
+
+            overlayEl.querySelector('button').addEventListener('click', function(e) {
+                overlayEl.style.display = 'none'
+                if (e.target.name === 'playOverlay' && document.querySelector('#controls .icon-caret-right') !== null) {
+                    Chordify.player.action({
+                        name: 'play'
+                    });
+                }
+            });
+            document.querySelector('#top header button') ? .addEventListener('click', function() {
+                showOverlay = false;
+                overlayEl.style.display = overlayEl.style.display === 'none' ?
+                    'block' :
+                    ''
+            });
+            window.addEventListener('load', function() {
+                Chordify.player.on('pause', function() {
+                    if (showOverlay) {
+                        overlayEl.style.display = ''
+                    }
+                    showOverlay = false;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

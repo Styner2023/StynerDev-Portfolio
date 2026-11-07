@@ -1,0 +1,479 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/* Scroll-triggered fade-ups — every direct <section> inside <main>
+   eases up from 16px below + 0 opacity to its resting position as it
+   enters the viewport. Uses the modern scroll-driven animations API
+   (animation-timeline: view()) — zero JS, zero deps. Browsers without
+   support (Safari < 18, older Firefox) just render the content
+   immediately, no regression. Honors prefers-reduced-motion. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    main > section {
+      animation: scroll-fade-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 25%;
+    }
+  }
+}
+@keyframes scroll-fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Native cross-document View Transitions — gives the click between blog
+   articles a smooth crossfade instead of the default white flash. Browsers
+   that don't support this feature (older Firefox, Safari < 18) fall back
+   to standard navigation with no regression. The duration is short on
+   purpose: long enough to feel intentional, short enough to never feel
+   like the page is "loading slowly". */
+@view-transition {
+  navigation: auto;
+}
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 280ms;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 1ms;
+  }
+}
+
+/* Signature script font — Francisco's brand mark, used for atmospheric
+   watermarks and decorative section eyebrows. Kept as `swap` so layout
+   doesn't jump while the font loads. */
+@font-face {
+  font-family: "Silently";
+  src: url("/fonts/Silently_FREE.ttf") format("truetype"),
+    url("/fonts/Silently_FREE.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Heading face — Silkroad luxury serif (Envato).
+   File path includes the timestamp suffix from the original archive. */
+@font-face {
+  font-family: "Silkroad";
+  src: url("/fonts/fonts-envato/silkroad-luxury-serif-typeface-2026-04-07-06-19-30-utc/Silkroad.woff") format("woff"),
+    url("/fonts/fonts-envato/silkroad-luxury-serif-typeface-2026-04-07-06-19-30-utc/Silkroad.ttf") format("truetype"),
+    url("/fonts/fonts-envato/silkroad-luxury-serif-typeface-2026-04-07-06-19-30-utc/Silkroad.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Body / navbar face — MoreCream elegant sans-serif (Envato).
+   ttf is smaller than otf, kept first. */
+@font-face {
+  font-family: "MoreCream";
+  src: url("/fonts/fonts-envato/more-cream-elegant-sans-serif-smooth-stylish-2026-04-07-05-57-16-utc/MoreCream.ttf") format("truetype"),
+    url("/fonts/fonts-envato/more-cream-elegant-sans-serif-smooth-stylish-2026-04-07-05-57-16-utc/MoreCream.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Blog reading surface — Medium-style. Pure white background, near-black
+   bold sans for headings, dark gray serif for body. Numeric values match
+   Medium's article palette so the reading experience reads as the same
+   editorial register most readers already know.
+   Defined here so /blog/[slug] keeps inline styles out of the template. */
+/* Outer reading-page surface — solid warm off-white. Used on the page
+   shell (sidebar + frame) so the article's paper texture reads as a
+   distinct material in the center, not as the whole-page treatment.
+   A fixed-position pseudo-element layers a faint pen-and-ink drawing
+   (Italian coastal village) over the off-white as a quiet atmospheric
+   accent. Faint enough (~12% opacity) to be felt rather than read; the
+   article's `.blog-paper-bg` covers it where the article sits, so the
+   drawing only registers in the surrounding gutter / sidebar area. */
+.blog-reading-bg {
+  background-color: #ede2c8;
+  color: #2a2519;
+  position: relative;
+  isolation: isolate;
+}
+.blog-reading-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("/paper-background/2.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Article-only paper texture — applied to the <article> element so only
+   the actual reading column shows the cream-paper grain. Fixed-attachment
+   so the grain stays put as the page scrolls. */
+.blog-paper-bg {
+  background-color: #ede2c8;
+  background-image: url("/paper-background/cream-colored-paper-background-texture-close-up-2026-03-25-07-36-47-utc.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+}
+.blog-reading-bg-deep { background-color: #e0d3b3; }
+.blog-reading-text   { color: #2a2519; }
+.blog-reading-heading { color: #1c1810; }
+.blog-reading-muted  { color: #5e5547; }
+.blog-reading-border { border-color: #cdb98a; }
+
+/* Stronger divider used between the sidebar and the article column on the
+   blog post layout. Plain `.blog-reading-border` (#e3dccc) reads at low
+   contrast against the cream paper texture, so the structural divider
+   gets its own darker hue. */
+.blog-sidebar-divider { border-right: 1px solid #b8a373; }
+
+/* Sidebar post card — gives each entry physical depth so the list reads
+   as a stack of photo cards on a paper desk, not a flat menu. Hover lifts
+   the card slightly with a deeper shadow, the way an old-school print
+   browse would feel if you ran your finger along the edge. */
+.blog-card {
+  background-color: #faf5ec;
+  border: 1px solid #d8caa8;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.6) inset,
+    0 4px 10px -4px rgba(60, 45, 20, 0.18),
+    0 12px 24px -10px rgba(60, 45, 20, 0.10);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.blog-card:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 8px 20px -6px rgba(60, 45, 20, 0.28),
+    0 24px 40px -12px rgba(60, 45, 20, 0.18);
+}
+.blog-card[data-current="true"] {
+  border-color: var(--color-accent-brand);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 0 0 1px var(--color-accent-brand),
+    0 6px 18px -6px rgba(226, 165, 63, 0.40),
+    0 16px 32px -12px rgba(60, 45, 20, 0.20);
+}
+.blog-card[data-current="true"]:hover {
+  transform: translateY(-2px);
+}
+
+/* Section ornament — three centered dots, the Medium "···" separator that
+   sits between the dek and the body. Pure CSS, no markup needed beyond
+   adding class="blog-section-break" to a div. */
+.blog-section-break {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  height: 2rem;
+  color: #6b6b6b;
+}
+.blog-section-break::before,
+.blog-section-break::after {
+  content: "·";
+  font-size: 1.5rem;
+  line-height: 1;
+}
+.blog-section-break > span {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+/* Atmospheric section background — applied to the flat-black homepage
+   sections so they don't read as a stack of identical voids. Adds:
+   - a slightly warmer dark base (`#161412` vs `#0f0f0f`) on every other
+     section for macro-rhythm
+   - a faint gold radial wash in opposing corners for breathing room
+   The wash is at ~5% opacity — felt rather than seen, no competition with
+   the section content. */
+/* Atmospheric overlay — faint gold radial wash, no base color.
+   The base color comes from each section's own `bg-[var(--color-...)]`
+   Tailwind class so the 3-tier dark rotation (#0f0f0f → #2a2318 → #1f1b10)
+   shows through. Previously hardcoded `#0f0f0f` here, which silently
+   overrode every section's bg utility — that's why warm tobacco bands
+   weren't visible despite the class being set. */
+main > .section-atmospheric:nth-of-type(odd) {
+  background-image: radial-gradient(
+    ellipse 70% 60% at 0% 0%,
+    rgba(226, 165, 63, 0.06) 0%,
+    transparent 55%
+  );
+}
+main > .section-atmospheric:nth-of-type(even) {
+  background-image: radial-gradient(
+    ellipse 70% 60% at 100% 0%,
+    rgba(226, 165, 63, 0.06) 0%,
+    transparent 55%
+  );
+}
+
+/* 3D metallic gold text effect — used on hero decor titles like "CANTO".
+   Three-tone gradient (#F3B652 highlight → #A26803 mid → #895701 shadow)
+   clipped to the glyphs, plus stacked drop-shadows that read as a chiseled
+   bevel + cast shadow. Apply on a heavy weight (font-black) for impact. */
+.text-gold-3d {
+  background-image: linear-gradient(
+    180deg,
+    #F3B652 0%,
+    #F3B652 32%,
+    #A26803 62%,
+    #895701 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter:
+    drop-shadow(0 1px 0 #895701)
+    drop-shadow(0 2px 0 #895701)
+    drop-shadow(0 3px 0 #5a3a01)
+    drop-shadow(0 6px 8px rgba(0, 0, 0, 0.55));
+}
+
+/* Horizontal marquee — used by the Saludos section. The inner row is
+   rendered with two copies of the same content side-by-side, then
+   translated -50% so the second copy lands exactly where the first
+   started, producing a seamless infinite loop.
+   Honors prefers-reduced-motion: animation pauses for visitors who've
+   opted out of motion. */
+@keyframes marquee-x {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Marching-arrow indicator — three chevrons fade in/out in sequence to
+   suggest flow direction beneath the Saludos marquee. */
+@keyframes marquee-arrow {
+  0%, 100% { opacity: 0.2; transform: translateX(0); }
+  50%      { opacity: 1;   transform: translateX(2px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-x,
+  .animate-marquee-arrow { animation: none !important; }
+}
+
+@custom-variant dark (&:is(.dark *));
+
+/* =============================================================================
+   Design tokens — ported from the Guitare Shopify theme by DesignThemes.
+   Source of truth (read-only reference):
+     /Users/stynerstiner/Downloads/guitare-instruments-music-store-shopify-theme-2023-11-27-04-49-08-utc/_theme_extracted/
+   - Variable names taken from /assets/dt-custom.css.liquid lines 32-164
+   - Resolved color/size values taken from /config/settings_data.json `current`
+   - Breakpoints taken from @media queries in /assets/dt-framework.css
+   Items not present in either source are tagged "improvised".
+   ============================================================================= */
+:root {
+  /* ─── Colors (Guitare current preset) ─────────────────────────────────── */
+  --color-bg: #0f0f0f;             /* settings_data.body_bg_color */
+  --color-fg: #ebe4d6;             /* warm off-white — reads like ink, not LCD. Was #dfdfdf (cool gray) which clashed slightly with the warm-tobacco bands. */
+  --color-primary-brand: #0f0f0f;  /* settings_data.primary_color */
+  --color-accent-brand: #e2a53f;   /* primary gold — settings_data.secondary_color */
+  --color-accent-pale: #ffe5a8;    /* pale gold — for hairline borders, dividers, micro-accents that should whisper, not shout (Wes secondary-light) */
+  --color-tertiary-brand: #333333; /* settings_data.tertiary_color */
+  --color-muted-brand: #7e7e7e;    /* settings_data.heading_color & link_color */
+  --color-overlay-brand: rgba(226, 165, 63, 0.5); /* overlay_color @ alpha 0.5 (color_modify in dt-custom.css.liquid:79) */
+
+  --color-button-bg: #0f0f0f;        /* settings_data.button_bg_color */
+  --color-button-fg: #ffffff;        /* settings_data.button_text_color */
+  --color-button-border: #e2a53f;    /* settings_data.button_border_color */
+  --color-button-hover-bg: #e2a53f;  /* settings_data.button_bg_hover_color */
+  --color-button-hover-fg: #0f0f0f;  /* near-black on gold = ~11:1 (AAA). Was #ffffff which gave 1.6:1 — failed WCAG entirely. */
+
+  --color-border-brand: rgba(255, 229, 168, 0.20); /* pale-gold hairline — unified site-wide. Was rgba(255,255,255,0.08) which read as "tech" instead of editorial. Matches Wes's #ffe5a833. */
+  --color-card-bg: #1a1a1a;          /* improvised — slight lift over body bg for card surfaces */
+
+  /* Three-tier dark rotation (informed by the Wes Webflow template).
+     Black stays primary; the two warm tones rotate in across sections so
+     the page has tonal variety without ever going light. Use a hairline
+     `border-top: 1px solid #000` on each warm/deeper section to mark
+     transitions cleanly (Wes does this on every band). */
+  --color-bg-warm: #2a2318;          /* warm tobacco — secondary section tone (~30% of sections) */
+  --color-bg-deeper: #1f1b10;        /* deeper tobacco — tertiary anchor moments (~10%) */
+  --color-card-warm: #1f1b10;        /* card surface on warm-tobacco bands (matches Wes tertiary) */
+  --color-border-warm: var(--color-border-brand); /* alias — borders are now unified site-wide. Kept for source compatibility while existing call sites still reference --color-border-warm. */
+
+  --color-success: #4f8a10;        /* settings_schema.success_color default */
+  --color-warning: #9f6000;        /* settings_schema.warning_color default */
+  --color-info:    #31708f;        /* settings_schema.info_color default */
+  --color-error:   #d8000c;        /* settings_schema.error_color default */
+
+  /* ─── shadcn token aliases — point at Guitare values ──────────────────── */
+  --background: var(--color-bg);
+  --foreground: var(--color-fg);
+  --card: var(--color-card-bg);
+  --card-foreground: var(--color-fg);
+  --popover: var(--color-card-bg);
+  --popover-foreground: var(--color-fg);
+  --primary: var(--color-primary-brand);
+  --primary-foreground: var(--color-button-fg);
+  --secondary: var(--color-tertiary-brand);
+  --secondary-foreground: var(--color-fg);
+  --muted: var(--color-tertiary-brand);
+  --muted-foreground: var(--color-muted-brand);
+  --accent: var(--color-accent-brand);
+  --accent-foreground: var(--color-bg);
+  --destructive: var(--color-error);
+  --border: var(--color-border-brand);
+  --input: var(--color-border-brand);
+  --ring: var(--color-accent-brand);
+
+  /* ─── Layout ──────────────────────────────────────────────────────────── */
+  --container-width: 1230px;       /* settings_data.container_width */
+  --container-lap-w: 1100px;       /* settings_schema lap_container_width default */
+  --container-tablet-w: 960px;     /* settings_data.tab_container_width */
+  --gutter: 30px;                  /* settings_data.gutter_width */
+
+  /* ─── Typography (resolved + schema defaults for h1/h2/h3) ────────────── */
+  --text-base: 1.125rem;           /* 18px = settings_data.type_base_size */
+  --line-height-base: 1.8;         /* settings_data.body_line_height */
+  --line-height-heading: 1.5;      /* settings_data.heading_line_height */
+  --text-h1: 2.5rem;               /* 40px = settings_schema.h1_size default */
+  --text-h2: 2.25rem;              /* 36px = settings_schema.h2_size default */
+  --text-h3: 1.875rem;             /* 30px = settings_schema.h3_size default */
+  --text-h4: 1.375rem;             /* 22px = settings_data.h4_size */
+  --text-h5: 1.25rem;              /* 20px = settings_data.h5_size */
+  --text-h6: 1rem;                 /* 16px = settings_data.h6_size */
+
+  /* ─── Radius / Shadow / Transition ────────────────────────────────────── */
+  --radius: 0px;                   /* settings_data.overall_border_radius */
+  --radius-button: 0px;            /* settings_data.button_border_radius */
+  --radius-pill-sm: 2px;           /* improvised — for incidental pills only */
+  --radius-pill-md: 4px;           /* improvised */
+
+  --shadow-dt: 0 0 10px rgba(0, 0, 0, 0.6); /* improvised — generic var(--DTboxShadow) shape */
+  --transition-base: all 0.3s ease; /* settings_schema.base_transitions default "all 0.3s linear" — eased here for nicer hover */
+
+  /* ─── Spacing aliases (button padding) ────────────────────────────────── */
+  --button-padding-y: 10px;        /* settings_data.button_padding "10px 30px 10px 30px" */
+  --button-padding-x: 30px;        /* settings_data.button_padding */
+  --button-padding-y-sm: 6px;      /* improvised — derived size variant */
+  --button-padding-x-sm: 20px;     /* improvised */
+  --button-padding-y-lg: 14px;     /* improvised */
+  --button-padding-x-lg: 40px;     /* improvised */
+}
+
+@theme inline {
+  /* Mint Tailwind utilities backed by the :root tokens above. */
+  /* Standard shadcn names (so generated components keep working) */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Guitare-flavored utility names */
+  --color-overlay: var(--color-overlay-brand);
+  --color-button-bg: var(--color-button-bg);
+  --color-button-fg: var(--color-button-fg);
+  --color-button-border: var(--color-button-border);
+  --color-button-hover-bg: var(--color-button-hover-bg);
+  --color-button-hover-fg: var(--color-button-hover-fg);
+
+  /* Container max-widths → mint `max-w-content`, `max-w-lap`, `max-w-tablet` */
+  --container-content: var(--container-width);
+  --container-lap: var(--container-lap-w);
+  --container-tablet: var(--container-tablet-w);
+
+  /* Radius — flatten everything to 0 unless explicitly using -pill-* */
+  --radius-sm: var(--radius-pill-sm);
+  --radius-md: var(--radius-pill-md);
+  --radius-lg: var(--radius);
+  --radius-xl: var(--radius);
+  --radius-2xl: var(--radius);
+
+  /* Shadow */
+  --shadow-dt: var(--shadow-dt);
+
+  /* Fonts. Three-tier system:
+     - hero / section headlines       → Playfair Display (editorial serif)
+     - body paragraphs                → Lora (humanist serif)
+     - navbar / UI chrome / CTAs      → Manrope (modern sans, solid at small caps)
+     - signature script               → Silently (brand mark)
+     Silkroad / MoreCream @font-face declarations remain above for optional
+     future accent use only — do NOT use for body. */
+  --font-heading: var(--font-heading-sans), "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: var(--font-body-sans), "Lora", Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-body-sans), "Lora", Georgia, "Times New Roman", serif;
+  --font-ui: var(--font-ui-sans), "Manrope", system-ui, -apple-system, sans-serif;
+  --font-signature: "Silently", "Brush Script MT", cursive;
+
+  /* Marquee animation token — wires the @keyframes marquee-x defined
+     above into the `animate-marquee-x` Tailwind utility. */
+  --animate-marquee-x: marquee-x 90s linear infinite;
+  /* Marching arrow — three chevrons sequenced with delays in markup. */
+  --animate-marquee-arrow: marquee-arrow 1.8s ease-in-out infinite;
+
+  /* Breakpoints — Guitare values from @media queries in dt-framework.css.
+     576/768/992/1200/1540 px → rem. */
+  --breakpoint-sm: 36rem;          /* 576px */
+  --breakpoint-md: 48rem;          /* 768px */
+  --breakpoint-lg: 62rem;          /* 992px */
+  --breakpoint-xl: 75rem;          /* 1200px */
+  --breakpoint-2xl: 96.25rem;      /* 1540px */
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border-brand);
+  }
+  html {
+    font-family: var(--font-body);
+  }
+  body {
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-size: var(--text-base);
+    line-height: var(--line-height-base);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-muted-brand);
+    line-height: var(--line-height-heading);
+    letter-spacing: 0;
+  }
+  h1 { font-size: var(--text-h1); }
+  h2 { font-size: var(--text-h2); }
+  h3 { font-size: var(--text-h3); }
+  h4 { font-size: var(--text-h4); }
+  h5 { font-size: var(--text-h5); }
+  h6 { font-size: var(--text-h6); }
+  a {
+    color: var(--color-muted-brand);
+    transition: var(--transition-base);
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--color-accent-brand);
+  }
+  ::selection {
+    background: var(--color-accent-brand);
+    color: var(--color-bg);
+  }
+}

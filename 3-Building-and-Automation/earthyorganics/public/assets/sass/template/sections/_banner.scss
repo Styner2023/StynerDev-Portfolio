@@ -1,0 +1,72 @@
+.banner-style {
+  background-color: var(--banner-color1);
+  padding: 22px 36px 22px 54px;
+  border-radius: 30px;
+  margin-bottom: 30px;
+  min-height: 279px;
+  display: flex;
+  align-items: center;
+  @include respond-below(sm) {
+    padding: 15px;
+  }
+  .banner-content {
+    max-width: 255px;
+  }
+  .banner-title {
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    a {
+      color: var(--black-color);
+    }
+  }
+  .banner-text {
+    margin-bottom: 30px;
+    font-weight: 500;
+  }
+  .banner-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--theme-color);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white-color);
+    font-family: var(--title-font);
+    gap: 7px;
+    padding: 10px 25px;
+    border-radius: 9999px;
+    &:hover {
+      background-color: var(--title-color);
+    }
+  }
+  .banner-img {
+    position: relative;
+    z-index: 1;
+    @include respond-below(xl) {
+      width: 200px;
+    }
+    @include respond-below(lg) {
+      padding-top: 30px;
+    }
+  }
+  .banner-circle {
+    position: absolute;
+    width: 219px;
+    height: 219px;
+    background-color: var(--white-color);
+    bottom: 0;
+    right: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    z-index: -1;
+    @include respond-below(xl) {
+      width: 190px;
+      height: 190px;
+    }
+  }
+  &.style2 {
+    background-color: var(--banner-color2);
+  }
+}

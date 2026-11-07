@@ -1,0 +1,111 @@
+/* Fix for about-1-2.jpg image dimensions */
+.video-thumb1 .img {
+  width: 410px !important;
+  height: 291px !important;
+  object-fit: cover;
+}
+
+
+/* Fix for feature image in Why Earthy Organics section */
+.feature-main-img {
+  width: 641px !important;
+  height: 508px !important;
+  object-fit: cover;
+}
+
+
+/* Fix navbar logo size */
+.header-logo img {
+  max-width: 193px;
+  height: auto;
+}
+
+
+/* Move footer logo to the left */
+.footer-logo {
+  margin-left: -40px;
+}
+
+.review-logo img {
+  width: 125px !important;
+  height: 126px !important;
+  object-fit: contain;
+}
+
+.review-trust {
+  width: 300px !important;
+  height: auto !important;
+  object-fit: contain;
+}
+
+.banner-style .banner-img img {
+  width: 280px !important;
+  height: 220px !important;
+  object-fit: cover;
+}
+
+.banner-style.style2 .banner-img img {
+  width: 312px !important;
+  height: 235px !important;
+  object-fit: cover;
+}
+
+.vs-blog .blog-img img {
+  width: 410px !important;
+  height: 290px !important;
+  object-fit: cover;
+}
+
+.instagram-feed img {
+  width: 215px !important;
+  height: 215px !important;
+  object-fit: cover;
+}
+
+.brand-style img {
+  width: 163px !important;
+  height: 146px !important;
+  object-fit: contain;
+}
+
+.testi-style2 .testi-image img {
+  width: 130px !important;
+  height: 140px !important;
+  object-fit: cover;
+}
+
+/* Testimonial decorative leaf images */
+.testi-ele1 {
+  width: 212px !important;
+  height: 224px !important;
+  object-fit: contain !important;
+}
+
+.testi-ele2 {
+  width: 114px !important;
+  height: 112px !important;
+  object-fit: contain !important;
+}
+
+.testi-ele3 {
+  width: 215px !important;
+  height: 209px !important;
+  object-fit: contain !important;
+}
+
+/* Footer image */
+.footer-overlay {
+  width: 1888px !important;
+  height: 613px !important;
+  object-fit: contain !important;
+}
+
+/* Fix for hero section container at screen width 1200px - 1299px */
+/* This ensures the hero image extends to the right edge of the screen */
+@media only screen and (min-width: 1200px) and (max-width: 1299px) {
+  .hero-style1 .container {
+    max-width: 100% !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+}

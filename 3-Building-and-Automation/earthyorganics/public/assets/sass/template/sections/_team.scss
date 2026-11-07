@@ -1,0 +1,68 @@
+.team-style1 {
+  text-align: center;
+  border: 2px solid var(--theme-color2);
+  border-radius: 30px;
+  padding: 35px 30px 50px 30px;
+  position: relative;
+  @include smooth-transition;
+  margin-bottom: 30px;
+  @include respond-below(xl) {
+    padding: 30px 8px 30px 8px;
+  }
+  .team-shape {
+    position: absolute;
+    top: -3px;
+    height: 155px;
+    width: 102%;
+    background-color: var(--theme-color2);
+    left: -3px;
+    border-radius: 30px;
+    z-index: 1;
+    right: -3px;
+  }
+  .team-name {
+    font-size: 24px;
+    margin: -0.18em 0 10px 0;
+    @include smooth-transition;
+  }
+  .team-desig {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--theme-color);
+    margin-bottom: 25px;
+    @include smooth-transition;
+  }
+  .team-social {
+    @include smooth-transition;
+  }
+  .team-img {
+    width: 238px;
+    height: 238px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 3px dashed var(--theme-color2);
+    padding: 4px;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+    margin-left: auto;
+    margin-right: auto;
+    & > img {
+      border-radius: 50%;
+    }
+  }
+  &:hover {
+    background-color: var(--bg3-color);
+    border-color: var(--bg3-color);
+    .team-name,
+    .team-desig {
+      color: var(--white-color);
+    }
+    .team-social {
+      margin-top: 0px;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

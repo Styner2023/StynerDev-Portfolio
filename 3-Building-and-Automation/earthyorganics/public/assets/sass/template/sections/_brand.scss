@@ -1,0 +1,11 @@
+.brand-layout1 {
+  padding-bottom: 240px;
+  background-size: contain;
+  background-position: bottom center;
+  @include respond-below(md) {
+    padding-bottom: 120px;
+  }
+  @include respond-below(sm) {
+    padding-bottom: 70px;
+  }
+}

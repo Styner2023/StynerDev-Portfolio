@@ -1,0 +1,730 @@
+@font-face {
+    font-family: "TheSans";
+    font-weight: normal;
+    font-style: normal;
+    src: url("fonts/TheSansB_500_.eot");
+    src: url("fonts/TheSansB_500_.eot?#iefix") format("embedded-opentype"), url("fonts/TheSansB_500_.woff2") format("woff2"), url("fonts/TheSansB_500_.woff") format("woff"), url("fonts/TheSansB_500_.svg#TheSansB_500_") format("svg");
+}
+
+@font-face {
+    font-family: "TheSans";
+    font-weight: bold;
+    font-style: normal;
+    src: url("fonts/TheSansB_700_.eot");
+    src: url("fonts/TheSansB_700_.eot?#iefix") format("embedded-opentype"), url("fonts/TheSansB_700_.woff2") format("woff2"), url("fonts/TheSansB_700_.woff") format("woff"), url("fonts/TheSansB_700_.svg#TheSansB_700_") format("svg");
+}
+
+@font-face {
+    font-family: "ChordFont";
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+    src: url("fonts/TheSans_chord_font.woff2") format("woff2");
+    src: url("fonts/TheSans_chord_font.woff") format("woff");
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'TheSans';
+    background: #F7F4F2;
+}
+
+body {
+    padding: 82px 50px;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-min-device-pixel-ratio: 1.5;
+}
+
+#song {
+    max-width: 970px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+#song.view-chords {
+    padding-bottom: 250px;
+}
+
+#youtube {
+    position: fixed;
+    z-index: 1;
+    right: 30px;
+    bottom: 42px;
+    height: 200px !important;
+    width: 200px !important;
+    background: #333333;
+}
+
+#title {
+    position: absolute;
+    padding: 8px;
+    left: 0;
+    top: 0;
+    height: 50px;
+    right: 200px;
+}
+
+#top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 3;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+#top header {
+    background: #0A8282;
+    padding: 6px 8px;
+    color: white;
+    overflow: hidden;
+}
+
+#top header button.icon-info {
+    float: right;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    line-height: 20px;
+    padding: 0;
+}
+
+#viewOptions {
+    background: white;
+    color: #333333;
+    padding: 0 6px;
+}
+
+h1,
+h1 a {
+    font-size: 12pt;
+    font-weight: normal;
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin: 0;
+}
+
+h1 a {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 12px;
+    float: left;
+    max-width: 88%;
+}
+
+h1 a:hover {
+    text-decoration: underline;
+}
+
+footer .icon-logo {
+    font-size: 24px;
+    line-height: 20px;
+    margin: 0 -20px -7px -20px;
+    height: 20px;
+    display: inline-block;
+    overflow: hidden;
+    width: 100px;
+    text-decoration: none;
+    color: inherit;
+}
+
+footer {
+    color: #333333;
+    letter-spacing: 1.5px;
+    background: #f2f2f2;
+    padding: 8px 10px;
+    text-align: center;
+    clear: both;
+    text-transform: uppercase;
+    font-size: 8pt;
+}
+
+footer a {
+    color: #0A8282;
+    text-decoration: none;
+}
+
+#controls {
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: #333333;
+}
+
+#controls ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 2px -200px 0 0;
+}
+
+#controls li {
+    float: left;
+}
+
+button {
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    font: 10pt 'TheSans';
+    background: transparent;
+}
+
+#controls button {
+    color: white;
+    text-transform: lowercase;
+}
+
+#controls button.button-diagrams {
+    background: black;
+    border-radius: 10px;
+    padding: 6px 10px;
+    margin-top: 22px;
+}
+
+#controls button:hover {
+    color: #3B9B9B;
+}
+
+#controls .icon-caret-right,
+#controls .icon-pause {
+    font-size: 56pt;
+    height: 76px;
+    vertical-align: middle;
+}
+
+.chord-label,
+.bass-label {
+    font-family: 'ChordFont';
+}
+
+.chords-scroll {
+    scroll-behavior: smooth;
+}
+
+.chords .chord {
+    background: white;
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: #333333;
+    display: inline-block;
+    font-size: 2.6vw;
+    height: 0;
+    margin: 1px;
+    padding: 2.29% 0 4% 0;
+    position: relative;
+    text-indent: 0.12em;
+    vertical-align: bottom;
+    width: calc(6.25% - 3.5px);
+}
+
+.fake-chord {
+    display: inline-block;
+    margin: 1px;
+    vertical-align: bottom;
+    width: calc(6.25% - 3.5px);
+}
+
+.view-diagrams .fake-chord {
+    display: none;
+}
+
+.chords .currentChord,
+.chords .currentChord.loop {
+    color: white;
+    background: #333333;
+}
+
+div.chord>span,
+div.chord>.label-wrapper>span {
+    position: relative;
+    background: inherit;
+    z-index: 1;
+    border-radius: 4px 4px 4px 4px;
+    line-height: inherit;
+    white-space: nowrap;
+}
+
+div.chord-edit>span,
+div.currentChord>span,
+div.chord.overflow:hover>span {
+    z-index: 2;
+}
+
+.chord>.label-wrapper {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+.nolabel>.label-wrapper {
+    display: none;
+}
+
+.nolabel.chord-edit:before,
+.nolabel.chord-edit>span {
+    display: inline;
+}
+
+.chord.hidden-overflow:not(.currentChord):not(.chord-edit):hover>.label-wrapper {
+    background: #fff;
+    z-index: 3;
+}
+
+.chord .bass-label[class*=' label-'][class^='label-'] {
+    padding: 4px 2px 4px 0;
+}
+
+.chord.hidden-overflow:not(.currentChord):not(.chord-edit):not(:hover) .bass-label {
+    background: transparent;
+    position: absolute;
+    right: 1px;
+    padding: 0;
+}
+
+.chord.hidden-overflow .bass-label::before {
+    display: none;
+    margin-left: -2px;
+    background: transparent;
+}
+
+/* ellipsis cutoff for the bass */
+
+.chord.hidden-overflow .bass-label::after {
+    font-size: 18px;
+    content: '..';
+}
+
+.currentChord.hidden-overflow .bass-label::before,
+.chord-edit.hidden-overflow .bass-label::before,
+.chord.hidden-overflow:hover .bass-label::before {
+    display: inline-block;
+}
+
+.currentChord.hidden-overflow .bass-label::after,
+.chord-edit.hidden-overflow .bass-label::after,
+.chord.hidden-overflow:hover .bass-label::after {
+    display: none;
+}
+
+.currentChord>.label-wrapper,
+.chord-edit>.label-wrapper,
+.chord.hidden-overflow:hover>.label-wrapper {
+    width: calc(150% + 6px);
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 2px 0px 5px -1px rgba(0, 0, 0, 0.3);
+}
+
+.currentChord>.label-wrapper.overflow-left,
+.chord-edit>.label-wrapper.overflow-left,
+.chord.hidden-overflow:hover>.label-wrapper.overflow-left {
+    float: right;
+    text-align: right;
+    padding-right: 2px;
+    box-shadow: -2px 0px 5px -1px rgba(0, 0, 0, 0.3);
+}
+
+.barlength-4>.chord:nth-child(4n+1) {
+    margin-left: 9px;
+}
+
+.barlength-3>.chord:nth-child(3n+1) {
+    margin-left: 11px;
+}
+
+/* barlines as pseudo elements */
+
+.barlength-4>.chord:nth-child(4n+1):after,
+.barlength-3>.chord:nth-child(3n+1):after,
+/* end of the song barlines */
+
+.chords .chord:last-child:before,
+.chords .chord:last-child:after {
+    content: '';
+    margin: 0;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -7px;
+    background: #666666;
+    border-radius: 4px;
+    width: 4px;
+}
+
+.barlength-3>.chord:nth-child(3n+1):after {
+    left: -8px;
+}
+
+/* end of the song barline position fix */
+
+.chords .chord:last-child:before {
+    right: -7px;
+    left: auto;
+}
+
+.chords .chord:last-child:after {
+    right: -14px;
+    left: auto;
+}
+
+.chords .chord:last-child {
+    width: 0;
+    padding: 0;
+    margin: 0;
+    display: none;
+    /* becuse embeds have smart scaling stuff disble the last chord block for now */
+}
+
+.loop {
+    background: #0A8282;
+    position: relative;
+}
+
+.loop-options {
+    font: 10pt 'TheSans';
+    position: absolute;
+    z-index: 1;
+    height: 25px;
+    line-height: 29px;
+    bottom: -29px;
+    right: 0;
+    border-radius: 2px;
+    padding: 1px 5px 1px 0px;
+    background: #0A8282;
+    color: #666666;
+    white-space: nowrap;
+    margin-left: -30px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.loop-options a {
+    text-decoration: none;
+    color: #666666;
+    display: inline-block;
+}
+
+.loop-options a.loop-copy {
+    display: none;
+}
+
+.loop-options a.icon-close {
+    font-size: 23px;
+    float: right;
+}
+
+#viewOptions button {
+    padding: 12px 6px;
+    text-transform: uppercase;
+}
+
+#viewOptions button.active {
+    color: #339DFF;
+    font-weight: bold;
+}
+
+.view-diagrams .chords-scroll {
+    white-space: nowrap;
+    min-height: 0;
+    overflow-y: scroll;
+    margin: 0 1px;
+    padding: 0 1px;
+}
+
+.view-diagrams .chords-scroll::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.view-diagrams .chords-scroll::-webkit-scrollbar:vertical {
+    background: transparent;
+    width: 0;
+}
+
+.view-diagrams .chords-scroll::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #339DFF;
+    border: 1px solid #EEEEEE;
+}
+
+.view-diagrams .chords-scroll::-webkit-scrollbar:horizontal {
+    height: 8px;
+}
+
+#diagrams {
+    background: white;
+}
+
+.diagrams {
+    width: 100%;
+    white-space: nowrap;
+    display: none;
+    padding-bottom: 12px;
+    float: left;
+    overflow: hidden;
+}
+
+.view-diagrams .diagrams {
+    display: block;
+}
+
+.diagram {
+    display: inline-block;
+    overflow: hidden;
+    height: 190px;
+    margin: 30px;
+    text-align: center;
+    transition: transform ease-in 200ms;
+}
+
+.diagram:last-child {
+    margin-right: 100%;
+}
+
+.diagram svg {
+    display: block;
+    height: 140px;
+    padding: 10px 0 15px;
+    width: 141px;
+    filter: contrast(0.9);
+    /* to make the frets pop */
+}
+
+.diagram .icon-rest {
+    display: block;
+    font-size: 50px;
+    color: #333333;
+    height: 110px;
+    line-height: 170px;
+}
+
+.diagram .chord-label {
+    font-size: 23px;
+}
+
+#diagrams.diagrams-ukulele .diagram img {
+    margin: 0 19px;
+    width: 105px;
+}
+
+#diagrams.diagrams-piano .diagram img {
+    height: 97px;
+    margin: 10px 13px;
+    width: 212px;
+}
+
+.diagram-current {
+    margin: -40px 30px 30px 30px;
+    transform: scale(1.3);
+}
+
+.instruments {
+    float: right;
+}
+
+.overlay {
+    position: fixed;
+    display: none;
+    top: 33px;
+    bottom: 33px;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    text-align: center;
+    z-index: 3;
+}
+
+.overlay h2 {
+    font: 26pt 'TheSans';
+    text-align: center;
+    max-width: 560px;
+    padding: 30px 30px 20px 30px;
+    margin: 0 auto;
+}
+
+.overlay a,
+.overlay a:active {
+    color: white;
+    opacity: 0.8;
+}
+
+.overlay a.button {
+    display: inline-block;
+    padding: 10px 12px;
+    margin-top: 20px;
+    max-width: 200px;
+    cursor: pointer;
+    border-radius: 3px;
+    border: 1px solid #EEEEEE;
+    margin: 0 auto;
+    color: white;
+    text-decoration: none;
+}
+
+.overlay a:hover {
+    opacity: 1;
+}
+
+.overlay button {
+    float: right;
+    background: transparent;
+    color: white;
+    padding: 6px 10px;
+}
+
+@media all and (max-width: 320px) and (max-height: 510px),
+all and (max-height: 355px) {
+    #tooSmall {
+        display: block;
+    }
+    #top header button.icon-info {
+        display: none;
+    }
+    h1 a {
+        max-width: 100%;
+    }
+}
+
+@media all and (min-width: 1080px) {
+    /* stop the auto grow of font-size by overriding the vw value */
+    .chords .chord {
+        font-size: 21pt;
+    }
+}
+
+@media all and (max-width: 1080px) and (max-height: 530px) {
+    .grips {
+        padding-right: 100px;
+    }
+}
+
+@media all and (max-width: 700px) {
+    body {
+        padding-left: 6px;
+        padding-right: 1px;
+    }
+    .overlay h2 {
+        font-size: 18pt;
+    }
+    #youtube {
+        right: 6px;
+    }
+    #controls ul {
+        margin-left: -6px;
+    }
+    #controls button.button-diagrams {
+        margin-top: 10px;
+    }
+}
+
+@media all and (max-width: 480px) {
+    .chords .chord,
+    .chords .fake-chord {
+        width: calc(12% - 2px);
+        font-size: 5.2vw;
+        padding-top: 4%;
+        padding-bottom: calc(8% - 2px);
+    }
+    .barlength-4 .chord:nth-child(8n+9),
+    .barlength-3 .chord:nth-child(6n+7) {
+        margin-left: 1px;
+    }
+    .barlength-4 .chord:nth-child(8n+9):after,
+    .barlength-3 .chord:nth-child(6n+7):after {
+        display: none;
+    }
+}
+
+@media all and (max-height: 570px) {
+    button {
+        font-size: 9pt;
+    }
+    #viewOptions button {
+        padding: 9px 3px;
+    }
+    body {
+        padding-top: 75px;
+    }
+    .diagram {
+        margin: 8px;
+        opacity: 0.6;
+    }
+    .diagrams {
+        margin-left: -20px;
+    }
+    .diagram-current {
+        transform: none;
+        opacity: 1;
+    }
+    #diagrams .diagram img {
+        height: 103px;
+        width: 104px;
+    }
+    #diagrams.diagrams-ukulele .diagram img {
+        margin: 0 18px 0 17px;
+        width: 77px;
+    }
+    #diagrams.diagrams-piano .diagram {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    #diagrams.diagrams-piano .diagram img {
+        height: 50px;
+        width: 109px;
+    }
+    #youtube {
+        bottom: 0;
+        right: 0;
+    }
+    footer {
+        display: none;
+    }
+    .overlay {
+        bottom: 0;
+    }
+    #controls .icon-caret-right,
+    #controls .icon-pause {
+        font-size: 30pt;
+    }
+}
+
+@media all and (max-width:390px) {
+    #youtube {
+        left: 0;
+        width: 100% !important;
+    }
+    .diagram {
+        margin: 8px;
+    }
+    .diagram-current {
+        transform: scale(1);
+    }
+    .diagrams {
+        margin-left: -20px;
+    }
+}
+
+/* always remove the bars every 16nth and 12th bar */
+
+.view-chords .barlength-4>.chord:nth-child(16n+1):after,
+.view-chords .barlength-3>.chord:nth-child(12n+1):after {
+    display: none;
+}
+
+.view-chords .barlength-4>.chord:nth-child(16n+1),
+.view-chords .barlength-3>.chord:nth-child(12n+1) {
+    margin-left: 1px;
+}
+
+/* end remove */

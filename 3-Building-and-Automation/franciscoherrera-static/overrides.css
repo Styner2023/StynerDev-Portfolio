@@ -1,0 +1,1577 @@
+/* ============================================================
+   franciscoherreramusic.com — local overrides.css
+   Loaded last in <head>, so source-order beats theme/app CSS.
+   Fixes:
+     1. Nav wraps multiple rows + social-row overlap
+     2. Inverted blob mask on hero photo
+     3. mix-blend-mode: difference on FRANCISCO HERRERA title
+   ============================================================ */
+
+
+/* --- 1. Nav layout: keep horizontal, recover width from social row ---- */
+
+/* Make the flex container a single non-wrapping row.
+   Original: display:flex; flex-wrap:wrap; justify-content:space-between
+   (benily.css:2103) */
+.not-intro-page #usersite-container:not(.mobile-view) .title-nav-container {
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Let .nav-bar claim the remaining width so it doesn't get squeezed
+   by the social-icons flex child. min-width:0 lets it shrink below
+   intrinsic width if needed. */
+.not-intro-page #usersite-container:not(.mobile-view) .nav-bar {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Social row keeps its natural (intrinsic) width on the right. */
+.not-intro-page #usersite-container:not(.mobile-view) #site-wide-header {
+  flex: 0 0 auto;
+}
+
+/* Shrink the per-link gutters. Original was margin: 0 calc(5px + 1vw)
+   which grows linearly with viewport (benily.css:2126-2129). */
+.not-intro-page #usersite-container:not(.mobile-view) .title-nav-container nav.non-mobile a.top {
+  margin: 0 10px;
+  white-space: nowrap;
+}
+
+/* Neutralize the plugin-added [multiple-line] cap that would
+   re-narrow .nav-bar to 920px (benily.css:2144-2148). */
+.not-intro-page #usersite-container:not(.mobile-view) .title-nav-container[multiple-line] .nav-bar,
+.not-intro-page #usersite-container:not(.mobile-view) .title-nav-container.multiple-line .nav-bar {
+  max-width: none;
+}
+
+/* Force the <ul> itself to stay a single non-wrapping row.
+   Default ul.horizontal is text-align:center + inline-block li's which wrap. */
+#usersite-container nav#main-nav.non-mobile ul.horizontal {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  white-space: nowrap;
+}
+
+#usersite-container nav#main-nav.non-mobile ul.horizontal > li.top {
+  flex: 0 0 auto;
+}
+
+
+/* --- 2. Hero photo: kill the blob mask --------------------------------- */
+
+/* The blob shape comes from benily.css:2750
+   `.theme-benily[data-variant=a] .m-page-media { --media-shape: var(--shape-blobs-1) }`
+   which feeds .m-shape { --mask: var(--shape) } → .m-masked { mask: var(--mask) }.
+   Zero out every relevant token + the resolved properties as a belt-and-braces. */
+#usersite-container .m-page-media,
+#usersite-container .m-media,
+#usersite-container media-background-container,
+#usersite-container .page-media-container {
+  --media-shape: none;
+  --shape: none;
+  --mask: none;
+  --clip-path: none;
+  --cut-corner: none;
+  -webkit-mask-image: none !important;
+          mask-image: none !important;
+          mask: none !important;
+  -webkit-clip-path: none !important;
+          clip-path: none !important;
+}
+
+/* Same kill on the slant-left mask applied to the social-row moda-section
+   via @layer moda.themeConfig in the page's inline <style>. */
+#usersite-container moda-section.m-masked,
+#usersite-container moda-section.m-shape {
+  --section-shape: none;
+  --mask: none;
+  -webkit-mask-image: none !important;
+          mask-image: none !important;
+          mask: none !important;
+  -webkit-clip-path: none !important;
+          clip-path: none !important;
+}
+
+
+/* --- 3. Title: drop the difference blend ------------------------------- */
+
+/* Original (benily.css:2581-2583):
+   .not-intro-page #usersite-container[data-theme-page-title-blend-mode-enum=difference] .title-wrap
+       { mix-blend-mode: difference } */
+.not-intro-page #usersite-container .title-wrap,
+.not-intro-page #usersite-container #title-wrap,
+#usersite-container #page-title,
+#usersite-container #page-title .outer,
+#usersite-container #page-title .inner {
+  mix-blend-mode: normal !important;
+}
+
+
+/* --- 4. Stack hero UNDER the nav (stop the photo bleeding behind it) -- */
+
+/* Original (benily.css:2415-2417): .page-header is a 2-row grid with
+   named lines header-start / nav-start / content-start / nav-end /
+   header-end / content-end. Photo gets `grid-row: header` which spans
+   BOTH rows, so it sits behind the nav. We constrain it to row 2 only. */
+.not-intro-page #usersite-container .page-media-wrapper,
+.not-intro-page #usersite-container #page_media_container {
+  grid-row: content !important;
+}
+
+/* Title stays in row 2 too (it already does for left-aligned, but pin
+   it explicitly in case any other rule kicks in). Both title + photo
+   share row 2 so the title remains overlaid on the photo. */
+.not-intro-page #usersite-container .title-wrap,
+.not-intro-page #usersite-container #title-wrap {
+  grid-row: content !important;
+}
+
+
+/* --- 5. Nav bar appearance: real band, no lime-green --------------- */
+
+/* Nav band uses the page sage so it blends into the rest of the page
+   (no visible band — menu floats on the existing background). */
+.not-intro-page #usersite-container:not(.mobile-view) .title-nav-container {
+  background-color: #7F8E7B;
+  padding-top: 0.55rem;
+  padding-bottom: 0.55rem;
+}
+
+/* Recolor the design tokens that drive hover + dropdown.
+   Scoped to #usersite-container so it shadows the :root values
+   for every descendant. */
+#usersite-container {
+  --nav-link-rollover-color: hsl(0, 0%, 100%);
+  --sub-menu-background-color: #7F8E7B;
+  --sub-menu-background-color-hsl: 108, 8%, 52%;
+  --sub-menu-link-color: hsl(24, 83%, 79%);
+  --sub-menu-link-color-hsl: 24, 83%, 79%;
+}
+
+/* Hover state on dropdown items: white text on a slight white tint. */
+.no-touchevents #usersite-container nav#main-nav.non-mobile ul ul li a:hover,
+.no-touchevents #usersite-container nav#main-nav.non-mobile ul ul li a:focus {
+  background-color: hsla(0, 0%, 100%, 0.08);
+  color: hsl(0, 0%, 100%) !important;
+}
+
+/* Polish the dropdown panel itself. */
+#usersite-container nav#main-nav.non-mobile ul ul {
+  border-radius: 6px;
+  padding: 4px 0;
+  box-shadow: 0 8px 24px hsla(0, 0%, 0%, 0.35);
+}
+
+#usersite-container nav#main-nav.non-mobile ul ul li a {
+  padding: 8px 14px;
+}
+
+/* The dropdown's little tooltip-arrow uses --sub-menu-background-color
+   via border-color (benily.css:1310-1316); it follows automatically. */
+
+
+/* --- 6. Suppress Turbo-Frame "Content missing" leaks ----------------- */
+
+/* The string "Content missing" is injected by Hotwire Turbo when a
+   <turbo-frame src="..."> fails to load. (chunk-QPZPP4GG.digested.js:1202
+   sets innerHTML = '<strong class="turbo-frame-error">Content missing</strong>'.)
+   Every <turbo-frame> here points at /<page>/deferred_features/<id> --
+   endpoints that don't exist locally, so all of them fail. */
+turbo-frame {
+  display: none !important;
+}
+
+.turbo-frame-error {
+  display: none !important;
+}
+
+/* Collapse the wrapper block that only contained the frame so it
+   doesn't leave a padding gap. */
+.zoogle-feature:has(> turbo-frame) {
+  display: none;
+}
+
+
+/* --- 7. Hide broken SpeakPipe voicemail widget ----------------------- */
+
+/* The SpeakPipe embed in #html_feature_12330 has its entire <script>
+   body commented out (every line starts with //), and the bare "//"
+   markers between comment delimiters leak as plain text on the page.
+   Widget is non-functional; hide it. */
+#html_feature_12330,
+#feature_block_199837 {
+  display: none !important;
+}
+
+
+/* --- 8. Hide admin "Log out" link on the public footer --------------- */
+
+/* <li class="if-logged-in"> in the footer's <nav><ul> is meant to render
+   only when an admin is signed into Bandzoogle. This snapshot was captured
+   while logged in, so the element leaks into the public mirror. */
+.if-logged-in {
+  display: none !important;
+}
+
+
+/* --- 9. Hide the broken homepage moda-section rows ------------------- */
+
+/* The new photo-essay block (injected into index.html before the first
+   broken row) replaces these visually. Suppressing the rows by ID is
+   safer than restructuring the moda-sections tree. */
+#feature_row_6339794,
+#feature_row_16480850,
+#feature_row_4162321,
+#feature_row_331075,
+#feature_row_3082415,
+#feature_row_331077,
+#feature_row_1757190,
+#feature_row_331079 {
+  display: none !important;
+}
+
+
+/* --- 10. Photo essay block (homepage only) --------------------------- */
+
+/* Break out of the constrained .site-wrap container so the bands run
+   edge-to-edge. The wrap normally caps at max-width:960px and centers. */
+.fh-essay {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  background: #7F8E7B;
+  color: hsl(0, 0%, 100%);
+  font-family: 'Archivo Narrow', sans-serif;
+  overflow: hidden;
+}
+
+/* Shared section heading */
+.fh-section-title {
+  margin: 0 0 0.6rem;
+  font-family: 'Teko', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.25rem, 4.5vw, 4rem);
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: hsl(24, 83%, 79%);
+  text-align: center;
+}
+
+.fh-section-subtitle {
+  margin: 0 auto 3rem;
+  max-width: 640px;
+  font-family: 'Archivo Narrow', sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
+  text-align: center;
+  color: hsl(0, 0%, 100%);
+  opacity: 0.85;
+}
+
+/* Full-bleed photo band with quote overlay */
+.fh-band {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: clamp(420px, 78vh, 720px);
+  margin: 0;
+  overflow: hidden;
+}
+
+.fh-band__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+.fh-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    hsla(107, 12%, 16%, 0.30) 0%,
+    hsla(107, 12%, 10%, 0.72) 100%);
+  z-index: 1;
+}
+
+.fh-band__inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 8vw;
+}
+
+.fh-band__quote {
+  margin: 0;
+  font-family: 'Protest Riot', sans-serif;
+  font-weight: 400;
+  font-size: clamp(2.25rem, 5.5vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  color: hsl(24, 83%, 79%);
+  text-shadow: 0 4px 28px hsla(0, 0%, 0%, 0.55);
+}
+
+.fh-band__attribution {
+  margin: 1.25rem 0 0;
+  font-family: 'Archivo Narrow', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: hsl(0, 0%, 100%);
+  opacity: 0.9;
+}
+
+/* Discography grid */
+.fh-albums {
+  padding: 5rem 6vw;
+  background: hsl(107, 8%, 52%);
+}
+
+.fh-albums__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.fh-album-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  text-decoration: none;
+  border-radius: 4px;
+  box-shadow: 0 4px 16px hsla(0, 0%, 0%, 0.25);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.fh-album-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px hsla(0, 0%, 0%, 0.4);
+}
+
+.fh-album-card img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.fh-album-card:hover img {
+  transform: scale(1.05);
+}
+
+.fh-album-card__title {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 1.5rem 1rem 0.85rem;
+  background: linear-gradient(transparent, hsla(0, 0%, 0%, 0.85));
+  font-family: 'Teko', sans-serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  color: hsl(0, 0%, 100%);
+}
+
+/* Past performances thumbnail grid + CTA */
+.fh-events {
+  padding: 5rem 6vw 6rem;
+  background: hsl(108, 10%, 38%);
+  text-align: center;
+}
+
+.fh-events__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  max-width: 1280px;
+  margin: 0 auto 2.5rem;
+}
+
+.fh-events__thumb {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.fh-events__thumb img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.fh-events__thumb:hover img {
+  transform: scale(1.06);
+}
+
+.fh-events__cta {
+  display: inline-block;
+  padding: 0.85rem 2.25rem;
+  background: hsl(24, 83%, 79%);
+  color: hsl(107, 12%, 18%);
+  font-family: 'Archivo Narrow', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.fh-events__cta:hover {
+  background: hsl(0, 0%, 100%);
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fh-album-card,
+  .fh-album-card img,
+  .fh-events__thumb img,
+  .fh-events__cta {
+    transition: none;
+  }
+  .fh-album-card:hover,
+  .fh-album-card:hover img,
+  .fh-events__thumb:hover img,
+  .fh-events__cta:hover {
+    transform: none;
+  }
+}
+
+
+/* --- 11. Eyebrow label ----------------------------------------------- */
+
+.fh-eyebrow {
+  margin: 0 0 0.75rem;
+  font-family: 'Archivo Narrow', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: hsl(24, 83%, 79%);
+}
+
+
+/* --- 12. Video manifesto banner -------------------------------------- */
+
+.fh-video-banner {
+  position: relative;
+  width: 100%;
+  height: clamp(440px, 75vh, 760px);
+  overflow: hidden;
+  background: hsl(107, 12%, 12%);
+}
+
+.fh-video-banner__media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.fh-video-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    hsla(0, 0%, 0%, 0.35) 0%,
+    hsla(107, 12%, 8%, 0.75) 100%);
+  z-index: 1;
+}
+
+.fh-video-banner__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 8vw 5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.fh-video-banner__title {
+  margin: 0;
+  font-family: 'Teko', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: hsl(0, 0%, 100%);
+  text-shadow: 0 4px 30px hsla(0, 0%, 0%, 0.55);
+}
+
+
+/* --- 13. Solo portrait grid ----------------------------------------- */
+
+.fh-portraits {
+  padding: 5rem 6vw;
+  background: hsl(108, 10%, 30%);
+}
+
+.fh-portraits__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .fh-portraits__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.fh-portrait {
+  margin: 0;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 4px 18px hsla(0, 0%, 0%, 0.35);
+  transition: transform 0.4s ease;
+}
+
+.fh-portrait:hover {
+  transform: translateY(-4px);
+}
+
+.fh-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.6s ease, filter 0.4s ease;
+  filter: grayscale(15%) contrast(1.05);
+}
+
+.fh-portrait:hover img {
+  transform: scale(1.04);
+  filter: grayscale(0%) contrast(1.05);
+}
+
+
+/* --- 14. Featured track player (on cream paper texture) -------------- */
+
+.fh-feature-track {
+  padding: 5rem 6vw;
+  background:
+    linear-gradient(hsla(40, 30%, 90%, 0.92), hsla(40, 30%, 90%, 0.92)),
+    url('/public/paper-background/cream-colored-paper-background-texture-close-up-2026-03-25-07-36-47-utc.jpg') center/cover no-repeat;
+  color: hsl(107, 18%, 16%);
+}
+
+.fh-feature-track__inner {
+  display: grid;
+  grid-template-columns: minmax(220px, 320px) 1fr;
+  gap: 3rem;
+  align-items: center;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+@media (max-width: 720px) {
+  .fh-feature-track__inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+  }
+}
+
+.fh-feature-track__cover {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow:
+    0 16px 32px hsla(107, 12%, 14%, 0.30),
+    0 0 0 1px hsla(0, 0%, 0%, 0.05);
+}
+
+.fh-feature-track__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media (max-width: 720px) {
+  .fh-feature-track__meta {
+    align-items: center;
+  }
+}
+
+.fh-feature-track .fh-eyebrow {
+  color: hsl(24, 75%, 45%);
+}
+
+.fh-feature-track__title {
+  margin: 0;
+  font-family: 'Protest Riot', sans-serif;
+  font-weight: 400;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1;
+  color: hsl(107, 18%, 16%);
+}
+
+.fh-feature-track__album {
+  margin: 0.5rem 0 1.5rem;
+  font-family: 'Archivo Narrow', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  color: hsl(107, 12%, 30%);
+}
+
+.fh-feature-track__album em {
+  font-style: italic;
+  color: hsl(107, 18%, 16%);
+}
+
+.fh-feature-track__audio {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 0 1.5rem;
+}
+
+.fh-feature-track__cta {
+  font-family: 'Archivo Narrow', sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: hsl(24, 75%, 40%);
+  text-decoration: none;
+  border-bottom: 1px solid hsla(24, 75%, 40%, 0.4);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.fh-feature-track__cta:hover {
+  color: hsl(107, 18%, 16%);
+  border-color: hsl(107, 18%, 16%);
+}
+
+
+/* --- 15. Press / candid gallery (masonry via CSS columns) ----------- */
+
+.fh-gallery {
+  padding: 5rem 6vw;
+  background: hsl(107, 8%, 52%);
+}
+
+.fh-gallery__grid {
+  column-count: 4;
+  column-gap: 1rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1100px) { .fh-gallery__grid { column-count: 3; } }
+@media (max-width: 760px)  { .fh-gallery__grid { column-count: 2; } }
+@media (max-width: 480px)  { .fh-gallery__grid { column-count: 1; } }
+
+.fh-gallery__item {
+  display: block;
+  margin: 0 0 1rem;
+  break-inside: avoid;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px hsla(0, 0%, 0%, 0.30);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.fh-gallery__item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px hsla(0, 0%, 0%, 0.45);
+}
+
+.fh-gallery__item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.fh-gallery__item:hover img {
+  transform: scale(1.04);
+}
+
+
+/* --- 16. Video gallery ---------------------------------------------- */
+
+.fh-watch {
+  padding: 5rem 6vw;
+  background: hsl(107, 12%, 18%);
+}
+
+.fh-watch .fh-section-title,
+.fh-watch .fh-section-subtitle {
+  color: hsl(24, 83%, 79%);
+}
+
+.fh-watch .fh-section-subtitle {
+  color: hsl(0, 0%, 100%);
+  opacity: 0.85;
+}
+
+.fh-watch__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+@media (max-width: 720px) {
+  .fh-watch__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.fh-watch__item {
+  margin: 0;
+  background: hsl(0, 0%, 0%);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px hsla(0, 0%, 0%, 0.4);
+}
+
+.fh-watch__item--wide {
+  grid-column: 1 / -1;
+}
+
+.fh-watch__item video {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: hsl(0, 0%, 0%);
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.fh-watch__item figcaption {
+  padding: 1rem 1.25rem;
+  font-family: 'Archivo Narrow', sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  color: hsl(0, 0%, 100%);
+  background: hsl(107, 12%, 14%);
+}
+
+
+/* --- 17. Band members ----------------------------------------------- */
+
+.fh-band-members {
+  padding: 5rem 6vw 6rem;
+  background: hsl(108, 10%, 40%);
+}
+
+.fh-band-members__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+@media (max-width: 720px) {
+  .fh-band-members__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.fh-member {
+  margin: 0;
+  text-align: center;
+}
+
+.fh-member img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 6px 20px hsla(0, 0%, 0%, 0.35);
+  transition: transform 0.4s ease;
+  filter: grayscale(15%);
+}
+
+.fh-member:hover img {
+  transform: scale(1.04);
+  filter: grayscale(0%);
+}
+
+.fh-member figcaption {
+  margin-top: 1rem;
+  font-family: 'Teko', sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
+  color: hsl(0, 0%, 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fh-portrait,
+  .fh-portrait img,
+  .fh-gallery__item,
+  .fh-gallery__item img,
+  .fh-member img {
+    transition: none;
+  }
+  .fh-portrait:hover,
+  .fh-portrait:hover img,
+  .fh-gallery__item:hover,
+  .fh-gallery__item:hover img,
+  .fh-member:hover img {
+    transform: none;
+  }
+}
+
+
+/* ====================================================================
+   18. DESIGN SYSTEM v2 — typography, color, motion
+   ==================================================================== */
+
+@font-face {
+  font-family: 'Silkroad';
+  src: url('/public/fonts/fonts-envato/silkroad-luxury-serif-typeface-2026-04-07-06-19-30-utc/Silkroad.woff') format('woff'),
+       url('/public/fonts/fonts-envato/silkroad-luxury-serif-typeface-2026-04-07-06-19-30-utc/Silkroad.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MoreCream';
+  src: url('/public/fonts/fonts-envato/more-cream-elegant-sans-serif-smooth-stylish-2026-04-07-05-57-16-utc/MoreCream.otf') format('opentype'),
+       url('/public/fonts/fonts-envato/more-cream-elegant-sans-serif-smooth-stylish-2026-04-07-05-57-16-utc/MoreCream.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Silently';
+  src: url('/public/fonts/Silently_FREE.otf') format('opentype'),
+       url('/public/fonts/Silently_FREE.ttf') format('truetype');
+  font-display: swap;
+}
+
+/* Design tokens scoped to the photo-essay block so nothing else inherits */
+.fh-essay {
+  --fh-c-sage:        #7F8E7B;
+  --fh-c-sage-dark:   hsl(108, 12%, 22%);
+  --fh-c-ink:         hsl(108, 18%, 12%);
+  --fh-c-cream:       hsl(40, 32%, 92%);
+  --fh-c-cream-warm:  hsl(36, 38%, 88%);
+  --fh-c-peach:       hsl(24, 83%, 79%);
+  --fh-c-coral:       hsl(18, 72%, 58%);
+  --fh-c-white:       hsl(0, 0%, 100%);
+
+  --fh-f-editorial:   'Silkroad', 'Times New Roman', serif;
+  --fh-f-body:        'MoreCream', 'Archivo Narrow', system-ui, sans-serif;
+  --fh-f-display:     'Teko', sans-serif;
+  --fh-f-expressive:  'Protest Riot', sans-serif;
+  --fh-f-script:      'Silently', cursive;
+  --fh-f-mono:        'Archivo Narrow', sans-serif;
+
+  --fh-fs-eyebrow:    clamp(0.72rem, 0.9vw, 0.85rem);
+  --fh-fs-body:       clamp(1rem, 1.2vw, 1.15rem);
+  --fh-fs-lead:       clamp(1.15rem, 1.5vw, 1.45rem);
+  --fh-fs-h2:         clamp(2.25rem, 5vw, 4.5rem);
+  --fh-fs-display:    clamp(2.5rem, 6vw, 5.5rem);
+
+  --fh-space-section: clamp(4rem, 8vw, 7rem);
+  --fh-space-pad:     clamp(1.5rem, 6vw, 5rem);
+
+  --fh-shadow-card:   0 8px 28px hsla(0, 0%, 0%, 0.18);
+  --fh-shadow-hover:  0 18px 40px hsla(0, 0%, 0%, 0.34);
+
+  --fh-radius:        4px;
+}
+
+/* Apply MoreCream as the default body font across the essay */
+.fh-essay {
+  font-family: var(--fh-f-body);
+}
+
+
+/* ====================================================================
+   19. SCROLL-REVEAL — pure CSS, no JS
+   ==================================================================== */
+
+@keyframes fh-reveal {
+  from { opacity: 0; transform: translateY(36px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@supports (animation-timeline: view()) {
+  .fh-essay > section,
+  .fh-essay > figure {
+    animation: fh-reveal 1.1s cubic-bezier(.2,.8,.2,1) both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fh-essay > section,
+  .fh-essay > figure {
+    animation: none !important;
+  }
+}
+
+
+/* ====================================================================
+   20. BIO / MANIFESTO INTRO
+   ==================================================================== */
+
+.fh-bio {
+  padding: var(--fh-space-section) var(--fh-space-pad);
+  background:
+    linear-gradient(hsla(40, 32%, 92%, 0.94), hsla(40, 32%, 92%, 0.94)),
+    url('/public/paper-background/cream-colored-paper-background-texture-close-up-2026-03-25-07-36-47-utc.jpg') center/cover no-repeat;
+  color: var(--fh-c-ink);
+}
+
+.fh-bio__inner {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) 1.5fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 800px) {
+  .fh-bio__inner {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+}
+
+.fh-bio__portrait {
+  margin: 0;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: var(--fh-radius);
+  box-shadow: var(--fh-shadow-card);
+  position: relative;
+}
+
+.fh-bio__portrait::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, hsla(108, 18%, 12%, 0.18) 100%);
+}
+
+.fh-bio__portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  filter: contrast(1.05) saturate(0.95);
+}
+
+.fh-bio__text .fh-eyebrow {
+  color: var(--fh-c-coral);
+  margin-bottom: 1.25rem;
+}
+
+.fh-bio__title {
+  margin: 0 0 1.5rem;
+  font-family: var(--fh-f-editorial);
+  font-weight: 400;
+  font-size: var(--fh-fs-h2);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--fh-c-ink);
+}
+
+.fh-bio__lead {
+  margin: 0 0 1.25rem;
+  font-family: var(--fh-f-body);
+  font-size: var(--fh-fs-lead);
+  line-height: 1.45;
+  color: var(--fh-c-ink);
+}
+
+.fh-bio__body {
+  margin: 0 0 2rem;
+  font-family: var(--fh-f-body);
+  font-size: var(--fh-fs-body);
+  line-height: 1.7;
+  color: hsl(108, 12%, 28%);
+  max-width: 60ch;
+}
+
+.fh-bio__body em {
+  font-style: italic;
+  color: var(--fh-c-coral);
+}
+
+.fh-bio__signature {
+  margin: 0 0 1.5rem;
+  font-family: var(--fh-f-script);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  line-height: 1;
+  color: var(--fh-c-coral);
+}
+
+.fh-bio__cta {
+  display: inline-block;
+  font-family: var(--fh-f-mono);
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fh-c-coral);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 3px;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.fh-bio__cta:hover {
+  color: var(--fh-c-ink);
+  transform: translateX(4px);
+}
+
+
+/* ====================================================================
+   21. QUOTE BAND VARIATIONS — three distinct typographic treatments
+   ==================================================================== */
+
+/* Band 1 — Editorial serif (Silkroad, italic, restrained) */
+.fh-band--serif .fh-band__quote {
+  font-family: var(--fh-f-editorial);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(2rem, 4.5vw, 4rem);
+  letter-spacing: -0.005em;
+  color: var(--fh-c-cream);
+  text-shadow: 0 4px 28px hsla(0, 0%, 0%, 0.6);
+}
+
+.fh-band--serif .fh-band__attribution {
+  font-family: var(--fh-f-script);
+  letter-spacing: 0;
+  text-transform: none;
+  font-size: 1.4rem;
+  color: var(--fh-c-peach);
+  opacity: 1;
+}
+
+/* Band 2 — unchanged (keeps Protest Riot expressive treatment) */
+
+/* Band 3 — Quiet sans (MoreCream, regular weight, soft) */
+.fh-band--quiet::before {
+  background: linear-gradient(180deg,
+    hsla(108, 12%, 16%, 0.20) 0%,
+    hsla(108, 12%, 14%, 0.55) 100%);
+}
+
+.fh-band--quiet .fh-band__quote {
+  font-family: var(--fh-f-body);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 3.5vw, 2.75rem);
+  line-height: 1.35;
+  letter-spacing: 0;
+  color: var(--fh-c-white);
+  text-shadow: 0 2px 18px hsla(0, 0%, 0%, 0.55);
+  max-width: 24ch;
+}
+
+
+/* ====================================================================
+   22. FEATURED TRACK — vinyl-style immersive treatment
+   ==================================================================== */
+
+.fh-feature-track--vinyl {
+  padding: var(--fh-space-section) var(--fh-space-pad);
+  background:
+    radial-gradient(ellipse at 30% 40%, hsla(40, 32%, 96%, 0.96), hsla(40, 32%, 90%, 0.96) 60%),
+    url('/public/paper-background/cream-colored-paper-background-texture-close-up-2026-03-25-07-36-47-utc.jpg') center/cover no-repeat;
+  color: var(--fh-c-ink);
+}
+
+.fh-feature-track--vinyl .fh-feature-track__inner {
+  grid-template-columns: minmax(280px, 1fr) 1.4fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  max-width: 1200px;
+}
+
+@media (max-width: 800px) {
+  .fh-feature-track--vinyl .fh-feature-track__inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Album art rendered as a circular vinyl record */
+.fh-feature-track--vinyl .fh-feature-track__cover {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  box-shadow:
+    0 20px 40px hsla(108, 18%, 14%, 0.35),
+    0 0 0 8px hsl(108, 8%, 18%),
+    0 0 0 14px hsl(108, 12%, 25%);
+  transition: transform 1.2s cubic-bezier(.2,.8,.2,1);
+}
+
+.fh-feature-track--vinyl:hover .fh-feature-track__cover {
+  transform: rotate(8deg);
+}
+
+@keyframes fh-spin {
+  to { transform: rotate(360deg); }
+}
+
+.fh-feature-track--vinyl .fh-feature-track__cover.playing {
+  animation: fh-spin 12s linear infinite;
+}
+
+.fh-feature-track--vinyl .fh-feature-track__title {
+  font-family: var(--fh-f-editorial);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(3rem, 6vw, 5rem);
+  letter-spacing: -0.01em;
+  color: var(--fh-c-ink);
+}
+
+.fh-feature-track--vinyl .fh-feature-track__album {
+  font-family: var(--fh-f-body);
+  font-size: 1.1rem;
+  color: hsl(108, 12%, 32%);
+}
+
+.fh-feature-track--vinyl .fh-feature-track__album em {
+  font-family: var(--fh-f-script);
+  font-size: 1.5rem;
+  color: var(--fh-c-coral);
+  font-style: normal;
+  margin-left: 4px;
+}
+
+/* Style the native audio element with accent color */
+.fh-feature-track--vinyl audio {
+  accent-color: var(--fh-c-coral);
+  border-radius: 999px;
+  background: var(--fh-c-cream-warm);
+}
+
+
+/* ====================================================================
+   23. POLISH PASS — section titles use editorial serif on cream sections
+   ==================================================================== */
+
+.fh-bio + *,
+.fh-feature-track--vinyl {
+  /* hook for future use */
+}
+
+/* Section titles: keep Teko everywhere by default, but on cream-backed
+   sections we want serif italic for editorial elegance. */
+.fh-feature-track .fh-section-title,
+.fh-bio + .fh-band--serif .fh-band__attribution {
+  font-family: var(--fh-f-editorial);
+}
+
+/* Replace the existing fh-section-title for sections inside the new
+   design system — keep Teko on top of dark backgrounds (high impact),
+   but introduce a more refined version for the gallery + watch sections */
+.fh-gallery .fh-section-title,
+.fh-watch .fh-section-title {
+  font-family: var(--fh-f-editorial);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  text-transform: none;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+.fh-gallery .fh-section-subtitle,
+.fh-watch .fh-section-subtitle {
+  font-family: var(--fh-f-body);
+  letter-spacing: 0.02em;
+  font-size: 1.15rem;
+}
+
+/* Subtle section divider between major regions */
+.fh-essay > section + section,
+.fh-essay > figure + section,
+.fh-essay > section + figure,
+.fh-essay > figure + figure {
+  position: relative;
+}
+
+
+/* ====================================================================
+   24. CHAPTER DIVIDERS — I. The Voice / II. The Work / III. The Road
+   ==================================================================== */
+
+.fh-chapter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: clamp(3.5rem, 7vw, 5.5rem) var(--fh-space-pad);
+  background: var(--fh-c-sage);
+  text-align: center;
+}
+
+.fh-chapter::before,
+.fh-chapter::after {
+  content: "";
+  display: block;
+  width: 1px;
+  background: linear-gradient(180deg,
+    hsla(40, 32%, 92%, 0) 0%,
+    hsla(40, 32%, 92%, 0.55) 100%);
+}
+
+.fh-chapter::before {
+  height: 56px;
+  margin-bottom: 0.75rem;
+}
+
+.fh-chapter::after {
+  height: 56px;
+  margin-top: 0.75rem;
+  background: linear-gradient(180deg,
+    hsla(40, 32%, 92%, 0.55) 0%,
+    hsla(40, 32%, 92%, 0) 100%);
+}
+
+.fh-chapter__numeral {
+  font-family: var(--fh-f-editorial);
+  font-style: italic;
+  font-size: clamp(3rem, 6vw, 4.75rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--fh-c-peach);
+}
+
+.fh-chapter__title {
+  margin: 0;
+  font-family: var(--fh-f-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--fh-c-cream);
+  opacity: 0.9;
+  /* nudge for the trailing letter-spacing visual centering */
+  padding-left: 0.5em;
+}
+
+
+/* ====================================================================
+   25. BRIDGE — handwritten bilingual transition (Bandzoogle → essay)
+   ==================================================================== */
+
+.fh-bridge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: clamp(4.5rem, 9vw, 7rem) var(--fh-space-pad);
+  background: #000;
+  text-align: center;
+  color: #fff;
+}
+
+.fh-bridge__rule {
+  display: none;
+}
+
+.fh-bridge__text {
+  margin: 0;
+  font-family: var(--fh-f-script);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  color: #fff;
+}
+
+.fh-bridge__text span {
+  display: block;
+  font-family: var(--fh-f-script);
+  font-size: 0.7em;
+  margin-top: 0.4rem;
+  color: hsla(0, 0%, 100%, 0.7);
+  letter-spacing: 0.02em;
+}
+
+
+/* ====================================================================
+   26. CUSTOM AUDIO PLAYER — pill, coral play button, thin progress
+   ==================================================================== */
+
+.fh-track-player {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 0 1.5rem;
+  padding: 0.85rem 1.25rem 0.85rem 0.85rem;
+  background: hsla(40, 38%, 80%, 0.55);
+  border: 1px solid hsla(108, 18%, 16%, 0.10);
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+}
+
+@media (max-width: 720px) {
+  .fh-track-player { margin: 0 auto 1.5rem; }
+}
+
+.fh-track-player__audio {
+  /* element is functional only; controls are custom */
+  display: none;
+}
+
+.fh-track-player__btn {
+  width: 54px;
+  height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: hsl(18, 72%, 48%);
+  color: hsl(40, 32%, 96%);
+  cursor: pointer;
+  box-shadow: 0 4px 14px hsla(18, 72%, 28%, 0.4);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fh-track-player__btn:hover {
+  transform: scale(1.06);
+  background: hsl(108, 18%, 16%);
+  box-shadow: 0 6px 18px hsla(108, 18%, 12%, 0.45);
+}
+
+.fh-track-player__btn:focus-visible {
+  outline: 2px solid hsl(24, 83%, 70%);
+  outline-offset: 3px;
+}
+
+.fh-track-player__icon {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+  display: inline-block;
+  /* slight optical centering of the play triangle */
+}
+
+.fh-track-player__icon--play  { transform: translateX(2px); }
+.fh-track-player__icon--pause { display: none; }
+.fh-track-player.playing .fh-track-player__icon--play  { display: none; }
+.fh-track-player.playing .fh-track-player__icon--pause { display: inline-block; }
+
+.fh-track-player__rail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.fh-track-player__bar {
+  position: relative;
+  height: 4px;
+  background: hsla(108, 18%, 16%, 0.15);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.fh-track-player__progress {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0%;
+  background: hsl(18, 72%, 48%);
+  border-radius: 2px;
+  transition: width 0.08s linear;
+}
+
+.fh-track-player__bar::after {
+  /* invisible hit zone for easier clicking */
+  content: "";
+  position: absolute;
+  inset: -10px 0;
+}
+
+.fh-track-player__times {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--fh-f-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+  color: hsl(108, 12%, 30%);
+}
+
+
+/* ====================================================================
+   27. PAST PERFORMANCES — fewer thumbs, larger and more refined
+   ==================================================================== */
+
+.fh-events__grid {
+  /* trimmed to 6 thumbs: nicer rhythm at 3-col / 2-col / 1-col */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  max-width: 1080px;
+}
+
+@media (max-width: 900px) { .fh-events__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px) { .fh-events__grid { grid-template-columns: 1fr; } }
+
+.fh-events__thumb {
+  aspect-ratio: 4 / 3;
+  border-radius: 4px;
+  box-shadow: var(--fh-shadow-card);
+}
+
+.fh-events__thumb:hover {
+  box-shadow: var(--fh-shadow-hover);
+}
+
+
+/* ====================================================================
+   28. BAND MEMBERS — editorial credits with role in Silently script
+   ==================================================================== */
+
+.fh-member figcaption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  margin-top: 1rem;
+}
+
+.fh-member__name {
+  font-family: var(--fh-f-display);
+  font-weight: 500;
+  font-size: 1.55rem;
+  letter-spacing: 0.06em;
+  color: hsl(0, 0%, 100%);
+  line-height: 1.1;
+}
+
+.fh-member__role {
+  font-family: var(--fh-f-script);
+  font-size: 1.15rem;
+  color: var(--fh-c-peach);
+  line-height: 1;
+}
+
+
+/* ====================================================================
+   29. BILINGUAL — EN / ES toggle and language-aware visibility
+   ==================================================================== */
+
+/* Default to English (so the page reads in English even before the
+   inline script runs — no flash of Spanish content). */
+.lang-es { display: none; }
+.lang-en { display: inline; }
+
+/* Once the inline script sets body[data-fh-lang], honor it */
+body[data-fh-lang="es"] .lang-en { display: none; }
+body[data-fh-lang="es"] .lang-es { display: inline; }
+body[data-fh-lang="en"] .lang-en { display: inline; }
+body[data-fh-lang="en"] .lang-es { display: none; }
+
+/* The toggle pill — fixed top-right, always visible */
+.fh-lang-toggle {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.45rem 0.95rem;
+  background: hsla(108, 18%, 12%, 0.78);
+  border: 1px solid hsla(40, 32%, 92%, 0.18);
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-family: var(--fh-f-mono, 'Archivo Narrow', sans-serif);
+  font-size: 0.74rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  box-shadow: 0 6px 20px hsla(0, 0%, 0%, 0.25);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.fh-lang-toggle:hover {
+  background: hsla(108, 18%, 16%, 0.92);
+  transform: translateY(-1px);
+}
+
+.fh-lang-toggle__btn {
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: hsla(40, 32%, 92%, 0.55);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.fh-lang-toggle__btn:hover {
+  color: hsla(40, 32%, 92%, 0.95);
+}
+
+.fh-lang-toggle__btn.is-active {
+  color: hsl(24, 83%, 79%);
+}
+
+.fh-lang-toggle__btn:focus-visible {
+  outline: 2px solid hsl(24, 83%, 70%);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.fh-lang-toggle__divider {
+  color: hsla(40, 32%, 92%, 0.25);
+  font-weight: 400;
+  /* nudge the centered dot up to baseline of caps */
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
+/* On narrow viewports the toggle still works but moves slightly inboard */
+@media (max-width: 600px) {
+  .fh-lang-toggle {
+    top: 0.75rem;
+    right: 0.75rem;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.7rem;
+  }
+}

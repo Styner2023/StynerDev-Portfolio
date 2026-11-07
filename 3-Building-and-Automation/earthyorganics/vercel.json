@@ -1,0 +1,9 @@
+{
+    "version": 2,
+    "public": true,
+    "buildCommand": "echo 'No build required'",
+    "outputDirectory": "public",
+    "framework": null,
+    "cleanUrls": true,
+    "trailingSlash": false
+}

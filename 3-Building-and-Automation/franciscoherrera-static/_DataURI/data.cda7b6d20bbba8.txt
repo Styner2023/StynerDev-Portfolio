@@ -1,0 +1,1 @@
+chrome-extension://4430cd2f-3551-4f5a-9e24-919582deaf8d/js/client.js

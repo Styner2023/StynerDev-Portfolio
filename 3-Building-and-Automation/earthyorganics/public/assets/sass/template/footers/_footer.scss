@@ -1,0 +1,135 @@
+.widget-area {
+  padding: 253px 0 80px 0;
+  &.style2 {
+    padding: 205px 0 80px 0;
+    @include respond-below(md) {
+      padding: 150px 0 20px 0;
+    }
+  }
+  &.style3 {
+    padding: 120px 0 160px 0;
+    background-color: var(--bg3-color);
+    position: relative;
+    z-index: 1;
+    @include respond-below(md) {
+      padding: 80px 0 110px 0;
+    }
+    .footer-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      @include respond-below(lg) {
+        display: none;
+      }
+    }
+  }
+}
+.copyright-wrap {
+  padding: 37px 0;
+  &.style2 {
+    border-top: 1px solid rgba(#fff, $alpha: 0.2);
+  }
+}
+
+.copyright-text {
+  margin: 0;
+  a {
+    font-weight: 700;
+    color: var(--black-color);
+    position: relative;
+    &::after {
+      position: absolute;
+      content: "";
+      width: 0%;
+      height: 1px;
+      background-color: var(--title-color);
+      bottom: -2px;
+      right: 0;
+      transition: all 0.3s ease-in-out;
+    }
+    &:hover {
+      color: var(--title-color);
+      &::after {
+        width: 100%;
+        left: 0;
+      }
+    }
+  }
+  &.style3 {
+    color: var(--title-color);
+    a {
+      color: var(--title-color);
+      position: relative;
+      &::after {
+        position: absolute;
+        content: "";
+        width: 0%;
+        height: 1px;
+        background-color: var(--title-color);
+        bottom: -2px;
+        right: 0;
+        transition: all 0.3s ease-in-out;
+      }
+      &:hover {
+        color: var(--title-color);
+        &::after {
+          width: 100%;
+          left: 0;
+        }
+      }
+    }
+  }
+  &.style2 {
+    color: var(--white-color);
+    a {
+      color: var(--white-color);
+      &::after {
+        background-color: var(--theme-color2);
+      }
+      &:hover {
+        color: var(--theme-color2);
+      }
+    }
+  }
+}
+
+.footer-layout1 {
+  background-color: var(--bg1-color);
+  margin-top: -133px;
+}
+.footer-layout2 {
+  background-color: var(--bg3-color);
+  margin-top: -85px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  .footer-ele1 {
+    top: 0;
+  }
+}
+.footer-layout3 {
+  background-color: var(--theme-color2);
+}
+@include md {
+  .footer-layout1 {
+    text-align: center;
+
+    .footer-text {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+.footer-payment {
+  text-align: center;
+}
+
+.footer-ele1 {
+  position: absolute;
+  top: 86px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+}

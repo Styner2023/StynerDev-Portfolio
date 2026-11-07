@@ -1,0 +1,259 @@
+.post-pagination {
+  padding: 40px 0;
+}
+
+.post-pagi-box {
+  display: flex;
+  align-items: center;
+
+  > a {
+    color: $title-color;
+    font-weight: 700;
+    font-size: 20px;
+    font-family: var(--title-font);
+
+    &:hover {
+      color: $theme-color;
+    }
+  }
+
+  img {
+    width: 80px;
+    margin-right: 25px;
+  }
+
+  &.next {
+    flex-direction: row-reverse;
+
+    img {
+      margin-right: 0;
+      margin-left: 25px;
+    }
+  }
+}
+
+.pagi-icon {
+  color: var(--theme-color);
+  font-size: 40px;
+  &:hover {
+    color: var(--theme-color);
+  }
+}
+
+@include sm {
+  .vs-pagination {
+    span,
+    a {
+      width: 35px;
+      height: 35px;
+      line-height: 35px;
+      font-size: 14px;
+      padding: 0 10px;
+    }
+  }
+
+  .post-pagi-box {
+    > a {
+      font-size: 12px;
+    }
+
+    img {
+      width: 40px;
+      margin-right: 15px;
+    }
+
+    &.next img {
+      margin-right: 0;
+      margin-left: 15px;
+    }
+  }
+}
+
+.vs-pagination {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  background: var(--bg2-color);
+  padding: 13px;
+  border-radius: 30px;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-radius: 0;
+    background-color: var(--bg2-color);
+    padding: 0px 20px;
+    display: flex;
+    align-items: center;
+    @include respond-below(md) {
+      padding: 0px 5px;
+    }
+    li {
+      a {
+        &::before {
+          display: none;
+        }
+        &:hover {
+          color: var(--theme-color);
+        }
+      }
+    }
+  }
+
+  span,
+  a {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    border: none;
+    font-family: var(--title-font);
+    font-size: 16px;
+    font-weight: 700;
+    width: auto;
+    height: auto;
+    line-height: 1;
+    z-index: 1;
+    text-transform: capitalize;
+    background-color: transparent;
+    border-radius: 0;
+    color: var(--text-color);
+    padding: 0 0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 3px;
+      right: 3px;
+      bottom: 3px;
+      top: 3px;
+      background-color: var(--vs-secondary-color);
+      border-radius: inherit;
+      transition: all ease 0.4s;
+      transform: scale(0.6);
+      opacity: 0;
+      visibility: hidden;
+      z-index: -1;
+    }
+
+    &.active,
+    &:hover {
+      color: var(--title-color);
+      border-color: rgba(0, 0, 0, 0);
+    }
+
+    &.active::before,
+    &:hover::before {
+      transform: scale(1);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  li {
+    display: inline-flex;
+    list-style-type: none;
+    align-items: center;
+    margin-right: 20px;
+    padding-right: 20px;
+    border-right: 1px solid var(--vs-border-color);
+    @include respond-below(md) {
+      margin-right: 10px;
+      padding-right: 10px;
+    }
+    &:last-child {
+      margin-right: 0;
+      padding-right: 0;
+      border-right: 0;
+    }
+  }
+
+  .pagi-btn {
+    width: 31px;
+    height: 31px;
+    line-height: 1;
+    padding: 0;
+    background-color: var(--white-color);
+    color: var(--title-color);
+    text-transform: capitalize;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 18px;
+
+    &:hover {
+      background-color: var(--theme-color);
+    }
+
+    &::before {
+      background-color: var(--theme-color);
+    }
+  }
+}
+
+.post-pagination {
+  padding: 0px 0 40px;
+  margin: 0 0 30px;
+}
+
+.post-pagi-box {
+  display: flex;
+  align-items: center;
+  background-color: var(--smoke-color);
+  padding: 20px;
+  border-radius: 20px;
+
+  > a {
+    color: $title-color;
+    font-weight: 600;
+    font-size: 16px;
+    font-family: $title-font;
+    flex: none;
+
+    &:hover {
+      color: $theme-color;
+    }
+  }
+  .post-pagi-name {
+    font-size: 14px;
+    font-weight: 700;
+    font-family: var(--title-font);
+    display: inline-block;
+    margin-bottom: 10px;
+    color: var(--text-color);
+  }
+  .post-pagi-title {
+    font-size: 18px;
+    margin-bottom: 0;
+    a {
+      color: var(--title-color);
+      &:hover {
+        color: var(--theme-color);
+      }
+    }
+  }
+
+  img {
+    width: 100px;
+    margin-right: 15px;
+    border-radius: 20px;
+  }
+
+  &.next {
+    flex-direction: row-reverse;
+    text-align: right;
+
+    img {
+      margin-right: 0;
+      margin-left: 15px;
+    }
+  }
+}
+
+.pagi-icon {
+  color: #f0f0f0;
+  font-size: 40px;
+}
