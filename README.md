@@ -1,22 +1,22 @@
 # StynerDev Portfolio
 
 **Styner Stiner · StynerDev · Oakland, CA**
-Sales · AI Teaching (Kuumba Code) · Building & Automation
+Technical Sales · AI Teaching (Kuumba Code) · Building & Automation
 
 This repo holds the code behind the websites and tools I've built for my own businesses and for my clients, sorted into the three kinds of work I do best. Each folder is a **copy** for showing my work. The live sites deploy from their own repos.
 
 | | Category | What it covers |
 |---|---|---|
-| 1 | [Sales](1-Sales/) | Tech and POS sales, business banking (US Bank, Wells Fargo), title and closing work, and the sales tools I build for myself |
+| 1 | [Technical Sales & Customer Engineering](1-Technical-Sales/) | Selling POS and payment technology as a business banker (U.S. Bank, Wells Fargo), title and closing work, and the sales tools I build for myself |
 | 2 | [Teaching: Kuumba Code](2-Teaching-Kuumba-Code/) | I teach clients and kids to build with AI themselves, hands-on |
 | 3 | [Building & Automation](3-Building-and-Automation/) | My own products and client websites, start to finish |
 
 ---
 
-## 1. Sales
+## 1. Technical Sales & Customer Engineering
 | Project | Live | Code |
 |---|---|---|
-| BenefitsSafe marketing site: the pitch for my grant-disbursement product | https://benefitssafe.com/ | [benefitssafe-marketing](1-Sales/benefitssafe-marketing/) |
+| BenefitsSafe marketing site: the pitch for my grant-disbursement product | https://benefitssafe.com/ | [benefitssafe-marketing](1-Technical-Sales/benefitssafe-marketing/) |
 | StynerDev consultation booking pipeline: Google Calendar booking page + an hourly Apps Script that logs every booking to a Sheet | https://calendar.app.google/fpZDf4DRbkZoLcy4A | Apps Script (to be added) |
 
 ## 2. Teaching: Kuumba Code
@@ -53,7 +53,7 @@ This repo holds the code behind the websites and tools I've built for my own bus
 
 Every repo on this profile is tagged with its category. Click a tag to see that group.
 
-### 1. Sales (8) · [`sales`](https://github.com/StynerStiner?tab=repositories&q=topic%3Asales)
+### 1. Technical Sales & Customer Engineering (8) · [`technical-sales`](https://github.com/StynerStiner?tab=repositories&q=topic%3Atechnical-sales)
 [benefitssafe-marketing](https://github.com/StynerStiner/benefitssafe-marketing) · [BusinessIdeaValidator](https://github.com/StynerStiner/BusinessIdeaValidator) · [Klassic-Kapital](https://github.com/StynerStiner/Klassic-Kapital) · [My-Digital-Resume](https://github.com/StynerStiner/My-Digital-Resume) · [my-project-portfolio](https://github.com/StynerStiner/my-project-portfolio) · [stynerdev-cc-main](https://github.com/StynerStiner/stynerdev-cc-main) · [stynerdev-link-bio](https://github.com/StynerStiner/stynerdev-link-bio) · [StynerDev-main-2025-history](https://github.com/StynerStiner/StynerDev-main-2025-history)
 
 ### 2. Teaching: Kuumba Code (10) · [`teaching-kuumba-code`](https://github.com/StynerStiner?tab=repositories&q=topic%3Ateaching-kuumba-code)
