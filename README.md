@@ -38,7 +38,7 @@ This repo holds the code behind the websites and tools I've built for my own bus
 | Project | Live | Code |
 |---|---|---|
 | BenefitsSafe: grant disbursement platform (my product) | https://benefitssafe.com/ | [benefitssafe-app](3-Building-and-Automation/benefitssafe-app/) |
-| SentinelLayer: security / guardrail layer | | [sentinellayer](3-Building-and-Automation/sentinellayer/) |
+| SentinelLayer: scheduled compliance agents for BenefitsSafe (benefit-limit watchdog, spending monitor, grant reports) | | [sentinellayer](3-Building-and-Automation/sentinellayer/) |
 | Dr. Michael Ralph: scholar and professor. Rebuilt after his old site was hacked. | https://drmichaelralph.vercel.app/ | [dr-michaelralph](3-Building-and-Automation/dr-michaelralph/) |
 | Earthy Organics: natural products brand | https://earthyorganics.vercel.app/ | [earthyorganics](3-Building-and-Automation/earthyorganics/) |
 | D'Hardest Beatz: music producer | https://dhardest-beatz.vercel.app/ | [dhardest-beatz](3-Building-and-Automation/dhardest-beatz/) |
