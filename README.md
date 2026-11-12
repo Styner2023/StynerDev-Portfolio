@@ -3,6 +3,10 @@
 **Styner Stiner · StynerDev · Oakland, CA**
 Technical Sales · AI Teaching (Kuumba Code) · Building & Automation
 
+<img src="styner-p99-ddia.jpg" alt="Styner Stiner with Designing Data-Intensive Applications, 2nd edition, part of the P99 CONF 2026 book bundle she won" width="280" align="right">
+
+🏆 **Winner, P99 CONF 2026 book bundle** from ScyllaDB: six books on latency, distributed systems and database performance, including *Designing Data-Intensive Applications* (2nd edition). [Read the LinkedIn post](https://lnkd.in/p/gH-CSYtF)
+
 **See every project live:** https://portfolio.stynerdev.com · **Main site:** https://www.styner.dev
 
 Each row below has the **live site** and the **code**, so you can click through either way.
