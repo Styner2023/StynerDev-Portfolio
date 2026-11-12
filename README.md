@@ -3,6 +3,10 @@
 **Styner Stiner · StynerDev · Oakland, CA**
 Technical Sales · AI Teaching (Kuumba Code) · Building & Automation
 
+**See every project live:** https://portfolio.stynerdev.com · **Main site:** https://www.styner.dev
+
+Each row below has the **live site** and the **code**, so you can click through either way.
+
 This repo holds the code behind the websites and tools I've built for my own businesses and for my clients, sorted into the three kinds of work I do best. Each folder is a **copy** for showing my work. The live sites deploy from their own repos.
 
 | | Category | What it covers |
@@ -33,6 +37,7 @@ This repo holds the code behind the websites and tools I've built for my own bus
 | Ecotones LS | Native-plant stewardship business. Same teach-them-to-own-it method. | https://ecotonesls.com/ | [ecotones-ls](2-Teaching-Kuumba-Code/ecotones-ls/) |
 | Kelly's House and Farm | A client who wasn't tech savvy. I adapted my teaching: I built the site with her, in person, and coached her through her application. | https://kellys-house-and-farm.vercel.app/ | [kellys-house-and-farm](2-Teaching-Kuumba-Code/kellys-house-and-farm/) |
 | Taru Auto Service | A student in Suriname starting his own business. I taught him to make images with AI. | https://taru-auto-service.vercel.app/ | [TaruAutoService](2-Teaching-Kuumba-Code/TaruAutoService/) |
+| Passing the Fire | Youth teaching and fundraising program for my father, Watani Stiner | https://passingthefire.watanistiner.com/ | [WataniStiner-Passing-The-Fire-Flyer-main-](https://github.com/StynerStiner/WataniStiner-Passing-The-Fire-Flyer-main-) |
 
 ## 3. Building & Automation
 | Project | Live | Code |
@@ -45,6 +50,13 @@ This repo holds the code behind the websites and tools I've built for my own bus
 | Gunsmoke Beats: beats, lyrics, and full songs | https://www.gunsmokebeats.com/ | [gunsmokebeats](3-Building-and-Automation/gunsmokebeats/) |
 | Francisco Herrera Music: several versions as the artist's vision changed | https://fhstudios.vercel.app/ · https://franciscoherrera-guitartheme-main.vercel.app/ | [FHStudios-main](3-Building-and-Automation/FHStudios-main/) · [francisco-herrera-site](3-Building-and-Automation/francisco-herrera-site/) · [franciscoherrera-static](3-Building-and-Automation/franciscoherrera-static/) |
 | Restorative Media: layout and site structure | https://restorativemedia.vercel.app/ | [restorativemedia](3-Building-and-Automation/restorativemedia/) |
+| Zubaze: client website workspace I built to manage these sites. Web2 app (React, Auth0, Node API) with its data on an ICP canister | https://zubaze.com/ | [zubaze](3-Building-and-Automation/zubaze/) |
+| Watani Stiner: speaker and legacy site for my father | https://www.watanistiner.com/ | [watanistiner](https://github.com/StynerStiner/watanistiner) |
+| Herbal Breadicine: catering business, Canticle Farm community member | https://www.herbalbreadicine.com/ | [Herbalbreadicine-main](https://github.com/StynerStiner/Herbalbreadicine-main) |
+| Dr. Nedra T. Williams: collage artist, site rebuild | https://nedra.stynerdev.com/ | [conjure-collage](https://github.com/StynerStiner/conjure-collage) |
+| SPlus89: artist in Nigeria, with AI tools | https://splus89.vercel.app/ | [SPlus89](https://github.com/StynerStiner/SPlus89) |
+| Mirani Well: wellness app concept build | https://miraniwell.vercel.app/ | [miraniwell](https://github.com/StynerStiner/miraniwell) |
+| SyntriGuard: security dashboard for a business in Suriname | https://syntriguard.vercel.app/login | [syntriguard](https://github.com/StynerStiner/syntriguard) |
 
 
 ---
