@@ -1,0 +1,35 @@
+/* Layout-only styles for the Security card slider.
+   No colors or fonts are set here — the cards reuse the template's
+   zubuz-iconbox-* classes and the theme's typography/colors.
+   This file only handles slide spacing and equal-height tracks,
+   which react-slick does not provide on its own. */
+
+.zubuz-security-slider .slick-list {
+  margin: 0 -15px;
+}
+
+.zubuz-security-slider .slick-slide {
+  padding: 0 15px;
+  height: auto;
+}
+
+.zubuz-security-slider .slick-track {
+  display: flex;
+}
+
+/* react-slick nests two wrappers (outer div + a tabindex="-1" div)
+   between .slick-slide and the card. Both need full height so the
+   card can stretch to the tallest slide. */
+.zubuz-security-slider .slick-slide > div,
+.zubuz-security-slider .slick-slide > div > div {
+  height: 100%;
+}
+
+.zubuz-security-slider .zubuz-iconbox-wrap {
+  height: 100%;
+}
+
+.zubuz-security-slider .slick-dots {
+  position: static;
+  margin-top: 40px;
+}

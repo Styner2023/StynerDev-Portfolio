@@ -1,0 +1,38 @@
+/* Home hero — background shape + fixed floating-card sizing (layout only). */
+.zubuz-home-hero {
+  background-image: url(/assets/images/v1/hero-shape1.png);
+  padding-top: 70px;
+}
+
+.zubuz-home-hero .zubuz-hero-thumb img {
+  width: 348px;
+  height: 501px;
+}
+
+.zubuz-home-hero .zubuz-hero-card img {
+  max-width: none;
+}
+
+.zubuz-home-hero .zubuz-hero-card.card1 {
+  width: 225px;
+}
+.zubuz-home-hero .zubuz-hero-card.card1 img {
+  width: 225px;
+  height: 75px;
+}
+
+.zubuz-home-hero .zubuz-hero-card.card2 {
+  width: 224px;
+}
+.zubuz-home-hero .zubuz-hero-card.card2 img {
+  width: 224px;
+  height: 224px;
+}
+
+.zubuz-home-hero .zubuz-hero-card.card3 {
+  width: 296px;
+}
+.zubuz-home-hero .zubuz-hero-card.card3 img {
+  width: 296px;
+  height: 282px;
+}

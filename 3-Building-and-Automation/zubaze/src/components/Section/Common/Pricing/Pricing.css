@@ -1,0 +1,35 @@
+/* Equal-height pricing cards with the action button pinned to the bottom.
+   Layout only — colors/typography come from the template's pricing classes. */
+.zubuz-pricing-section {
+  background-color: var(--white-bg);
+}
+
+.zubuz-pricing-section .zubuz-pricing-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+/* "Most Popular" badge on the featured plan */
+.zubuz-pricing-badge {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--heading-color);
+  background-color: var(--secondary-color);
+}
+
+.zubuz-pricing-section .zubuz-pricing-body {
+  flex-grow: 1;
+}
+
+.zubuz-pricing-section .zubuz-pricing-btn {
+  margin-top: auto;
+}

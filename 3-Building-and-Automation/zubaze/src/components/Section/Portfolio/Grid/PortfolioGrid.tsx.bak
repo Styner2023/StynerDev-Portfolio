@@ -1,0 +1,238 @@
+
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import PortfolioFilterNav from "../Components/PortfolioFilterNav";
+import { getCurrentUser } from "../../../../utils/auth";
+import { getClientProjects, Project } from "../../../../utils/projects";
+
+const PortfolioGrid = () => {
+  const user = getCurrentUser();
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [filterKey, setFilterKey] = useState<string>("*");
+  const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
+
+  // Load client's projects
+  useEffect(() => {
+    if (user?.id && user.type === 'client') {
+      const clientProjects = getClientProjects(user.id);
+      setProjects(clientProjects);
+    }
+  }, [user]);
+
+  // Handle filtering without isotope
+  useEffect(() => {
+    // If we have projects loaded from the client, use those
+    const projectsToFilter = projects.length > 0 ? projects : [
+      {
+        id: 'ecommerce',
+        name: 'My E-commerce Store',
+        url: 'https://your-ecommerce-site.com',
+        adminUrl: 'https://your-ecommerce-site.com/admin',
+        developerId: 'demo',
+        thumbnail: '/assets/images/portfolio/p_1.png',
+        type: 'ecommerce',
+        status: 'in-progress'
+      },
+      {
+        id: 'portfolio',
+        name: 'My Portfolio',
+        url: 'https://your-portfolio-site.com',
+        adminUrl: 'https://your-portfolio-site.com/cms',
+        developerId: 'demo',
+        thumbnail: '/assets/images/portfolio/p_2.png',
+        type: 'portfolio',
+        status: 'completed'
+      },
+      {
+        id: 'business',
+        name: 'Business Website',
+        url: 'https://your-business-site.com',
+        adminUrl: 'https://your-business-site.com/admin',
+        developerId: 'demo',
+        thumbnail: '/assets/images/portfolio/p_3.png',
+        type: 'business',
+        status: 'completed'
+      },
+      {
+        id: 'blog',
+        name: 'My Blog',
+        url: 'https://your-blog-site.com',
+        adminUrl: 'https://your-blog-site.com/wp-admin',
+        developerId: 'demo',
+        thumbnail: '/assets/images/portfolio/p_4.png',
+        type: 'blog',
+        status: 'in-progress'
+      }
+    ];
+    
+    if (filterKey === "*") {
+      setFilteredProjects(projectsToFilter);
+    } else {
+      setFilteredProjects(projectsToFilter.filter(project => project.type === filterKey));
+    }
+  }, [filterKey, projects]);
+
+  const handleFilterKeyChange = (key: string) => () => {
+    setFilterKey(key);
+  };
+
+
+
+
+  return (
+    <div className="section zubuz-section-padding3 overflow-hidden">
+      <div className="container">
+        <div className="zubuz-section-title center">
+          <h2>Welcome Back</h2>
+          <h3 style={{ fontSize: '24px', marginTop: '-10px', marginBottom: '10px', color: '#666' }}>
+            {user?.name || 'Client'}
+          </h3>
+          <p>Here are all your websites. Click on any card to visit your live site or access the CMS to edit.</p>
+        </div>
+        <PortfolioFilterNav
+          filterKey={filterKey}
+          handleFilterKeyChange={handleFilterKeyChange}
+        />
+        <div
+          className="zubuz-portfolio-column filter-container"
+          id="zubuz-two-column"
+        >
+          <div className="filter-item ui branding">
+            <div className="collection-grid-item zubuz-portfolio-wrap branding ui">
+              <div className="zubuz-portfolio-thumb">
+                <a href="https://your-ecommerce-site.com" target="_blank" rel="noopener noreferrer">
+                  <img src="/assets/images/portfolio/p_1.png" alt="E-commerce Website" style={{ cursor: 'pointer' }} />
+                </a>
+                <div className="zubuz-portfolio-data">
+                  <a href="https://your-ecommerce-site.com" target="_blank" rel="noopener noreferrer">
+                    <h3>My E-commerce Store</h3>
+                  </a>
+                  <p>Live Website • <span style={{ color: '#10B981' }}>●</span> Online • Last updated 2 days ago</p>
+                  <div style={{ display: 'flex', gap: '10px', marginTop: '15px' }}>
+                    <Link
+                      to="/project-details/ecommerce"
+                      className="zubuz-default-btn pill"
+                      style={{ fontSize: '14px', padding: '8px 20px' }}
+                    >
+                      <span>View Project Details</span>
+                    </Link>
+                    <a
+                      className="zubuz-portfolio-icon"
+                      href="https://your-ecommerce-site.com/admin"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Edit Website"
+                    >
+                      <img src="/assets/images/portfolio/arrow-right.svg" alt="Edit" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="filter-item ui website">
+            <div className="collection-grid-item zubuz-portfolio-wrap ui Website">
+              <div className="zubuz-portfolio-thumb">
+                <a href="https://your-portfolio-site.com" target="_blank" rel="noopener noreferrer">
+                  <img src="/assets/images/portfolio/p_2.png" alt="Portfolio Website" style={{ cursor: 'pointer' }} />
+                </a>
+                <div className="zubuz-portfolio-data">
+                  <a href="https://your-portfolio-site.com" target="_blank" rel="noopener noreferrer">
+                    <h3>My Portfolio</h3>
+                  </a>
+                  <p>Portfolio Site • <span style={{ color: '#10B981' }}>●</span> Online • Last updated 1 week ago</p>
+                  <div style={{ display: 'flex', gap: '10px', marginTop: '15px' }}>
+                    <Link
+                      to="/project-details/portfolio"
+                      className="zubuz-default-btn pill"
+                      style={{ fontSize: '14px', padding: '8px 20px' }}
+                    >
+                      <span>View Project Details</span>
+                    </Link>
+                    <a
+                      className="zubuz-portfolio-icon"
+                      href="https://your-portfolio-site.com/cms"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Edit Website"
+                    >
+                      <img src="/assets/images/portfolio/arrow-right.svg" alt="Edit" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="filter-item ui">
+            <div className="collection-grid-item zubuz-portfolio-wrap ui">
+              <div className="zubuz-portfolio-thumb">
+                <a href="https://your-business-site.com" target="_blank" rel="noopener noreferrer">
+                  <img src="/assets/images/portfolio/p_3.png" alt="Business Website" style={{ cursor: 'pointer' }} />
+                </a>
+                <div className="zubuz-portfolio-data">
+                  <a href="https://your-business-site.com" target="_blank" rel="noopener noreferrer">
+                    <h3>Business Website</h3>
+                  </a>
+                  <p>Corporate Site • <span style={{ color: '#10B981' }}>●</span> Online • Last updated 3 days ago</p>
+                  <div style={{ display: 'flex', gap: '10px', marginTop: '15px' }}>
+                    <Link
+                      to="/project-details/business"
+                      className="zubuz-default-btn pill"
+                      style={{ fontSize: '14px', padding: '8px 20px' }}
+                    >
+                      <span>View Project Details</span>
+                    </Link>
+                    <a
+                      className="zubuz-portfolio-icon"
+                      href="https://your-business-site.com/admin"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Edit Website"
+                    >
+                      <img src="/assets/images/portfolio/arrow-right.svg" alt="Edit" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="filter-item ui branding website">
+            <div className="collection-grid-item zubaz-portfolio-wrap branding ui Website">
+              <div className="zubuz-portfolio-thumb">
+                <a href="https://your-blog-site.com" target="_blank" rel="noopener noreferrer">
+                  <img src="/assets/images/portfolio/p_4.png" alt="Blog Website" style={{ cursor: 'pointer' }} />
+                </a>
+                <div className="zubuz-portfolio-data">
+                  <a href="https://your-blog-site.com" target="_blank" rel="noopener noreferrer">
+                    <h3>My Blog</h3>
+                  </a>
+                  <p>Blog Site • <span style={{ color: '#10B981' }}>●</span> Online • Last updated 5 days ago</p>
+                  <div style={{ display: 'flex', gap: '10px', marginTop: '15px' }}>
+                    <Link
+                      to="/project-details/blog"
+                      className="zubuz-default-btn pill"
+                      style={{ fontSize: '14px', padding: '8px 20px' }}
+                    >
+                      <span>View Project Details</span>
+                    </Link>
+                    <a
+                      className="zubuz-portfolio-icon"
+                      href="https://your-blog-site.com/wp-admin"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Edit Website"
+                    >
+                      <img src="/assets/images/portfolio/arrow-right.svg" alt="Edit" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default PortfolioGrid;

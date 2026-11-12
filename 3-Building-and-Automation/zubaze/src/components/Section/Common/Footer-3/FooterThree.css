@@ -1,0 +1,16 @@
+/* Compact CTA band so its height matches the About-page CTA (60px vertical padding).
+   A subtle white-overlay lifts it to a lighter-than-black panel, with a divider as its
+   bottom edge (both reuse the footer's existing rgba-white treatment). */
+.zubuz-footer-section .zubuz-footer-extra-top {
+  padding: 60px 0;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Non-clickable address row (matches the tel/email link rows above it) */
+.zubuz-footer-address {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: default;
+}

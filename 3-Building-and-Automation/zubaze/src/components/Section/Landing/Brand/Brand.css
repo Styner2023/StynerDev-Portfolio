@@ -1,0 +1,39 @@
+/* Customer pills for the home brand marquee (white-overlay style on the dark
+   section — same technique as the footer's rgba-white treatment). */
+.zubuz-brand-pill-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px;
+  border-radius: 9999px;
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--white-color);
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: all 0.3s;
+}
+
+.zubuz-brand-pill-dark:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.zubuz-brand-pill-dark img {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background-color: var(--white-color);
+  padding: 2px;
+  flex-shrink: 0;
+}
+
+.zubuz-brand-pill-dark span {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.zubuz-brand-slider-row2 {
+  margin-top: 25px;
+}

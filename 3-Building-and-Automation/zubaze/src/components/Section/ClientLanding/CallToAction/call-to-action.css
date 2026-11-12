@@ -1,0 +1,157 @@
+/* Call to Action Section */
+.sofax-footer-titlev5 {
+    padding: 40px 0 20px 0;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.zubuz-section-title h2 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.zubuz-cta-title {
+    padding-left: 160px;
+}
+
+@media (max-width: 768px) {
+    .zubuz-cta-title {
+        padding-left: 0;
+    }
+}
+
+.sofax-footer-shapev5 {
+    position: absolute;
+    top: 60px;
+    left: -120px;
+    z-index: 3;
+}
+
+.sofax-footer-shapev5 img {
+    max-width: 300px;
+}
+
+.sofax-footer-shape2v5 {
+    position: absolute;
+    bottom: 80px;
+    right: 600px;
+    z-index: 1;
+}
+
+.sofax-footer-shape2v5 img {
+    max-width: 400px;
+    filter: brightness(0) saturate(0%);
+}
+
+.sofax-footer-title-btn-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.sofax-footer-title-btn-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.sofax-footer-title-btn-icon:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.1);
+}
+
+.sofax-footer-title-btn-icon svg {
+    width: 30px;
+    height: 27px;
+}
+
+.animation-style3 {
+    animation: fadeInUp 1s ease-in-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .tg-heading-subheading h2 {
+        font-size: 36px;
+        margin-bottom: 30px;
+    }
+    
+    .sofax-footer-titlev5 {
+        padding: 60px 0;
+    }
+    
+    .col-xl-4.col-lg-4 {
+        justify-content: flex-start !important;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .tg-heading-subheading h2 {
+        font-size: 28px;
+    }
+    
+    .zubuz-section-title h2 {
+        font-size: 24px;
+        text-align: center;
+    }
+    
+    .sofax-footer-titlev5 {
+        padding: 30px 0;
+    }
+    
+    .sofax-footer-shapev5 {
+        left: -20px;
+        top: 40px;
+    }
+    
+    .sofax-footer-shapev5 img {
+        max-width: 60px;
+    }
+    
+    .sofax-footer-shape2v5 {
+        right: 20px;
+        bottom: 40px;
+    }
+    
+    .sofax-footer-shape2v5 img {
+        max-width: 50px;
+    }
+    
+    .sofax-footer-title-btn-wrap {
+        justify-content: center;
+        margin-top: 20px;
+    }
+    
+    .sofax-footer-title-btn-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .sofax-footer-title-btn-icon svg {
+        width: 24px;
+        height: 21px;
+    }
+}

@@ -1,0 +1,13 @@
+.vercel
+node_modules
+
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+
+# Auth credential database (contains password hashes)
+data/
+*.db
+*.db-shm
+*.db-wal

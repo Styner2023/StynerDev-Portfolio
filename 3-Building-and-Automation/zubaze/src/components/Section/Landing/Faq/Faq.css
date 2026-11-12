@@ -1,0 +1,8 @@
+/* Home FAQ — button spacing + accordion bottom gap (layout only). */
+.zubuz-faq-btn-wrap .zubuz-default-btn.outline-btn {
+  margin-left: 15px;
+}
+
+.zubuz-faq-accordion-wrap {
+  margin-bottom: 60px;
+}

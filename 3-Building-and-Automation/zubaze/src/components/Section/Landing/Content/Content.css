@@ -1,0 +1,20 @@
+/* Floating card overlays on the home content mockups (fixed sizing, layout only). */
+.zubuz-thumb-card,
+.zubuz-thumb-card2 {
+  width: 294px;
+}
+
+.zubuz-thumb-card img,
+.zubuz-thumb-card2 img {
+  max-width: none;
+}
+
+.zubuz-thumb-card img {
+  width: 294px;
+  height: 177px;
+}
+
+.zubuz-thumb-card2 img {
+  width: 294px;
+  height: 131px;
+}

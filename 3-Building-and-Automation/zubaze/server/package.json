@@ -1,0 +1,29 @@
+{
+  "name": "zubaz-thumbnail-api",
+  "version": "1.0.2",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@dfinity/agent": "^3.4.1",
+    "@dfinity/candid": "^3.4.1",
+    "@dfinity/principal": "^3.4.1",
+    "axios": "^1.6.0",
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^12.10.0",
+    "cheerio": "^1.0.0-rc.12",
+    "connect-redis": "^9.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^4.18.2",
+    "express-jwt": "^8.5.1",
+    "express-rate-limit": "^8.5.2",
+    "express-session": "^1.18.2",
+    "jsonwebtoken": "^9.0.3",
+    "jwks-rsa": "^3.2.0",
+    "node-fetch": "^2.7.0",
+    "redis": "^5.9.0",
+    "uuid": "^13.0.0"
+  }
+}

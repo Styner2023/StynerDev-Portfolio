@@ -1,0 +1,131 @@
+/* Sign-in / auth styling — built from the template's :root tokens only. */
+
+/* Audience toggle (Developer / Client segmented control) */
+.zubuz-auth-toggle {
+  display: flex;
+  gap: 6px;
+  width: fit-content;
+  margin: 0 auto 40px;
+  padding: 6px;
+  border-radius: 60px;
+  background-color: var(--light-bg);
+  border: 1px solid var(--light-color);
+}
+
+.zubuz-auth-toggle-btn {
+  padding: 12px 40px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gray-color);
+  transition: all 0.3s ease;
+}
+
+.zubuz-auth-toggle-btn:hover {
+  color: var(--heading-color);
+}
+
+.zubuz-auth-toggle-btn.active,
+.zubuz-auth-toggle-btn.active:hover {
+  color: var(--white-color);
+  background-color: var(--blue-bg);
+}
+
+/* Notice shown when a client arrives via their dashboard link */
+.zubuz-auth-locked {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background-color: var(--light-bg);
+  border: 1px solid var(--secondary-color);
+}
+
+.zubuz-auth-locked p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--heading-color);
+}
+
+/* Auth card — softer than the form-oriented default (light border + subtle shadow) */
+.zubuz-extra-section .zubuz-account-wrap {
+  max-width: 480px;
+  padding: 40px;
+  border: 1px solid var(--light-color);
+  box-shadow: 0 4px 60px rgba(0, 0, 0, 0.06);
+}
+
+/* Secure-auth copy inside the card */
+.zubuz-auth-note {
+  text-align: center;
+  font-size: 15px;
+  color: var(--gray-color);
+  max-width: 400px;
+  margin: 0 auto 24px;
+}
+
+/* Override the form button's 50px stacking margin for this compact card */
+#zubuz-account-btn.zubuz-auth-btn {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.zubuz-auth-subnote {
+  text-align: center;
+  font-size: 13px;
+  color: var(--gray-color);
+  margin: 16px 0 0;
+}
+
+.zubuz-extra-section .zubuz-account-bottom {
+  margin-top: 24px;
+}
+
+/* Auth form fields */
+.zubuz-auth-field {
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.zubuz-auth-field label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--heading-color);
+}
+
+.zubuz-auth-form input {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 1px solid var(--light-color);
+  background-color: var(--white-bg);
+  color: var(--body-color);
+  transition: border-color 0.2s ease;
+}
+
+.zubuz-auth-form input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.zubuz-auth-form #zubuz-account-btn[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Error / feedback message */
+.zubuz-auth-error {
+  margin-bottom: 18px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: left;
+  color: #b00020;
+  background-color: #fde8ec;
+  border: 1px solid #f3b5c0;
+}

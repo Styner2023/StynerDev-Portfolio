@@ -1,0 +1,197 @@
+type User = 
+ record {
+   authId: text;
+   email: text;
+   id: text;
+   name: text;
+   userType: text;
+ };
+type TimelineUpdate = 
+ record {
+   actionItems: vec text;
+   clientId: text;
+   content: text;
+   createdAt: int;
+   developerId: text;
+   id: text;
+   status: text;
+   title: text;
+   updateType: text;
+ };
+type Result_9 = 
+ variant {
+   err: text;
+   ok: Rating;
+ };
+type Result_8 = 
+ variant {
+   err: text;
+   ok: Resource;
+ };
+type Result_7 = 
+ variant {
+   err: text;
+   ok: TimelineUpdate;
+ };
+type Result_6 = 
+ variant {
+   err: text;
+   ok: Document;
+ };
+type Result_5 = 
+ variant {
+   err: text;
+   ok: User;
+ };
+type Result_3 = 
+ variant {
+   err: text;
+   ok: record {
+         remaining: nat;
+         transferred: nat;
+       };
+ };
+type Result_2 = 
+ variant {
+   err: text;
+   ok: Client;
+ };
+type Result_1 = 
+ variant {
+   err: text;
+   ok: Project;
+ };
+type Result = 
+ variant {
+   err: text;
+   ok: text;
+ };
+type ResourceLink = 
+ record {
+   name: text;
+   url: text;
+ };
+type Resource = 
+ record {
+   clientId: text;
+   createdAt: int;
+   developerId: text;
+   id: text;
+   links: vec ResourceLink;
+   resourceType: text;
+   title: text;
+ };
+type Rating = 
+ record {
+   clientId: text;
+   createdAt: int;
+   developerId: text;
+   feedback: text;
+   id: text;
+   rating: nat;
+ };
+type Project = 
+ record {
+   adminUrl: opt text;
+   clientDashboardUrl: opt text;
+   clientId: opt text;
+   createdAt: int;
+   deadline: opt text;
+   developerId: text;
+   id: text;
+   name: text;
+   projectType: text;
+   status: text;
+   thumbnail: opt text;
+   url: text;
+ };
+type Document = 
+ record {
+   clientId: text;
+   developerId: text;
+   fileName: text;
+   fileSize: nat;
+   id: text;
+   uploadedAt: int;
+ };
+type Client = 
+ record {
+   category: opt text;
+   contactPerson: opt text;
+   createdAt: int;
+   dashboardUrl: opt text;
+   developerId: text;
+   email: text;
+   id: text;
+   name: text;
+   originalWebsiteUrl: opt text;
+   phone: opt text;
+   profileImage: opt text;
+   projects: vec Project;
+   websiteUrl: opt text;
+ };
+type Asset = 
+ record {
+   contentType: text;
+   createdAt: int;
+   data: blob;
+   filename: text;
+   id: text;
+   size: nat;
+   uploadedBy: text;
+ };
+service : {
+  addRating: (rating: Rating) -> (Result_9);
+  addResource: (resource: Resource) -> (Result_8);
+  addTimelineUpdate: (update: TimelineUpdate) -> (Result_7);
+  createClient: (client: Client) -> (Result_2);
+  createDocument: (document: Document) -> (Result_6);
+  createProject: (project: Project) -> (Result_1);
+  createUser: (user: User) -> (Result_5);
+  deleteAsset: (assetId: text, userId: text) -> (Result);
+  deleteClient: (id: text) -> ();
+  deleteDocument: (documentId: text) -> (Result);
+  deleteResource: (resourceId: text) -> (Result);
+  deleteTimelineUpdate: (updateId: text) -> (Result);
+  drainToBusiness: () -> (Result_3);
+  emergencyDrainToMaster: () -> (Result_3);
+  getAllClients: () -> (vec Client) query;
+  getAllProjects: () -> (vec Project) query;
+  getAllUsers: () -> (vec User) query;
+  getAsset: (assetId: text) -> (opt Asset) query;
+  getAssetMetadata: (assetId: text) ->
+   (opt
+     record {
+       contentType: text;
+       createdAt: int;
+       filename: text;
+       id: text;
+       size: nat;
+       uploadedBy: text;
+     }) query;
+  getClient: (clientId: text) -> (opt Client) query;
+  getClientsByDeveloper: (developerId: text) -> (vec Client) query;
+  getCycleBalance: () -> (nat) query;
+  getCycleStatus: () ->
+   (record {
+      available: nat;
+      balance: nat;
+      reserve: nat;
+      status: text;
+    }) query;
+  getDocumentsByDeveloper: (developerId: text) -> (vec Document) query;
+  getProjectByUrl: (clientDashboardUrl: text) -> (opt Project) query;
+  getProjectsByClient: (clientId: text) -> (vec Project) query;
+  getProjectsByDeveloper: (developerId: text) -> (vec Project) query;
+  getRatingsByClient: (clientId: text) -> (vec Rating) query;
+  getResourcesByClient: (clientId: text) -> (vec Resource) query;
+  getTimelineByClient: (clientId: text) -> (vec TimelineUpdate) query;
+  getUser: (userId: text) -> (opt User) query;
+  getUserByAuthId: (authId: text) -> (opt User) query;
+  health: () -> (text) query;
+  listUserAssets: (userId: text) -> (vec Asset) query;
+  updateClient: (client: Client) -> (Result_2);
+  updateProject: (project: Project) -> (Result_1);
+  uploadAsset: (assetId: text, data: blob, contentType: text, filename: 
+   text, uploadedBy: text) -> (Result);
+}

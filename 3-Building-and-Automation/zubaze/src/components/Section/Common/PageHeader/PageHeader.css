@@ -1,0 +1,15 @@
+/* Optional floating card that overlaps the hero dashboard image — used to vary
+   the shared page hero between pages. Layout only. */
+.zubuz-hero-overlay-card {
+  position: absolute;
+  left: -7%;
+  bottom: 10%;
+  width: 44%;
+  z-index: 2;
+}
+
+@media (max-width: 767px) {
+  .zubuz-hero-overlay-card {
+    display: none;
+  }
+}

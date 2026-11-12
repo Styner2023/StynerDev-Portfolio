@@ -1,0 +1,31 @@
+/* Home CTA — layout/positioning only. */
+.zubuz-cta-section {
+  position: relative;
+}
+
+.zubuz-cta-section .zubuz-extara-mt {
+  position: relative;
+}
+
+.zubuz-cta-section .zubuz-extara-mt .zubuz-default-btn.white-btn,
+.zubuz-cta-section .zubuz-extara-mt .zubuz-default-btn.outline-btn {
+  margin-right: 30px;
+}
+
+/* Decorative arrow shape anchored to the button row */
+.zubuz-cta-section .zubuz-title-shape {
+  position: absolute;
+  top: -160px;
+  right: -700px;
+  z-index: 999;
+  transform: rotate(30deg);
+}
+
+.zubuz-cta-section .zubuz-title-shape img {
+  width: 100px;
+  height: auto;
+}
+
+.zubuz-cta-section .zubuz-cta-thumb {
+  margin-top: 40px;
+}

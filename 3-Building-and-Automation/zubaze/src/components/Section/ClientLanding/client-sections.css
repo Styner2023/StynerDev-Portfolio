@@ -1,0 +1,242 @@
+/* Client Landing Sections - Stable Layout */
+
+/* Base Section Isolation */
+.zubuz-hero-section,
+.section {
+  position: relative;
+  isolation: isolate;
+  clear: both;
+}
+
+/* Hero Section */
+.zubuz-hero-section {
+  overflow: hidden;
+}
+
+.zubaz-cta-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+/* Content Sections */
+.zubuz-section-padding,
+.zubuz-section-padding2,
+.zubuz-section-padding3,
+.zubuz-section-padding5 {
+  padding: 40px 0;
+}
+
+.zubuz-default-content {
+  padding: 20px 0;
+}
+
+/* Icon Boxes */
+.zubuz-iconbox-wrap-left {
+  margin-bottom: 25px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.zubuz-iconbox-icon {
+  flex-shrink: 0;
+}
+
+.zubuz-iconbox-data {
+  flex: 1;
+}
+
+/* Stats Section */
+.zubuz-counter-wrap2 {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.zubuz-counter-data {
+  text-align: center;
+  min-width: 200px;
+}
+
+/* FAQ Section */
+.zubuz-faq-section-bg {
+  background-color: var(--light-bg);
+  width: 100%;
+}
+
+.zubuz-accordion-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.zubuz-accordion-item {
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--light-color);
+  padding-bottom: 20px;
+}
+
+/* Service/Features Grid */
+.zubuz-iconbox-wrap {
+  margin-bottom: 30px;
+  padding: 25px;
+  transition: transform 0.3s ease;
+}
+
+/* Prevent Layout Shifts */
+.row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.col-lg-4,
+.col-lg-5,
+.col-lg-7,
+.col-md-6,
+.col-md-12 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Image Stability */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Spacing Utilities */
+.zubuz-extara-mt {
+  margin-top: 30px;
+}
+
+.m-left {
+  margin-left: 0;
+}
+
+.m-right {
+  margin-right: 0;
+}
+
+/* Dark Background Sections */
+.dark-bg {
+  background-color: var(--dark-bg);
+  color: var(--white-color);
+}
+
+.light {
+  color: var(--white-color);
+}
+
+/* Client hero */
+.zubuz-client-hero {
+  padding-top: 70px;
+}
+
+/* Balanced heading for the two-column hero (the full-width hero h1 is too large here) */
+.zubuz-client-hero h1 {
+  font-size: 56px;
+  line-height: 1.1;
+}
+
+@media (max-width: 1199px) {
+  .zubuz-client-hero h1 {
+    font-size: 44px;
+  }
+}
+
+@media (max-width: 767px) {
+  .zubuz-client-hero h1 {
+    font-size: 36px;
+  }
+}
+
+/* Two-column hero: keep buttons left-aligned alongside the content on desktop */
+@media (min-width: 992px) {
+  .zubuz-client-hero .zubaz-cta-buttons {
+    justify-content: flex-start;
+  }
+}
+
+/* Floating decorative shapes (template shape assets, layout only) */
+.zubuz-hero-shape-float {
+  position: absolute;
+  z-index: -1;
+  opacity: 0.2;
+  animation: zubuz-float-slow 6s ease-in-out infinite;
+}
+
+.zubuz-hero-shape-float.shape-a {
+  top: 8%;
+  right: 10%;
+  width: 150px;
+  height: 150px;
+}
+
+.zubuz-hero-shape-float.shape-b {
+  top: 45%;
+  left: 5%;
+  width: 120px;
+  height: 120px;
+  animation-duration: 7s;
+  animation-delay: 1s;
+}
+
+.zubuz-hero-shape-float.shape-c {
+  right: 12%;
+  bottom: 15%;
+  width: 100px;
+  height: 100px;
+  opacity: 0.25;
+  animation-duration: 5s;
+  animation-delay: 2s;
+}
+
+@keyframes zubuz-float-slow {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-25px) rotate(5deg);
+  }
+}
+
+/* Responsive Stability */
+@media (max-width: 991px) {
+  .zubuz-section-padding,
+  .zubuz-section-padding2,
+  .zubuz-section-padding3,
+  .zubuz-section-padding5 {
+    padding: 60px 0;
+  }
+
+  .zubuz-counter-wrap2 {
+    gap: 20px;
+  }
+
+  .zubuz-counter-data {
+    min-width: 150px;
+  }
+}
+
+@media (max-width: 767px) {
+  .zubuz-section-padding,
+  .zubuz-section-padding2,
+  .zubuz-section-padding3,
+  .zubuz-section-padding5 {
+    padding: 40px 0;
+  }
+
+  .zubaz-cta-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .zubuz-counter-wrap2 {
+    flex-direction: column;
+  }
+}

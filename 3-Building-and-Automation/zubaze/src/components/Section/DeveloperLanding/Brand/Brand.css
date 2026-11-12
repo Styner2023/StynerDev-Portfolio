@@ -1,0 +1,34 @@
+/* Customer pills for the "Trusted by" marquee.
+   Layout + the template's :root design tokens only — no custom colors or fonts. */
+
+.zubuz-brand-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--body-color);
+  background-color: var(--white-bg);
+  border: 1px solid var(--light-color);
+  transition: all 0.4s;
+}
+
+.zubuz-brand-pill:hover {
+  border-color: var(--heading-color);
+  box-shadow: 0px 4px 80px 0px rgba(0, 0, 0, 0.08);
+}
+
+.zubuz-brand-pill img {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.zubuz-brand-pill span {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+}

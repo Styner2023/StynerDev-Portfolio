@@ -1,0 +1,74 @@
+/* Comparison table — scoped styles built only from the template's
+   :root design tokens (defined in public/assets/css/app.css).
+   No custom colors or fonts: typography is inherited from the theme. */
+
+.zubuz-compare-wrap {
+  overflow-x: auto;
+}
+
+.zubuz-compare-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  background-color: var(--white-bg);
+}
+
+.zubuz-compare-table th,
+.zubuz-compare-table td {
+  padding: 20px 22px;
+  text-align: center;
+  border-bottom: 1px solid var(--light-color);
+}
+
+.zubuz-compare-table thead th {
+  color: var(--heading-color);
+  font-weight: 700;
+}
+
+.zubuz-compare-table th:first-child,
+.zubuz-compare-table td:first-child {
+  text-align: left;
+  color: var(--body-color);
+  font-weight: 600;
+}
+
+.zubuz-compare-table thead th:first-child {
+  color: var(--gray-color);
+  font-weight: 600;
+}
+
+/* The Zubaze column gets a subtle on-brand highlight using theme tokens */
+.zubuz-compare-col-zubaze {
+  background-color: var(--light-bg);
+  border-left: 2px solid var(--secondary-color);
+  border-right: 2px solid var(--secondary-color);
+}
+
+.zubuz-compare-table thead .zubuz-compare-col-zubaze {
+  color: var(--primary-color);
+}
+
+.zubuz-compare-table tbody tr:last-child .zubuz-compare-col-zubaze {
+  border-bottom: 2px solid var(--secondary-color);
+}
+
+.zubuz-compare-yes img {
+  width: 22px;
+  height: auto;
+}
+
+.zubuz-compare-no {
+  color: var(--gray-color);
+  opacity: 0.45;
+}
+
+.zubuz-compare-partial {
+  color: var(--gray-color);
+  font-weight: 700;
+}
+
+.zubuz-compare-note {
+  text-align: center;
+  color: var(--gray-color);
+  margin-top: 18px;
+}

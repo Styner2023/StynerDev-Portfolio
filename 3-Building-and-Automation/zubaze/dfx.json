@@ -1,0 +1,29 @@
+{
+    "canisters": {
+        "zubaz_storage": {
+            "main": "src/backend/main.mo",
+            "type": "motoko"
+        },
+        "zubaz_frontend": {
+            "dependencies": [
+                "zubaz_storage"
+            ],
+            "frontend": {
+                "entrypoint": "dist/index.html"
+            },
+            "source": [
+                "dist/"
+            ],
+            "type": "assets"
+        }
+
+    },
+    "defaults": {
+        "build": {
+            "args": "",
+            "packtool": ""
+        }
+    },
+    "output_env_file": ".env",
+    "version": 1
+}
