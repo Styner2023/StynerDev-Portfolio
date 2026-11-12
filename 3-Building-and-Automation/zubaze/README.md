@@ -12,13 +12,24 @@ I built Zubaze to manage the websites I build for clients and community members 
 - **Ratings:** clients can rate delivered work
 - **Permanent deletion:** removing a client removes their data everywhere, with optimistic UI updates
 
-## Stack
-- **Frontend:** React, TypeScript, Vite, Tailwind CSS
-- **Auth:** Auth0
-- **Backend:** Node.js API (`server/`), Redis sessions, deployed on Railway
-- **Storage:** an Internet Computer (DFINITY) canister written in Motoko for client and project data, plus blob storage for thumbnails
-- **Testing:** Cypress end-to-end tests (`cypress/`)
-- **Hosting:** Vercel (frontend)
+## Web2 + Web3: how it fits together
+Zubaze is a hybrid app. The parts people touch are classic Web2, and the data lives on Web3.
+
+**Web3: Internet Computer (ICP)**
+- A Motoko canister, `zubaz_storage` (`src/backend/main.mo`), is the database: users, clients, projects, documents, invoices, tasks, timeline updates and ratings
+- On-chain asset storage for uploaded files such as site thumbnails
+- The canister tracks its own cycles balance (ICP's compute fuel) so it can be topped up before it runs low
+
+**Web2**
+- React + TypeScript + Vite frontend with Tailwind CSS, hosted on Vercel
+- Auth0 for sign-in
+- A Node.js API (`server/`) on Railway that verifies each Auth0 token, then reads and writes the canister on the user's behalf
+- Redis for sessions
+
+**Flow:** browser → Auth0 sign-in → Node API checks the token → API calls the ICP canister → data comes back to the dashboard.
+
+## Testing
+Cypress end-to-end tests in `cypress/` cover client creation, client deletion and API response format.
 
 ## Run locally
 ```
