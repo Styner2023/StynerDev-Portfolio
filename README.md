@@ -7,6 +7,8 @@ Technical Sales · AI Teaching (Kuumba Code) · Building & Automation
 
 Each row below has the **live site** and the **code**, so you can click through either way.
 
+**About the dates:** the folders here were copied in together in November 2026 to show my work in one place, so their commits look new. The **Built** column shows when each project actually started, taken from its own repo's first commit. Each project's full history lives in its own repo, linked under "All my repos" below.
+
 This repo holds the code behind the websites and tools I've built for my own businesses and for my clients, sorted into the three kinds of work I do best. Each folder is a **copy** for showing my work. The live sites deploy from their own repos.
 
 | | Category | What it covers |
@@ -18,45 +20,45 @@ This repo holds the code behind the websites and tools I've built for my own bus
 ---
 
 ## 1. Technical Sales & Customer Engineering
-| Project | Live | Code |
-|---|---|---|
-| BenefitsSafe marketing site: the pitch for my grant-disbursement product | https://benefitssafe.com/ | [benefitssafe-marketing](1-Technical-Sales/benefitssafe-marketing/) |
-| StynerDev consultation booking pipeline: Google Calendar booking page + an hourly Apps Script that logs every booking to a Sheet | https://calendar.app.google/fpZDf4DRbkZoLcy4A | Apps Script (to be added) |
+| Project | Built | Live | Code |
+|---|---|---|---|
+| BenefitsSafe marketing site: the pitch for my grant-disbursement product | Mar 2026 | https://benefitssafe.com/ | [benefitssafe-marketing](1-Technical-Sales/benefitssafe-marketing/) |
+| StynerDev consultation booking pipeline: Google Calendar booking page + an hourly Apps Script that logs every booking to a Sheet | 2026 | https://calendar.app.google/fpZDf4DRbkZoLcy4A | Apps Script (to be added) |
 
 ## 2. Teaching: Kuumba Code
 **How I teach:** I don't write my clients' words for them. I build the layout, then sit with them on my computer and teach them to dictate and use AI in VS Code, so they can update their own site long after I'm gone. With kids, we build games together.
 
-| Project | Who I taught | Live | Code |
-|---|---|---|---|
-| Kuumba Code | My coding school | https://www.kuumbacode.com/ | [kuumbacode](2-Teaching-Kuumba-Code/kuumbacode/) |
-| Zombie War | Built with William, a Canticle Farm kid | https://zombie-war-web.vercel.app/ | [zombie-war](2-Teaching-Kuumba-Code/zombie-war/) |
-| Maze Monster Battleground | Kids at Canticle Farm | https://maze-monster-battleground-main.vercel.app/ | [maze-monster-battleground](2-Teaching-Kuumba-Code/maze-monster-battleground/) |
-| Sol's Watermelon Game | Built with Sol | https://watermelonweb.vercel.app/ | [watermelon-game](2-Teaching-Kuumba-Code/watermelon-game/) |
-| Ultra Elliot | Kids' game, built at a birthday party | https://ultra-elliot.vercel.app/ | [ultra-elliot](2-Teaching-Kuumba-Code/ultra-elliot/) |
-| Abejas Sin Fronteras | A Canticle Farm community member. I taught her the whole process, and she wrote her own copy with AI in VS Code. | https://abejassinfronteras.org/ | [abejas-sin-fronteras](2-Teaching-Kuumba-Code/abejas-sin-fronteras/) |
-| Ecotones LS | Native-plant stewardship business. Same teach-them-to-own-it method. | https://ecotonesls.com/ | [ecotones-ls](2-Teaching-Kuumba-Code/ecotones-ls/) |
-| Kelly's House and Farm | A client who wasn't tech savvy. I adapted my teaching: I built the site with her, in person, and coached her through her application. | https://kellys-house-and-farm.vercel.app/ | [kellys-house-and-farm](2-Teaching-Kuumba-Code/kellys-house-and-farm/) |
-| Taru Auto Service | A student in Suriname starting his own business. I taught him to make images with AI. | https://taru-auto-service.vercel.app/ | [TaruAutoService](2-Teaching-Kuumba-Code/TaruAutoService/) |
-| Passing the Fire | Youth teaching and fundraising program for my father, Watani Stiner | https://passingthefire.watanistiner.com/ | [WataniStiner-Passing-The-Fire-Flyer-main-](https://github.com/StynerStiner/WataniStiner-Passing-The-Fire-Flyer-main-) |
+| Project | Built | Who I taught | Live | Code |
+|---|---|---|---|---|
+| Kuumba Code | Jul 2026 | My coding school | https://www.kuumbacode.com/ | [kuumbacode](2-Teaching-Kuumba-Code/kuumbacode/) |
+| Zombie War | Jul 2026 | Built with William, a Canticle Farm kid | https://zombie-war-web.vercel.app/ | [zombie-war](2-Teaching-Kuumba-Code/zombie-war/) |
+| Maze Monster Battleground | Aug 2026 | Kids at Canticle Farm | https://maze-monster-battleground-main.vercel.app/ | [maze-monster-battleground](2-Teaching-Kuumba-Code/maze-monster-battleground/) |
+| Sol's Watermelon Game | Jul 2026 | Built with Sol | https://watermelonweb.vercel.app/ | [watermelon-game](2-Teaching-Kuumba-Code/watermelon-game/) |
+| Ultra Elliot | Aug 2026 | Kids' game, built at a birthday party | https://ultra-elliot.vercel.app/ | [ultra-elliot](2-Teaching-Kuumba-Code/ultra-elliot/) |
+| Abejas Sin Fronteras | May 2026 | A Canticle Farm community member. I taught her the whole process, and she wrote her own copy with AI in VS Code. | https://abejassinfronteras.org/ | [abejas-sin-fronteras](2-Teaching-Kuumba-Code/abejas-sin-fronteras/) |
+| Ecotones LS | May 2026 | Native-plant stewardship business. Same teach-them-to-own-it method. | https://ecotonesls.com/ | [ecotones-ls](2-Teaching-Kuumba-Code/ecotones-ls/) |
+| Kelly's House and Farm | Sep 2026 | A client who wasn't tech savvy. I adapted my teaching: I built the site with her, in person, and coached her through her application. | https://kellys-house-and-farm.vercel.app/ | [kellys-house-and-farm](2-Teaching-Kuumba-Code/kellys-house-and-farm/) |
+| Taru Auto Service | Dec 2025 | A student in Suriname starting his own business. I taught him to make images with AI. | https://taru-auto-service.vercel.app/ | [TaruAutoService](2-Teaching-Kuumba-Code/TaruAutoService/) |
+| Passing the Fire | Sep 2025 | Youth teaching and fundraising program for my father, Watani Stiner | https://passingthefire.watanistiner.com/ | [WataniStiner-Passing-The-Fire-Flyer-main-](https://github.com/StynerStiner/WataniStiner-Passing-The-Fire-Flyer-main-) |
 
 ## 3. Building & Automation
-| Project | Live | Code |
-|---|---|---|
-| BenefitsSafe: grant disbursement platform (my product) | https://benefitssafe.com/ | [benefitssafe-app](3-Building-and-Automation/benefitssafe-app/) |
-| SentinelLayer: scheduled compliance agents for BenefitsSafe (benefit-limit watchdog, spending monitor, grant reports) | | [sentinellayer](3-Building-and-Automation/sentinellayer/) |
-| Dr. Michael Ralph: scholar and professor. Rebuilt after his old site was hacked. | https://drmichaelralph.vercel.app/ | [dr-michaelralph](3-Building-and-Automation/dr-michaelralph/) |
-| Earthy Organics: natural products brand | https://earthyorganics.vercel.app/ | [earthyorganics](3-Building-and-Automation/earthyorganics/) |
-| D'Hardest Beatz: music producer | https://dhardest-beatz.vercel.app/ | [dhardest-beatz](3-Building-and-Automation/dhardest-beatz/) |
-| Gunsmoke Beats: beats, lyrics, and full songs | https://www.gunsmokebeats.com/ | [gunsmokebeats](3-Building-and-Automation/gunsmokebeats/) |
-| Francisco Herrera Music: several versions as the artist's vision changed | https://fhstudios.vercel.app/ · https://franciscoherrera-guitartheme-main.vercel.app/ | [FHStudios-main](3-Building-and-Automation/FHStudios-main/) · [francisco-herrera-site](3-Building-and-Automation/francisco-herrera-site/) · [franciscoherrera-static](3-Building-and-Automation/franciscoherrera-static/) |
-| Restorative Media: layout and site structure | https://restorativemedia.vercel.app/ | [restorativemedia](3-Building-and-Automation/restorativemedia/) |
-| Zubaze: client website workspace I built to manage these sites. Web2 app (React, Auth0, Node API) with its data on an ICP canister | https://zubaze.com/ | [zubaze](3-Building-and-Automation/zubaze/) |
-| Watani Stiner: speaker and legacy site for my father | https://www.watanistiner.com/ | [watanistiner](https://github.com/StynerStiner/watanistiner) |
-| Herbal Breadicine: catering business, Canticle Farm community member | https://www.herbalbreadicine.com/ | [Herbalbreadicine-main](https://github.com/StynerStiner/Herbalbreadicine-main) |
-| Dr. Nedra T. Williams: collage artist, site rebuild | https://nedra.stynerdev.com/ | [conjure-collage](https://github.com/StynerStiner/conjure-collage) |
-| SPlus89: artist in Nigeria, with AI tools | https://splus89.vercel.app/ | [SPlus89](https://github.com/StynerStiner/SPlus89) |
-| Mirani Well: wellness app concept build | https://miraniwell.vercel.app/ | [miraniwell](https://github.com/StynerStiner/miraniwell) |
-| SyntriGuard: security dashboard for a business in Suriname | https://syntriguard.vercel.app/login | [syntriguard](https://github.com/StynerStiner/syntriguard) |
+| Project | Built | Live | Code |
+|---|---|---|---|
+| BenefitsSafe: grant disbursement platform (my product) | Mar 2026 | https://benefitssafe.com/ | [benefitssafe-app](3-Building-and-Automation/benefitssafe-app/) |
+| SentinelLayer: scheduled compliance agents for BenefitsSafe (benefit-limit watchdog, spending monitor, grant reports) | Apr 2026 | | [sentinellayer](3-Building-and-Automation/sentinellayer/) |
+| Dr. Michael Ralph: scholar and professor. Rebuilt after his old site was hacked. | Mar 2026 | https://drmichaelralph.vercel.app/ | [dr-michaelralph](3-Building-and-Automation/dr-michaelralph/) |
+| Earthy Organics: natural products brand | Dec 2025 | https://earthyorganics.vercel.app/ | [earthyorganics](3-Building-and-Automation/earthyorganics/) |
+| D'Hardest Beatz: music producer | Aug 2026 | https://dhardest-beatz.vercel.app/ | [dhardest-beatz](3-Building-and-Automation/dhardest-beatz/) |
+| Gunsmoke Beats: beats, lyrics, and full songs | May 2026 | https://www.gunsmokebeats.com/ | [gunsmokebeats](3-Building-and-Automation/gunsmokebeats/) |
+| Francisco Herrera Music: several versions as the artist's vision changed | Mar 2025 – Jul 2026 | https://fhstudios.vercel.app/ · https://franciscoherrera-guitartheme-main.vercel.app/ | [FHStudios-main](3-Building-and-Automation/FHStudios-main/) · [francisco-herrera-site](3-Building-and-Automation/francisco-herrera-site/) · [franciscoherrera-static](3-Building-and-Automation/franciscoherrera-static/) |
+| Restorative Media: layout and site structure | Aug 2026 | https://restorativemedia.vercel.app/ | [restorativemedia](3-Building-and-Automation/restorativemedia/) |
+| Zubaze: client website workspace I built to manage these sites. Web2 app (React, Auth0, Node API) with its data on an ICP canister | 2025 | https://zubaze.com/ | [zubaze](3-Building-and-Automation/zubaze/) |
+| Watani Stiner: speaker and legacy site for my father | Mar 2026 | https://www.watanistiner.com/ | [watanistiner](https://github.com/StynerStiner/watanistiner) |
+| Herbal Breadicine: catering business, Canticle Farm community member | Dec 2024 | https://www.herbalbreadicine.com/ | [Herbalbreadicine-main](https://github.com/StynerStiner/Herbalbreadicine-main) |
+| Dr. Nedra T. Williams: collage artist, site rebuild | Apr 2025 | https://nedra.stynerdev.com/ | [conjure-collage](https://github.com/StynerStiner/conjure-collage) |
+| SPlus89: artist in Nigeria, with AI tools | Jan 2026 | https://splus89.vercel.app/ | [SPlus89](https://github.com/StynerStiner/SPlus89) |
+| Mirani Well: wellness app concept build | Mar 2026 | https://miraniwell.vercel.app/ | [miraniwell](https://github.com/StynerStiner/miraniwell) |
+| SyntriGuard: security dashboard for a business in Suriname | Mar 2026 | https://syntriguard.vercel.app/login | [syntriguard](https://github.com/StynerStiner/syntriguard) |
 
 
 ---
